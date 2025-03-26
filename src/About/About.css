@@ -36,7 +36,7 @@
 }
 
 .brand-text {
-  width: 70%; /* Adjusted to make space for image */
+  width: 70%; 
   font-family: serif;
   font-size: 2.5rem;
   line-height: 1.4;
@@ -111,7 +111,7 @@
   to { opacity: 1; transform: translateX(0); }
 }
 
-.highlight {
+.highlight-about {
   color: #ff6600;
   font-style: italic;
   font-weight: bold;
@@ -233,7 +233,7 @@
 
 .text-section li::before {
   content: '✔';
-  color: #ff9800;
+  color: #ff6600;
   margin-right: 10px;
   font-size: 1.2em;
 }
@@ -242,7 +242,7 @@
   position: absolute;
   bottom: 20px;
   right: 20px;
-  background-color: #ff9800;
+  background-color: #ff6600;
   padding: 10px 20px;
   border-radius: 20px;
   font-size: 1.5em;
@@ -261,4 +261,20 @@
       opacity: 1;
       transform: translateY(0);
   }
+}
+.about-heading{
+  font-family: lexend;
+  font-weight: bold;
+  font-size:45px;
+  color:#ff6600;
+}
+.about-sub-heading{
+  font-family: lexend;
+  font-weight: bold;
+  font-size:22px;
+}
+.about-paragraph{
+  font-family: lexend;
+  font-weight: normal;
+  font-size: 20px;
 }

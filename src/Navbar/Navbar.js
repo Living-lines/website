@@ -6,15 +6,13 @@ import { faSearch, faUser, faGlobe } from '@fortawesome/free-solid-svg-icons';
 import LoginModal from '../Login/LoginModal';
 import { Link } from 'react-router-dom';
 import About from '../About/About.js';
-
+import videoFile from '../assets/video.mp4';
 
 // Import images
 import heroImage1 from '../assets/1.jpg';
 import heroImage2 from '../assets/2.jpg';
 import heroImage3 from '../assets/3.jpg';
 import heroImage4 from '../assets/4.jpg';
-
-console.log("Image Check:", heroImage3, heroImage4);  // Debugging
 
 function Navbar() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -48,7 +46,6 @@ function Navbar() {
   ];
 
   useEffect(() => {
-    console.log("Current Slide:", currentSlide);
     const interval = setInterval(() => {
       setCurrentSlide((prevSlide) => (prevSlide + 1) % slides.length);
     }, 3000);
@@ -68,11 +65,11 @@ function Navbar() {
             <FontAwesomeIcon icon={faSearch} className="search-icon" />
           </div>
           <nav className="nav">
-            <a href="#" onClick={() => setIsModalOpen(true)}>
+            <a href="#" onClick={() => setIsModalOpen(true)} className="nav-item">
               <FontAwesomeIcon icon={faUser} className="nav-icon" />
               LOGIN
             </a>
-            <a href="#">
+            <a href="#" className="nav-item">
               <FontAwesomeIcon icon={faGlobe} className="nav-icon" />
               SHOWROOM 360
             </a>
@@ -80,12 +77,12 @@ function Navbar() {
         </header>
 
         <nav className="main-nav">
-          <a href="#">HOME</a>
-          <Link to="/about">ABOUT</Link>
-          <a href="#">OUR PRODUCTS</a>
-          <a href="#">CONTACT</a>
-          <a href="#">CATALOGS</a>
-          <a href="#">BRANDS</a>
+          <Link to="/" className="nav-item">HOME</Link>
+          <Link to="/about" className="nav-item">ABOUT</Link>
+          <a href="#" className="nav-item">OUR PRODUCTS</a>
+          <a href="#" className="nav-item">CONTACT</a>
+          <a href="#" className="nav-item">CATALOGS</a>
+          <a href="#" className="nav-item">BRANDS</a>
           <div className="menu-icon">☰</div>
         </nav>
 
@@ -107,13 +104,20 @@ function Navbar() {
         </section>
 
         <LoginModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
-
-        
       </div>
-      <h1 className='highlight about'>About Us</h1>
+
+      <div className='video-section'>
+        <video autoPlay loop muted playsInline className="fullscreen-video">
+          <source src={videoFile} type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        <h1 className='video-content'>Step into a bold new Era of Elegance ✨
+          Tailored for your unique choices, crafted for perfection.</h1>
+      </div>
+
+      <h1 className='highlight-about'>About Us</h1>
       <About />
     </div>
-
   );
 }
 
