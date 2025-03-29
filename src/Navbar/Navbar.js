@@ -6,7 +6,8 @@ import { faSearch, faUser, faGlobe } from '@fortawesome/free-solid-svg-icons';
 import LoginModal from '../Login/LoginModal';
 import { Link } from 'react-router-dom';
 import About from '../About/About.js';
-import videoFile from '../assets/video.mp4';
+import videoFile1 from '../assets/video 3.mp4';
+import videoFile2 from '../assets/video1.mp4'
 
 // Import images
 import heroImage1 from '../assets/1.jpg';
@@ -105,15 +106,22 @@ function Navbar() {
 
         <LoginModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
       </div>
+    
+        <hr className='hr-line'/>
+  
 
-      <div className='video-section'>
+      <div className="video-section">
         <video autoPlay loop muted playsInline className="fullscreen-video">
-          <source src={videoFile} type="video/mp4" />
+          <source src={videoFile1} type="video/mp4" />
           Your browser does not support the video tag.
         </video>
-        <h1 className='video-content'>Step into a bold new Era of Elegance ✨
-          Tailored for your unique choices, crafted for perfection.</h1>
+
+        <video autoPlay loop muted playsInline className="fullscreen-video">
+          <source src={videoFile2} type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
       </div>
+
 
       <h1 className='highlight-about'>About Us</h1>
       <About />

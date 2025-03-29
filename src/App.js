@@ -2,6 +2,7 @@
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import Navbar from './Navbar/Navbar'; // Correct path for Navbar
 import About from './About/About'; // Correct path for About
+import BrandCarousel from './brand/brand';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Navbar />} />
         <Route path="/about" element={<About />} />
+        <Route path="/brand" element={<BrandCarousel/>}/>
       </Routes>
     </BrowserRouter>
   );

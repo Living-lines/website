@@ -5,6 +5,7 @@ import aboutImage2 from '../assets/about-image-2.jpg';
 import aboutImage3 from '../assets/about-image-3.webp';
 import ourValue from '../assets/our-value.jpg';
 import Timeline from './timeline/timeline.js';
+import Experience from './experience/experience.js'
 import { motion, useTransform, useViewportScroll } from "framer-motion";
 import { useState, useEffect, useRef } from 'react';
 
@@ -49,36 +50,23 @@ function About() {
 
     return (
         <div>
-            <motion.div
-                initial={{ opacity: 0, y: 50 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
-                className="about-container"
-            >
-                <div className="about-text">
-                    <h1 className='about-heading'>A Lineage Of Finest Trait In Quality</h1>
-                    <h3 className='about-sub-heading'>Sai Balaji Marketing</h3>
-                    <p className='about-paragraph'>
-                        Living Lines, where quality meets experience, and your vision finds its perfect expression. For over two decades, Living Lines has been an icon in the building materials industry, offering a diverse range of top-notch products in the retail and wholesale markets. Established 23 years ago, our showroom has become synonymous with trust, quality, and innovation.
-                    </p>
+            <div className="home-container">
+                <img src={aboutImage1} alt="Background" className="background-image" />
+                <div className="overlay-content">
+                    <div className="left-section">
+                        <img src={aboutImage2} alt="Overlay" className="small-image" />
+                    </div>
+                    <div className="right-section">
+                        <h1 className="main-heading">EVERYTHING YOU DESIRE</h1>
+                        <p className="sub-text">
+                            Tailored interior design by experienced professionals, crafted just for you.
+                            Unlock a world of endless possibilities with our unique ideas.
+                        </p>
+                        <button className="glass-button">Get in Touch</button>
+                    </div>
                 </div>
-                <div className="about-images">
-                    <motion.img
-                        initial={{ opacity: 0, x: -50 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.8, delay: 0.2 }}
-                        src={aboutImage2} alt="About Left" className="about-image-left"
-                        style={{rotate: imageRotate}}
-                    />
-                    <motion.img
-                        initial={{ opacity: 0, x: 50 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.8, delay: 0.4 }}
-                        src={aboutImage1} alt="About Right" className="about-image-right"
-                        style={{scale: imageScale}}
-                    />
-                </div>
-            </motion.div>
+            </div>
+
             <Timeline />
             <motion.div
                 initial={{ opacity: 0, y: 50 }}
@@ -99,7 +87,7 @@ function About() {
                     animate={{ opacity: 1, scale: 1 }}
                     // transition={{ duration: 0.8, delay: 0.2 }}
                     className="brand-image-container"
-                    whileHover={{scale:1.1, rotate: '5deg'}}
+                    whileHover={{ scale: 1.1, rotate: '5deg' }}
                     transition={{ type: "spring", stiffness: 400, damping: 17 }}
                 >
                     <img src={ourValue} alt="Luxury Interior" className="brand-image" />
@@ -107,12 +95,12 @@ function About() {
             </motion.div>
             <div className="container">
                 <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    // transition={{ duration: 1 }}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    // transition={{ duration: 1.2, ease: "easeOut" }}
                     className="text-section"
-                    whileInView={{ scale: [0.9, 1] }}
-                    transition={{ duration: 1, repeat: Infinity, repeatType: "reverse" }}
+                    whileInView={{ scale: [1, 1.05, 1] }}
+                    transition={{ duration: 1.5, repeat: Infinity, repeatType: "mirror" }}
                 >
                     <h1 className="highlight-about">Our Value</h1>
                     <h2 className="title">Trusted by Homeowners and Professionals Alike</h2>
@@ -125,29 +113,29 @@ function About() {
                 </motion.div>
                 <div className="cards">
                     <motion.div
-                        whileHover={{ scale: 1.05 }}
-                        initial={{ opacity: 0, y: 30 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        // transition={{ delay: 0.3, duration: 1 }}
+                        whileHover={{ scale: 1.1, boxShadow: "0px 10px 20px rgba(0,0,0,0.3)" }}
+                        initial={{ opacity: 0, y: 50, rotateX: -20 }}
+                        animate={{ opacity: 1, y: 0, rotateX: 0 }}
+                        // transition={{ duration: 1.2 }}
                         className="card"
-                        whileInView={{ rotate: [0, 360] }}
-                        transition={{ duration: 3, repeat: Infinity, repeatType: "loop" }}
+                        whileInView={{ rotateY: [0, 10, -10, 0] }}
+                        transition={{ duration: 2, repeat: Infinity, repeatType: "reverse" }}
                     >
                         <div className="icon">💡</div>
                         <h3 className="card-title">Vision</h3>
                         <p className="card-text">
                             Living Lines, where quality meets experience, and your vision finds
-                          +  its perfect expression.
+                            its perfect expression.
                         </p>
                     </motion.div>
                     <motion.div
-                        whileHover={{ scale: 1.05 }}
-                        initial={{ opacity: 0, y: 30 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        // transition={{ delay: 0.5, duration: 1 }}
+                        whileHover={{ scale: 1.1, boxShadow: "0px 10px 20px rgba(0,0,0,0.3)" }}
+                        initial={{ opacity: 0, y: 50, rotateX: -20 }}
+                        animate={{ opacity: 1, y: 0, rotateX: 0 }}
+                        // transition={{ duration: 1.2 }}
                         className="card"
-                        whileInView={{ y: [0, -10, 0] }}
-                        transition={{ duration: 2, repeat: Infinity, repeatType: "loop" }}
+                        whileInView={{ x: [-10, 10, -10, 0] }}
+                        transition={{ duration: 2.5, repeat: Infinity, repeatType: "mirror" }}
                     >
                         <div className="icon">🛋️</div>
                         <h3 className="card-title">Mission</h3>
@@ -158,7 +146,9 @@ function About() {
                     </motion.div>
                 </div>
             </div>
-            <div className="experience-container">
+
+
+            {/* <div className="experience-container">
                 <div className="image-section">
                     <img ref={imageRef} src={aboutImage3} alt="Modern Bathroom" />
                     <div className="experience">
@@ -184,7 +174,8 @@ function About() {
                         <li>Your Interior</li>
                     </ul>
                 </motion.div>
-            </div>
+            </div> */}
+            <Experience/>
         </div>
     );
 }
