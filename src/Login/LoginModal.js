@@ -31,4 +31,5 @@ function LoginModal({ isOpen, onClose }) {
   );
 }
 
+
 export default LoginModal;

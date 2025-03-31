@@ -8,6 +8,8 @@ import Timeline from './timeline/timeline.js';
 import Experience from './experience/experience.js'
 import { motion, useTransform, useViewportScroll } from "framer-motion";
 import { useState, useEffect, useRef } from 'react';
+import Footer from '../footer/Footer';
+
 
 function About() {
     const [experienceYears, setExperienceYears] = useState(1);
@@ -176,6 +178,8 @@ function About() {
                 </motion.div>
             </div> */}
             <Experience/>
+            <Footer />
+
         </div>
     );
 }
