@@ -19,11 +19,10 @@ const AboutUs = () => {
 
   return (
     <div className="about-us">
-      {/* Image Section */}
       <div className="image-container">
         <div className="image-frame"></div>
         <img
-          src="/bathroom.jpg" // Replace with actual image URL
+          src="/bathroom.jpg" 
           alt="Bathroom Interior"
         />
         <div className="experience-badge">
