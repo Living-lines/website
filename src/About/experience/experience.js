@@ -22,10 +22,7 @@ const AboutUs = () => {
       {/* Image Section */}
       <div className="image-container">
         <div className="image-frame"></div>
-        <img
-          src="/bathroom.jpg" // Replace with actual image URL
-          alt="Bathroom Interior"
-        />
+       { /* <img src="/bathroom.jpg" alt="Bathroom Interior" /> */}
         <div className="experience-badge">
           <h2 className="experience-number">{count}+</h2>
           <p>Year Experience</p>
@@ -45,7 +42,6 @@ const AboutUs = () => {
         <ul className="bullet-list">
           {["Innovate", "Decorate", "Elevate", "Your Interior"].map((item, index) => (
             <li key={index}>
-              <span>✔</span>
               {item}
             </li>
           ))}
