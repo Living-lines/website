@@ -1,46 +1,50 @@
-// import { Swiper, SwiperSlide } from "swiper/react";
-// import "swiper/css";
-// import "swiper/css/navigation";
-// import { Navigation } from "swiper/modules";
-// // import Image from "next/image";
+import React from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay } from "swiper/modules"; // Remove Navigation import
+import "swiper/css";
+import "swiper/css/autoplay";
+import "./brand.css"; // Import CSS file
 
-// const brands = [
-//   { name: "GESSI", src: "/brands/gessi.png" },
-//   { name: "GROHE", src: "/brands/grohe.png" },
-//   { name: "TOTO", src: "/brands/toto.png" },
-//   { name: "KOHLER", src: "/brands/kohler.png" },
-//   { name: "VitrA", src: "/brands/vitra.png" },
-//   { name: "Roca", src: "/brands/roca.png" },
-//   { name: "Armani Roca", src: "/brands/armani-roca.png" },
-//   { name: "Delta", src: "/brands/delta.png" },
-//   { name: "Brizo", src: "/brands/brizo.png" },
-//   { name: "Parryware", src: "/brands/parryware.png" },
-//   { name: "BX Bath Xperience", src: "/brands/bx.png" },
-// ];
+import gessi from "../assets/gessi.png";
+import grohe from "../assets/grohe (2).png";
+import toto from "../assets/toto.png";
+import kohler from "../assets/kohler.png";
+import kuka from "../assets/kuka.png";
 
-// export default function BrandCarousel() {
-//   return (
-//     <div className="bg-black py-8">
-//       <Swiper
-//         slidesPerView={4}
-//         spaceBetween={30}
-//         loop={true}
-//         navigation={true}
-//         modules={[Navigation]}
-//         className="w-full"
-//       >
-//         {brands.map((brand, index) => (
-//           <SwiperSlide key={index} className="flex justify-center">
-//             <Image
-//               src={brand.src}
-//               alt={brand.name}
-//               width={150}
-//               height={50}
-//               className="grayscale hover:grayscale-0 transition duration-300"
-//             />
-//           </SwiperSlide>
-//         ))}
-//       </Swiper>
-//     </div>
-//   );
-// }
+const brands = [
+  { name: "GESSI", logo: gessi },
+  { name: "GROHE", logo: grohe },
+  { name: "TOTO", logo: toto },
+  { name: "KOHLER", logo: kohler },
+  { name: "KUKA", logo: kuka }
+];
+
+const BrandCarousel = () => {
+  return (
+    <div className="carousel-container">
+      <h2 className="carousel-title">Our Premium Brands</h2>
+      <Swiper
+        modules={[Autoplay]} // Only use Autoplay now
+        spaceBetween={20}
+        slidesPerView={3}
+        autoplay={{ delay: 3000 }}
+        loop={true}
+        breakpoints={{
+          640: { slidesPerView: 2 },
+          1024: { slidesPerView: 4 },
+        }}
+        className="swiper-container"
+      >
+        {brands.map((brand, index) => (
+          <SwiperSlide key={index} className="swiper-slide">
+            <div className="logo-container">
+              <img src={brand.logo} alt={brand.name} className="brand-logo" />
+            </div>
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </div>
+  );
+};
+
+export default BrandCarousel;

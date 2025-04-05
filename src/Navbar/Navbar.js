@@ -1,19 +1,21 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom'; // Import Link for routing
 import './Navbar.css';
 import logoImage from '../../src/assets/logo-living.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch, faUser, faGlobe } from '@fortawesome/free-solid-svg-icons';
+import { faUser, faGlobe } from '@fortawesome/free-solid-svg-icons';
 import LoginModal from '../Login/LoginModal';
-import { Link } from 'react-router-dom';
-import About from '../About/About.js';
 import videoFile1 from '../assets/video 3.mp4';
-import videoFile2 from '../assets/video1.mp4'
+import videoFile2 from '../assets/video1.mp4';
 
-// Import images
+// Images
 import heroImage1 from '../assets/1.jpg';
 import heroImage2 from '../assets/2.jpg';
 import heroImage3 from '../assets/3.jpg';
 import heroImage4 from '../assets/4.jpg';
+import About from '../About/About';
+import BrandCarousel from '../brand/brand.js';
+import Footer from '../footer/Footer.js';
 
 function Navbar() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -24,26 +26,26 @@ function Navbar() {
       image: heroImage1,
       heading: 'Eco-Friendly<br />Art for your space.',
       subQuote: 'Sustainable beauty that transforms discarded glass into stunning, eco-friendly art for your space.',
-      textPosition: 'right',
+      textPosition: 'right'
     },
     {
       image: heroImage2,
       heading: 'Luxury Bathware<br />Experience.',
       subQuote: 'Indulge in the ultimate luxury with our premium bathware collection.',
-      textPosition: 'left',
+      textPosition: 'left'
     },
     {
       image: heroImage3,
       heading: 'Modern Interiors<br />Reimagined.',
       subQuote: 'Upgrade your home with stylish, high-quality bath and home accessories.',
-      textPosition: 'right',
+      textPosition: 'right'
     },
     {
       image: heroImage4,
       heading: 'Timeless Elegance<br />In Every Detail.',
       subQuote: 'Discover carefully crafted pieces that enhance your space with sophistication.',
-      textPosition: 'left',
-    },
+      textPosition: 'left'
+    }
   ];
 
   useEffect(() => {
@@ -61,10 +63,7 @@ function Navbar() {
             <img src={logoImage} className="logo" alt="Living Space Logo" />
             <p>The Complete Bathware</p>
           </div>
-          <div className="search-bar">
-            <input type="text" placeholder="Search...." className="search-input" />
-            <FontAwesomeIcon icon={faSearch} className="search-icon" />
-          </div>
+
           <nav className="nav">
             <a href="#" onClick={() => setIsModalOpen(true)} className="nav-item">
               <FontAwesomeIcon icon={faUser} className="nav-icon" />
@@ -80,19 +79,19 @@ function Navbar() {
         <nav className="main-nav">
           <Link to="/" className="nav-item">HOME</Link>
           <Link to="/about" className="nav-item">ABOUT</Link>
-          <a href="#" className="nav-item">OUR PRODUCTS</a>
-          <a href="#" className="nav-item">CONTACT</a>
-          <a href="#" className="nav-item">CATALOGS</a>
-          <a href="#" className="nav-item">BRANDS</a>
+          <Link to="#" className="nav-item">OUR PRODUCTS</Link>
+          <Link to="#" className="nav-item">CONTACT</Link>
+          <Link to="#" className="nav-item">CATALOGS</Link>
+
+          {/* Use Link for Brands Page */}
+          <Link to="/brands" className="nav-item">BRANDS</Link> {/* Changed to Link */}
+
           <div className="menu-icon">☰</div>
         </nav>
 
         <section className="hero">
           {slides.map((slide, index) => (
-            <div
-              key={index}
-              className={`hero-slide ${index === currentSlide ? 'active' : 'hidden'} ${slide.textPosition === 'left' ? 'reverse' : ''}`}
-            >
+            <div key={index} className={`hero-slide ${index === currentSlide ? 'active' : 'hidden'} ${slide.textPosition === 'left' ? 'reverse' : ''}`}>
               <div className="text-content">
                 <h1 dangerouslySetInnerHTML={{ __html: slide.heading }} />
                 <p>{slide.subQuote}</p>
@@ -106,25 +105,19 @@ function Navbar() {
 
         <LoginModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
       </div>
-    
-        <hr className='hr-line'/>
-  
 
       <div className="video-section">
         <video autoPlay loop muted playsInline className="fullscreen-video">
           <source src={videoFile1} type="video/mp4" />
-          Your browser does not support the video tag.
         </video>
 
         <video autoPlay loop muted playsInline className="fullscreen-video">
           <source src={videoFile2} type="video/mp4" />
-          Your browser does not support the video tag.
         </video>
       </div>
-
-
-      <h1 className='highlight-about'>About Us</h1>
       <About />
+      <BrandCarousel />
+      <Footer />
     </div>
   );
 }

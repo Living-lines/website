@@ -1,18 +1,17 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './About.css';
-import aboutImage1 from '../assets/about-image-1.png';
+import aboutImage1 from '../assets/about-image-1.png'; // Ensure you import the image here
 import aboutImage2 from '../assets/about-image-2.jpg';
-import aboutImage3 from '../assets/about-image-3.webp';
 import ourValue from '../assets/our-value.jpg';
 import Timeline from './timeline/timeline.js';
-import Experience from './experience/experience.js'
-import { motion, useTransform, useViewportScroll } from "framer-motion";
-import { useState, useEffect, useRef } from 'react';
+import { motion, useTransform, useScroll } from "framer-motion";
+import Footer from '../footer/Footer';
+import BrandCarousel from '../brand/brand.js';
 
 function About() {
     const [experienceYears, setExperienceYears] = useState(1);
     const imageRef = useRef(null);
-    const { scrollYProgress } = useViewportScroll();
+    const { scrollYProgress } = useScroll();
     const imageScale = useTransform(scrollYProgress, [0, 1], [1, 1.2]);
     const imageRotate = useTransform(scrollYProgress, [0, 1], ['0deg', '5deg']);
 
@@ -22,13 +21,12 @@ function About() {
             const end = 23;
             const range = end - start;
             let current = start;
-            const increment = end > start ? 1 : -1;
             const stepTime = Math.abs(Math.floor(2000 / range));
 
             const timer = setInterval(() => {
-                current += increment;
+                current += 1;
                 setExperienceYears(current);
-                if (current === end) {
+                if (current >= end) {
                     clearInterval(timer);
                 }
             }, stepTime);
@@ -38,23 +36,31 @@ function About() {
 
         const handleScroll = () => {
             if (imageRef.current) {
-                const scrollY = window.scrollY;
-                imageRef.current.style.transform = `translateY(${scrollY * 0.2}px)`;
+                imageRef.current.style.transform = `translateY(${window.scrollY * 0.2}px)`;
             }
         };
 
         window.addEventListener('scroll', handleScroll);
-
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
     return (
         <div>
-            <div className="home-container">
-                <img src={aboutImage1} alt="Background" className="background-image" />
+            <div
+                className="home-container"
+                style={{ backgroundImage: `url(${aboutImage1})` }} // Dynamically set background here
+            >
                 <div className="overlay-content">
                     <div className="left-section">
-                        <img src={aboutImage2} alt="Overlay" className="small-image" />
+                        <motion.img
+                            src={aboutImage2}
+                            alt="Overlay"
+                            className="small-image"
+                            initial={{ opacity: 0, scale: 0.8 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ duration: 1 }}
+                            whileHover={{ scale: 1.1 }}
+                        />
                     </div>
                     <div className="right-section">
                         <h1 className="main-heading">EVERYTHING YOU DESIRE</h1>
@@ -62,17 +68,24 @@ function About() {
                             Tailored interior design by experienced professionals, crafted just for you.
                             Unlock a world of endless possibilities with our unique ideas.
                         </p>
-                        <button className="glass-button">Get in Touch</button>
+                        <motion.button
+                            className="glass-button"
+                            whileHover={{ scale: 1.1 }}
+                            whileTap={{ scale: 0.9 }}
+                        >
+                            Get in Touch
+                        </motion.button>
                     </div>
                 </div>
             </div>
 
             <Timeline />
+
             <motion.div
+                className="brand-container"
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
-                className="brand-container"
             >
                 <div className="brand-text">
                     <h1>
@@ -83,9 +96,6 @@ function About() {
                     </h1>
                 </div>
                 <motion.div
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    // transition={{ duration: 0.8, delay: 0.2 }}
                     className="brand-image-container"
                     whileHover={{ scale: 1.1, rotate: '5deg' }}
                     transition={{ type: "spring", stiffness: 400, damping: 17 }}
@@ -93,12 +103,12 @@ function About() {
                     <img src={ourValue} alt="Luxury Interior" className="brand-image" />
                 </motion.div>
             </motion.div>
+
             <div className="container">
                 <motion.div
+                    className="text-section"
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    // transition={{ duration: 1.2, ease: "easeOut" }}
-                    className="text-section"
                     whileInView={{ scale: [1, 1.05, 1] }}
                     transition={{ duration: 1.5, repeat: Infinity, repeatType: "mirror" }}
                 >
@@ -111,13 +121,11 @@ function About() {
                         trusted name in the industry.
                     </p>
                 </motion.div>
+
                 <div className="cards">
                     <motion.div
-                        whileHover={{ scale: 1.1, boxShadow: "0px 10px 20px rgba(0,0,0,0.3)" }}
-                        initial={{ opacity: 0, y: 50, rotateX: -20 }}
-                        animate={{ opacity: 1, y: 0, rotateX: 0 }}
-                        // transition={{ duration: 1.2 }}
                         className="card"
+                        whileHover={{ scale: 1.1, boxShadow: "0px 10px 20px rgba(0,0,0,0.3)" }}
                         whileInView={{ rotateY: [0, 10, -10, 0] }}
                         transition={{ duration: 2, repeat: Infinity, repeatType: "reverse" }}
                     >
@@ -128,12 +136,10 @@ function About() {
                             its perfect expression.
                         </p>
                     </motion.div>
+
                     <motion.div
-                        whileHover={{ scale: 1.1, boxShadow: "0px 10px 20px rgba(0,0,0,0.3)" }}
-                        initial={{ opacity: 0, y: 50, rotateX: -20 }}
-                        animate={{ opacity: 1, y: 0, rotateX: 0 }}
-                        // transition={{ duration: 1.2 }}
                         className="card"
+                        whileHover={{ scale: 1.1, boxShadow: "0px 10px 20px rgba(0,0,0,0.3)" }}
                         whileInView={{ x: [-10, 10, -10, 0] }}
                         transition={{ duration: 2.5, repeat: Infinity, repeatType: "mirror" }}
                     >
@@ -148,34 +154,6 @@ function About() {
             </div>
 
 
-            {/* <div className="experience-container">
-                <div className="image-section">
-                    <img ref={imageRef} src={aboutImage3} alt="Modern Bathroom" />
-                    <div className="experience">
-                        <span>{experienceYears}</span>+ Year Experience
-                    </div>
-                </div>
-                <motion.div
-                    initial={{ opacity: 0, x: 50 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    // transition={{ duration: 0.8 }}
-                    className="text-section"
-                    whileInView={{ scale: [1, 1.1, 1] }}
-                    transition={{ duration: 3, repeat: Infinity, repeatType: "loop" }}
-                >
-                    <h2 className="animated-title">Sai Balaji Marketing</h2>
-                    <p className="animated-paragraph">
-                        Living Lines, where quality meets experience, and your vision finds its perfect expression. For over two decades, Living Lines has been an icon in the building materials industry, offering a diverse range of top-notch products in the retail and wholesale markets. Established 23 years ago, our showroom has become synonymous with trust, quality, and innovation.
-                    </p>
-                    <ul className="animated-list">
-                        <li>Innovate</li>
-                        <li>Decorate</li>
-                        <li>Elevate</li>
-                        <li>Your Interior</li>
-                    </ul>
-                </motion.div>
-            </div> */}
-            <Experience/>
         </div>
     );
 }

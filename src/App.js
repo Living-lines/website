@@ -1,24 +1,20 @@
-// App.js
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
-import Navbar from './Navbar/Navbar'; // Correct path for Navbar
-import About from './About/About'; // Correct path for About
-import BrandCarousel from './brand/brand';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Navbar from './Navbar/Navbar';
+import About from './About/About';
+import BrandPage from './brandsPage/brandsPage';
+import Footer from './footer/Footer';
+
 
 function App() {
   return (
-    <BrowserRouter>
-      {/* <nav>
-        <ul>
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/about">About</Link></li>
-        </ul>
-      </nav> */}
+    <Router>
+
       <Routes>
         <Route path="/" element={<Navbar />} />
         <Route path="/about" element={<About />} />
-        <Route path="/brand" element={<BrandCarousel/>}/>
+        <Route path="/brands" element={<BrandPage />} /> {/* Make sure BrandPage component is correctly imported */}
       </Routes>
-    </BrowserRouter>
+    </Router>
   );
 }
 
