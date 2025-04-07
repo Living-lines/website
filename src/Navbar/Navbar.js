@@ -17,6 +17,17 @@ import About from '../About/About';
 import BrandCarousel from '../brand/brand.js';
 import Footer from '../footer/Footer.js';
 
+
+
+import small1 from '../../src/products_images/small1.jpg';
+import small2 from '../../src/products_images/small2.jpg';
+import small3 from '../../src/products_images/small3.jpg';
+import small4 from '../../src/products_images/small4.jpg';
+import large1 from '../../src/products_images/large1.jpg';
+import large2 from '../../src/products_images/large2.jpg';
+import large3 from '../../src/products_images/large3.jpg';
+import large4 from '../../src/products_images/large4.jpg';
+
 function Navbar() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -73,7 +84,7 @@ function Navbar() {
             <div className="white"></div>
             <div className="border"></div>
             <div id="main">
-            <input placeholder="Search..." type="text" name="text" className="input1" />
+              <input placeholder="Search..." type="text" name="text" className="input1" />
               <div id="input-mask"></div>
               <div id="pink-mask"></div>
               <div className="filterBorder"></div>
@@ -116,7 +127,7 @@ function Navbar() {
         <nav className="main-nav">
           <Link to="/" className="nav-item">HOME</Link>
           <Link to="/about" className="nav-item">ABOUT</Link>
-          <Link to="#" className="nav-item">OUR PRODUCTS</Link>
+          <Link to="/products" className="nav-item">OUR PRODUCTS</Link>
           <Link to="#" className="nav-item">CONTACT</Link>
           <Link to="#" className="nav-item">CATALOGS</Link>
 
@@ -154,6 +165,66 @@ function Navbar() {
       </div>
       <About />
       <BrandCarousel />
+
+
+
+
+      <section className="our-products">
+        <h1 className="products-heading">
+          Our Products <span className="underline"></span>
+        </h1>
+        <div className="products-container">
+          <div className="product-column">
+            <div className="product-card small-card">
+              <img src={small1} alt="Product 1" className="product-image" />
+              <Link to="/products" className="see-more-btn">Shop More</Link>
+            </div>
+            <div className="product-card large-card">
+              <img src={large1} alt="Product 2" className="product-image" />
+              <Link to="/products" className="see-more-btn">Shop More</Link>
+            </div>
+          </div>
+
+          <div className="product-column">
+            <div className="product-card large-card">
+              <img src={large2} alt="Product 3" className="product-image" />
+              <Link to="/products" className="see-more-btn">Shop More</Link>
+            </div>
+            <div className="product-card small-card">
+              <img src={small2} alt="Product 4" className="product-image" />
+              <Link to="/products" className="see-more-btn">Shop More</Link>
+            </div>
+          </div>
+
+          <div className="product-column">
+            <div className="product-card small-card">
+              <img src={small3} alt="Product 5" className="product-image" />
+              <Link to="/products" className="see-more-btn">Shop More</Link>
+            </div>
+            <div className="product-card large-card">
+              <img src={large3} alt="Product 6" className="product-image" />
+              <Link to="/products" className="see-more-btn">Shop More</Link>
+            </div>
+          </div>
+
+          <div className="product-column">
+            <div className="product-card large-card">
+              <img src={large4} alt="Product 7" className="product-image" />
+              <Link to="/products" className="see-more-btn">Shop More</Link>
+            </div>
+            <div className="product-card small-card">
+              <img src={small4} alt="Product 8" className="product-image" />
+              <Link to="/products" className="see-more-btn">Shop More</Link>
+            </div>
+          </div>
+        </div>
+        <Link to="/products" className="view-more-products">
+          View More Products
+        </Link>
+      </section>
+
+
+
       <Footer />
     </div>
   );
