@@ -7,13 +7,32 @@ import Timeline from './timeline/timeline.js';
 import { motion, useTransform, useScroll } from "framer-motion";
 import Footer from '../footer/Footer';
 import BrandCarousel from '../brand/brand.js';
+import logoImage from '../../src/assets/logo.jpg';
+import { faUser, faGlobe } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 
 function About() {
     const [experienceYears, setExperienceYears] = useState(1);
+    const [isModalOpen, setIsModalOpen] = useState(false);
     const imageRef = useRef(null);
     const { scrollYProgress } = useScroll();
     const imageScale = useTransform(scrollYProgress, [0, 1], [1, 1.2]);
     const imageRotate = useTransform(scrollYProgress, [0, 1], ['0deg', '5deg']);
+    const [isScrolled, setIsScrolled] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 50) {
+                setIsScrolled(true);
+            } else {
+                setIsScrolled(false);
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
 
     useEffect(() => {
         const animateNumber = () => {
@@ -45,7 +64,8 @@ function About() {
     }, []);
 
     return (
-        <div>
+        <div className='main-container'>
+
             <div
                 className="home-container"
                 style={{ backgroundImage: `url(${aboutImage1})` }} // Dynamically set background here
@@ -77,6 +97,29 @@ function About() {
                         </motion.button>
                     </div>
                 </div>
+            </div>
+
+            <div className="about-description-section">
+                <motion.div
+                    className="about-description-text"
+                    initial={{ opacity: 0, y: 50 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8 }}
+                >
+                    <h2>About Living Lines</h2>
+                    <p>
+                        For over 25 years, Living Lines has been your trusted one-stop destination for building elegant
+                        homes. We offer a wide range of sanitaryware, bathware, tiles, electrical, and plumbing products—
+                        all under one roof.
+                    </p>
+                    <p>
+                        With 150+ experts and one of the largest product displays in the state, we bring unmatched variety,
+                        innovation, and value. Every item we offer adds excellence to your home and elegance to your lifestyle.
+                    </p>
+                    <p>
+                        From design to selection, we make homebuilding effortless, stylish, and complete.
+                    </p>
+                </motion.div>
             </div>
 
             <Timeline />

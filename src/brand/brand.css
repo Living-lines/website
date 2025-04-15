@@ -1,53 +1,58 @@
 /* Carousel Container */
 .carousel-container {
-    background-color: #ffffff;
-    padding: 40px 0;
-    text-align: center;
-    margin-bottom: 50px;
-  }
-  
-  /* Title */
-  .carousel-title {
-    color: #ff6600;
-    font-size: 41px;
-    font-weight: bold;
-    margin-bottom: 40px;
-  }
-  
-  /* Swiper Styles */
-  .swiper-container {
-    width: 90%;
-    margin: 0 auto;
-  }
-  
-  .swiper-slide {
-    display: flex;
-    justify-content: center;
-  }
-  
-  /* Logo Container */
-  .logo-container {
-    background: white;
-    padding: 10px;
-    border-radius: 3px;
-    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 120px;  
-    height: 120px; 
-  }
-  
+  background-color: #ffffff;
+  padding: 40px 0;
+  text-align: center;
+  margin-bottom: 50px;
+}
 
-  .brand-logo {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain; 
-    transition: transform 0.3s ease-in-out;
-  }
-  
-  /* Hover Effect */
-  .brand-logo:hover {
-    transform: scale(1.6);
-  }
-  
+/* Title */
+.carousel-title {
+  color: #ff6600;
+  font-size: 41px;
+  font-weight: bold;
+  margin-bottom: 40px;
+}
+
+/* Swiper Styles */
+.swiper-container {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+}
+
+/* Logo Container */
+.logo-container {
+  background: #f9f9f9; /* Light gray background */
+  padding: 15px;
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Soft shadow for floating effect */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 140px; /* Slightly bigger size */
+  height: 140px;
+  transition: all 0.3s ease; /* Smooth transition for hover effect */
+}
+
+/* Brand Logo */
+.brand-logo {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Hover Effect */
+.logo-container:hover {
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2); /* Bigger shadow on hover */
+  transform: translateY(-10px); /* Floating effect on hover */
+}
+
+.brand-logo:hover {
+  transform: scale(1.15); /* Slight zoom effect on hover */
+}

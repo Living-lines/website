@@ -24,7 +24,7 @@ const BrandCarousel = () => {
     <div className="carousel-container">
       <h2 className="carousel-title">Our Premium Brands</h2>
       <Swiper
-        modules={[Autoplay]} // Only use Autoplay now
+        modules={[Autoplay]} 
         spaceBetween={20}
         slidesPerView={3}
         autoplay={{ delay: 3000 }}

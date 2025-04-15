@@ -1,8 +1,13 @@
+body, html {
+  height: 100%;
+}
+
+
 .abc-emporio {
   font-family: lexend;
   color: white;
   background-color: black;
-  margin: 0;
+  padding-top: 0;
 }
 
 .header {
@@ -10,6 +15,15 @@
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
+  position: fixed;
+  top:0;
+  left: 0;
+  
+  right: 0;
+  z-index: 1000;
+  margin-top: 0;
+  background-color: black; 
+  color: white;
 }
 
 .logo-section {
@@ -120,6 +134,12 @@
   display: flex;
   justify-content: center;
   padding: 10px;
+  position: fixed;
+  top:120px;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background-color: black;
 }
 
 .main-nav a {
@@ -830,3 +850,4 @@
     font-size: 2rem;
   }
 }
+

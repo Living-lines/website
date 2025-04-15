@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom'; // Import Link for routing
 import './Navbar.css';
-import logoImage from '../../src/assets/logo-living.png';
+import logoImage from '../../src/assets/logo.jpg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faGlobe } from '@fortawesome/free-solid-svg-icons';
 import LoginModal from '../Login/LoginModal';
@@ -128,7 +128,7 @@ function Navbar() {
           <Link to="/" className="nav-item">HOME</Link>
           <Link to="/about" className="nav-item">ABOUT</Link>
           <Link to="/products" className="nav-item">OUR PRODUCTS</Link>
-          <Link to="#" className="nav-item">CONTACT</Link>
+          <Link to="/contact" className="nav-item">CONTACT</Link>
           <Link to="#" className="nav-item">CATALOGS</Link>
 
           {/* Use Link for Brands Page */}
@@ -137,97 +137,14 @@ function Navbar() {
           <div className="menu-icon">☰</div>
         </nav>
 
-        <section className="hero">
-          {slides.map((slide, index) => (
-            <div key={index} className={`hero-slide ${index === currentSlide ? 'active' : 'hidden'} ${slide.textPosition === 'left' ? 'reverse' : ''}`}>
-              <div className="text-content">
-                <h1 dangerouslySetInnerHTML={{ __html: slide.heading }} />
-                <p>{slide.subQuote}</p>
-              </div>
-              <div className="hero-image-container">
-                <img src={slide.image} alt={`Slide ${index + 1}`} className="hero-image" />
-              </div>
-            </div>
-          ))}
-        </section>
-
         <LoginModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
       </div>
 
-      <div className="video-section">
-        <video autoPlay loop muted playsInline className="fullscreen-video">
-          <source src={videoFile1} type="video/mp4" />
-        </video>
-
-        <video autoPlay loop muted playsInline className="fullscreen-video">
-          <source src={videoFile2} type="video/mp4" />
-        </video>
-      </div>
-      <About />
-      <BrandCarousel />
-
-
-
-
-      <section className="our-products">
-        <h1 className="products-heading">
-          Our Products <span className="underline"></span>
-        </h1>
-        <div className="products-container">
-          <div className="product-column">
-            <div className="product-card small-card">
-              <img src={small1} alt="Product 1" className="product-image" />
-              <Link to="/products" className="see-more-btn">Shop More</Link>
-            </div>
-            <div className="product-card large-card">
-              <img src={large1} alt="Product 2" className="product-image" />
-              <Link to="/products" className="see-more-btn">Shop More</Link>
-            </div>
-          </div>
-
-          <div className="product-column">
-            <div className="product-card large-card">
-              <img src={large2} alt="Product 3" className="product-image" />
-              <Link to="/products" className="see-more-btn">Shop More</Link>
-            </div>
-            <div className="product-card small-card">
-              <img src={small2} alt="Product 4" className="product-image" />
-              <Link to="/products" className="see-more-btn">Shop More</Link>
-            </div>
-          </div>
-
-          <div className="product-column">
-            <div className="product-card small-card">
-              <img src={small3} alt="Product 5" className="product-image" />
-              <Link to="/products" className="see-more-btn">Shop More</Link>
-            </div>
-            <div className="product-card large-card">
-              <img src={large3} alt="Product 6" className="product-image" />
-              <Link to="/products" className="see-more-btn">Shop More</Link>
-            </div>
-          </div>
-
-          <div className="product-column">
-            <div className="product-card large-card">
-              <img src={large4} alt="Product 7" className="product-image" />
-              <Link to="/products" className="see-more-btn">Shop More</Link>
-            </div>
-            <div className="product-card small-card">
-              <img src={small4} alt="Product 8" className="product-image" />
-              <Link to="/products" className="see-more-btn">Shop More</Link>
-            </div>
-          </div>
-        </div>
-        <Link to="/products" className="view-more-products">
-          View More Products
-        </Link>
-      </section>
-
-
-
-      <Footer />
     </div>
   );
 }
+
+
+
 
 export default Navbar;

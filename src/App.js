@@ -4,22 +4,26 @@ import About from './About/About';
 import BrandPage from './brandsPage/brandsPage';
 import Footer from './footer/Footer';
 import ProductPage from './pages/ProductsPage';
-
-
+import Home from './Home/Home';
+import Contact from './Contact/Contact';
 
 function App() {
   return (
     <Router>
-
-      <Routes>
-        <Route path="/" element={<Navbar />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/brands" element={<BrandPage />} /> {/* Make sure BrandPage component is correctly imported */}
-        <Route path="/products" element={<ProductPage />} />
-        <Route path="/product/:productId" element={<ProductPage />} />
-        <Route path="/products" element={<ProductPage />} />
-
-      </Routes>
+      <div className="app-container">
+        <Navbar />
+        <div className="content-container">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/brands" element={<BrandPage />} />
+            <Route path="/products" element={<ProductPage />} />
+            <Route path="/product/:productId" element={<ProductPage />} />
+            <Route path='/contact' element={<Contact />} />
+          </Routes>
+        </div>
+        <Footer />
+      </div>
     </Router>
   );
 }
