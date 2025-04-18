@@ -1,18 +1,20 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './About.css';
+import { useNavigate } from 'react-router-dom';
 import aboutImage1 from '../assets/about-image-1.png'; // Ensure you import the image here
 import aboutImage2 from '../assets/about-image-2.jpg';
 import ourValue from '../assets/our-value.jpg';
 import Timeline from './timeline/timeline.js';
 import { motion, useTransform, useScroll } from "framer-motion";
-import Footer from '../footer/Footer';
-import BrandCarousel from '../brand/brand.js';
-import logoImage from '../../src/assets/logo.jpg';
-import { faUser, faGlobe } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import Footer from '../footer/Footer';
+// import BrandCarousel from '../brand/brand.js';
+// import logoImage from '../../src/assets/logo.jpg';
+// import { faUser, faGlobe } from '@fortawesome/free-solid-svg-icons';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 
 function About() {
+    const navigate = useNavigate();
     const [experienceYears, setExperienceYears] = useState(1);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const imageRef = useRef(null);
@@ -63,6 +65,10 @@ function About() {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
+    const handleGetInTouchClick = () => {
+        navigate('/contact');
+    };
+
     return (
         <div className='main-container'>
 
@@ -92,6 +98,7 @@ function About() {
                             className="glass-button"
                             whileHover={{ scale: 1.1 }}
                             whileTap={{ scale: 0.9 }}
+                            onClick={handleGetInTouchClick}
                         >
                             Get in Touch
                         </motion.button>

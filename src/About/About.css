@@ -439,7 +439,7 @@
 }
 
 .sub-text {
-  font-size: 0.9rem;
+  font-size: 1.5rem;
   color: #ddd;
   margin-bottom: 20px;
   line-height: 1.6;
@@ -450,7 +450,7 @@
   font-size: 0.9rem;
   border: none;
   border-radius: 15px;
-  background: rgba(255, 255, 255, 0.1);
+  background-color:#ff6000;
   backdrop-filter: blur(10px);
   color: #fff;
   cursor: pointer;

@@ -1,6 +1,8 @@
 import React from 'react';
 import './Contact.css';  // For custom styling
 import ContactImage from '../assets/contact-us.webp'; // Use the image path you prefer
+import ImageSlider from '../ImageSlider/ImageSlider'
+
 
 function Contact() {
     return (
@@ -50,6 +52,8 @@ function Contact() {
                     </div>
                 </div>
             </div>
+
+            <ImageSlider/>
         </div>
     );
 }

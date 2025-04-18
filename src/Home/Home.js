@@ -6,7 +6,6 @@ import videoFile2 from '../assets/video1.mp4';
 
 import About from '../About/About';
 import BrandCarousel from '../brand/brand.js';
-import Footer from '../footer/Footer.js';
 
 import small1 from '../../src/products_images/small1.jpg';
 import small2 from '../../src/products_images/small2.jpg';
@@ -22,9 +21,8 @@ import heroImage2 from '../assets/2.jpg';
 import heroImage3 from '../assets/3.jpg';
 import heroImage4 from '../assets/4.jpg';
 import heroImage5 from '../assets/tiles.png';
-import heroImage6 from '../assets/electric_appliances.png';
+import heroImage6 from '../assets/l7.jpg';
 import { Link } from 'react-router-dom';
-import Navbar from '../Navbar/Navbar.js';
 
 function Home() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -55,18 +53,19 @@ function Home() {
       textPosition: 'left',
     },
     {
-      image: heroImage5,  // Add your tile image here
+      image: heroImage5,  
       heading: 'Premium Tiles<br />For Every Floor.',
       subQuote: 'Elevate your interiors with our wide range of exquisite, durable tiles.',
       textPosition: 'right',
     },
     {
-      image: heroImage6,  // Add your electronic appliances image here
-      heading: 'Top-Notch<br />Electronic Appliances.',
-      subQuote: 'Experience cutting-edge technology and performance with our curated range of electronic appliances.',
+      image: heroImage6,  
+      heading: 'Top-Notch<br />Electrical Appliances.',
+      subQuote: 'Experience cutting-edge technology and performance with our curated range of electrical appliances.',
       textPosition: 'left',
     },
   ];
+  
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -76,7 +75,7 @@ function Home() {
   }, [slides.length]);
 
   return (
-    <div>
+    <div className='Home-container'>
       <section className="hero">
         {slides.map((slide, index) => (
           <div
@@ -179,7 +178,6 @@ function Home() {
         </Link>
       </section>
 
-      <Footer />
     </div>
   );
 }

@@ -1,4 +1,4 @@
-/* Main container */
+
 .contact-container {
     display: flex;
     flex-direction: column;
@@ -44,7 +44,7 @@
     border-radius: 10px;
 }
 
-/* Contact Details */
+
 .contact-details {
     display: flex;
     justify-content: center;
@@ -67,12 +67,10 @@
 
 .phone-icon::before {
     content: '\260E';
-    /* Unicode for phone symbol */
 }
 
 .email-icon::before {
     content: '\2709';
-    /* Unicode for envelope symbol */
 }
 
 .contact-info {
@@ -81,7 +79,7 @@
     margin: 0;
 }
 
-/* Responsive Design */
+
 @media (max-width: 768px) {
     .header {
         flex-direction: column;
@@ -139,7 +137,7 @@
     background-color: #e15d1d;
 }
 
-/* Style for the location section */
+
 .location-section {
     flex: 1;
     background-color: #fff;
@@ -163,7 +161,7 @@
     border-radius: 8px;
 }
 
-/* Responsive Design */
+
 @media (max-width: 768px) {
     .contact-container {
         flex-direction: column;
