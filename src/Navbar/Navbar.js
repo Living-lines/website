@@ -112,7 +112,7 @@ function Navbar() {
               </div>
             </div>
 
-          <nav className="nav">
+          {/* <nav className="nav">
             <a href="#" onClick={() => setIsModalOpen(true)} className="nav-item">
               <FontAwesomeIcon icon={faUser} className="nav-icon" />
               LOGIN
@@ -121,17 +121,16 @@ function Navbar() {
               <FontAwesomeIcon icon={faGlobe} className="nav-icon" />
               SHOWROOM 360
             </a>
-          </nav>
+          </nav> */}
         </header>
 
         <nav className="main-nav">
           <Link to="/" className="nav-item">HOME</Link>
           <Link to="/about" className="nav-item">ABOUT</Link>
           <Link to="/products" className="nav-item">OUR PRODUCTS</Link>
+          <Link to="/Catalogs" className='nav-item'>CATALOGS</Link>
           <Link to="/contact" className="nav-item">CONTACT</Link>
           <Link to="#" className="nav-item">CATALOGS</Link>
-
-          {/* Use Link for Brands Page */}
           <Link to="/brands" className="nav-item">BRANDS</Link> {/* Changed to Link */}
 
           <div className="menu-icon">☰</div>

@@ -23,6 +23,7 @@ import heroImage4 from '../assets/4.jpg';
 import heroImage5 from '../assets/tiles.png';
 import heroImage6 from '../assets/l7.jpg';
 import { Link } from 'react-router-dom';
+import Catalogs from '../Catalogs/Catalogs.js';
 
 function Home() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -177,6 +178,8 @@ function Home() {
           View More Products
         </Link>
       </section>
+
+      <Catalogs/>
 
     </div>
   );

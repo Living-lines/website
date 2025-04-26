@@ -72,7 +72,6 @@
 }
 
 .about-description-section::before {
-  content: "Discover the Excellence";
   font-size: 3rem;
   font-weight: 600;
   color: #ff6600;

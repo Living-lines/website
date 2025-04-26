@@ -6,6 +6,7 @@ import Footer from './footer/Footer';
 import ProductPage from './pages/ProductsPage';
 import Home from './Home/Home';
 import Contact from './Contact/Contact';
+import Catalogs from './Catalogs/Catalogs';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/brands" element={<BrandPage />} />
             <Route path="/products" element={<ProductPage />} />
+            <Route path="/catalogs" element={<Catalogs/>}/>
             <Route path="/product/:productId" element={<ProductPage />} />
             <Route path='/contact' element={<Contact />} />
           </Routes>
