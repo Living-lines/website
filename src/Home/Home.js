@@ -38,6 +38,10 @@ function Home() {
   const heroImage5 = "https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/tiles.png";
   const heroImage6 = "https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/l7.jpg";
 
+
+  const videoFile1 = "https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/video 3.mp4";
+  const videoFile2 = "https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/video1.mp4";
+
   const slides = [
     {
       image: heroImage1,
@@ -106,14 +110,13 @@ function Home() {
       </section>
 
       <div className="video-section">
-        {/* Commented videos from assets folder */}
-        {/* <video autoPlay loop muted playsInline className="fullscreen-video">
+        <video autoPlay loop muted playsInline className="fullscreen-video">
           <source src={videoFile1} type="video/mp4" />
         </video>
 
         <video autoPlay loop muted playsInline className="fullscreen-video">
           <source src={videoFile2} type="video/mp4" />
-        </video> */}
+        </video> 
       </div>
 
       <About />
