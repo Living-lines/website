@@ -1,30 +1,30 @@
 import React from 'react';
 import './Catalogs.css';
 
-import Anchor from 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/anchor logo.png';
-import AstralPipes from 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/astral pipes logo.jpg';
-import Austin from 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/austin logo.png';
-import Besten from 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/besten logo.png';
-import Carysil from 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/carysil logo.png';
-import Cri from 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/cri logo.png';
-import Elleys from 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/elleys Logo.png';
-import Eureka from 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/eureka logo.jpg';
-import Euroqo from 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/euroqo logo.jpg';
-import Finolex from 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/finolex logo.png';
-import Franke from 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/franke logo.png';
-import Havells from 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/havells logo.png';
-import HiFi from 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/hi fi logo.png';
-import Jaquar from 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/jaquar logo.png';
-import Kolors from 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/kolors logo.png';
-import Kuko from 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/kuka logo.png';
-import Legrand from 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/legrand logo.png';
-import Luker from 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/luker logo.jpg';
-import Nirali from 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/nirali logo.jpeg';
-import Norisys from 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/norisys logo.png';
-import Philips from 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/philips logo.png';
-import Prince from 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/prince logo.jpg';
-import Sudhakar from 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/sudhakar pipes logo.png';
-import VGuard from 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/v-guard logo (1).png';
+import Anchor from '../assets/anchor logo.png';
+import AstralPipes from '../assets/astral pipes logo.jpg';
+import Austin from '../assets/austin logo.png';
+import Besten from '../assets/besten logo.png';
+import Carysil from '../assets/carysil logo.png';
+import Cri from '../assets/cri logo.png';
+import Elleys from '../assets/elleys Logo.png';
+import Eureka from '../assets/eureka logo.jpg';
+import Euroqo from '../assets/euroqo logo.jpg';
+import Finolex from '../assets/finolex logo.png';
+import Franke from '../assets/franke logo.png';
+import Havells from '../assets/havells logo.png';
+import HiFi from '../assets/hi fi logo.png';
+import Jaquar from '../assets/jaquar logo.png';
+import Kolors from '../assets/kolors logo.png';
+import Kuko from '../assets/kuka logo.png';
+import Legrand from '../assets/legrand logo.png';
+import Luker from '../assets/luker logo.jpg';
+import Nirali from '../assets/nirali logo.jpeg';
+import Norisys from '../assets/norisys logo.png';
+import Philips from '../assets/philips logo.png';
+import Prince from '../assets/prince logo.jpg';
+import Sudhakar from '../assets/sudhakar pipes logo.png';
+import VGuard from '../assets/v-guard logo (1).png';
 
 const samplePDF = '/catalogs.pdf'; // Ensure this path is correct
 

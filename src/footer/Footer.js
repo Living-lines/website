@@ -1,6 +1,6 @@
 import React from 'react';
 import './Footer.css';
-import logo from 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/o.jpg';
+import logo from '../assets/logo.jpg';
 
 const Footer = () => {
   return (

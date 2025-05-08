@@ -1,14 +1,14 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './About.css';
 import { useNavigate } from 'react-router-dom';
-import aboutImage1 from 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/1.png'; // Ensure you import the image here
-import aboutImage2 from 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/2.jpg';
-import ourValue from 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/e.jpg';
+import aboutImage1 from '../assets/about-image-1.png'; // Ensure you import the image here
+import aboutImage2 from '../assets/about-image-2.jpg';
+import ourValue from '../assets/our-value.jpg';
 import Timeline from './timeline/timeline.js';
 import { motion, useTransform, useScroll } from "framer-motion";
 // import Footer from '../footer/Footer';
 // import BrandCarousel from '../brand/brand.js';
-// import logoImage from 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/o.jpg';
+// import logoImage from '../../src/assets/logo.jpg';
 // import { faUser, faGlobe } from '@fortawesome/free-solid-svg-icons';
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 

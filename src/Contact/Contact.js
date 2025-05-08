@@ -1,6 +1,6 @@
 import React from 'react';
 import './Contact.css';  // For custom styling
-import ContactImage from 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/s.webp'; // Use the image path you prefer
+import ContactImage from '../assets/contact-us.webp'; // Use the image path you prefer
 import ImageSlider from '../ImageSlider/ImageSlider'
 
 

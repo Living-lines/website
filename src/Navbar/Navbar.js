@@ -1,32 +1,32 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom'; // Import Link for routing
 import './Navbar.css';
-import logoImage from 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/o.jpg';
+import logoImage from '../../src/assets/logo.jpg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faGlobe } from '@fortawesome/free-solid-svg-icons';
 import LoginModal from '../Login/LoginModal';
-import videoFile1 from 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/video 3.mp4';
-import videoFile2 from 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/video1.mp4';
+import videoFile1 from '../assets/video 3.mp4';
+import videoFile2 from '../assets/video1.mp4';
 
 // Images
-import heroImage1 from 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/1.jpg';
-import heroImage2 from 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/2.jpg';
-import heroImage3 from 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/3.jpg';
-import heroImage4 from 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/4.jpg';
+import heroImage1 from '../assets/1.jpg';
+import heroImage2 from '../assets/2.jpg';
+import heroImage3 from '../assets/3.jpg';
+import heroImage4 from '../assets/4.jpg';
 import About from '../About/About';
 import BrandCarousel from '../brand/brand.js';
 import Footer from '../footer/Footer.js';
 
 
 
-import small1 from 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/1.jpg';
-import small2 from 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/2.jpg';
-import small3 from 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/3.jpg';
-import small4 from 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/4.jpg';
-import large1 from 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/1.jpg';
-import large2 from 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/2.jpg';
-import large3 from 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/3.jpg';
-import large4 from 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/4.jpg';
+import small1 from '../../src/products_images/small1.jpg';
+import small2 from '../../src/products_images/small2.jpg';
+import small3 from '../../src/products_images/small3.jpg';
+import small4 from '../../src/products_images/small4.jpg';
+import large1 from '../../src/products_images/large1.jpg';
+import large2 from '../../src/products_images/large2.jpg';
+import large3 from '../../src/products_images/large3.jpg';
+import large4 from '../../src/products_images/large4.jpg';
 
 function Navbar() {
   const [isModalOpen, setIsModalOpen] = useState(false);
