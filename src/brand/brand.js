@@ -1,22 +1,39 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay } from "swiper/modules"; // Remove Navigation import
+import { Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/autoplay";
 import "./brand.css"; // Import CSS file
 
-import gessi from "../assets/gessi.png";
-import grohe from "../assets/grohe (2).png";
-import toto from "../assets/toto.png";
-import kohler from "../assets/kohler.png";
-import kuka from "../assets/kuka.png";
+// Commented out local image address
+// import gessi from "../assets/gessi.png";
+// import grohe from "../assets/grohe (2).png";
+// import toto from "../assets/toto.png";
+// import kohler from "../assets/kohler.png";
+// import kuka from "../assets/kuka.png";
 
+// Using image URLs instead
 const brands = [
-  { name: "GESSI", logo: gessi },
-  { name: "GROHE", logo: grohe },
-  { name: "TOTO", logo: toto },
-  { name: "KOHLER", logo: kohler },
-  { name: "KUKA", logo: kuka }
+  {
+    name: "GESSI",
+    logo: "https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/gessi.png"
+  },
+  {
+    name: "GROHE",
+    logo: "https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/grohe (2).png"
+  },
+  {
+    name: "TOTO",
+    logo: "https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/toto.png"
+  },
+  {
+    name: "KOHLER",
+    logo: "https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/kohler.png"
+  },
+  {
+    name: "KUKA",
+    logo: "https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/kuka.png"
+  }
 ];
 
 const BrandCarousel = () => {
@@ -24,7 +41,7 @@ const BrandCarousel = () => {
     <div className="carousel-container">
       <h2 className="carousel-title">Our Premium Brands</h2>
       <Swiper
-        modules={[Autoplay]} 
+        modules={[Autoplay]}
         spaceBetween={20}
         slidesPerView={3}
         autoplay={{ delay: 3000 }}

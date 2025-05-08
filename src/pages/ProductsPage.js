@@ -41,7 +41,7 @@ const ProductPager = () => {
     ? allFilteredImages
     : [...allImages.bathroom, ...allImages.house, ...allImages.kitchen, ...allImages.sink];
 
-  
+
 
   return (
     <div className="products-pager">
@@ -116,7 +116,7 @@ const ProductPager = () => {
               <img src={`/product_images/${image}`} alt={`Product ${index}`} className="product-imgr" />
               <div className="product-infor">
                 <h4>Section: {image.split("/")[0]}</h4>
-                
+
               </div>
             </div>
           ))}

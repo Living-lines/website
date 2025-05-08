@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './About.css';
 import { useNavigate } from 'react-router-dom';
-import aboutImage1 from '../assets/about-image-1.png'; // Ensure you import the image here
-import aboutImage2 from '../assets/about-image-2.jpg';
-import ourValue from '../assets/our-value.jpg';
+//import aboutImage1 from '../assets/about-image-1.png'; // Ensure you import the image here
+//import aboutImage2 from '../assets/about-image-2.jpg';
+//import ourValue from '../assets/our-value.jpg';
 import Timeline from './timeline/timeline.js';
 import { motion, useTransform, useScroll } from "framer-motion";
 // import Footer from '../footer/Footer';
@@ -11,6 +11,7 @@ import { motion, useTransform, useScroll } from "framer-motion";
 // import logoImage from '../../src/assets/logo.jpg';
 // import { faUser, faGlobe } from '@fortawesome/free-solid-svg-icons';
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 
 
 function About() {
@@ -23,15 +24,15 @@ function About() {
     const imageRotate = useTransform(scrollYProgress, [0, 1], ['0deg', '5deg']);
     const [isScrolled, setIsScrolled] = useState(false);
 
+    // Using external image locations for the images
+    const aboutImage1 = "https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/about-image-1.png";
+    const aboutImage2 = "https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/about-image-2.jpg";
+    const ourValue = "https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/our-value.jpg";
+
     useEffect(() => {
         const handleScroll = () => {
-            if (window.scrollY > 50) {
-                setIsScrolled(true);
-            } else {
-                setIsScrolled(false);
-            }
+            setIsScrolled(window.scrollY > 50);
         };
-
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
@@ -40,9 +41,8 @@ function About() {
         const animateNumber = () => {
             let start = 1;
             const end = 23;
-            const range = end - start;
+            const stepTime = Math.abs(Math.floor(2000 / (end - start)));
             let current = start;
-            const stepTime = Math.abs(Math.floor(2000 / range));
 
             const timer = setInterval(() => {
                 current += 1;
@@ -74,7 +74,7 @@ function About() {
 
             <div
                 className="home-container"
-                style={{ backgroundImage: `url(${aboutImage1})` }} // Dynamically set background here
+                style={{ backgroundImage: `url(${aboutImage1})` }}
             >
                 <div className="overlay-content">
                     <div className="left-section">
@@ -202,8 +202,6 @@ function About() {
                     </motion.div>
                 </div>
             </div>
-
-
         </div>
     );
 }

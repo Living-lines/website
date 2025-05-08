@@ -5,20 +5,12 @@ import logoImage from '../../src/assets/logo.jpg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faGlobe } from '@fortawesome/free-solid-svg-icons';
 import LoginModal from '../Login/LoginModal';
-import videoFile1 from '../assets/video 3.mp4';
-import videoFile2 from '../assets/video1.mp4';
 
-// Images
-import heroImage1 from '../assets/1.jpg';
-import heroImage2 from '../assets/2.jpg';
-import heroImage3 from '../assets/3.jpg';
-import heroImage4 from '../assets/4.jpg';
 import About from '../About/About';
 import BrandCarousel from '../brand/brand.js';
 import Footer from '../footer/Footer.js';
 
-
-
+// Product images (not commented, kept as is)
 import small1 from '../../src/products_images/small1.jpg';
 import small2 from '../../src/products_images/small2.jpg';
 import small3 from '../../src/products_images/small3.jpg';
@@ -27,6 +19,23 @@ import large1 from '../../src/products_images/large1.jpg';
 import large2 from '../../src/products_images/large2.jpg';
 import large3 from '../../src/products_images/large3.jpg';
 import large4 from '../../src/products_images/large4.jpg';
+
+//import videoFile1 from '../assets/video 3.mp4';
+//import videoFile2 from '../assets/video1.mp4';
+
+//import heroImage1 from '../assets/1.jpg';
+//import heroImage2 from '../assets/2.jpg';
+//import heroImage3 from '../assets/3.jpg';
+//import heroImage4 from '../assets/4.jpg';
+// Video files (commented out)
+const videoFile1 = "https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/video%203.mp4"; // DigitalOcean link
+const videoFile2 = "https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/video1.mp4"; // DigitalOcean link
+
+// Hero images (commented out)
+const heroImage1 = "https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/1.jpg"; // DigitalOcean link
+const heroImage2 = "https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/2.jpg"; // DigitalOcean link
+const heroImage3 = "https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/3.jpg"; // DigitalOcean link
+const heroImage4 = "https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/4.jpg"; // DigitalOcean link
 
 function Navbar() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -75,7 +84,6 @@ function Navbar() {
             <p>The Complete Bathware</p>
           </div>
 
-
           <div id="poda">
             <div className="glow"></div>
             <div className="darkBorderBg"></div>
@@ -95,22 +103,22 @@ function Navbar() {
               </div>
               <div id="search-icon">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" className="feather feather-search" strokeWidth="2" strokeLinejoin="round" strokeLinecap="round" viewBox="0 0 24 24">
-                <circle stroke="url(#search)" r="8" cy="11" cx="11" />
-                <line stroke="url(#searchl)" y2="16.65" y1="22" x2="16.65" x1="22" />
-                <defs>
-                  <linearGradient gradientTransform="rotate(50)" id="search">
-                    <stop stopColor="#f8e7f8" offset="0%" />
-                    <stop stopColor="#b6a9b7" offset="50%" />
-                  </linearGradient>
-                  <linearGradient id="searchl">
-                    <stop stopColor="#b6a9b7" offset="0%" />
-                    <stop stopColor="#837484" offset="50%" />
+                  <circle stroke="url(#search)" r="8" cy="11" cx="11" />
+                  <line stroke="url(#searchl)" y2="16.65" y1="22" x2="16.65" x1="22" />
+                  <defs>
+                    <linearGradient gradientTransform="rotate(50)" id="search">
+                      <stop stopColor="#f8e7f8" offset="0%" />
+                      <stop stopColor="#b6a9b7" offset="50%" />
                     </linearGradient>
-                    </defs>
+                    <linearGradient id="searchl">
+                      <stop stopColor="#b6a9b7" offset="0%" />
+                      <stop stopColor="#837484" offset="50%" />
+                    </linearGradient>
+                  </defs>
                 </svg>
               </div>
-              </div>
             </div>
+          </div>
 
           {/* <nav className="nav">
             <a href="#" onClick={() => setIsModalOpen(true)} className="nav-item">
@@ -142,8 +150,5 @@ function Navbar() {
     </div>
   );
 }
-
-
-
 
 export default Navbar;

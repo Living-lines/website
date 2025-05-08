@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import './Home.css';
 
-import videoFile1 from '../assets/video 3.mp4';
-import videoFile2 from '../assets/video1.mp4';
+// Commented imports for assets folder and using DigitalOcean links
+// import videoFile1 from '../assets/video 3.mp4';
+// import videoFile2 from '../assets/video1.mp4';
 
 import About from '../About/About';
 import BrandCarousel from '../brand/brand.js';
@@ -16,17 +17,26 @@ import large2 from '../../src/products_images/large2.jpg';
 import large3 from '../../src/products_images/large3.jpg';
 import large4 from '../../src/products_images/large4.jpg';
 
-import heroImage1 from '../assets/1.jpg';
-import heroImage2 from '../assets/2.jpg';
-import heroImage3 from '../assets/3.jpg';
-import heroImage4 from '../assets/4.jpg';
-import heroImage5 from '../assets/tiles.png';
-import heroImage6 from '../assets/l7.jpg';
+
+//import heroImage1 from '../assets/1.jpg';
+//import heroImage2 from '../assets/2.jpg';
+//import heroImage3 from '../assets/3.jpg';
+//import heroImage4 from '../assets/4.jpg';
+//import heroImage5 from '../assets/tiles.png';
+//import heroImage6 from '../assets/l7.jpg';
+
 import { Link } from 'react-router-dom';
 import Catalogs from '../Catalogs/Catalogs.js';
 
 function Home() {
   const [currentSlide, setCurrentSlide] = useState(0);
+
+  const heroImage1 = "https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/1.jpg";
+  const heroImage2 = "https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/2.jpg";
+  const heroImage3 = "https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/3.jpg";
+  const heroImage4 = "https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/4.jpg";
+  const heroImage5 = "https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/tiles.png";
+  const heroImage6 = "https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/l7.jpg";
 
   const slides = [
     {
@@ -54,19 +64,19 @@ function Home() {
       textPosition: 'left',
     },
     {
-      image: heroImage5,  
+      image: heroImage5,
       heading: 'Premium Tiles<br />For Every Floor.',
       subQuote: 'Elevate your interiors with our wide range of exquisite, durable tiles.',
       textPosition: 'right',
     },
     {
-      image: heroImage6,  
+      image: heroImage6,
       heading: 'Top-Notch<br />Electrical Appliances.',
       subQuote: 'Experience cutting-edge technology and performance with our curated range of electrical appliances.',
       textPosition: 'left',
     },
   ];
-  
+
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -81,9 +91,8 @@ function Home() {
         {slides.map((slide, index) => (
           <div
             key={index}
-            className={`hero-slide ${index === currentSlide ? 'active' : 'hidden'} ${
-              slide.textPosition === 'left' ? 'reverse' : ''
-            }`}
+            className={`hero-slide ${index === currentSlide ? 'active' : 'hidden'} ${slide.textPosition === 'left' ? 'reverse' : ''
+              }`}
           >
             <div className="text-content">
               <h1 dangerouslySetInnerHTML={{ __html: slide.heading }} />
@@ -97,13 +106,14 @@ function Home() {
       </section>
 
       <div className="video-section">
-        <video autoPlay loop muted playsInline className="fullscreen-video">
+        {/* Commented videos from assets folder */}
+        {/* <video autoPlay loop muted playsInline className="fullscreen-video">
           <source src={videoFile1} type="video/mp4" />
         </video>
 
         <video autoPlay loop muted playsInline className="fullscreen-video">
           <source src={videoFile2} type="video/mp4" />
-        </video>
+        </video> */}
       </div>
 
       <About />
@@ -179,7 +189,7 @@ function Home() {
         </Link>
       </section>
 
-      <Catalogs/>
+      <Catalogs />
 
     </div>
   );
