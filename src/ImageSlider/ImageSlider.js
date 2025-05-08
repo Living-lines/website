@@ -6,15 +6,15 @@ const ImageSlider = () => {
 
   const locations = [
     {
-      src: require('../assets/location_1.jpg'), // Ensure the image path is correct
+      src: require('https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/1.jpg'), // Ensure the image path is correct
       alt: 'Location 1'
     },
     {
-      src: require('../assets/location_2.jpg'), // Ensure the image path is correct
+      src: require('https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/2.jpg'), // Ensure the image path is correct
       alt: 'Location 2'
     },
     {
-      src: require('../assets/location_3.jpg'), // Ensure the image path is correct
+      src: require('https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/3.jpg'), // Ensure the image path is correct
       alt: 'Location 3'
     }
   ];

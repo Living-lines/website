@@ -5,11 +5,11 @@ import "swiper/css";
 import "swiper/css/autoplay";
 import "./brand.css"; // Import CSS file
 
-import gessi from "../assets/gessi.png";
-import grohe from "../assets/grohe (2).png";
-import toto from "../assets/toto.png";
-import kohler from "../assets/kohler.png";
-import kuka from "../assets/kuka.png";
+import gessi from 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/i.png';
+import grohe from 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/grohe (2).png';
+import toto from 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/o.png';
+import kohler from 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/r.png';
+import kuka from 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/a.png';
 
 const brands = [
   { name: "GESSI", logo: gessi },

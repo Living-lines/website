@@ -7,21 +7,21 @@ import videoFile2 from '../assets/video1.mp4';
 import About from '../About/About';
 import BrandCarousel from '../brand/brand.js';
 
-import small1 from '../../src/products_images/small1.jpg';
-import small2 from '../../src/products_images/small2.jpg';
-import small3 from '../../src/products_images/small3.jpg';
-import small4 from '../../src/products_images/small4.jpg';
-import large1 from '../../src/products_images/large1.jpg';
-import large2 from '../../src/products_images/large2.jpg';
-import large3 from '../../src/products_images/large3.jpg';
-import large4 from '../../src/products_images/large4.jpg';
+import small1 from 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/1.jpg';
+import small2 from 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/2.jpg';
+import small3 from 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/3.jpg';
+import small4 from 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/4.jpg';
+import large1 from 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/1.jpg';
+import large2 from 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/2.jpg';
+import large3 from 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/3.jpg';
+import large4 from 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/4.jpg';
 
-import heroImage1 from '../assets/1.jpg';
-import heroImage2 from '../assets/2.jpg';
-import heroImage3 from '../assets/3.jpg';
-import heroImage4 from '../assets/4.jpg';
-import heroImage5 from '../assets/tiles.png';
-import heroImage6 from '../assets/l7.jpg';
+import heroImage1 from 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/1.jpg';
+import heroImage2 from 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/2.jpg';
+import heroImage3 from 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/3.jpg';
+import heroImage4 from 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/4.jpg';
+import heroImage5 from 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/s.png';
+import heroImage6 from 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/7.jpg';
 import { Link } from 'react-router-dom';
 import Catalogs from '../Catalogs/Catalogs.js';
 
