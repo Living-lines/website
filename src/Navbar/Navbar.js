@@ -6,6 +6,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faGlobe } from '@fortawesome/free-solid-svg-icons';
 import LoginModal from '../Login/LoginModal';
 
+import { useNavigate } from 'react-router-dom';
+
+
+
+
 import About from '../About/About';
 import BrandCarousel from '../brand/brand.js';
 import Footer from '../footer/Footer.js';
@@ -28,18 +33,43 @@ import large4 from '../../src/products_images/large4.jpg';
 //import heroImage3 from '../assets/3.jpg';
 //import heroImage4 from '../assets/4.jpg';
 // Video files (commented out)
-const videoFile1 = "https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/video%203.mp4"; // DigitalOcean link
-const videoFile2 = "https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/video1.mp4"; // DigitalOcean link
+const videoFile1 = "https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/video%203.mp4"; 
+const videoFile2 = "https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/video1.mp4"; 
 
 // Hero images (commented out)
-const heroImage1 = "https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/1.jpg"; // DigitalOcean link
-const heroImage2 = "https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/2.jpg"; // DigitalOcean link
-const heroImage3 = "https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/3.jpg"; // DigitalOcean link
-const heroImage4 = "https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/4.jpg"; // DigitalOcean link
+const heroImage1 = "https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/1.jpg";
+const heroImage2 = "https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/2.jpg";
+const heroImage3 = "https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/3.jpg";
+const heroImage4 = "https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/4.jpg";
+
+
+
+
+
+
+
 
 function Navbar() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
+
+  const [searchTerm, setSearchTerm] = useState('');
+  const [products, setProducts] = useState([]);
+
+
+  const navigate = useNavigate();
+
+
+
+  const fetchProducts = async () => {
+  try {
+    const res = await fetch(`http://localhost:3000/api/products?brand=nike&search=${searchTerm}`);
+    const data = await res.json();
+    console.log('Fetched Products:', data); // Or update `setProducts(data)`
+  } catch (err) {
+    console.error('Error fetching products:', err);
+  }
+};
 
   const slides = [
     {
@@ -92,7 +122,21 @@ function Navbar() {
             <div className="white"></div>
             <div className="border"></div>
             <div id="main">
-              <input placeholder="Search..." type="text" name="text" className="input1" />
+              <input
+  placeholder="Search..."
+  type="text"
+  name="text"
+  className="input1"
+  value={searchTerm}
+  onChange={(e) => setSearchTerm(e.target.value)}
+  onKeyDown={(e) => {
+    if (e.key === 'Enter') {
+      navigate(`/brands?search=${searchTerm}`);
+    }
+  }}
+/>
+
+
               <div id="input-mask"></div>
               <div id="pink-mask"></div>
               <div className="filterBorder"></div>
