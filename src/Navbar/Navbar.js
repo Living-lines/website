@@ -138,7 +138,7 @@ function Navbar() {
           <Link to="/products" className="nav-item">OUR PRODUCTS</Link>
           <Link to="/Catalogs" className='nav-item'>CATALOGS</Link>
           <Link to="/contact" className="nav-item">CONTACT</Link>
-          <Link to="#" className="nav-item">CATALOGS</Link>
+          {/* <Link to="#" className="nav-item">CATALOGS</Link> */}
           <Link to="/brands" className="nav-item">BRANDS</Link> {/* Changed to Link */}
 
           <div className="menu-icon">☰</div>
