@@ -5,6 +5,7 @@ import logoImage from '../../src/assets/logo.jpg'; // Logo Image
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWhatsapp } from '@fortawesome/free-brands-svg-icons'; // WhatsApp icon
 import LoginModal from '../Login/LoginModal';
+import whatsappIcon from '../assets/whatsapp.png'
 
 function Navbar() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -56,9 +57,27 @@ function Navbar() {
       </div>
 
       {/* WhatsApp Button without background */}
-      <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="whatsapp-button">
-        <FontAwesomeIcon icon={faWhatsapp} size="2x" color="#25D366" />
-      </a>
+      <a
+          href="https://wa.me/7989052267"
+          className="whatsapp-float"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Chat on WhatsApp"
+        >
+          <img
+            src={whatsappIcon}
+            alt="WhatsApp"
+            className="whatsapp-icon"
+          />
+          <path
+            fill="#25D366"
+            d="M16 .3A15.6 15.6 0 0 0 .4 15.9c0 2.8.8 5.5 2.3 7.8L0 32l8.5-2.2a15.7 15.7 0 0 0 7.5 1.9h.1A15.6 15.6 0 0 0 16 .3zm0 28.8c-2.2 0-4.4-.6-6.3-1.8l-.5-.3-5 1.3 1.4-4.9-.3-.5a12.9 12.9 0 0 1-2-7C3.3 8.3 8.9 2.7 16 2.7c6.6 0 12 5.4 12 12 0 7-5.4 12.4-12 12.4z"
+          />
+          <path
+            fill="#25D366"
+            d="M24 19.1c-.4-.2-2.4-1.2-2.7-1.3-.3-.1-.5-.2-.7.2s-.8 1.3-1 1.6c-.2.3-.4.3-.8.1-2.3-1.1-3.8-2-5.3-4.5-.4-.6.5-.5 1.3-1.8.1-.2.1-.4 0-.6-.1-.2-.7-1.6-1-2.2-.3-.5-.6-.5-.8-.5h-.7c-.2 0-.6.1-.9.4-.3.3-1.2 1.2-1.2 2.8s1.2 3.2 1.4 3.4c.2.2 2.4 3.6 5.8 5 2.3.9 3.2.9 4.4.8.7-.1 2.4-1 2.7-2 .3-1 .3-1.9.2-2.1 0-.1-.1-.1-.3-.2z"
+          />
+        </a>
     </div>
   );
 }
