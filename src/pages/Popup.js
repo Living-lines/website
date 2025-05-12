@@ -8,15 +8,50 @@ const Popup = ({ product, onClose, onRequestQuote, isLoading, quoteStatus }) => 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
 
-  const handleSubmit = () => {
+  // Handle form submission with API call for quote
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate the quote submission process (e.g., make an API call here)
-    setTimeout(() => {
+
+    const quoteData = {
+      name,
+      email,
+      phone,
+      product_id: product?.id,
+      product_name: product?.model_name,
+      product_brand: product?.brand,
+      product_type: product?.product_type,
+      image_url: product?.image_url,
+    };
+
+    try {
+      const response = await fetch('http://localhost:3000/api/quotes', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(quoteData),
+      });
+
+      if (!response.ok) {
+        const error = await response.json();
+        console.error('Backend error:', error);
+        return;
+      }
+
+      const result = await response.json();
+      console.log('✅ Quote submitted:', result);
+      
+      // Stop submitting, show success message
       setIsSubmitting(false);
-      setShowSuccessMessage(true); // Show the success message
-      onRequestQuote(); // Trigger callback after form submission
-    }, 3000); // Simulate 3-second loading
+      setShowSuccessMessage(true);
+
+      // Trigger callback after form submission
+      onRequestQuote(); 
+    } catch (error) {
+      setIsSubmitting(false);
+      console.error('❌ Request failed:', error);
+    }
   };
 
   return (
@@ -28,7 +63,7 @@ const Popup = ({ product, onClose, onRequestQuote, isLoading, quoteStatus }) => 
         <p><strong>Brand:</strong> {product?.brand}</p>
         <p><strong>Type:</strong> {product?.product_type}</p>
 
-        {/* Show form initially */}
+        {/* Form section */}
         {!isSubmitting && !showSuccessMessage ? (
           <div>
             <div className="form-group">
@@ -38,6 +73,7 @@ const Popup = ({ product, onClose, onRequestQuote, isLoading, quoteStatus }) => 
                 placeholder="Enter your name"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
+                required
               />
             </div>
             <div className="form-group">
@@ -47,15 +83,17 @@ const Popup = ({ product, onClose, onRequestQuote, isLoading, quoteStatus }) => 
                 placeholder="Enter your email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
+                required
               />
             </div>
             <div className="form-group">
               <label>Phone:</label>
               <input
-                type="text"
+                type="tel"
                 placeholder="Enter your phone number"
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
+                required
               />
             </div>
 
@@ -79,7 +117,7 @@ const Popup = ({ product, onClose, onRequestQuote, isLoading, quoteStatus }) => 
 
         {/* Show success message after submission */}
         {showSuccessMessage && !isSubmitting && (
-          <p className="quote-status">Quote successfully requested!</p>
+          <p className="quote-status">We will contact you soon!</p>
         )}
       </div>
     </div>

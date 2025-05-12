@@ -99,11 +99,7 @@ export default function Catalogs() {
         ))}
       </div>
 
-      <div className="request-section">
-        <h4>📬 Prefer a physical copy?</h4>
-        <p>Fill out a request form and we'll mail one to your address.</p>
-        <a href="/request-catalog" className="btn primary">Request Printed Catalog</a>
-      </div>
+      
     </section>
   );
 }
