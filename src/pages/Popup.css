@@ -1,170 +1,117 @@
-.popupg-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle at center, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9));
-    z-index: 999;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    animation: fadeIn 0.5s ease-in-out;
-  }
-  
-  @keyframes fadeIn {
-    from { opacity: 0; transform: scale(0.9); }
-    to { opacity: 1; transform: scale(1); }
-  }
-  
-  .popupg-container {
-    position: relative;
-    background: linear-gradient(135deg, #ffffff, #f2f2f2);
-    padding: 2.5rem;
-    border-radius: 15px;
-    width: 400px;
-    max-width: 90%;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    transform-style: preserve-3d;
-    animation: popupSlideUp 0.6s ease;
-  }
-  
-  @keyframes popupSlideUp {
-    from {
-      transform: translateY(50px) scale(0.9);
-      opacity: 0;
-    }
-    to {
-      transform: translateY(0) scale(1);
-      opacity: 1;
-    }
-  }
-  
-  .closeg-btn {
-    position: absolute;
-    top: -12px;
-    right: -12px;
-    background-color: #f26624;
-    color: white;
-    border: none;
-    border-radius: 50%;
-    width: 28px;
-    height: 28px;
-    font-size: 20px;
-    cursor: pointer;
-    z-index: 1000;
-    transition: transform 0.2s ease, background-color 0.3s ease;
-  }
-  
-  .closeg-btn:hover {
-    transform: rotate(90deg);
-    background-color: #d84f14;
-  }
-  
-  .containerg {
-    display: flex;
-    flex-direction: column;
-    gap: 1.2rem;
-  }
-  
-  .headingg {
-    font-size: 1.8rem;
-    font-weight: 600;
-    text-align: center;
-    color: #222;
-    margin-bottom: 0.5rem;
-    text-shadow: 1px 1px 1px rgba(0,0,0,0.1);
-  }
-  
-  .formg {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-  
-  .inputg {
-    padding: 0.75rem 1rem;
-    border: 2px solid #ccc;
-    border-radius: 10px;
-    font-size: 1rem;
-    background: white;
-    transition: all 0.3s ease;
-    box-shadow: inset 2px 2px 5px rgba(0,0,0,0.05);
-  }
-  
-  .inputg:focus {
-    border-color: #f26624;
-    box-shadow: 0 0 10px rgba(242, 102, 36, 0.2);
-    outline: none;
-  }
-  
-  .sendg-button {
-    background: linear-gradient(135deg, #f26624, #f89e4f);
-    color: white;
-    padding: 0.75rem;
-    border: none;
-    border-radius: 10px;
-    font-size: 1.1rem;
-    font-weight: bold;
-    cursor: pointer;
-    transition: transform 0.2s ease, box-shadow 0.3s ease;
-    box-shadow: 0 4px 15px rgba(242, 102, 36, 0.3);
-  }
-  
-  .sendg-button:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 20px rgba(242, 102, 36, 0.5);
-  }
-  
-  .agreementg {
-    font-size: 0.8rem;
-    text-align: center;
-    color: #888;
-    margin-top: 1rem;
-  }
-  
-  .agreementg a {
-    color: #f26624;
-    text-decoration: none;
-  }
-  
-  .agreementg a:hover {
-    text-decoration: underline;
-  }
-  
+/* Popup overlay and content */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 75px;;
+}
 
-  @media screen and (max-width: 480px) {
-    .popupg-container {
-      width: 90%;
-      padding: 1.8rem;
-      border-radius: 12px;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-    }
-  
-    .headingg {
-      font-size: 1.5rem;
-    }
-  
-    .inputg {
-      font-size: 0.95rem;
-      padding: 0.65rem 0.9rem;
-    }
-  
-    .sendg-button {
-      font-size: 1rem;
-      padding: 0.65rem;
-    }
-  
-    .closeg-btn {
-      width: 24px;
-      height: 24px;
-      font-size: 18px;
-    }
-  
-    .agreementg {
-      font-size: 0.75rem;
-      margin-top: 0.8rem;
-    }
-  }
-  
+.popup-content {
+  background: #fff;
+  padding: 15px 20px; /* Reduced padding */
+  border-radius: 10px;
+  text-align: center;
+  width: 350px; /* Smaller width */
+  max-height: 70vh; /* Limit the height to prevent overflow */
+  overflow-y: auto; /* Allow scrolling if content exceeds */
+  position: relative;
+}
+
+/* Close button */
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  font-size: 16px; /* Smaller close button */
+  cursor: pointer;
+  color: #444;
+}
+
+/* Product image */
+.popup-img {
+  width: 100%;
+  height: 150px; /* Smaller height for image */
+  margin-bottom: 10px;
+  object-fit: cover; /* Ensure the image is cropped nicely */
+}
+
+/* Form styling */
+.form-group {
+  margin-bottom: 12px; /* Reduced spacing */
+  text-align: left;
+  width: 100%;
+}
+
+.form-group label {
+  font-weight: 600;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 8px;
+  font-size: 14px; /* Smaller font size */
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #f26624;
+}
+
+/* Request a Quote button */
+.request-quote-btn {
+  background-color: #f26624;
+  color: white;
+  padding: 8px 15px; /* Reduced padding */
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px; /* Smaller font size */
+  transition: background-color 0.3s ease;
+  width: 100%;
+}
+
+.request-quote-btn:hover {
+  background-color: #d45d19;
+}
+
+/* Loading spinner */
+.loading-spinner {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.spinner {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #f26624;
+  border-radius: 50%;
+  width: 25px; /* Smaller spinner */
+  height: 25px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Quote status message */
+.quote-status {
+  margin-top: 15px; /* Reduced margin */
+  font-size: 14px;
+  color: #4caf50;
+}
