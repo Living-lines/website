@@ -16,16 +16,17 @@ const ProductPager = () => {
   const [showPopup, setShowPopup] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [quoteStatus, setQuoteStatus] = useState('');
-  const [searchQuery, setSearchQuery] = useState(''); // To store search query
+  const [searchQuery, setSearchQuery] = useState(''); // Store search query
 
   const fetchProducts = () => {
     const params = new URLSearchParams();
-    if (selectedBrand) params.set('brand', selectedBrand);
-    if (selectedType) params.set('product_type', selectedType);
+    if (selectedBrand) params.set('brand', selectedBrand);  // Send selected brand to the API
+    if (selectedType) params.set('product_type', selectedType);  // Send selected type to the API
+    if (searchQuery) params.set('search', searchQuery);  // Send search query to the API
 
     fetch(`${API_BASE}/api/products?${params.toString()}`)
       .then(res => res.json())
-      .then(data => setDynamicProducts(data))
+      .then(data => setDynamicProducts(data))  // Set filtered products in state
       .catch(err => console.error('❌ Fetch products error:', err));
   };
 
@@ -44,7 +45,7 @@ const ProductPager = () => {
 
   useEffect(() => {
     fetchProducts();
-  }, [selectedBrand, selectedType]);
+  }, [selectedBrand, selectedType, searchQuery]);  // Re-fetch when any filter or search query changes
 
   const handleBrandSelect = (brand) => {
     setSelectedBrand(prev => prev === brand ? '' : brand);
@@ -69,28 +70,46 @@ const ProductPager = () => {
   const handleRequestQuote = () => {
     setIsLoading(true);
     setQuoteStatus('');
-    setTimeout(() => {
-      setIsLoading(false);
-      setQuoteStatus('Quote submitted successfully!');
-    }, 3000); // Simulate 3-second loading
+
+    // Construct the data to send in the POST request
+    const quoteData = {
+      product_id: selectedProduct.id,
+      product_name: selectedProduct.model_name,
+      product_brand: selectedProduct.brand,
+      product_type: selectedProduct.product_type,
+      image_url: selectedProduct.image_url,
+    };
+
+    fetch(`${API_BASE}/api/quotes`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(quoteData),
+    })
+      .then(response => response.json())
+      .then(data => {
+        setIsLoading(false);
+        if (data.success) {
+          setQuoteStatus('Quote submitted successfully!');
+        } else {
+          setQuoteStatus('Failed to submit the quote.');
+        }
+      })
+      .catch(err => {
+        setIsLoading(false);
+        setQuoteStatus('Error submitting the quote.');
+        console.error('❌ Quote submission error:', err);
+      });
   };
 
   const handleSearchChange = (e) => {
     setSearchQuery(e.target.value);
   };
 
-  // Filter the products based on the search query
-  const filteredProducts = dynamicProducts.filter(prod =>
-    prod.model_name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    prod.brand.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    prod.product_type.toLowerCase().includes(searchQuery.toLowerCase())
-  );
-
   return (
     <div className="products-pager">
       {/* Search Bar */}
-
-
       <div className="filters-section">
         <div className="search-bar">
           <input
@@ -147,23 +166,27 @@ const ProductPager = () => {
       {/* Product Grid */}
       <div className="products-section">
         <div className="product-cards">
-          {filteredProducts.map(prod => (
-            <div
-              key={prod.id}
-              className="product-card"
-              onClick={() => handleImageClick(prod)}
-            >
-              <img
-                src={prod.image_url}
-                alt={prod.model_name}
-                className="product-img"
-              />
-              <div className="product-info">
-                <h4>{prod.model_name}</h4>
-                <p>{prod.brand} — {prod.product_type}</p>
+          {dynamicProducts.length > 0 ? (
+            dynamicProducts.map(prod => (
+              <div
+                key={prod.id}
+                className="product-card"
+                onClick={() => handleImageClick(prod)}
+              >
+                <img
+                  src={prod.image_url}
+                  alt={prod.model_name}
+                  className="product-img"
+                />
+                <div className="product-info">
+                  <h4>{prod.model_name}</h4>
+                  <p>{prod.brand} — {prod.product_type}</p>
+                </div>
               </div>
-            </div>
-          ))}
+            ))
+          ) : (
+            <p>No products found for your search.</p>
+          )}
         </div>
 
         {showPopup && (
