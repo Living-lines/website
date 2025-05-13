@@ -5,7 +5,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 
 
 
-const API_BASE = 'http://localhost:3000';
+const API_BASE = 'https://backend-tawny-one-62.vercel.app';
 
 const ProductPager = () => {
   const [dynamicProducts, setDynamicProducts] = useState([]);

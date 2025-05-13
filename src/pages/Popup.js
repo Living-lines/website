@@ -25,7 +25,7 @@ const Popup = ({ product, onClose, onRequestQuote, isLoading, quoteStatus }) => 
     };
 
     try {
-      const response = await fetch('http://localhost:3000/api/quotes', {
+      const response = await fetch('https://backend-tawny-one-62.vercel.app/api/quotes', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

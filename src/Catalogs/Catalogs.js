@@ -34,7 +34,7 @@ export default function Catalogs() {
   const [newCatalogs, setNewCatalogs] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:3000/api/catalogs')
+    fetch('https://backend-tawny-one-62.vercel.app/api/catalogs')
       .then((res) => res.json())
       .then((data) => setNewCatalogs(data))
       .catch((err) => console.error('Failed to load new catalogs:', err));
