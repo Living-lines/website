@@ -157,10 +157,10 @@ function About() {
             <div className="container">
                 <motion.div
                     className="text-section"
-                    initial={{ opacity: 0, scale: 0.8 }}
+                    initial={{ opacity: 1, scale: 0.8 }}
                     animate={{ opacity: 1, scale: 1 }}
                     whileInView={{ scale: [1, 1.05, 1] }}
-                    transition={{ duration: 1.5, repeat: Infinity, repeatType: "mirror" }}
+                    transition={{ duration: 4, repeat: Infinity, repeatType: "mirror" }}
                 >
                     <h1 className="highlight-about">Our Value</h1>
                     <h2 className="title">Trusted by Homeowners and Professionals Alike</h2>
