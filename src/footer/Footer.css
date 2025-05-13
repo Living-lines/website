@@ -1,16 +1,16 @@
 .footer {
     background-color: #000;
     color: #fff;
-    padding: 2rem 1rem;
+    /* padding: 2rem 1rem; */
     width: 100%;
   }
   
   .footer-section {
-    padding-top: 100px;
+    padding-top: 20px;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    gap: 2rem;
+    gap: 1rem;
     /* max-width: 1200px; */
     margin: 0 auto;
   }
@@ -406,4 +406,18 @@
       text-align: center;
     }
   }
-  
+
+  .footer-link {
+  background-color: black;
+  color:#ff6600; 
+  text-decoration: none; 
+  font-size: 1rem;
+  border-width: 0;
+}
+
+.footer-link:hover {
+  color: #f26624; 
+  text-decoration: underline; 
+}
+
+

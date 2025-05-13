@@ -1,8 +1,16 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom'; 
 import './Footer.css';
-// import logo from '../assets/logo.jpg';
 
 const Footer = () => {
+  const navigate = useNavigate();
+
+  // Function to handle navigation and scrolling to top
+  const handleNavigation = (path) => {
+    navigate(path);  // Navigate to the specified route
+    window.scrollTo(0, 0);  // Scroll to the top
+  };
+
   return (
     <footer className="footer">
       <div className="footer-section">
@@ -20,7 +28,7 @@ const Footer = () => {
         <div className="footer-right">
           <h2 className="footer-heading">Get The Latest Updates</h2>
           <div className="footer-subscribe">
-            <input placeholder="Enter your Email..." className="input" name="text" type="text" />
+            <input placeholder="Enter your Mobile number..." className="input" name="text" type="text" />
             <button className="Btn"></button>
           </div>
         </div>
@@ -50,24 +58,12 @@ const Footer = () => {
           <div className="extra-column">
             <h2 className="extra-title">Navigate</h2>
             <div className="navigate-table">
-              <p>Home</p>
-              <p>Bathroom</p>
-              <p>Wellness</p>
-              <p>Blog</p>
-              <p>Kitchen</p>
-              <p>Showroom 360</p>
-              <p>Events</p>
-              <p>Surface</p>
-              <p>Contact</p>
-            </div>
-          </div>
-
-          <div className="extra-column">
-            <h2 className="extra-title">Need Help?</h2>
-            <div className="simple-links">
-              <p>Customer Service</p>
-              <p>Privacy Policy</p>
-              <p>Terms</p>
+              <button onClick={() => handleNavigation('/')} className="footer-link">Home</button>
+              <button onClick={() => handleNavigation('/about')} className="footer-link">About</button>
+              <button onClick={() => handleNavigation('/products')} className="footer-link">Products</button>
+              <button onClick={() => handleNavigation('/catalogs')} className="footer-link">Catalogs</button>
+              <button onClick={() => handleNavigation('/brands')} className="footer-link">Brands</button>
+              <button onClick={() => handleNavigation('/contact')} className="footer-link">Contact</button>
             </div>
           </div>
 

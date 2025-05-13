@@ -78,6 +78,12 @@
   outline: none;
 }
 
+.input1:focus {
+  outline: none;
+  box-shadow: 0 0 8px 2px #ff2000; 
+}
+
+
 .input1::placeholder {
   color: #c0b9c0;
 }
