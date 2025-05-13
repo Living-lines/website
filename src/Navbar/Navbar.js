@@ -35,7 +35,7 @@ function Navbar() {
                 onChange={(e) => setSearchTerm(e.target.value)}
                 onKeyDown={(e) => {
                   if (e.key === 'Enter') {
-                    navigate(`/brands?search=${searchTerm}`);
+                    navigate(`/products?search=${searchTerm}`);
                   }
                 }}
               />

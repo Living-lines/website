@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import './ProductPage.css';
 import Popup from './Popup';
+import { useLocation, useNavigate } from 'react-router-dom';
+
+
 
 const API_BASE = 'http://localhost:3000';
 
@@ -15,10 +18,18 @@ const ProductPager = () => {
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [showPopup, setShowPopup] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
-  const [searchQuery, setSearchQuery] = useState('');
+  //const [searchQuery, setSearchQuery] = useState('');
+
+
+  const location = useLocation();
+  const navigate = useNavigate();
+const params = new URLSearchParams(location.search);
+const initialSearch = params.get('search') || '';
+const [searchQuery, setSearchQuery] = useState(initialSearch);
+
 
   // Fetch helper
-  const fetchProducts = () => {
+  /*const fetchProducts = () => {
     const params = new URLSearchParams();
     if (selectedBrand)    params.set('brand', selectedBrand);
     if (selectedType)     params.set('product_type', selectedType);
@@ -28,14 +39,37 @@ const ProductPager = () => {
     fetch(`${API_BASE}/api/products?${params.toString()}`)
       .then(res => res.json())
       .then(data => {
-        setDynamicProducts(data);
+        const filtered = searchQuery
+    ? data.filter(prod => prod.brand.toLowerCase() === searchQuery.toLowerCase())
+    : data;
+  setDynamicProducts(filtered);
         setIsLoading(false);
       })
       .catch(err => {
         console.error('❌ Fetch products error:', err);
         setIsLoading(false);
       });
-  };
+  }; */
+
+  const fetchProducts = () => {
+  const params = new URLSearchParams();
+  if (selectedBrand) params.set('brand', selectedBrand);
+  if (selectedType) params.set('product_type', selectedType);
+  if (searchQuery) params.set('search', searchQuery);
+
+  setIsLoading(true);
+  fetch(`${API_BASE}/api/products?${params.toString()}`)
+    .then(res => res.json())
+    .then(data => {
+      setDynamicProducts(data); // assuming backend returns already filtered products
+      setIsLoading(false);
+    })
+    .catch(err => {
+      console.error('❌ Fetch products error:', err);
+      setIsLoading(false);
+    });
+};
+
 
   // Initial load — also gather filter options
   useEffect(() => {
@@ -52,6 +86,15 @@ const ProductPager = () => {
         setIsLoading(false);
       });
   }, []);
+
+
+
+useEffect(() => {
+  const params = new URLSearchParams();
+  if (searchQuery) params.set('search', searchQuery);
+  navigate(`/products?${params.toString()}`, { replace: true });
+}, [searchQuery]); 
+
 
   // Re-fetch when filters/search change
   useEffect(fetchProducts, [selectedBrand, selectedType, searchQuery]);
