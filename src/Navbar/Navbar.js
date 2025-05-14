@@ -58,7 +58,7 @@ function Navbar() {
 
       {/* WhatsApp Button without background */}
       <a
-          href="https://wa.me/8074253744"
+          href="https://wa.me/918074253744"
           className="whatsapp-float"
           target="_blank"
           rel="noopener noreferrer"

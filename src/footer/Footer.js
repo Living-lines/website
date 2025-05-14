@@ -47,7 +47,7 @@ const Footer = () => {
               <p><i className="fas fa-phone phone-icon" /> +91 9849111487</p>
             </div>
             <div className="showroom-column">
-              <h3>Vijayanagaram</h3>
+              <h3>Vizianagaram</h3>
               <p><i className="fas fa-envelope mail-icon" /> info@livinglines.in</p>
               <p><i className="fas fa-phone phone-icon" /> +91 7997995219</p>
             </div>
