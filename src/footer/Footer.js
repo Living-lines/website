@@ -1,81 +1,87 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom'; 
+import { useNavigate } from 'react-router-dom';
 import './Footer.css';
 
 const Footer = () => {
   const navigate = useNavigate();
 
-  // Function to handle navigation and scrolling to top
   const handleNavigation = (path) => {
-    navigate(path);  // Navigate to the specified route
-    window.scrollTo(0, 0);  // Scroll to the top
+    navigate(path);
+    window.scrollTo(0, 0);
   };
 
   return (
     <footer className="footer">
-      <div className="footer-section">
-        <div className="footer-left">
-          <img
-            src="https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/logo.jpg"
-            alt="Living Lines Logo"
-            className="footer-logo"
-          />
-          <p className="footer-description">
-            Living Lines Emporio is a venture of ‘Living Lines Group’, a synonym for high-end sanitary wares, bathroom fittings, tiles & allied building materials. Living Group had its inception in the year 1998 at Vizag in Andhra Pradesh, India.
-          </p>
+      {/* Our Showrooms Section */}
+      <div className="showroom-section">
+        <h2 className="showroom-title">Our Showrooms</h2>
+        <div className="showroom-table">
+          <div className="showroom-column">
+            <h3>Visakhapatnam</h3>
+            <p><i className="fas fa-envelope mail-icon" /> info@livinglines.in</p>
+            <p><i className="fas fa-phone phone-icon" /> 08912514792</p>
+          </div>
+          <div className="showroom-column">
+            <h3>Madhurawada</h3>
+            <p><i className="fas fa-envelope mail-icon" /> info@livinglines.in</p>
+            <p><i className="fas fa-phone phone-icon" /> +91 9849111487</p>
+          </div>
+          <div className="showroom-column">
+            <h3>Vizianagaram</h3>
+            <p><i className="fas fa-envelope mail-icon" /> info@livinglines.in</p>
+            <p><i className="fas fa-phone phone-icon" /> +91 7997995219</p>
+          </div>
         </div>
+      </div>
 
-        <div className="footer-right">
-          <h2 className="footer-heading">Get The Latest Updates</h2>
-          <div className="footer-subscribe">
-            <input placeholder="Enter your Mobile number..." className="input" name="text" type="text" />
-            <button className="Btn"></button>
+      {/* New Footer Layout Below Showroom Section */}
+      <div className="footer-columns">
+
+        {/* Column 1: Company & Hours */}
+        <div className="footer-left-column">
+          <h2>Living Lines</h2>
+          <div className="location-hours">
+            <h3>Vizianagaram</h3>
+            <p>Monday - Saturday : 9:00 AM to 9:00 PM</p>
+            <h3 style={{ marginTop: '3rem' }}>Visakhapatnam</h3>
+            <p>Monday - Saturday : 9:00 AM to 9:00 PM</p>
+            <p style={{ marginTop: '1rem', color: '#ccc' }}>We are closed on public Holidays.</p>
           </div>
         </div>
 
-        <div className="showroom-section">
-          <h2 className="showroom-title">Our Showrooms</h2>
-          <div className="showroom-table">
-            <div className="showroom-column">
-              <h3>Visakhapatnam</h3>
-              <p><i className="fas fa-envelope mail-icon" /> info@livinglines.in</p>
-              <p><i className="fas fa-phone phone-icon" /> 08912514792</p>
-            </div>
-            <div className="showroom-column">
-              <h3>Madhurawada</h3>
-              <p><i className="fas fa-envelope mail-icon" /> info@livinglines.in</p>
-              <p><i className="fas fa-phone phone-icon" /> +91 9849111487</p>
-            </div>
-            <div className="showroom-column">
-              <h3>Vizianagaram</h3>
-              <p><i className="fas fa-envelope mail-icon" /> info@livinglines.in</p>
-              <p><i className="fas fa-phone phone-icon" /> +91 7997995219</p>
-            </div>
+        {/* Column 2: Navigation Links */}
+        <div className="footer-middle-column">
+          <h2 className="extra-title">Navigate</h2>
+          <div className="navigate-table">
+            <button onClick={() => handleNavigation('/')} className="footer-link">Home</button>
+            <button onClick={() => handleNavigation('/about')} className="footer-link">About</button>
+            <button onClick={() => handleNavigation('/products')} className="footer-link">Products</button>
+            <button onClick={() => handleNavigation('/catalogs')} className="footer-link">Catalogs</button>
+            <button onClick={() => handleNavigation('/brands')} className="footer-link">Brands</button>
+            <button onClick={() => handleNavigation('/contact')} className="footer-link">Contact</button>
           </div>
         </div>
 
-        <div className="extra-links-section">
-          <div className="extra-column">
-            <h2 className="extra-title">Navigate</h2>
-            <div className="navigate-table">
-              <button onClick={() => handleNavigation('/')} className="footer-link">Home</button>
-              <button onClick={() => handleNavigation('/about')} className="footer-link">About</button>
-              <button onClick={() => handleNavigation('/products')} className="footer-link">Products</button>
-              <button onClick={() => handleNavigation('/catalogs')} className="footer-link">Catalogs</button>
-              <button onClick={() => handleNavigation('/brands')} className="footer-link">Brands</button>
-              <button onClick={() => handleNavigation('/contact')} className="footer-link">Contact</button>
-            </div>
-          </div>
+        {/* Column 3: Contact & Social */}
+        <div className="footer-right-column">
+          <h2 className="extra-title">Contact</h2>
+          <p><i className="fas fa-phone phone-icon social-icon" /> 8074253744</p>
+          <p><i className="fas fa-envelope social-icon" /> saibalajimarketing@gmail.com</p>
 
-          <div className="extra-column">
-            <h2 className="extra-title">Social Media</h2>
-            <div className="simple-links">
-              <p><i className="fab fa-instagram social-icon" /> Instagram</p>
-              <p><i className="fab fa-linkedin social-icon" /> LinkedIn</p>
-              <p><i className="fab fa-twitter social-icon" /> Twitter</p>
-            </div>
+          <h2 className="extra-title" style={{ marginTop: '1.5rem' }}>Social Media</h2>
+          <div className="footer-social-icons">
+            <i className="fab fa-instagram social-icon" />
+            <i className="fab fa-twitter social-icon" />
+            <i className="fab fa-facebook social-icon" />
           </div>
         </div>
+
+      </div>
+
+
+      <div className="footer-bottom">
+        <hr className="footer-divider" />
+        <p className="footer-copy">All copy rights reserved to @living lines</p>
       </div>
     </footer>
   );
