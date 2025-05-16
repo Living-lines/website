@@ -253,7 +253,71 @@ setBrands(filtered); */
     {
       name: 'v-guard logo (1).png',
       url: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/v-guard%20logo%20(1).png'
-    }
+    },
+  {
+    name: 'bandhan.png',
+    url: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/bandhan.png'
+  },
+  {
+    name: 'essco.png',
+    url: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/essco.png'
+  },
+  {
+    name: 'kohler1.png',
+    url: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/kohler1.png'
+  },
+  {
+    name: 'rak.jpg',
+    url: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/rak.jpg'
+  },
+  {
+    name: 'sonnet.jpeg',
+    url: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/sonnet.jpeg'
+  },
+  {
+    name: 'grove.png',
+    url: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/grove.png'
+  },
+  {
+    name: 'aosmith.webp',
+    url: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/aosmith.webp'
+  },
+  {
+    name: 'qutone.jpg',
+    url: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/qutone.jpg'
+  },
+  {
+    name: 'pavit.png',
+    url: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/pavit.png'
+  },
+  {
+    name: 'kajaria.jpeg',
+    url: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/kajaria.jpeg'
+  },
+  {
+    name: 'crompton.svg',
+    url: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/crompton.svg'
+  },
+  {
+    name: 'atomberg.webp',
+    url: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/atomberg.webp'
+  },
+  {
+    name: 'orient.png',
+    url: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/orient.png'
+  },
+  {
+    name: 'wilo.png',
+    url: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/wilo.png'
+  },
+  {
+    name: 'geberit.png',
+    url: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/geberit.png'
+  },
+  {
+    name: 'berger.jpg',
+    url: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/berger.jpg'
+  },
   ];
 
  const filtered = brandLogos.filter(brand =>

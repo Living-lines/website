@@ -166,7 +166,7 @@ function About() {
                     <h2 className="title">Trusted by Homeowners and Professionals Alike</h2>
                     <p className="description">
                         With a reputation for quality and reliability, Living Lines has become
-                        a preferred choice for homeowners, architects, and contractors. Our
+                        a preferred choice for homeowners, architects, contractors, Plumbers, Masons, Electricians, Builders, Small scale business owners and other techincal and Vendors. Our
                         extensive inventory and commitment to customer satisfaction make us a
                         trusted name in the industry.
                     </p>

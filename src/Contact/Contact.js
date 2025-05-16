@@ -1,5 +1,3 @@
-
-
 import React, { useState } from 'react';
 import './Contact.css';  // For custom styling
 import ImageSlider from '../ImageSlider/ImageSlider';
@@ -39,16 +37,53 @@ function Contact() {
 
     return (
         <div className="contact-container">
-            <div className="header-contact">
-                <div className="contact-text">
-                    <h1>GET IN TOUCH</h1>
+            <div className="contact-hero">
+                <div className="hero-intro">
+                    <h1>We’re Here to Support You</h1>
+                    <p>
+                        Whether you have questions, need product advice, or want to discuss your project,
+                        our expert team is ready to assist. Reach out anytime — we value your trust and satisfaction.
+                    </p>
                 </div>
-                <div className="contact-image">
+
+                <div className="hero-image">
                     <img
-                        src="https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/contact-us.webp"
+                        src={require('../../src/assets/contact-us.jpg')}  // Path to the image
                         alt="Contact Us"
                     />
                 </div>
+            </div>
+
+            <div className="contact-info-cards">
+                <div className="info-card">
+                    <h3>Customer Support</h3>
+                    <p>Call us at <a href="tel:+918074253744">+91 80742 53744</a> or email <a href="mailto:saibalajimarketing@gmail.com">saibalajimarketing@gmail.com</a></p>
+                </div>
+                <div className="info-card">
+                    <h3>Visit Our Office</h3>
+                    <p>Gandhi Nagar, Vizianagaram,<br />Andhra Pradesh, 535004</p>
+                </div>
+                <div className="info-card">
+                    <h3>Working Hours</h3>
+                    <p>Monday - Saturday: 9:00 AM - 6:00 PM<br />Sunday: Closed</p>
+                </div>
+            </div>
+
+            <div className="connect-us-card">
+                <h3>Connect With Us</h3>
+                <p>Stay in the loop by following us on social media for updates, offers, and much more!</p>
+                <div className="social-links">
+                    <a href="https://facebook.com" target="_blank" rel="noreferrer" aria-label="Facebook" className="social-link facebook">Facebook</a>
+                    <a href="https://instagram.com" target="_blank" rel="noreferrer" aria-label="Instagram" className="social-link instagram">Instagram</a>
+                    <a href="https://twitter.com" target="_blank" rel="noreferrer" aria-label="Twitter" className="social-link twitter">Twitter</a>
+                </div>
+            </div>
+
+
+            <div className="hero-cta">
+                <h2>Ready to Get Started?</h2>
+                <p>Send us a message below and let’s discuss your home needs!</p>
+                <a href="#contact-form" className="btn-primary">Send Us a Message</a>
             </div>
 
             <div className="contact-details">
@@ -125,4 +160,3 @@ function Contact() {
 }
 
 export default Contact;
-

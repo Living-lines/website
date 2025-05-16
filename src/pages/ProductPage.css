@@ -171,7 +171,7 @@
 /* Product cards container, changed to grid for 3 columns per row */
 .product-cards {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 equal-width columns */
+  grid-template-columns: repeat(4, 1fr); /* 3 equal-width columns */
   gap: 20px; /* space between the cards */
   width: 100%;
 }
@@ -184,6 +184,8 @@
   cursor: pointer;
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  
+  height: auto;
 }
 
 /* Hover effect for product card */
@@ -207,22 +209,25 @@
 
 /* Product information */
 .product-info {
-  padding: 25px;
-  text-align: center;
+  margin-top: 0px;
+  margin-left: 10px;
+  text-align: left;
   background: #fff;
 }
 
 .product-info h4 {
+  margin-top: 0px;
   font-size: 20px;
   color: #444;
-  font-weight: 700;
-  margin-bottom: 15px;
+  font-weight: 700px;
+  margin-bottom: 0px;
 }
 
 .product-info p {
+  margin-top: 0px;
   color: #777;
   font-size: 15px;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 /* Responsive styles */

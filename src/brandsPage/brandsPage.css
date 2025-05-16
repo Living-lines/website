@@ -1,9 +1,9 @@
 .brand-page {
     padding: 40px 20px;
     background: black;
-    min-height: 100vh;
+    min-height: auto;
     text-align: center;
-    margin-top:180px;
+    margin-top: 160px;
   }
   
   .brand-title {

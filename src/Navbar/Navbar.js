@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { useNavigate, Link, useLocation } from 'react-router-dom';
 import './Navbar.css';
 import logoImage from '../../src/assets/logo.jpg'; // Logo Image
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -7,14 +7,23 @@ import { faWhatsapp } from '@fortawesome/free-brands-svg-icons'; // WhatsApp ico
 import LoginModal from '../Login/LoginModal';
 import whatsappIcon from '../assets/whatsapp.png';
 
+
+
+
 function Navbar() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
   const navigate = useNavigate();
+  const location = useLocation(); 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(prev => !prev);
   };
+
+  useEffect(() => {
+    window.scrollTo(0, 0);         
+  }, [location.pathname]);
+
 
 
 
@@ -70,9 +79,10 @@ function Navbar() {
           <Link to="/" className="nav-item">HOME</Link>
           <Link to="/about" className="nav-item">ABOUT</Link>
           <Link to="/products" className="nav-item">OUR PRODUCTS</Link>
+          <Link to="/brands" className="nav-item">BRANDS</Link>
           <Link to="/Catalogs" className='nav-item'>CATALOGS</Link>
           <Link to="/contact" className="nav-item">CONTACT</Link>
-          <Link to="/brands" className="nav-item">BRANDS</Link>
+          
         </nav>
 
 
