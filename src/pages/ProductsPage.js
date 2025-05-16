@@ -24,10 +24,16 @@ const ProductPager = () => {
   const [selectedType, setSelectedType] = useState(initialType);
   const [searchText, setSearchText] = useState(initialSearch);
   const [showBrandDropdown, setShowBrandDropdown] = useState(false);
-  const [showTypeDropdown, setShowTypeDropdown] = useState(false);
-  const [selectedProduct, setSelectedProduct] = useState(null);
-  const [showPopup, setShowPopup] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
+  const [showTypeDropdown,  setShowTypeDropdown]  = useState(false);
+  const [selectedProduct,   setSelectedProduct]   = useState(null);
+  const [showPopup,         setShowPopup]         = useState(false);
+  const [isLoading,         setIsLoading]         = useState(true);
+
+  // ◾️ Sync URL → searchText (catches navbar searches)
+  useEffect(() => {
+    const p = new URLSearchParams(location.search);
+    setSearchText(p.get('search') || '');
+  }, [location.search]);
 
   // client-side helper for search
   const filterProducts = (products, keyword) => {
@@ -42,7 +48,7 @@ const ProductPager = () => {
     );
   };
 
-  // 1️⃣ Initial load: get *all* products + dropdown options + apply initial search
+  // 1️⃣ Initial load: fetch all products + dropdown options
   useEffect(() => {
     fetch(`${API_BASE}/api/products`)
       .then(res => res.json())
@@ -50,7 +56,7 @@ const ProductPager = () => {
         setDynamicProducts(data);
         setAvailableBrands([...new Set(data.map(p => p.brand).filter(Boolean))]);
         setAvailableTypes ([...new Set(data.map(p => p.product_type).filter(Boolean))]);
-        // apply initial search (if any)
+        // apply initial search if present
         setDisplayProducts(
           initialSearch ? filterProducts(data, initialSearch) : data
         );
@@ -60,12 +66,12 @@ const ProductPager = () => {
         console.error('❌ Initial fetch error:', err);
         setIsLoading(false);
       });
-  }, []); // run once
+  }, []); // run once on mount
 
-  // 2️⃣ Keep URL in sync with filters & search
+  // 2️⃣ Keep URL in sync with in-page filters & search
   useEffect(() => {
     const qs = new URLSearchParams();
-    if (searchText)   qs.set('search', searchText);
+    if (searchText)    qs.set('search', searchText);
     if (selectedBrand) qs.set('brand',   selectedBrand);
     if (selectedType)  qs.set('type',    selectedType);
     navigate(`/products?${qs.toString()}`, { replace: true });
@@ -75,14 +81,14 @@ const ProductPager = () => {
   useEffect(() => {
     setIsLoading(true);
     const qs = new URLSearchParams();
-    if (selectedBrand) qs.set('brand',   selectedBrand);
+    if (selectedBrand) qs.set('brand',        selectedBrand);
     if (selectedType)  qs.set('product_type', selectedType);
 
     fetch(`${API_BASE}/api/products?${qs.toString()}`)
       .then(res => res.json())
       .then(data => {
         setDynamicProducts(data);
-        // after server-filter, apply whatever searchText is
+        // apply current searchText client-side
         setDisplayProducts(
           searchText ? filterProducts(data, searchText) : data
         );
@@ -92,9 +98,9 @@ const ProductPager = () => {
         console.error('❌ Fetch products error:', err);
         setIsLoading(false);
       });
-  }, [selectedBrand, selectedType]);
+  }, [selectedBrand, selectedType, searchText]);
 
-  // 4️⃣ Client-side search on whatever `dynamicProducts` currently holds
+  // 4️⃣ Client-side search on whatever `dynamicProducts` holds
   useEffect(() => {
     setDisplayProducts(
       searchText
@@ -182,6 +188,7 @@ const ProductPager = () => {
         </div>
       </div>
 
+      {/* Products / Loading / Empty State */}
       <div className="products-section">
         {isLoading ? (
           <div className="loading-indicator">
