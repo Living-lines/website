@@ -1,127 +1,121 @@
 import React, { useState, useEffect } from 'react';
 import './ProductPage.css';
 import Popup from './Popup';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const API_BASE = 'https://backend-tawny-one-62.vercel.app';
 
 const ProductPager = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   const params = new URLSearchParams(location.search);
-  const initialKeyword = params.get('search') || '';
 
-  const [allProducts, setAllProducts] = useState([]);
-  const [filteredProducts, setFilteredProducts] = useState([]);
+  // read initial search, brand, type from URL
+  const initialSearch = params.get('search') || '';
+  const initialBrand  = params.get('brand')  || '';
+  const initialType   = params.get('type')   || '';
+
+  // state
+  const [dynamicProducts, setDynamicProducts] = useState([]);
+  const [displayProducts, setDisplayProducts] = useState([]);
   const [availableBrands, setAvailableBrands] = useState([]);
   const [availableTypes, setAvailableTypes] = useState([]);
-  const [selectedBrand, setSelectedBrand] = useState('');
-  const [selectedType, setSelectedType] = useState('');
+  const [selectedBrand, setSelectedBrand] = useState(initialBrand);
+  const [selectedType, setSelectedType] = useState(initialType);
+  const [searchText, setSearchText] = useState(initialSearch);
   const [showBrandDropdown, setShowBrandDropdown] = useState(false);
   const [showTypeDropdown, setShowTypeDropdown] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [showPopup, setShowPopup] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
-  const [searchText, setSearchText] = useState('');
-  const [userSearching, setUserSearching] = useState(false);
 
+  // client-side helper for search
+  const filterProducts = (products, keyword) => {
+    const q = keyword.toLowerCase();
+    return products.filter(p =>
+      (p.brand         && p.brand.toLowerCase().includes(q)) ||
+      (p.product_type  && p.product_type.toLowerCase().includes(q)) ||
+      (p.model_name    && p.model_name.toLowerCase().includes(q)) ||
+      (p.description   && p.description.toLowerCase().includes(q)) ||
+      (p.category      && p.category.toLowerCase().includes(q)) ||
+      (p.title         && p.title.toLowerCase().includes(q))
+    );
+  };
 
-  // Fetch helper
-  /*const fetchProducts = () => {
-    const params = new URLSearchParams();
-    if (selectedBrand)    params.set('brand', selectedBrand);
-    if (selectedType)     params.set('product_type', selectedType);
-    if (searchQuery)      params.set('search', searchQuery);
-
-    setIsLoading(true);
-    fetch(`${API_BASE}/api/products?${params.toString()}`)
+  // 1️⃣ Initial load: get *all* products + dropdown options + apply initial search
+  useEffect(() => {
+    fetch(`${API_BASE}/api/products`)
       .then(res => res.json())
       .then(data => {
-        const filtered = searchQuery
-    ? data.filter(prod => prod.brand.toLowerCase() === searchQuery.toLowerCase())
-    : data;
-  setDynamicProducts(filtered);
+        setDynamicProducts(data);
+        setAvailableBrands([...new Set(data.map(p => p.brand).filter(Boolean))]);
+        setAvailableTypes ([...new Set(data.map(p => p.product_type).filter(Boolean))]);
+        // apply initial search (if any)
+        setDisplayProducts(
+          initialSearch ? filterProducts(data, initialSearch) : data
+        );
+        setIsLoading(false);
+      })
+      .catch(err => {
+        console.error('❌ Initial fetch error:', err);
+        setIsLoading(false);
+      });
+  }, []); // run once
+
+  // 2️⃣ Keep URL in sync with filters & search
+  useEffect(() => {
+    const qs = new URLSearchParams();
+    if (searchText)   qs.set('search', searchText);
+    if (selectedBrand) qs.set('brand',   selectedBrand);
+    if (selectedType)  qs.set('type',    selectedType);
+    navigate(`/products?${qs.toString()}`, { replace: true });
+  }, [searchText, selectedBrand, selectedType, navigate]);
+
+  // 3️⃣ Re-fetch server-side when brand/type change
+  useEffect(() => {
+    setIsLoading(true);
+    const qs = new URLSearchParams();
+    if (selectedBrand) qs.set('brand',   selectedBrand);
+    if (selectedType)  qs.set('product_type', selectedType);
+
+    fetch(`${API_BASE}/api/products?${qs.toString()}`)
+      .then(res => res.json())
+      .then(data => {
+        setDynamicProducts(data);
+        // after server-filter, apply whatever searchText is
+        setDisplayProducts(
+          searchText ? filterProducts(data, searchText) : data
+        );
         setIsLoading(false);
       })
       .catch(err => {
         console.error('❌ Fetch products error:', err);
         setIsLoading(false);
       });
-  }; */
+  }, [selectedBrand, selectedType]);
 
-  // ProductsPage.js (fetchProducts with query filtering)
-useEffect(() => {
-    async function fetchProducts() {
-      try {
-        const response = await fetch(`${API_BASE}/api/products`);
-        const data = await response.json();
-        setAllProducts(data);
-
-        // Populate dropdown filters
-        setAvailableBrands(Array.from(new Set(data.map(p => p.brand).filter(Boolean))));
-        setAvailableTypes(Array.from(new Set(data.map(p => p.product_type).filter(Boolean))));
-
-        // Initial filter based on query param
-        if (initialKeyword) {
-          const filtered = filterProducts(data, initialKeyword);
-          setFilteredProducts(filtered);
-        } else {
-          setFilteredProducts(data);
-        }
-
-        setIsLoading(false);
-      } catch (err) {
-        console.error('❌ Failed to fetch products:', err);
-        setIsLoading(false);
-      }
-    }
-
-    fetchProducts();
-  }, [initialKeyword]);
-
-  const filterProducts = (productsList, keyword) => {
-    const q = keyword.toLowerCase();
-    return productsList.filter(prod =>
-      (prod.brand && prod.brand.toLowerCase().includes(q)) ||
-      (prod.product_type && prod.product_type.toLowerCase().includes(q)) ||
-      (prod.model_name && prod.model_name.toLowerCase().includes(q)) ||
-      (prod.description && prod.description.toLowerCase().includes(q)) ||
-      (prod.category && prod.category.toLowerCase().includes(q)) ||
-      (prod.title && prod.title.toLowerCase().includes(q))
-    );
-  };
-
+  // 4️⃣ Client-side search on whatever `dynamicProducts` currently holds
   useEffect(() => {
-    if (!userSearching) return;
-    if (searchText === '') {
-      setFilteredProducts(allProducts);
-    } else {
-      const filtered = filterProducts(allProducts, searchText);
-      setFilteredProducts(filtered);
-    }
-  }, [searchText, userSearching, allProducts]);
+    setDisplayProducts(
+      searchText
+        ? filterProducts(dynamicProducts, searchText)
+        : dynamicProducts
+    );
+  }, [searchText, dynamicProducts]);
 
-  const handleSearchInputChange = (e) => {
-    setSearchText(e.target.value);
-    if (!userSearching) {
-      setUserSearching(true);
-    }
-  };
-
+  // handlers
   const handleBrandSelect = brand => {
     setSelectedBrand(prev => (prev === brand ? '' : brand));
     setShowBrandDropdown(false);
   };
-
   const handleTypeSelect = type => {
     setSelectedType(prev => (prev === type ? '' : type));
     setShowTypeDropdown(false);
   };
-
   const handleImageClick = prod => {
     setSelectedProduct(prod);
     setShowPopup(true);
   };
-
   const handleClosePopup = () => {
     setShowPopup(false);
     setSelectedProduct(null);
@@ -130,16 +124,18 @@ useEffect(() => {
   return (
     <div className="products-pager">
       <div className="filters-section">
+        {/* Search Bar */}
         <div className="search-bar">
           <input
             type="text"
-            placeholder="Search products on this page..."
+            placeholder="Search by model, brand, or type..."
             value={searchText}
-            onChange={handleSearchInputChange}
+            onChange={e => setSearchText(e.target.value)}
             className="search-input"
           />
         </div>
 
+        {/* Brand Dropdown */}
         <div className="dropdown">
           <button onClick={() => setShowBrandDropdown(v => !v)}>
             Brand {selectedBrand && `: ${selectedBrand}`}
@@ -153,7 +149,8 @@ useEffect(() => {
                       type="checkbox"
                       checked={selectedBrand === b}
                       onChange={() => handleBrandSelect(b)}
-                    /> {b}
+                    />{' '}
+                    {b}
                   </label>
                 </li>
               ))}
@@ -161,6 +158,7 @@ useEffect(() => {
           )}
         </div>
 
+        {/* Type Dropdown */}
         <div className="dropdown">
           <button onClick={() => setShowTypeDropdown(v => !v)}>
             Type {selectedType && `: ${selectedType}`}
@@ -174,7 +172,8 @@ useEffect(() => {
                       type="checkbox"
                       checked={selectedType === t}
                       onChange={() => handleTypeSelect(t)}
-                    /> {t}
+                    />{' '}
+                    {t}
                   </label>
                 </li>
               ))}
@@ -189,9 +188,9 @@ useEffect(() => {
             <div className="spinner"></div>
             <p>Loading products...</p>
           </div>
-        ) : filteredProducts.length > 0 ? (
+        ) : displayProducts.length > 0 ? (
           <div className="product-cards">
-            {filteredProducts.map(prod => (
+            {displayProducts.map(prod => (
               <div
                 key={prod.id}
                 className="product-card"
@@ -204,20 +203,19 @@ useEffect(() => {
                 />
                 <div className="product-info">
                   <h4>{prod.model_name}</h4>
-                  <p>{prod.brand} — {prod.product_type}</p>
+                  <p>
+                    {prod.brand} — {prod.product_type}
+                  </p>
                 </div>
               </div>
             ))}
           </div>
         ) : (
-          <p className="no-results">No products found for your search.</p>
+          <p className="no-results">No products found.</p>
         )}
 
         {showPopup && (
-          <Popup
-            product={selectedProduct}
-            onClose={handleClosePopup}
-          />
+          <Popup product={selectedProduct} onClose={handleClosePopup} />
         )}
       </div>
     </div>
