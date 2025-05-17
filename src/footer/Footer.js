@@ -45,7 +45,9 @@ const Footer = () => {
             <p>Monday - Saturday : 9:00 AM to 9:00 PM</p>
             <h3 style={{ marginTop: '3rem' }}>Visakhapatnam</h3>
             <p>Monday - Saturday : 9:00 AM to 9:00 PM</p>
-            <p style={{ marginTop: '1rem', color: '#ccc' }}>We are closed on public Holidays.</p>
+            <h3 style={{ marginTop: '3rem' }}>Madhurawada</h3>
+            <p>Monday - Saturday : 9:00 AM to 9:00 PM</p>
+            <p style={{ marginTop: '3rem', color: '#ccc' }}>We are closed on public Holidays.</p>
           </div>
         </div>
 
