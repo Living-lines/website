@@ -473,6 +473,11 @@
   }
 }
 
+
+
+
+
+/*
 @media screen and (max-width: 768px) {
 .overlay-content {
   flex-direction: column;
@@ -556,3 +561,205 @@
   animation: bounce 2s infinite;
 }
 /* Remove the background-image from CSS and make it static */
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width: 768px) {
+  .main-container {
+    padding-top: 60px;
+  }
+
+  .overlay-content {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 8% 5%;
+    text-align: center;
+  }
+
+  .left-section {
+    margin-bottom: 20px;
+  }
+
+  .left-section .small-image {
+    width: 140px;
+    border-radius: 15px;
+  }
+
+  .right-section {
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .main-heading {
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+  }
+
+  .sub-text {
+    font-size: 1rem;
+    margin-bottom: 18px;
+    padding: 0 10px;
+  }
+
+  .glass-button {
+    font-size: 1rem;
+    padding: 12px 24px;
+  }
+
+  .about-description-section {
+    padding: 40px 15px;
+    margin-top: 30px;
+    border-radius: 10px;
+  }
+
+  .about-description-text h2 {
+    font-size: 2rem;
+  }
+
+  .about-description-text p {
+    font-size: 1rem;
+    padding-left: 15px;
+    text-indent: 20px;
+    border-left: 3px solid #ff6600;
+    margin-bottom: 20px;
+  }
+
+  .brand-container {
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 15px;
+    text-align: center;
+  }
+
+  .brand-text {
+    width: 100%;
+    font-size: 1.6rem;
+    line-height: 1.5;
+  }
+
+  .big-letter {
+    font-size: 3rem;
+  }
+
+  .indent {
+    margin-left: 0;
+  }
+
+  .double-indent {
+    margin-left: 0;
+  }
+
+  .brand-image-container {
+    width: 100%;
+    margin-top: 25px;
+  }
+
+  .brand-image {
+    width: 250px;
+    height: 250px;
+  }
+
+  .container {
+    flex-direction: column;
+    padding: 30px 15px;
+  }
+
+  .text-section {
+    padding: 10px;
+    text-align: center;
+  }
+
+  .highlight-about {
+    font-size: 24px;
+  }
+
+  .title {
+    font-size: 1.4rem;
+    margin: 10px 0;
+  }
+
+  .description {
+    font-size: 1rem;
+    padding: 0 10px;
+  }
+
+  .cards {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    margin-top: 20px;
+  }
+
+  .card {
+    width: 90%;
+    padding: 20px;
+  }
+
+  .icon {
+    font-size: 1.8rem;
+  }
+
+  .card-title {
+    font-size: 1.3rem;
+  }
+
+  .card-text {
+    font-size: 0.95rem;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .main-heading {
+    font-size: 1.8rem;
+  }
+
+  .sub-text {
+    font-size: 0.95rem;
+  }
+
+  .left-section .small-image {
+    width: 110px;
+  }
+
+  .about-description-text h2 {
+    font-size: 1.6rem;
+  }
+
+  .about-description-text p {
+    font-size: 0.95rem;
+  }
+
+  .brand-image {
+    width: 200px;
+    height: 200px;
+  }
+
+  .highlight-about {
+    font-size: 22px;
+  }
+
+  .title {
+    font-size: 1.2rem;
+  }
+
+  .card-title {
+    font-size: 1.2rem;
+  }
+
+  .card-text {
+    font-size: 0.9rem;
+  }
+
+  .glass-button {
+    padding: 10px 20px;
+  }
+}
