@@ -29,7 +29,7 @@
 
 /* Main Header Styling */
 .abc-emporio {
-  font-family: lexend;
+  font-family: 'Lexend', sans-serif;
   color: white;
   background-color: black;
 }
@@ -68,25 +68,27 @@
 
 .input1 {
   background-color: #010201;
-  border: 1px solid #f26624;
-  width: 280px;
-  height: 50px;
-  border-radius: 10px;
+  border: 2px solid #f26624;
+  width: 340px; /* Increased width */
+  height: 55px;  /* Slightly taller */
+  border-radius: 12px;
   color: white;
-  padding-inline: 50px;
-  font-size: 16px;
+  padding-inline: 20px;
+  font-size: 18px;
+  font-weight: 500;
   outline: none;
+  transition: all 0.3s ease;
 }
-
-.input1:focus {
-  outline: none;
-  box-shadow: 0 0 8px 2px #ff2000; 
-}
-
 
 .input1::placeholder {
   color: #c0b9c0;
+  font-size: 16px;
 }
+
+.input1:focus {
+  box-shadow: 0 0 10px 2px #ff2000;
+}
+
 
 .input1:focus {
   outline: none;
@@ -297,9 +299,11 @@
     padding-top: 0;
   }
 
-  .logo {
-    height: 50px;
-  }
+ .logo {
+  height: 70px; /* Slightly smaller than before */
+  width: auto;
+}
+
 
   #main {
     flex: 1;

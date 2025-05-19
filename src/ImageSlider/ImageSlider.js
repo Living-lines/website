@@ -7,17 +7,17 @@ const ImageSlider = () => {
   const locations = [
     {
       // src: require('../assets/location_1.jpg')
-      src: "https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/location_1.jpg",
+      src: require('../assets/location_1.jpg'),
       alt: 'Location 1'
     },
     {
       // src: require('../assets/location_2.jpg')
-      src: "https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/location_2.jpg",
+      src: require('../assets/location_2.jpg'),
       alt: 'Location 2'
     },
     {
       // src: require('../assets/location_3.jpg')
-      src: "https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/location_3.jpg",
+      src: require('../assets/location_3.jpg'),
       alt: 'Location 3'
     }
   ];

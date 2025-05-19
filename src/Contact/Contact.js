@@ -79,20 +79,18 @@ function Contact() {
                 </div>
             </div>
 
-
             <div className="hero-cta">
                 <h2>Ready to Get Started?</h2>
                 <p>Send us a message below and let’s discuss your home needs!</p>
-                {/*<a href="#contact-form" className="btn-primary">Send Us a Message</a> */}
             </div>
 
             <div className="contact-details">
                 <div className="contact-item">
-                    <span className="icon phone-icon"></span>
+                    <span className="contact-symbol">📞</span>
                     <p className="contact-info">8074253744</p>
                 </div>
                 <div className="contact-item">
-                    <span className="icon email-icon"></span>
+                    <span className="contact-symbol">📧</span>
                     <p className="contact-info">saibalajimarketing@gmail.com</p>
                 </div>
             </div>

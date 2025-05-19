@@ -14,14 +14,14 @@ function Navbar() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
   const navigate = useNavigate();
-  const location = useLocation(); 
+  const location = useLocation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(prev => !prev);
   };
 
   useEffect(() => {
-    window.scrollTo(0, 0);         
+    window.scrollTo(0, 0);
   }, [location.pathname]);
 
 
@@ -51,7 +51,6 @@ function Navbar() {
         <header className="header">
           <div className="logo-section">
             <img src={logoImage} className="logo" alt="Living Space Logo" />
-            <p>The Complete Bathware</p>
           </div>
 
           <div id="poda">
@@ -70,23 +69,26 @@ function Navbar() {
           </div>
 
           <div className="hamburger" onClick={toggleMobileMenu}>
-          &#9776;
-        </div>
+            &#9776;
+          </div>
 
         </header>
 
         <nav className={`main-nav ${isMobileMenuOpen ? 'open' : ''}`}>
           <Link to="/" className="nav-item">HOME</Link>
           <Link to="/about" className="nav-item">ABOUT</Link>
-          <Link to="/products" className="nav-item">OUR PRODUCTS</Link>
+          <Link to="/products" className="nav-item">PRODUCTS</Link>
           <Link to="/brands" className="nav-item">BRANDS</Link>
-          <Link to="/Catalogs" className='nav-item'>CATALOGS</Link>
+          <Link to="/Catalogs" className="nav-item">CATALOGS</Link>
           <Link to="/contact" className="nav-item">CONTACT</Link>
-          
+
+          {/* Cart Icon (placeholder - update the icon path/class as needed) */}
+          <Link to="/cart" className="nav-item cart-icon">
+            🛒
+          </Link>
         </nav>
 
 
-        
 
         <LoginModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
       </div>

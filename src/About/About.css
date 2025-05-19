@@ -6,7 +6,7 @@
   background-color: #222;
   color: #fff;
   padding: 100px;
-  font-family: lexend;
+  font-family: 'Lexend', sans-serif;
 }
 
 .about-description-section {
@@ -14,7 +14,7 @@
   background-color: #f4f4f4; /* Lighter background for contrast */
   color: #333;
   margin-top: 40px;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Lexend', sans-serif;
   text-align: center;
   box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
   border-radius: 15px;
@@ -145,7 +145,7 @@
 
 .brand-text {
   width: 70%; 
-  font-family: serif;
+  font-family: 'Lexend', sans-serif;
   font-size: 2.5rem;
   line-height: 1.4;
 }
@@ -369,12 +369,12 @@
   color:#ff6600;
 }
 .about-sub-heading{
-  font-family: lexend;
+  font-family: 'Lexend', sans-serif;
   font-weight: bold;
   font-size:22px;
 }
 .about-paragraph{
-  font-family: lexend;
+ font-family: 'Lexend', sans-serif;
   font-weight: normal;
   font-size: 20px;
 }
@@ -761,5 +761,84 @@
 
   .glass-button {
     padding: 10px 20px;
+  }
+}
+
+
+.desire-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 80px 5%;
+  background-color: #0d0d0d;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.desire-text {
+  flex: 1;
+  max-width: 40%;
+  color: white;
+  font-family: 'Lexend', sans-serif;
+}
+
+.desire-heading {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 30px;
+  color: white;
+  line-height: 1.3;
+}
+
+.product-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  color: #f0f0f0;
+  font-size: 1.2rem;
+  line-height: 2;
+}
+
+.product-list li::before {
+  content: "✔";
+  color: #ff6600;
+  margin-right: 10px;
+}
+
+.desire-image-container {
+  flex: 1;
+  max-width: 55%;
+}
+
+.desire-image {
+  width: 100%;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  image-rendering: crisp-edges;
+  image-rendering: -webkit-optimize-contrast;
+}
+
+@media screen and (max-width: 768px) {
+  .desire-section {
+    flex-direction: column;
+    text-align: center;
+    padding: 40px 20px;
+  }
+
+  .desire-text, .desire-image-container {
+    max-width: 100%;
+  }
+
+  .desire-heading {
+    font-size: 2rem;
+  }
+
+  .product-list {
+    font-size: 1rem;
+  }
+
+  .desire-image {
+    margin-top: 30px;
+    border-radius: 15px;
   }
 }

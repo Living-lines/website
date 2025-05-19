@@ -4,30 +4,16 @@ import './Catalogs.css';
 const samplePDF = '/catalogs.pdf'; // Static PDF for existing logos
 
 const brands = [
-  { name: 'Anchor', logo: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/anchor%20logo.png' },
-  { name: 'Astral Pipes', logo: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/astral%20pipes%20logo.jpg' },
-  { name: 'Austin', logo: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/austin%20logo.png' },
-  { name: 'Besten', logo: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/besten%20logo.png' },
-  { name: 'Carysil', logo: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/carysil%20logo.png' },
-  { name: 'CRI', logo: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/cri%20logo.png' },
-  { name: 'Elleys', logo: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/elleys%20Logo.png' },
-  { name: 'Eureka', logo: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/eureka%20logo.jpg' },
-  { name: 'Euroqo', logo: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/euroqo%20logo.jpg' },
-  { name: 'Finolex', logo: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/finolex%20logo.png' },
-  { name: 'Franke', logo: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/franke%20logo.png' },
-  { name: 'Havells', logo: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/havells%20logo.png' },
-  { name: 'HiFi', logo: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/hi%20fi%20logo.png' },
-  { name: 'Jaquar', logo: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/jaquar%20logo.png' },
-  { name: 'Kolors', logo: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/kolors%20logo.png' },
-  { name: 'Kuko', logo: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/kuka%20logo.png' },
-  { name: 'Legrand', logo: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/legrand%20logo.png' },
-  { name: 'Luker', logo: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/luker%20logo.jpg' },
-  { name: 'Nirali', logo: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/nirali%20logo.jpeg' },
-  { name: 'Norisys', logo: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/norisys%20logo.png' },
-  { name: 'Philips', logo: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/philips%20logo.png' },
-  { name: 'Prince', logo: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/prince%20logo.jpg' },
-  { name: 'Sudhakar', logo: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/sudhakar%20pipes%20logo.png' },
-  { name: 'VGuard', logo: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/v-guard%20logo%20(1).png' },
+  { name: 'Pavit', logo: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/pavit%20logo.png' },
+  { name: 'Bandhan', logo: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/bandhan%20logo.png' },
+  { name: 'Bonzo', logo: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/bonzo%20logo.png' },
+  { name: 'Motto', logo: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/motto%20logo.png' },
+  { name: 'Kajaria', logo: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/kajaria%20logo.png' },
+  { name: 'RAK', logo: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/rak%20logo.png' },
+  { name: 'Brite', logo: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/brite%20logo.png' },
+  { name: 'Murano', logo: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/murano%20logo.png' },
+  { name: 'Qutone', logo: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/qutone%20logo.png' },
+  { name: 'Lavish', logo: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/lavish%20logo.png' },
 ];
 
 export default function Catalogs() {
@@ -42,13 +28,14 @@ export default function Catalogs() {
 
   return (
     <section className="catalogs-section">
-      <h2 className="catalogs-heading">🗂 Brand Catalogs</h2>
+      <h2 className="catalogs-heading">🧱 Tiles Catalogs
+      </h2>
       <p className="catalogs-subtext">
-        Browse and download product catalogs categorized by brand.
+        Browse and download product catalogs categorized by tile brand.
       </p>
 
       <div className="brands-container">
-        {/* Old static logos with sample PDF */}
+        {/* Static tile brand logos */}
         {brands.map((brand, idx) => (
           <div key={idx} className="brand-card">
             <div className="logo-container">
@@ -71,7 +58,7 @@ export default function Catalogs() {
           </div>
         ))}
 
-        {/* New catalogs uploaded by admin */}
+        {/* Admin-uploaded catalogs */}
         {newCatalogs.map((cat, idx) => (
           <div key={`new-${idx}`} className="brand-card">
             <div className="logo-container">
@@ -98,8 +85,6 @@ export default function Catalogs() {
           </div>
         ))}
       </div>
-
-      
     </section>
   );
 }

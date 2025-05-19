@@ -34,7 +34,7 @@ function Home() {
   const heroImage1 = "https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/1.jpg";
   const heroImage2 = "https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/2.jpg";
   const heroImage3 = "https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/3.jpg";
-  const heroImage4 = "https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/4.jpg";
+  const heroImage4 = "../assets/switches,jpeg";
   const heroImage5 = "https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/tiles.png";
   const heroImage6 = "https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/l7.jpg";
 
@@ -45,8 +45,8 @@ function Home() {
   const slides = [
     {
       image: heroImage1,
-      heading: 'Eco-Friendly<br />Art for your space.',
-      subQuote: 'Sustainable beauty that transforms discarded glass into stunning, eco-friendly art for your space.',
+      heading: 'Designs that<br />always flow',
+      subQuote: 'crafted for every style from bold to timeless',
       textPosition: 'right',
     },
     {
@@ -63,29 +63,31 @@ function Home() {
     },
     {
       image: heroImage4,
-      heading: 'Timeless Elegance<br />In Every Detail.',
-      subQuote: 'Discover carefully crafted pieces that enhance your space with sophistication.',
+      heading: 'Refined control<br />with Definition',
+      subQuote: 'Switches to control and add beauty to your home.',
       textPosition: 'left',
     },
     {
       image: heroImage5,
-      heading: 'Premium Tiles<br />For Every Floor.',
-      subQuote: 'Elevate your interiors with our wide range of exquisite, durable tiles.',
+      heading: 'Premium & Perfect Tiles<br />for Every Floor',
+      subQuote: 'wide range of exquisite, durable and designer tiles.',
       textPosition: 'right',
     },
+
     {
       image: heroImage6,
-      heading: 'Top-Notch<br />Electrical Appliances.',
-      subQuote: 'Experience cutting-edge technology and performance with our curated range of electrical appliances.',
+      heading: 'Brighten every corner<br />with innovation',
+      subQuote: 'From lights to switches discover an elite collection to illuminate, protect and perform.',
       textPosition: 'left',
     },
+
   ];
 
 
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prevSlide) => (prevSlide + 1) % slides.length);
-    }, 3000);
+    }, 5000);
     return () => clearInterval(interval);
   }, [slides.length]);
 
@@ -116,7 +118,7 @@ function Home() {
 
         <video autoPlay loop muted playsInline className="fullscreen-video">
           <source src={videoFile2} type="video/mp4" />
-        </video> 
+        </video>
       </div>
 
       <About />

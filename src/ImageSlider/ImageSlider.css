@@ -2,12 +2,12 @@
 .slider-container {
   position: relative;
   width: 100%;
-  height: 500px;
+  max-width: 600px;
+  height: 400px;
   overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 1px solid red;
+  margin: auto;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }
 
 /* The image container */
@@ -17,7 +17,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid blue;
+  transition: transform 0.5s ease;
+  border-radius: 20px;
+  overflow: hidden;
 }
 
 /* Styling for the image inside the container */
@@ -25,48 +27,56 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 10px;
+  border-radius: 20px;
+  filter: brightness(0.95);
+  transition: transform 0.5s ease, filter 0.5s ease;
+}
+
+/* Hover effect on image */
+.image-container img:hover {
+  transform: scale(1.02);
+  filter: brightness(1);
 }
 
 /* Dot container positioning */
 .dot-container {
   position: absolute;
+  bottom: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 120px;
   display: flex;
   justify-content: center;
   align-items: center;
-  bottom: 30px;
-  left: 50%;
-  transform: translateX(-50%);
-  gap: 20px;
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  border: 1px solid transparent;
+  pointer-events: none;
 }
 
 /* Styling each dot */
 .dot {
-  width: 15px;
-  height: 15px;
+  width: 16px;
+  height: 16px;
   border-radius: 50%;
   background-color: white;
   opacity: 0.5;
   cursor: pointer;
-  transition: opacity 0.3s ease;
+  transition: all 0.3s ease;
+  pointer-events: auto;
 }
 
 /* Active dot style */
 .dot.active {
   opacity: 1;
   background-color: orange;
+  transform: scale(1.2);
 }
 
 /* Hover effect for dots */
 .dot:hover {
-  opacity: 0.8;
+  opacity: 0.9;
 }
 
-/* Positioning dots in a triangular form */
+/* Triangular layout for dots */
 .dot:nth-child(1) {
   position: absolute;
   top: 0;
@@ -86,4 +96,21 @@
   top: 80%;
   right: 10%;
   transform: translateY(-50%);
+}
+
+/* Responsive for small screens */
+@media (max-width: 768px) {
+  .slider-container {
+    height: 300px;
+  }
+
+  .dot-container {
+    width: 80px;
+    height: 80px;
+  }
+
+  .dot {
+    width: 12px;
+    height: 12px;
+  }
 }
