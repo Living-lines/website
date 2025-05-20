@@ -4,6 +4,10 @@ import { useNavigate } from 'react-router-dom';
 import Timeline from './timeline/timeline.js';
 import { motion, useTransform, useScroll } from "framer-motion";
 import brandImage from "../assets/brand-image.jpg"
+import location1 from "../assets/location_1.jpg";
+import location2 from "../assets/location_2.jpg";
+import location3 from "../assets/location_3.jpg";
+
 
 function About() {
     const navigate = useNavigate();
@@ -102,7 +106,7 @@ function About() {
             <Timeline />
 
             {/* BRAND PROMISE SECTION */}
-            <motion.div
+            {/* <motion.div
                 className="brand-container"
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -116,17 +120,23 @@ function About() {
                         <span className="double-indent">promise kept.</span>
                     </h1>
                 </div>
-                {/* <motion.div
-                    className="brand-image-container"
-                    whileHover={{ scale: 1.1, rotate: '5deg' }}
-                    transition={{ type: "spring", stiffness: 400, damping: 17 }}
-                >
-                    <img src={brandImage} alt="Luxury Interior" className="brand-image" />
-                </motion.div> */}
+                
                 <div className="brand-image-container">
                     <img src={brandImage} alt="Luxury Interior" className="brand-image" />
                 </div>
-            </motion.div>
+            </motion.div> */}
+
+            <h2 className="branch-heading">Our Branches</h2>
+
+            <div className="branch-gallery">
+                {[location1, location2, location3].map((src, index) => (
+                    <div key={index} className="branch-box">
+                        <img src={src} alt={`Branch ${index + 1}`} className="branch-image" />
+                    </div>
+                ))}
+            </div>
+
+
 
             {/* Our Value + Vision & Mission Section */}
             <div className="container">
