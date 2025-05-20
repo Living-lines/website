@@ -1,7 +1,10 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faShoppingCart, faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
 import React, { useState, useEffect } from 'react';
 import './ProductPage.css';
 import Popup from './Popup';
 import { useLocation, useNavigate } from 'react-router-dom';
+
 
 const API_BASE = 'https://backend-tawny-one-62.vercel.app';
 
@@ -10,10 +13,34 @@ const ProductPager = () => {
   const navigate = useNavigate();
   const params = new URLSearchParams(location.search);
 
+
+  const [addedToCartMessage, setAddedToCartMessage] = useState('');
+
+  const handleAddToCart = (prod) => {
+    const currentCart = JSON.parse(localStorage.getItem('cartItems') || '[]');
+
+    const itemIndex = currentCart.findIndex(item => item.id === prod.id);
+    if (itemIndex >= 0) {
+      currentCart[itemIndex].quantity += 1;
+    } else {
+      currentCart.push({
+        id: prod.id,
+        name: prod.model_name,
+        brand: prod.brand,
+        type: prod.product_type,
+        image: prod.image_url,
+        quantity: 1
+      });
+    }
+    localStorage.setItem('cartItems', JSON.stringify(currentCart));
+    setAddedToCartMessage(`${prod.model_name} added to cart!`);
+    setTimeout(() => setAddedToCartMessage(''), 2000);
+  };
+
   // read initial search, brand, type from URL
   const initialSearch = params.get('search') || '';
-  const initialBrand  = params.get('brand')  || '';
-  const initialType   = params.get('type')   || '';
+  const initialBrand = params.get('brand') || '';
+  const initialType = params.get('type') || '';
 
   // state
   const [dynamicProducts, setDynamicProducts] = useState([]);
@@ -24,10 +51,10 @@ const ProductPager = () => {
   const [selectedType, setSelectedType] = useState(initialType);
   const [searchText, setSearchText] = useState(initialSearch);
   const [showBrandDropdown, setShowBrandDropdown] = useState(false);
-  const [showTypeDropdown,  setShowTypeDropdown]  = useState(false);
-  const [selectedProduct,   setSelectedProduct]   = useState(null);
-  const [showPopup,         setShowPopup]         = useState(false);
-  const [isLoading,         setIsLoading]         = useState(true);
+  const [showTypeDropdown, setShowTypeDropdown] = useState(false);
+  const [selectedProduct, setSelectedProduct] = useState(null);
+  const [showPopup, setShowPopup] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   // ◾️ Sync URL → searchText (catches navbar searches)
   useEffect(() => {
@@ -39,12 +66,12 @@ const ProductPager = () => {
   const filterProducts = (products, keyword) => {
     const q = keyword.toLowerCase();
     return products.filter(p =>
-      (p.brand         && p.brand.toLowerCase().includes(q)) ||
-      (p.product_type  && p.product_type.toLowerCase().includes(q)) ||
-      (p.model_name    && p.model_name.toLowerCase().includes(q)) ||
-      (p.description   && p.description.toLowerCase().includes(q)) ||
-      (p.category      && p.category.toLowerCase().includes(q)) ||
-      (p.title         && p.title.toLowerCase().includes(q))
+      (p.brand && p.brand.toLowerCase().includes(q)) ||
+      (p.product_type && p.product_type.toLowerCase().includes(q)) ||
+      (p.model_name && p.model_name.toLowerCase().includes(q)) ||
+      (p.description && p.description.toLowerCase().includes(q)) ||
+      (p.category && p.category.toLowerCase().includes(q)) ||
+      (p.title && p.title.toLowerCase().includes(q))
     );
   };
 
@@ -55,7 +82,7 @@ const ProductPager = () => {
       .then(data => {
         setDynamicProducts(data);
         setAvailableBrands([...new Set(data.map(p => p.brand).filter(Boolean))]);
-        setAvailableTypes ([...new Set(data.map(p => p.product_type).filter(Boolean))]);
+        setAvailableTypes([...new Set(data.map(p => p.product_type).filter(Boolean))]);
         // apply initial search if present
         setDisplayProducts(
           initialSearch ? filterProducts(data, initialSearch) : data
@@ -71,9 +98,9 @@ const ProductPager = () => {
   // 2️⃣ Keep URL in sync with in-page filters & search
   useEffect(() => {
     const qs = new URLSearchParams();
-    if (searchText)    qs.set('search', searchText);
-    if (selectedBrand) qs.set('brand',   selectedBrand);
-    if (selectedType)  qs.set('type',    selectedType);
+    if (searchText) qs.set('search', searchText);
+    if (selectedBrand) qs.set('brand', selectedBrand);
+    if (selectedType) qs.set('type', selectedType);
     navigate(`/products?${qs.toString()}`, { replace: true });
   }, [searchText, selectedBrand, selectedType, navigate]);
 
@@ -81,8 +108,8 @@ const ProductPager = () => {
   useEffect(() => {
     setIsLoading(true);
     const qs = new URLSearchParams();
-    if (selectedBrand) qs.set('brand',        selectedBrand);
-    if (selectedType)  qs.set('product_type', selectedType);
+    if (selectedBrand) qs.set('brand', selectedBrand);
+    if (selectedType) qs.set('product_type', selectedType);
 
     fetch(`${API_BASE}/api/products?${qs.toString()}`)
       .then(res => res.json())
@@ -129,24 +156,23 @@ const ProductPager = () => {
 
   return (
     <div className="products-pager">
-      <div className="filters-section">
-        {/* Search Bar */}
-        <div className="search-bar">
+      <div className="filters-container">
+        <div className="filter-search">
           <input
             type="text"
             placeholder="Search by model, brand, or type..."
             value={searchText}
             onChange={e => setSearchText(e.target.value)}
-            className="search-input"
+            className="filter-search-input"
           />
         </div>
 
-        {/* Brand Dropdown */}
-        <div className="dropdown">
-          <button onClick={() => setShowBrandDropdown(v => !v)}>
+        <div className="filter-dropdown brand-dropdown">
+          <button className="dropdown-toggle" onClick={() => setShowBrandDropdown(v => !v)}>
             Brand {selectedBrand && `: ${selectedBrand}`}
+            <FontAwesomeIcon icon={showBrandDropdown ? faChevronUp : faChevronDown} className="arrow-icon" />
           </button>
-          {showBrandDropdown && (
+          <div className={`dropdown-content ${showBrandDropdown ? 'show' : ''}`}>
             <ul className="dropdown-menu">
               {availableBrands.map(b => (
                 <li key={b}>
@@ -161,15 +187,15 @@ const ProductPager = () => {
                 </li>
               ))}
             </ul>
-          )}
+          </div>
         </div>
 
-        {/* Type Dropdown */}
-        <div className="dropdown">
-          <button onClick={() => setShowTypeDropdown(v => !v)}>
+        <div className="filter-dropdown type-dropdown">
+          <button className="dropdown-toggle" onClick={() => setShowTypeDropdown(v => !v)}>
             Type {selectedType && `: ${selectedType}`}
+            <FontAwesomeIcon icon={showTypeDropdown ? faChevronUp : faChevronDown} className="arrow-icon" />
           </button>
-          {showTypeDropdown && (
+          <div className={`dropdown-content ${showTypeDropdown ? 'show' : ''}`}>
             <ul className="dropdown-menu">
               {availableTypes.map(t => (
                 <li key={t}>
@@ -184,11 +210,10 @@ const ProductPager = () => {
                 </li>
               ))}
             </ul>
-          )}
+          </div>
         </div>
       </div>
 
-      {/* Products / Loading / Empty State */}
       <div className="products-section">
         {isLoading ? (
           <div className="loading-indicator">
@@ -208,12 +233,23 @@ const ProductPager = () => {
                   alt={prod.model_name}
                   className="product-img"
                 />
-                <div className="product-info">
-                  <h4>{prod.model_name}</h4>
-                  <p>
-                    {prod.brand} — {prod.product_type}
-                  </p>
+                <div className="product-content">
+                  <div className="product-info">
+                    <h4>{prod.model_name}</h4>
+                    <p>{prod.brand} — {prod.product_type}</p>
+                  </div>
+                  <div className="cart-icon-container" onClick={(e) => { e.stopPropagation();  handleAddToCart(prod);  }}>
+                    <FontAwesomeIcon icon={faShoppingCart} className="cart-page-icon" />
+                  </div>
+
+
+                  {/*<div className="add-cart-container">
+                  <button className="add-cart-btn1" onClick={(e) => { e.stopPropagation();  handleAddToCart(prod);  }} >
+                    Add to Cart
+                  </button>
+                </div> */}
                 </div>
+
               </div>
             ))}
           </div>
@@ -224,9 +260,17 @@ const ProductPager = () => {
         {showPopup && (
           <Popup product={selectedProduct} onClose={handleClosePopup} />
         )}
+
+        {addedToCartMessage && (
+          <div className="add-to-cart-popup">
+            {addedToCartMessage}
+          </div>
+        )}
       </div>
     </div>
   );
+
+
 };
 
 export default ProductPager;

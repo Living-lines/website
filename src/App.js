@@ -4,6 +4,7 @@ import About from './About/About';
 import BrandPage from './brandsPage/brandsPage';
 import Footer from './footer/Footer';
 import ProductPage from './pages/ProductsPage';
+import Cart from './pages/Cart';
 import Home from './Home/Home';
 import Contact from './Contact/Contact';
 import Catalogs from './Catalogs/Catalogs';
@@ -22,6 +23,7 @@ function App() {
             <Route path="/catalogs" element={<Catalogs/>}/>
             <Route path="/product/:productId" element={<ProductPage />} />
             <Route path='/contact' element={<Contact />} />
+            <Route path="/cart" element={<Cart />} />
           </Routes>
         </div>
         <Footer />

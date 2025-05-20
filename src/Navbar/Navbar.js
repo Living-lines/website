@@ -81,11 +81,7 @@ function Navbar() {
           <Link to="/brands" className="nav-item">BRANDS</Link>
           <Link to="/Catalogs" className="nav-item">CATALOGS</Link>
           <Link to="/contact" className="nav-item">CONTACT</Link>
-
-          {/* Cart Icon (placeholder - update the icon path/class as needed) */}
-          <Link to="/cart" className="nav-item cart-icon">
-            🛒
-          </Link>
+          <Link to="/cart" className="nav-item">CART</Link>
         </nav>
 
 
