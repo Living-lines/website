@@ -28,7 +28,7 @@ export default function Catalogs() {
 
   return (
     <section className="catalogs-section">
-      <h2 className="catalogs-heading">🧱 Tiles Catalogs
+      <h2 className="catalogs-heading"> Tiles Catalogs
       </h2>
       <p className="catalogs-subtext">
         Browse and download product catalogs categorized by tile brand.

@@ -44,7 +44,7 @@ const BrandCarousel = () => {
         modules={[Autoplay]}
         spaceBetween={20}
         slidesPerView={3}
-        autoplay={{ delay: 3000 }}
+        autoplay={{ delay: 2000 }}
         loop={true}
         breakpoints={{
           640: { slidesPerView: 2 },
