@@ -7,15 +7,16 @@ import './Home.css';
 
 import About from '../About/About';
 import BrandCarousel from '../brand/brand.js';
-
-import small1 from '../../src/products_images/small1.jpg';
-import small2 from '../../src/products_images/small2.jpg';
-import small3 from '../../src/products_images/small3.jpg';
-import small4 from '../../src/products_images/small4.jpg';
-import large1 from '../../src/products_images/large1.jpg';
-import large2 from '../../src/products_images/large2.jpg';
-import large3 from '../../src/products_images/large3.jpg';
-import large4 from '../../src/products_images/large4.jpg';
+import { Link } from 'react-router-dom';
+import Catalogs from '../Catalogs/Catalogs.js';
+const small1 = 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/tilespr.jpg';
+const small2 = 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/plumpr.jpg';
+const small3 = 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/tappr.jpg';
+const small4 = 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/compr.jpg';
+const large1 = 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/switchpr.jpg';
+const large2 = 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/ligthspr.jpg';
+const large3 = 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/showerpr.jpg';
+const large4 = 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/frupr.jpg';
 
 
 //import heroImage1 from '../assets/1.jpg';
@@ -25,8 +26,7 @@ import large4 from '../../src/products_images/large4.jpg';
 //import heroImage5 from '../assets/tiles.png';
 //import heroImage6 from '../assets/l7.jpg';
 
-import { Link } from 'react-router-dom';
-import Catalogs from '../Catalogs/Catalogs.js';
+
 
 function Home() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -34,7 +34,7 @@ function Home() {
   const heroImage1 = "https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/1.jpg";
   const heroImage2 = "https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/2.jpg";
   const heroImage3 = "https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/3.jpg";
-  const heroImage4 = "../assets/switches,jpeg";
+  const heroImage4 = "https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/switch.jpg";
   const heroImage5 = "https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/tiles.png";
   const heroImage6 = "https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/l7.jpg";
 
