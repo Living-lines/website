@@ -417,7 +417,7 @@
   .fullscreen-video {
     width: 100%;
     height: auto;
-    max-height: 450px;
+    max-height: 600px;
     border-radius: 8px;
   }
 
