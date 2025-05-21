@@ -67,10 +67,11 @@
 }
 
 .input1 {
+  margin-top: 5px;
   background-color: #010201;
   border: 2px solid #f26624;
-  width: 340px; /* Increased width */
-  height: 55px;  /* Slightly taller */
+  width: 200px;
+  height: 50px; 
   border-radius: 12px;
   color: white;
   padding-inline: 20px;
