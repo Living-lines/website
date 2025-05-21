@@ -111,18 +111,18 @@
   padding: 0.85rem 2rem;
   font-size: 1rem;
   font-weight: bold;
-  background-color: #0066ff;
+  background-color: #fe8025;
   color: white;
   border: none;
   border-radius: 8px;
   cursor: pointer;
   transition: all 0.25s ease;
-  box-shadow: 0 4px 14px rgba(0, 102, 255, 0.4);
+  box-shadow: 0 4px 14px rgba(242, 112, 19, 0.4);
 }
 
 .request-quote-btn:hover {
-  background-color: #004dd1;
-  box-shadow: 0 4px 20px rgba(0, 102, 255, 0.5);
+  background-color: #eb571c;
+  box-shadow: 0 4px 20px rgba(241, 139, 22, 0.5);
 }
 
 .filters-section {
