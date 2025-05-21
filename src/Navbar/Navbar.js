@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate, Link, useLocation } from 'react-router-dom';
 import './Navbar.css';
 import logoImage from '../../src/assets/logo.jpg'; // Logo Image
@@ -19,6 +19,28 @@ function Navbar() {
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(prev => !prev);
   };
+  const navRef = useRef(null);
+
+
+  useEffect(() => {
+  function handleClickOutside(event) {
+    if (navRef.current && !navRef.current.contains(event.target)) {
+      setIsMobileMenuOpen(false);
+    }
+  }
+
+  if (isMobileMenuOpen) {
+    document.addEventListener("mousedown", handleClickOutside);
+  } else {
+    document.removeEventListener("mousedown", handleClickOutside);
+  }
+
+  return () => {
+    document.removeEventListener("mousedown", handleClickOutside);
+  };
+}, [isMobileMenuOpen]);
+
+
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -74,7 +96,7 @@ function Navbar() {
 
         </header>
 
-        <nav className={`main-nav ${isMobileMenuOpen ? 'open' : ''}`}>
+        <nav ref={navRef} className={`main-nav ${isMobileMenuOpen ? 'open' : ''}`}>
           <Link to="/" className="nav-item">HOME</Link>
           <Link to="/about" className="nav-item">ABOUT</Link>
           <Link to="/products" className="nav-item">PRODUCTS</Link>
