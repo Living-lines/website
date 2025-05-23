@@ -4,14 +4,9 @@ import './Navbar.css';
 import logoImage from '../../src/assets/logo.jpg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
-import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import LoginModal from '../Login/LoginModal';
 import whatsappIcon from '../assets/whatsapp.png';
 import Loader from '../pages/Loader';
-
-
-
-
 
 function Navbar() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -19,18 +14,15 @@ function Navbar() {
   const navigate = useNavigate();
   const location = useLocation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(prev => !prev);
-  };
   const navRef = useRef(null);
-
+  const [showLoader, setShowLoader] = useState(false);
 
   useEffect(() => {
-    function handleClickOutside(event) {
+    const handleClickOutside = (event) => {
       if (navRef.current && !navRef.current.contains(event.target)) {
         setIsMobileMenuOpen(false);
       }
-    }
+    };
 
     if (isMobileMenuOpen) {
       document.addEventListener("mousedown", handleClickOutside);
@@ -43,16 +35,10 @@ function Navbar() {
     };
   }, [isMobileMenuOpen]);
 
-
-
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [location.pathname]);
 
-
-
-
-  const [showLoader, setShowLoader] = useState(false);
   const handleNavClick = (path) => {
     setShowLoader(true);
     setTimeout(() => {
@@ -70,18 +56,6 @@ function Navbar() {
     }, 3000);
   };
 
-
-
-
-
-
-
-
-  // WhatsApp link
-  const whatsappNumber = "1234567890"; // Replace with your phone number
-  const whatsappLink = `https://wa.me/${whatsappNumber}`;
-
-  // Handle form submission (Enter key press or button click)
   const handleSearchSubmit = (event) => {
     event.preventDefault();
     const query = searchTerm.trim();
@@ -90,7 +64,7 @@ function Navbar() {
     } else {
       navigate('/products');
     }
-    setSearchTerm(''); // Reset after submission
+    setSearchTerm('');
   };
 
   return (
@@ -104,49 +78,42 @@ function Navbar() {
       <div className="abc-emporio">
         <header className="header">
           <div className="logo-section">
-            <img src={logoImage} className="logo" alt="Living Space Logo" />
+            <img src={logoImage} className="logo" alt="ABC Emporio Logo" />
           </div>
 
-          <div id="poda">
-            <div id="main">
-              <form onSubmit={handleSearchSubmit}>
-                <input
-                  placeholder="Search..."
-                  type="text"
-                  className="input1"
-                  value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
-                />
-              </form>
-              <div className="filterBorder"></div>
-            </div>
+          <div id="search-bar-container">
+            <form onSubmit={handleSearchSubmit}>
+              <input
+                placeholder="Search..."
+                type="text"
+                className="input1"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+              />
+            </form>
+            <div className="filterBorder"></div>
           </div>
 
-          <div className="hamburger" onClick={toggleMobileMenu}>
+          <div className="hamburger" onClick={() => setIsMobileMenuOpen(prev => !prev)}>
             &#9776;
           </div>
-
         </header>
 
         <nav ref={navRef} className={`main-nav ${isMobileMenuOpen ? 'open' : ''}`}>
-          <Link to="/" className="nav-item" onClick={(e) => delayedNavigate(e, '/')}>HOME</Link>
-          <Link to="/about" className="nav-item" onClick={(e) => delayedNavigate(e, '/about')}>ABOUT</Link>
-          <Link to="/products" className="nav-item" onClick={(e) => delayedNavigate(e, '/products')}>PRODUCTS</Link>
-          <Link to="/brands" className="nav-item" onClick={(e) => delayedNavigate(e, '/brands')}>BRANDS</Link>
-          <Link to="/catalogs" className="nav-item" onClick={(e) => delayedNavigate(e, '/catalogs')}>CATALOGS</Link>
-          <Link to="/contact" className="nav-item" onClick={(e) => delayedNavigate(e, '/contact')}>CONTACT</Link>
-          <Link to="/cart" className="nav-item" onClick={(e) => delayedNavigate(e, '/cart')}>
+          <Link to="/" className="nav-item underline" onClick={(e) => delayedNavigate(e, '/')}>HOME</Link>
+          <Link to="/about" className="nav-item underline" onClick={(e) => delayedNavigate(e, '/about')}>ABOUT</Link>
+          <Link to="/products" className="nav-item underline" onClick={(e) => delayedNavigate(e, '/products')}>PRODUCTS</Link>
+          <Link to="/brands" className="nav-item underline" onClick={(e) => delayedNavigate(e, '/brands')}>BRANDS</Link>
+          <Link to="/catalogs" className="nav-item underline" onClick={(e) => delayedNavigate(e, '/catalogs')}>CATALOGS</Link>
+          <Link to="/contact" className="nav-item underline" onClick={(e) => delayedNavigate(e, '/contact')}>CONTACT</Link>
+          <Link to="/cart" className="nav-item underline" onClick={(e) => delayedNavigate(e, '/cart')}>
             <FontAwesomeIcon icon={faShoppingCart} className="nav-cart-icon" />
           </Link>
-
         </nav>
-
-
 
         <LoginModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
       </div>
 
-      {/* WhatsApp Button without background */}
       <a
         href="https://wa.me/918074253744"
         className="whatsapp-float"
@@ -154,19 +121,7 @@ function Navbar() {
         rel="noopener noreferrer"
         aria-label="Chat on WhatsApp"
       >
-        <img
-          src={whatsappIcon}
-          alt="WhatsApp"
-          className="whatsapp-icon"
-        />
-        <path
-          fill="#25D366"
-          d="M16 .3A15.6 15.6 0 0 0 .4 15.9c0 2.8.8 5.5 2.3 7.8L0 32l8.5-2.2a15.7 15.7 0 0 0 7.5 1.9h.1A15.6 15.6 0 0 0 16 .3zm0 28.8c-2.2 0-4.4-.6-6.3-1.8l-.5-.3-5 1.3 1.4-4.9-.3-.5a12.9 12.9 0 0 1-2-7C3.3 8.3 8.9 2.7 16 2.7c6.6 0 12 5.4 12 12 0 7-5.4 12.4-12 12.4z"
-        />
-        <path
-          fill="#25D366"
-          d="M24 19.1c-.4-.2-2.4-1.2-2.7-1.3-.3-.1-.5-.2-.7.2s-.8 1.3-1 1.6c-.2.3-.4.3-.8.1-2.3-1.1-3.8-2-5.3-4.5-.4-.6.5-.5 1.3-1.8.1-.2.1-.4 0-.6-.1-.2-.7-1.6-1-2.2-.3-.5-.6-.5-.8-.5h-.7c-.2 0-.6.1-.9.4-.3.3-1.2 1.2-1.2 2.8s1.2 3.2 1.4 3.4c.2.2 2.4 3.6 5.8 5 2.3.9 3.2.9 4.4.8.7-.1 2.4-1 2.7-2 .3-1 .3-1.9.2-2.1 0-.1-.1-.1-.3-.2z"
-        />
+        <img src={whatsappIcon} alt="WhatsApp" className="whatsapp-icon" />
       </a>
     </div>
   );

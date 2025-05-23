@@ -89,7 +89,7 @@
 
 .footer-left-column h3 {
   font-size: 1.2rem;
-  color: #ffd277;
+  /* color: #ffd277; */
   margin-top: 1.2rem;
 }
 
@@ -337,5 +337,215 @@
   .subscribe-input,
   .subscribe-btn {
     font-size: 0.95rem;
+  }
+}
+
+body {
+  margin: 0;
+  font-family: 'Lexend', sans-serif;
+  background-color: #111;
+  color: white;
+}
+
+.footer-section {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding: 60px 20px;
+  background-color: #111;
+}
+
+@media (min-width: 768px) {
+  .footer-section {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 60px 80px;
+  }
+}
+
+.footer-left {
+  max-width: 600px;
+}
+
+.logo {
+  font-family: 'Lexend', sans-serif;
+  font-size: 36px;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+}
+
+.tagline {
+  font-size: 12px;
+  color: #aaa;
+  letter-spacing: 3px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.description {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #ccc;
+}
+
+.footer-right {
+  text-align: center;
+}
+
+.heading {
+  font-size: 36px;
+  font-family: 'Lexend', sans-serif;
+  margin-bottom: 20px;
+}
+
+.subscribe-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .subscribe-box {
+    flex-direction: row;
+  }
+}
+
+.subscribe-box input {
+  padding: 12px;
+  width: 280px;
+  border: 1px solid #666;
+  background-color: #000;
+  color: white;
+  font-size: 14px;
+}
+
+.subscribe-box input::placeholder {
+  color: #888;
+}
+
+.subscribe-box button {
+  padding: 12px 24px;
+  margin-top: 10px;
+  background-color: white;
+  color: black;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.subscribe-box button:hover {
+  background-color: #ddd;
+}
+
+@media (min-width: 768px) {
+  .subscribe-box button {
+    margin-top: 0;
+    margin-left: 10px;
+  }
+}
+
+.emporio-section {
+  background-color: #111;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 60px 20px;
+  gap: 40px;
+}
+
+@media (min-width: 768px) {
+  .emporio-section {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 60px 80px;
+  }
+}
+
+.emporio-left {
+  max-width: 600px;
+}
+
+.emporio-logo {
+  font-family: 'Lexend', sans-serif;
+  font-size: 36px;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+  color:#ff6600
+}
+
+.emporio-tagline {
+  font-size: 12px;
+  color: #aaa;
+  letter-spacing: 3px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.emporio-desc {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #ccc;
+}
+
+.emporio-right {
+  text-align: center;
+}
+
+.emporio-heading {
+  font-size: 36px;
+  font-family: 'Lexend', sans-serif;
+  margin-bottom: 20px;
+}
+
+.subscribe-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .subscribe-container {
+    flex-direction: row;
+  }
+}
+
+.subscribe-input {
+  padding: 12px;
+  width: 280px;
+  border: 1px solid #666;
+  background-color: #000;
+  color: white;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.subscribe-input::placeholder {
+  color: #888;
+}
+
+.subscribe-btn {
+  padding: 12px 24px;
+  background-color: #ff6600;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.subscribe-btn:hover {
+  background-color: #ddd;
+}
+
+@media (min-width: 768px) {
+  .subscribe-btn {
+    margin-left: 10px;
+    margin-bottom: 0;
+  }
+
+  .subscribe-input {
+    margin-bottom: 0;
   }
 }

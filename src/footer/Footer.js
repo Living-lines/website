@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { faPhone } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import location1 from '../assets/location_1.jpg';
+import location2 from '../assets/location_2.jpg';
+import location3 from '../assets/location_3.jpg';
 
 import './Footer.css';
 
@@ -18,7 +21,7 @@ const Footer = () => {
 
   const handleSubscribe = async () => {
     try {
-      const res = await fetch('http://localhost:3000/api/subscribers',  {
+      const res = await fetch('http://localhost:3000/api/subscribers', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name, mobile }),
@@ -35,19 +38,24 @@ const Footer = () => {
   return (
     <footer className="footer">
       <div className="showroom-section">
-        <h2 className="showroom-title">Our Showrooms</h2>
+        <h1 className="products-heading">
+          Our Showrooms <span className="underline"></span>
+        </h1>
         <div className="showroom-table">
           <div className="showroom-column">
+            <img src={location1} alt="location1" className='branch-photo' />
             <h3>Visakhapatnam</h3>
             <p><i className="fas fa-envelope mail-icon" /> info@livinglines.in</p>
             <p><i className="fas fa-phone social-icon" /> 08912514792</p>
           </div>
           <div className="showroom-column">
+            <img src={location2} alt="location2" className='branch-photo' />
             <h3>Madhurawada</h3>
             <p><i className="fas fa-envelope mail-icon" /> info@livinglines.in</p>
             <p><i className="fas fa-phone social-icon" /> +91 9849111487</p>
           </div>
           <div className="showroom-column">
+            <img src={location3} alt="location3" className='branch-photo' />
             <h3>Vizianagaram</h3>
             <p><i className="fas fa-envelope mail-icon" /> info@livinglines.in</p>
             <p><i className="fa-solid fa-phone social-icon" /> +91 7997995219</p>
@@ -55,8 +63,31 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="footer-columns">
 
+      <div className="emporio-section">
+        <div className="emporio-left">
+          <h1 className="emporio-logo">LIVING LINES</h1>
+          <p className="emporio-tagline">THE ORIGINALS • THE BEST • THE LATEST</p>
+          <p className="emporio-desc">
+            Living Lines is a premier destination for high-quality tiles, sanitaryware, and interior solutions, offering a curated selection of modern and traditional designs. A trusted name in the industry, Living Lines began its journey with a vision to redefine home aesthetics across Andhra Pradesh. With showrooms in Visakhapatnam, Madhurawada, and Vizianagaram, we are committed to delivering excellence, elegance, and enduring value to every space we touch.
+          </p>
+        </div>
+
+        <div className="emporio-right">
+          <h2 className="emporio-heading">Get The Latest Updates</h2>
+          <div className="subscribe-container">
+            <input
+              type="phone number"
+              placeholder="phone number"
+              className="subscribe-input"
+            />
+            <button className="subscribe-btn">Subscribe</button>
+          </div>
+        </div>
+      </div>
+
+
+      <div className="footer-columns">
         <div className="footer-left-column">
           <h2>Living Lines</h2>
           <div className="location-hours">
@@ -112,7 +143,7 @@ const Footer = () => {
 
       <div className="footer-bottom">
         <hr className="footer-divider" />
-        <p className="footer-copy">All copy rights reserved to @living lines</p>
+        <p className="footer-copy">All Copy Rights Reserved to @Living Lines</p>
       </div>
     </footer>
   );

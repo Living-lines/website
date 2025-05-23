@@ -1,10 +1,12 @@
 .catalogs-section {
-    padding: 80px 20px;
+    padding:  20px;
     background: #f9f9f9;
    font-family: 'Lexend', sans-serif;
     margin-top: 80px;
   }
-  
+
+
+  .brand-card:hover
   .catalogs-heading {
     font-size: 42px;
     text-align: center;
@@ -40,6 +42,7 @@
   .brand-card:hover {
     transform: translateY(-6px);
     box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+    background: #fff;
   }
   
   .logo-container {
@@ -177,4 +180,11 @@
     font-size: 13px;
     padding: 8px 14px;
   }
+}
+
+
+.catalogs-wrapper {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 8px; /* Tight spacing */
 }

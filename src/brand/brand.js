@@ -39,7 +39,9 @@ const brands = [
 const BrandCarousel = () => {
   return (
     <div className="carousel-container">
-      <h2 className="carousel-title">Our Premium Brands</h2>
+      <h1 className="products-heading">
+          Our Premium Brands <span className="underline"></span>
+        </h1>
       <Swiper
         modules={[Autoplay]}
         spaceBetween={20}

@@ -365,7 +365,7 @@
   }
 }
 .about-heading{
-  font-family: lexend;
+  font-family: 'Lexend', sans-serif;
   font-weight: bold;
   font-size:45px;
   color:#ff6600;
@@ -1010,20 +1010,16 @@
 }
 
 .feature-heading {
-  font-family: 'Dancing Script', cursive;
+  font-family: 'Lexend', sans-serif;
   font-size: 3rem;
-  background: linear-gradient(to right, #ff6600, #4717f4);
+  background: linear-gradient(to right, #ff6600);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-weight: 700;
   margin-bottom: 30px;
   /*animation: glowText 2s infinite alternate; */
 }
-/*
-@keyframes glowText {
-  from { text-shadow: 0 0 1px rgba(255, 102, 0, 0.3); }
-  to { text-shadow: 0 0 3px rgba(255, 255, 0, 0.7); }
-} */
+
 
 .feature-text {
   flex: 1;
@@ -1047,19 +1043,41 @@
   padding-left: 25px;
   color: #fff;
   font-weight: 500;
-  /*transition: transform 0.3s, color 0.3s; */
+  
 }
 
-.feature-item::before {
-  content: "✔";
+/* .feature-item::before {
+  content: "➤"; 
   position: absolute;
   left: 0;
   color: #ff6600;
+  font-weight: bold;
+  font-size: 1.1rem;
+} */
+
+.feature-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: radial-gradient(circle at center, #ff6600, #ff9900);
+  box-shadow: 0 0 6px rgba(255, 102, 0, 0.6), 0 0 12px rgba(255, 165, 0, 0.3);
+  animation: flicker 2s infinite ease-in-out;
+  opacity: 0.9;
 }
+
+@keyframes flicker {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.15); }
+}
+
 
 .feature-item:hover {
   transform: scale(1.05);
-  color: #ffcc00;
+  color: #ff6000;
 }
 
 .feature-list.reveal {
@@ -1298,12 +1316,21 @@
   box-shadow: 0 15px 40px rgba(255, 102, 0, 0.4);
 }
 
-.branch-photo {
-  width: 100%;
-  height: 100%;
+/* .branch-photo {
+  
   object-fit: cover;
   display: block;
+} */
+
+.branch-photo {
+  display: block;
+  margin: 0 auto 1rem; 
+  width:300px;
+  height: 200px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(255, 102, 0, 0.3); /* optional: premium touch */
 }
+
 
 @media screen and (max-width: 768px) {
   .branches-gallery {

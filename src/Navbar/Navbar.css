@@ -27,6 +27,30 @@
   height: 30px;
 }
 
+.nav-item.underline {
+  position: relative;
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.nav-item.underline::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0%;
+  height: 2px;
+  background-color: #ff6000;
+  transition: width 0.3s ease;
+}
+
+.nav-item.underline:hover::after {
+  width: 100%;
+}
+
+
 /* Main Header Styling */
 .abc-emporio {
   font-family: 'Lexend', sans-serif;
@@ -106,6 +130,8 @@
   right: 0;
   z-index: 1000;
   background-color: black;
+  font-size: 18px;
+  font-weight: 500;
 }
 
 .main-nav a {
