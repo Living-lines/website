@@ -48,7 +48,7 @@ function Contact() {
 
                 <div className="hero-image">
                     <img
-                        src={require('../../src/assets/contact-us.jpg')}  // Path to the image
+                        src={require('../../src/assets/contact-us.jpg')} 
                         alt="Contact Us"
                     />
                 </div>

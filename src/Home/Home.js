@@ -83,6 +83,37 @@ function Home() {
 
   ];
 
+  useEffect(() => {
+  const featureList = document.querySelector('.feature-list');
+  const items = document.querySelectorAll('.feature-list-item');
+
+  const observer = new IntersectionObserver(([entry]) => {
+    if (entry.isIntersecting) {
+      featureList.classList.add('reveal');
+      items.forEach((item, index) => {
+        item.style.animationName = 'fadeUp';
+        item.style.animationDelay = `${index * 0.1}s`;
+        item.style.animationDuration = '0.6s';
+        item.style.animationFillMode = 'forwards';
+        item.style.opacity = '0';
+      });
+    } else {
+      featureList.classList.remove('reveal');
+      items.forEach((item) => {
+        item.style.animationName = 'none';
+        item.style.opacity = '0';
+      });
+    }
+  }, { threshold: 0.3 });
+
+  if (featureList) observer.observe(featureList);
+
+  return () => {
+    if (featureList) observer.unobserve(featureList);
+  };
+}, []);
+
+
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -121,7 +152,77 @@ function Home() {
         </video>
       </div>
 
-      <About />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <section className="interior-split-section">
+        <div className="interior-left-rotation">
+          <div className="wrapper">
+            <div className="inner" style={{ '--quantity': 8 }}>
+              {[
+                "a1.jpg",
+                "a2.jpg",
+                "a3.jpg",
+                "a4.jpg",
+                "a5.jpg",
+                "a6.jpg",
+                "a7.jpg",
+                "a8.jpg",
+              ].map((img, index) => (
+                <div className="card1" key={index} style={{ '--index': index, '--color-card': '242, 102, 36', }} >
+                  <img className="img1" src={`/assets/${img}`} alt={`a${index}`} />
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <div className="interior-right-content">
+          <div className="feature-section">
+            <div className="feature-content">
+              <h1 className="feature-title">Everything You Desire<br />Under One Roof</h1>
+              <ul className="feature-list animated">
+                {[
+                  "Sanitary", "Taps", "Tiles", "Shower Panels", "Electricals", "Artifacts", "Interior Decors", "Lights",
+                  "Chandeliers", "Switches", "Furniture", "Wallclocks", "Mirrors", "Cabinets", "Accessories", "Paints",
+                  "Plumbing", "Pipes", "Sinks", "Washbasins", "Pumps & Motors", "Fans", "Plywood"
+                ].map((item, i) => (
+                  <li className="feature-list-item" key={i}>{item}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+
+        </div>
+      </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+      {/*<About /> */}
       <BrandCarousel />
 
       <section className="our-products">

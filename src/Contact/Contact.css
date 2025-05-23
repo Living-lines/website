@@ -191,20 +191,24 @@
 }
 
 .hero-intro {
-  flex: 1;
+  flex: 0 0 65%;
 }
 
 .hero-intro h1 {
+  margin-top: -20px;
+  text-align: center;
   font-size: 3rem;
   color: #f26624;
   font-weight: 900;
   margin-bottom: 20px;
   text-transform: uppercase;
   letter-spacing: 1.5px;
-  max-width: 700px;
+  max-width: 900px;
 }
 
 .hero-intro p {
+  padding-left: 50px;
+  text-align: center;
   font-size: 1.25rem;
   max-width: 600px;
   line-height: 1.6;
@@ -212,12 +216,14 @@
 }
 
 .hero-image {
-  flex: 1;
+  flex: 0 0 35%;
 }
 
 .hero-image img {
+  margin-top: 20px;
+  align-self: center;
   width: 100%;
-  max-width: 500px; 
+  max-width: 300px; 
   border-radius: 10px;
 }
 
@@ -243,6 +249,7 @@
 }
 
 .info-card h3 {
+  text-align: center;
   font-size: 1.5rem;
   margin-bottom: 15px;
   color: #f26624;
@@ -250,6 +257,7 @@
 }
 
 .info-card p {
+  text-align: center;
   font-size: 1rem;
   line-height: 1.5;
   color: #444;

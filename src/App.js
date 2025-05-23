@@ -8,6 +8,7 @@ import Cart from './pages/Cart';
 import Home from './Home/Home';
 import Contact from './Contact/Contact';
 import Catalogs from './Catalogs/Catalogs';
+import Loader from './pages/Loader';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
             <Route path="/product/:productId" element={<ProductPage />} />
             <Route path='/contact' element={<Contact />} />
             <Route path="/cart" element={<Cart />} />
+            <Route path="/loader" element={<Loader />} /> 
           </Routes>
         </div>
         <Footer />

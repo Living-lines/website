@@ -1,4 +1,4 @@
-/* Carousel Container */
+
 .carousel-container {
   margin-top: -10px;
   background-color: #ffffff;
@@ -7,7 +7,6 @@
   margin-bottom: 50px;
 }
 
-/* Title */
 .carousel-title {
   color: #ff6600;
   font-size: 41px;
@@ -15,7 +14,6 @@
   margin-bottom: 40px;
 }
 
-/* Swiper Styles */
 .swiper-container {
   width: 90%;
   margin: 0 auto;
@@ -26,21 +24,19 @@
   justify-content: center;
 }
 
-/* Logo Container */
 .logo-container {
-  background: #f9f9f9; /* Light gray background */
+  background: #f9f9f9; 
   padding: 15px;
-  border-radius: 10px; /* Rounded corners */
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Soft shadow for floating effect */
+  border-radius: 10px; 
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); 
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 140px; /* Slightly bigger size */
+  width: 140px;
   height: 140px;
-  transition: all 0.3s ease; /* Smooth transition for hover effect */
+  transition: all 0.3s ease;
 }
 
-/* Brand Logo */
 .brand-logo {
   max-width: 100%;
   max-height: 100%;
@@ -48,12 +44,11 @@
   transition: transform 0.3s ease-in-out;
 }
 
-/* Hover Effect */
 .logo-container:hover {
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2); /* Bigger shadow on hover */
-  transform: translateY(-10px); /* Floating effect on hover */
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2); 
+  transform: translateY(-10px); 
 }
 
 .brand-logo:hover {
-  transform: scale(1.15); /* Slight zoom effect on hover */
+  transform: scale(1.15);
 }

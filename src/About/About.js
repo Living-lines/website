@@ -22,6 +22,41 @@ function About() {
     const ourValue = "https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/our-value.jpg";
 
 
+    /* Ganesh Code */
+    useEffect(() => {
+        const featureList = document.querySelector('.feature-list');
+        const items = document.querySelectorAll('.feature-item');
+
+        const observer = new IntersectionObserver(([entry]) => {
+            if (entry.isIntersecting) {
+                featureList.classList.add('reveal');
+                items.forEach((item, index) => {
+                    item.style.animationName = 'fadeUp';
+                    item.style.animationDelay = `${index * 0.1}s`;
+                    item.style.animationDuration = '0.6s';
+                    item.style.animationFillMode = 'forwards';
+                    item.style.opacity = '0';
+                });
+            } else {
+                featureList.classList.remove('reveal');
+                items.forEach((item) => {
+                    item.style.animationName = 'none';
+                    item.style.opacity = '0';
+                });
+            }
+        }, { threshold: 0.3 });
+
+        if (featureList) observer.observe(featureList);
+
+        return () => {
+            if (featureList) observer.unobserve(featureList);
+        };
+    }, []);
+
+
+
+    /* End of Ganesh Code */
+
     useEffect(() => {
         const handleScroll = () => {
             if (imageRef.current) {
@@ -52,7 +87,7 @@ function About() {
         <div className='main-container'>
 
             {/* EVERYTHING YOU DESIRE SECTION */}
-            <div className="desire-section">
+            {/*<div className="desire-section">
                 <div className="desire-text">
                     <h1 className="desire-heading">Everything you desire<br />under one roof</h1>
                     <ul className="product-list">
@@ -72,15 +107,51 @@ function About() {
                         <li>Cabinets</li>
                         <li>Accessories</li>
                         <li>Paints</li>
+                        <li>Plumbing</li>
+                        <li>Pipes</li>
+                        <li>Sinks</li>
+                        <li>Washbasins</li>
+                        <li>Pumps & Motors</li>
+                        <li>Fans</li>
+                        <li>Plywood</li>
                     </ul>
                 </div>
                 <div className="desire-image-container">
                     <img src={aboutImage1} alt="Everything You Desire" className="desire-image" />
                 </div>
+            </div> */}
+
+
+            <div className="feature-showcase">
+                <div className="feature-text">
+                    <h1 className="feature-heading">Everything You Desire<br />Under One Roof</h1>
+                    <ul className="feature-list">
+                        {[
+                            "Sanitary", "Taps", "Tiles", "Shower Panels", "Electricals", "Artifacts", "Interior Decors", "Lights",
+                            "Chandeliers", "Switches", "Furniture", "Wallclocks", "Mirrors", "Cabinets", "Accessories", "Paints",
+                            "Plumbing", "Pipes", "Sinks", "Washbasins", "Pumps & Motors", "Fans", "Plywood"
+                        ].map((item, i) => (
+                            <li className="feature-item" key={i}>{item}</li>
+                        ))}
+                    </ul>
+                </div>
+
+                <div className="feature-images">
+                    <div className="main-img-container">
+                        <img src={aboutImage1} alt="Main Display" className="main-feature-img" />
+                        <img src={aboutImage1} alt="Secondary Display" className="secondary-feature-img" />
+                    </div>
+                </div>
             </div>
 
+
+
+
+
+
+
             {/* ABOUT SECTION */}
-            <div className="about-description-section">
+            {/*<div className="about-description-section">
                 <motion.div
                     className="about-description-text"
                     initial={{ opacity: 0, y: 50 }}
@@ -101,7 +172,41 @@ function About() {
                         From design to selection, we make homebuilding effortless, stylish, and complete.
                     </p>
                 </motion.div>
-            </div>
+            </div> */}
+
+
+
+            <div className="about-living-section">
+                <motion.h2
+                    className="about-title"
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6 }}
+                    viewport={{ once: false, amount: 0.3 }}
+                >
+                    About Living Lines
+                </motion.h2>
+
+                <div className="about-info-parts">
+                    {[
+                        "For over 25 years, Living Lines has been your trusted one-stop destination for building elegant homes. We offer a wide range of sanitaryware, bathware, tiles, electrical, and plumbing products — all under one roof.",
+                        "With 150+ experts and one of the largest product displays in the state, we bring unmatched variety, innovation, and value. Every item we offer adds excellence to your home and elegance to your lifestyle.",
+                        "From design to selection, we make homebuilding effortless, stylish, and complete."
+                    ].map((text, index) => (
+                        <motion.p
+                            className="about-description-block"
+                            key={index}
+                            initial={{ opacity: 0, y: 50 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.8, delay: index * 0.2 }}
+                            viewport={{ once: false, amount: 0.3 }}
+                        >
+                            {text}
+                        </motion.p>
+                    ))}
+                </div>
+            </div><br /><br />
+
 
             <Timeline />
 
@@ -126,20 +231,60 @@ function About() {
                 </div>
             </motion.div> */}
 
-            <h2 className="branch-heading">Our Branches</h2>
+            {/*<div className="branch-section">
+                <h2 className="branch-heading">Our Branches</h2>
 
-            <div className="branch-gallery">
-                {[location1, location2, location3].map((src, index) => (
-                    <div key={index} className="branch-box">
-                        <img src={src} alt={`Branch ${index + 1}`} className="branch-image" />
-                    </div>
-                ))}
+                <div className="branch-gallery">
+                    {[location1, location2, location3].map((src, index) => (
+                        <div key={index} className="branch-box">
+                            <img src={src} alt={`Branch ${index + 1}`} className="branch-image" />
+                        </div>
+                    ))}
+                </div>
+            </div> */}
+
+
+            <div className="branches-section">
+                <motion.h2
+                    className="branches-title"
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6 }}
+                    viewport={{ once: false, amount: 0.3 }}
+                >
+                    Our Branches
+                </motion.h2>
+
+                <div className="branches-gallery">
+                    {[location1, location2, location3].map((src, index) => (
+                        <motion.div
+                            key={index}
+                            className="branch-card"
+                            initial={{ opacity: 0, x: -150 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            transition={{
+                                duration: 0,
+                                delay: index * 0.4,
+                                ease: "easeOut"
+                            }}
+                            viewport={{ once: false, amount: 0.3 }}
+                        >
+                            <img src={src} alt={`Branch ${index + 1}`} className="branch-photo" />
+                        </motion.div>
+                    ))}
+                </div>
             </div>
 
 
 
+
+
+
+
+
+
             {/* Our Value + Vision & Mission Section */}
-            <div className="container">
+            {/*<div className="container">
                 <motion.div
                     className="text-section"
                     initial={{ opacity: 1, scale: 0.8 }}
@@ -183,7 +328,56 @@ function About() {
                         </p>
                     </motion.div>
                 </div>
+            </div> */}
+
+
+            <div className="value-section">
+                <motion.div
+                    className="value-intro"
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8 }}
+                    viewport={{ once: false, amount: 0.3 }}
+                >
+                    <h1 className="value-highlight">Our Value</h1>
+                    <h2 className="value-subtitle">Trusted by a wide community</h2>
+                    <p className="value-description">
+                        Living Lines is a preferred choice among <strong>homeowners</strong>, <strong>architects</strong>, <strong>contractors</strong>,
+                        <strong> plumbers</strong>, <strong>masons</strong>, <strong>electricians</strong>, <strong>builders</strong>, <strong>small scale business owners</strong>,
+                        and other <strong>technicians and vendors</strong>. Our unmatched product range and reliable service make us a one-stop destination for premium home-building materials.
+                    </p>
+                </motion.div>
+
+                <div className="value-cards">
+                    {[
+                        {
+                            icon: "💡",
+                            title: "Vision",
+                            text: "Delivering 100+ top-tier brands to experience quality dream homes.",
+                        },
+                        {
+                            icon: "🛋️",
+                            title: "Mission",
+                            text: "To be the most trusted showroom which excels in customer service and builds complete home solutions.",
+                        },
+                    ].map((card, i) => (
+                        <motion.div
+                            key={i}
+                            className="value-card"
+                            initial={{ opacity: 0, y: 50 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ delay: i * 0.3, duration: 0.6 }}
+                            viewport={{ once: false, amount: 0.3 }}
+                            whileHover={{ scale: 1.07, rotate: 1 }}
+                        >
+                            <div className="value-icon">{card.icon}</div>
+                            <h3 className="value-card-title">{card.title}</h3>
+                            <p className="value-card-text">{card.text}</p>
+                        </motion.div>
+                    ))}
+                </div>
             </div>
+
 
         </div>
     );

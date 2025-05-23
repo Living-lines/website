@@ -1,5 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { faPhone } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 import './Footer.css';
 
 const Footer = () => {
@@ -10,34 +13,50 @@ const Footer = () => {
     window.scrollTo(0, 0);
   };
 
+  const [name, setName] = useState('');
+  const [mobile, setMobile] = useState('');
+
+  const handleSubscribe = async () => {
+    try {
+      const res = await fetch('http://localhost:3000/api/subscribers',  {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, mobile }),
+      });
+      const result = await res.json();
+      if (res.ok) alert('Subscribed successfully!');
+      else alert(result.error || 'Subscription failed');
+    } catch (err) {
+      console.error(err);
+      alert('Error subscribing.');
+    }
+  };
+
   return (
     <footer className="footer">
-      {/* Our Showrooms Section */}
       <div className="showroom-section">
         <h2 className="showroom-title">Our Showrooms</h2>
         <div className="showroom-table">
           <div className="showroom-column">
             <h3>Visakhapatnam</h3>
             <p><i className="fas fa-envelope mail-icon" /> info@livinglines.in</p>
-            <p><i className="fas fa-phone phone-icon" /> 08912514792</p>
+            <p><i className="fas fa-phone social-icon" /> 08912514792</p>
           </div>
           <div className="showroom-column">
             <h3>Madhurawada</h3>
             <p><i className="fas fa-envelope mail-icon" /> info@livinglines.in</p>
-            <p><i className="fas fa-phone phone-icon" /> +91 9849111487</p>
+            <p><i className="fas fa-phone social-icon" /> +91 9849111487</p>
           </div>
           <div className="showroom-column">
             <h3>Vizianagaram</h3>
             <p><i className="fas fa-envelope mail-icon" /> info@livinglines.in</p>
-            <p><i className="fas fa-phone phone-icon" /> +91 7997995219</p>
+            <p><i className="fa-solid fa-phone social-icon" /> +91 7997995219</p>
           </div>
         </div>
       </div>
 
-      {/* New Footer Layout Below Showroom Section */}
       <div className="footer-columns">
 
-        {/* Column 1: Company & Hours */}
         <div className="footer-left-column">
           <h2>Living Lines</h2>
           <div className="location-hours">
@@ -51,7 +70,6 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Column 2: Navigation Links */}
         <div className="footer-middle-column">
           <h2 className="extra-title">Navigate</h2>
           <div className="navigate-table">
@@ -64,19 +82,30 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Column 3: Contact & Social */}
         <div className="footer-right-column">
-          <h2 className="extra-title">Contact</h2>
-          <p><i className="fas fa-phone phone-icon social-icon" /> 8074253744</p>
+          <h2 className="extra-title">Contact</h2><br />
+          <p><i className="fas fa-phone  social-icon" /> 8074253744</p>
           <p><i className="fas fa-envelope social-icon" /> saibalajimarketing@gmail.com</p>
 
-          <h2 className="extra-title" style={{ marginTop: '1.5rem' }}>Social Media</h2>
+          <h2 className="extra-title" style={{ marginTop: '3.5rem' }}>Social Media</h2>
           <div className="footer-social-icons">
             <i className="fab fa-instagram social-icon" />
             <i className="fab fa-twitter social-icon" />
             <i className="fab fa-facebook social-icon" />
           </div>
         </div>
+
+        {/*<div className="footer-last-column">
+          <div className="footer-last-button">
+            <input type="text" placeholder="Name" className="subscribe-input" value={name} onChange={(e) => setName(e.target.value)} />
+            <input type="text" placeholder="Mobile Number" className="subscribe-input" value={mobile} onChange={(e) => setMobile(e.target.value)}/>
+            <button className="subscribe-btn" onClick={handleSubscribe}>Subscribe</button>
+          </div>
+        </div> */}
+
+
+
+
 
       </div>
 

@@ -1,11 +1,14 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate, Link, useLocation } from 'react-router-dom';
 import './Navbar.css';
-import logoImage from '../../src/assets/logo.jpg'; // Logo Image
+import logoImage from '../../src/assets/logo.jpg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faWhatsapp } from '@fortawesome/free-brands-svg-icons'; // WhatsApp icon
+import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import LoginModal from '../Login/LoginModal';
 import whatsappIcon from '../assets/whatsapp.png';
+import Loader from '../pages/Loader';
+
 
 
 
@@ -23,28 +26,51 @@ function Navbar() {
 
 
   useEffect(() => {
-  function handleClickOutside(event) {
-    if (navRef.current && !navRef.current.contains(event.target)) {
-      setIsMobileMenuOpen(false);
+    function handleClickOutside(event) {
+      if (navRef.current && !navRef.current.contains(event.target)) {
+        setIsMobileMenuOpen(false);
+      }
     }
-  }
 
-  if (isMobileMenuOpen) {
-    document.addEventListener("mousedown", handleClickOutside);
-  } else {
-    document.removeEventListener("mousedown", handleClickOutside);
-  }
+    if (isMobileMenuOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    } else {
+      document.removeEventListener("mousedown", handleClickOutside);
+    }
 
-  return () => {
-    document.removeEventListener("mousedown", handleClickOutside);
-  };
-}, [isMobileMenuOpen]);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isMobileMenuOpen]);
 
 
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [location.pathname]);
+
+
+
+
+  const [showLoader, setShowLoader] = useState(false);
+  const handleNavClick = (path) => {
+    setShowLoader(true);
+    setTimeout(() => {
+      setShowLoader(false);
+      navigate(path);
+    }, 3000);
+  };
+
+  const delayedNavigate = (e, path) => {
+    e.preventDefault();
+    setShowLoader(true);
+    setTimeout(() => {
+      setShowLoader(false);
+      navigate(path);
+    }, 3000);
+  };
+
+
 
 
 
@@ -69,6 +95,12 @@ function Navbar() {
 
   return (
     <div>
+      {showLoader && (
+        <div className="loader-overlay">
+          <Loader />
+        </div>
+      )}
+
       <div className="abc-emporio">
         <header className="header">
           <div className="logo-section">
@@ -97,13 +129,16 @@ function Navbar() {
         </header>
 
         <nav ref={navRef} className={`main-nav ${isMobileMenuOpen ? 'open' : ''}`}>
-          <Link to="/" className="nav-item">HOME</Link>
-          <Link to="/about" className="nav-item">ABOUT</Link>
-          <Link to="/products" className="nav-item">PRODUCTS</Link>
-          <Link to="/brands" className="nav-item">BRANDS</Link>
-          <Link to="/Catalogs" className="nav-item">CATALOGS</Link>
-          <Link to="/contact" className="nav-item">CONTACT</Link>
-          <Link to="/cart" className="nav-item">CART</Link>
+          <Link to="/" className="nav-item" onClick={(e) => delayedNavigate(e, '/')}>HOME</Link>
+          <Link to="/about" className="nav-item" onClick={(e) => delayedNavigate(e, '/about')}>ABOUT</Link>
+          <Link to="/products" className="nav-item" onClick={(e) => delayedNavigate(e, '/products')}>PRODUCTS</Link>
+          <Link to="/brands" className="nav-item" onClick={(e) => delayedNavigate(e, '/brands')}>BRANDS</Link>
+          <Link to="/catalogs" className="nav-item" onClick={(e) => delayedNavigate(e, '/catalogs')}>CATALOGS</Link>
+          <Link to="/contact" className="nav-item" onClick={(e) => delayedNavigate(e, '/contact')}>CONTACT</Link>
+          <Link to="/cart" className="nav-item" onClick={(e) => delayedNavigate(e, '/cart')}>
+            <FontAwesomeIcon icon={faShoppingCart} className="nav-cart-icon" />
+          </Link>
+
         </nav>
 
 
