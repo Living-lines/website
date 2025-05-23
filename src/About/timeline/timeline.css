@@ -149,12 +149,12 @@
 /* ===== Timeline Section Styles for Web ===== */
 
 .history-wrapper {
-  padding: 100px 5%;
   background: linear-gradient(to right, #0f0f0f, #1a1a1a);
   font-family: 'Lexend', sans-serif;
   color: #fff;
   position: relative;
   overflow-x: hidden;
+  width: 100%;
 }
 
 .history-heading {

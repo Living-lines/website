@@ -84,34 +84,34 @@ function Home() {
   ];
 
   useEffect(() => {
-  const featureList = document.querySelector('.feature-list');
-  const items = document.querySelectorAll('.feature-list-item');
+    const featureList = document.querySelector('.feature-list');
+    const items = document.querySelectorAll('.feature-list-item');
 
-  const observer = new IntersectionObserver(([entry]) => {
-    if (entry.isIntersecting) {
-      featureList.classList.add('reveal');
-      items.forEach((item, index) => {
-        item.style.animationName = 'fadeUp';
-        item.style.animationDelay = `${index * 0.1}s`;
-        item.style.animationDuration = '0.6s';
-        item.style.animationFillMode = 'forwards';
-        item.style.opacity = '0';
-      });
-    } else {
-      featureList.classList.remove('reveal');
-      items.forEach((item) => {
-        item.style.animationName = 'none';
-        item.style.opacity = '0';
-      });
-    }
-  }, { threshold: 0.3 });
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        featureList.classList.add('reveal');
+        items.forEach((item, index) => {
+          item.style.animationName = 'fadeUp';
+          item.style.animationDelay = `${index * 0.1}s`;
+          item.style.animationDuration = '0.6s';
+          item.style.animationFillMode = 'forwards';
+          item.style.opacity = '0';
+        });
+      } else {
+        featureList.classList.remove('reveal');
+        items.forEach((item) => {
+          item.style.animationName = 'none';
+          item.style.opacity = '0';
+        });
+      }
+    }, { threshold: 0.3 });
 
-  if (featureList) observer.observe(featureList);
+    if (featureList) observer.observe(featureList);
 
-  return () => {
-    if (featureList) observer.unobserve(featureList);
-  };
-}, []);
+    return () => {
+      if (featureList) observer.unobserve(featureList);
+    };
+  }, []);
 
 
 
@@ -207,6 +207,55 @@ function Home() {
           </div>
 
 
+        </div>
+      </section>
+
+
+
+
+      <section className="originals-section">
+        <div className="originals-container">
+          <div className="first-line">
+            <img
+              src="/assets/taps123.png"
+              alt="Original Taps"
+              className="originals-image first-image"
+              draggable={false}
+            />
+            <h1 className="originals-text-line">THE ORIGINALS</h1>
+          </div>
+
+          <h2 className="originals-text-line second-line">THE BEST</h2>
+
+          <div className="third-line">
+            <div className="curve-svg-wrapper">
+              <svg
+                width="200"
+                height="40"
+                viewBox="0 0 200 40"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                className="curve-svg"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <path
+                  d="M0 20 C30 0, 70 40, 100 20 S170 0, 200 20"
+                  stroke="#b8860b"
+                  strokeWidth="4"
+                  fill="none"
+                  strokeLinecap="round"
+                />
+              </svg>
+            </div>
+            <h3 className="originals-text-line third-line-text">THE LATEST</h3>
+            <img
+              src="/assets/taps51.jpg"
+              alt="Latest Taps"
+              className="second-image1"
+              draggable={false}
+            />
+          </div>
         </div>
       </section>
 

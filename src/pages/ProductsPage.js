@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faShoppingCart, faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
+import { faCirclePlus, faChevronDown, faChevronUp,  faShoppingCart, faPlusCircle } from '@fortawesome/free-solid-svg-icons';
 import React, { useState, useEffect } from 'react';
 import './ProductPage.css';
 import Popup from './Popup';
@@ -223,34 +223,40 @@ const ProductPager = () => {
         ) : displayProducts.length > 0 ? (
           <div className="product-cards">
             {displayProducts.map(prod => (
-              <div
-                key={prod.id}
-                className="product-card"
-                onClick={() => handleImageClick(prod)}
-              >
-                <img
-                  src={prod.image_url}
-                  alt={prod.model_name}
-                  className="product-img"
-                />
+              <div key={prod.id} className="product-card" onClick={() => handleImageClick(prod)}>
                 <div className="product-content">
+
+                  {/* Product Image */}
+                  <div className="product-image-container">
+                    <img src={prod.image_url} alt={prod.model_name} className="product-img" />
+                  </div>
+
+                  {/* Product Info */}
                   <div className="product-info">
                     <h4>{prod.model_name}</h4>
                     <p>{prod.brand} — {prod.product_type}</p>
                   </div>
-                  <div className="cart-icon-container" onClick={(e) => { e.stopPropagation();  handleAddToCart(prod);  }}>
-                    <FontAwesomeIcon icon={faShoppingCart} className="cart-page-icon" />
+
+                  {/* Cart Icon BELOW the text */}
+                  <div
+                    className="cart-icon-container"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleAddToCart(prod);
+                    }}
+                  >
+                    {/*<FontAwesomeIcon icon={faCirclePlus} className="cart-circle-direct-icon" /> */}
+                    <div className="cart-with-plus">
+                      <FontAwesomeIcon icon={faShoppingCart} className="cart-icon" />
+                      <FontAwesomeIcon icon={faPlusCircle} className="plus-icon" />
+                    </div>
+
                   </div>
 
-
-                  {/*<div className="add-cart-container">
-                  <button className="add-cart-btn1" onClick={(e) => { e.stopPropagation();  handleAddToCart(prod);  }} >
-                    Add to Cart
-                  </button>
-                </div> */}
                 </div>
-
               </div>
+
+
             ))}
           </div>
         ) : (
