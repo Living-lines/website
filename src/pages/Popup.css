@@ -145,15 +145,31 @@
   height: 180px;
   object-fit: cover;
   border-radius: 10px;
-  margin-bottom: 16px;
+  /* margin-bottom: 16px; */
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
 /* Mobile view adjustments */
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 768px) {
+  .popup-overlay {
+    justify-content: center;
+    align-items: center;
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+
   .popup-content {
-    max-width: 90vw;
-    padding: 20px 15px;
+    width: 100%;
+    max-width: 100%; /* take full width inside overlay */
+    border-radius: 16px; /* apply consistent rounded corners */
+    /* margin: 0 auto; */
+    padding: 20px;
+    box-sizing: border-box;
+  }
+
+  .popup-img {
     border-radius: 12px;
   }
 
@@ -175,3 +191,5 @@
     font-size: 18px;
   }
 }
+
+

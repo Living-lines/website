@@ -642,6 +642,29 @@
 }
 
 
+.search-input-wrapper {
+  position: relative;
+  width: 86%;
+}
+
+.clear-icon {
+  position: absolute;
+  top: 50%;
+  right: 14px;
+  transform: translateY(-50%);
+  font-size: 18px;
+  color: #999;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.clear-icon:hover {
+  color: #f26624;
+}
+
+.dropdown-menu label {
+  color: #000; /* Ensures black text for dropdown */
+}
 
 
 

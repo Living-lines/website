@@ -39,22 +39,9 @@ function Navbar() {
     window.scrollTo(0, 0);
   }, [location.pathname]);
 
-  const handleNavClick = (path) => {
-    setShowLoader(true);
-    setTimeout(() => {
-      setShowLoader(false);
-      navigate(path);
-    }, 3000);
-  };
-
-  const delayedNavigate = (e, path) => {
-    e.preventDefault();
-    setShowLoader(true);
-    setTimeout(() => {
-      setShowLoader(false);
-      navigate(path);
-    }, 3000);
-  };
+  useEffect(() => {
+    document.body.style.overflow = isMobileMenuOpen ? 'hidden' : 'auto';
+  }, [isMobileMenuOpen]);
 
   const handleSearchSubmit = (event) => {
     event.preventDefault();
@@ -66,6 +53,26 @@ function Navbar() {
     }
     setSearchTerm('');
   };
+
+  const delayedNavigate = (e, path) => {
+    e.preventDefault();
+    setShowLoader(true);
+    setTimeout(() => {
+      setShowLoader(false);
+      setIsMobileMenuOpen(false); // close mobile menu on link click
+      navigate(path);
+    }, 3000);
+  };
+
+  const navItems = [
+    { label: 'HOME', path: '/' },
+    { label: 'ABOUT', path: '/about' },
+    { label: 'PRODUCTS', path: '/products' },
+    { label: 'BRANDS', path: '/brands' },
+    { label: 'CATALOGS', path: '/catalogs' },
+    { label: 'CONTACT', path: '/contact' },
+    { label: <FontAwesomeIcon icon={faShoppingCart} />, path: '/cart' }
+  ];
 
   return (
     <div>
@@ -82,7 +89,7 @@ function Navbar() {
           </div>
 
           <div id="search-bar-container">
-            <form onSubmit={handleSearchSubmit}>
+            <form onSubmit={handleSearchSubmit} className="search-wrapper">
               <input
                 placeholder="Search..."
                 type="text"
@@ -90,25 +97,31 @@ function Navbar() {
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
               />
+              {searchTerm && (
+                <span className="clear-search" onClick={() => setSearchTerm('')}>×</span>
+              )}
             </form>
-            <div className="filterBorder"></div>
           </div>
 
-          <div className="hamburger" onClick={() => setIsMobileMenuOpen(prev => !prev)}>
-            &#9776;
+          <div
+            className="hamburger"
+            onClick={() => setIsMobileMenuOpen(prev => !prev)}
+          >
+            {isMobileMenuOpen ? '×' : '☰'}
           </div>
         </header>
 
         <nav ref={navRef} className={`main-nav ${isMobileMenuOpen ? 'open' : ''}`}>
-          <Link to="/" className="nav-item underline" onClick={(e) => delayedNavigate(e, '/')}>HOME</Link>
-          <Link to="/about" className="nav-item underline" onClick={(e) => delayedNavigate(e, '/about')}>ABOUT</Link>
-          <Link to="/products" className="nav-item underline" onClick={(e) => delayedNavigate(e, '/products')}>PRODUCTS</Link>
-          <Link to="/brands" className="nav-item underline" onClick={(e) => delayedNavigate(e, '/brands')}>BRANDS</Link>
-          <Link to="/catalogs" className="nav-item underline" onClick={(e) => delayedNavigate(e, '/catalogs')}>CATALOGS</Link>
-          <Link to="/contact" className="nav-item underline" onClick={(e) => delayedNavigate(e, '/contact')}>CONTACT</Link>
-          <Link to="/cart" className="nav-item underline" onClick={(e) => delayedNavigate(e, '/cart')}>
-            <FontAwesomeIcon icon={faShoppingCart} className="nav-cart-icon" />
-          </Link>
+          {navItems.map(({ label, path }) => (
+            <Link
+              key={path}
+              to={path}
+              className={`nav-item underline ${location.pathname === path ? 'active-tab' : ''}`}
+              onClick={(e) => delayedNavigate(e, path)}
+            >
+              {label}
+            </Link>
+          ))}
         </nav>
 
         <LoginModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
