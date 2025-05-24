@@ -236,13 +236,15 @@
 
 .info-card {
   background: #fdf6f0;
-  flex: 1 1 220px;
   border-radius: 16px;
   padding: 25px 20px;
   box-shadow: 0 6px 20px rgba(242, 102, 36, 0.12);
   transition: box-shadow 0.3s ease;
   cursor: default;
+  flex: 1 1 200px; /* allow wrapping on desktop */
+  max-width: 400px;
 }
+
 
 .info-card:hover {
   box-shadow: 0 12px 35px rgba(242, 102, 36, 0.25);
@@ -650,3 +652,20 @@
 }
 
 
+@media (max-width: 768px) {
+  .contact-info-cards {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* ✅ Center-align all cards */
+    justify-content: center; /* ✅ Vertically center (optional) */
+    gap: 10px;
+    padding: 0 10px;
+    width: 100%;
+  }
+
+  .info-card {
+    width: 90%; /* ✅ Limit width to look nice on small screens */
+    max-width: 300px;
+    text-align: center;
+  }
+}

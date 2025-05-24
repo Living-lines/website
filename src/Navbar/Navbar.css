@@ -1,9 +1,9 @@
 
 .whatsapp-button {
   position: fixed;
-  bottom: 20px; /* Position it 20px from the bottom */
-  right: 20px;  /* Position it 20px from the right */
-  background-color: #25D366; /* WhatsApp color */
+  bottom: 20px; 
+    right: 20px;  
+  background-color: #25D366; 
   padding: 15px;
   border-radius: 50%;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -15,11 +15,11 @@
 }
 
 .whatsapp-button:hover {
-  transform: scale(1.1); /* Slight scale on hover */
+  transform: scale(1.1); 
 }
 
 .whatsapp-button:focus {
-  outline: none; /* Remove outline when focused */
+  outline: none; 
 }
 
 .whatsapp-button svg {
@@ -27,7 +27,7 @@
   height: 30px;
 }
 
-/* Main Header Styling */
+
 .abc-emporio {
   font-family: 'Lexend', sans-serif;
   color: white;
@@ -38,7 +38,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
+  padding: 10px 40px; 
   position: fixed;
   top: 0;
   left: 0;
@@ -46,7 +46,9 @@
   z-index: 1000;
   background-color: black;
   color: white;
+  flex-wrap: nowrap;
 }
+
 
 .logo-section {
   display: flex;
@@ -95,7 +97,7 @@
   outline: none;
 }
 
-/* Main Navigation */
+
 .main-nav {
   display: flex;
   justify-content: center;
@@ -116,7 +118,7 @@
   background-color: transparent;
 }
 
-/* Mobile Menu */
+
 .menu-icon {
   display: none;
   font-size: 28px;
@@ -124,7 +126,7 @@
   cursor: pointer;
 }
 
-/* Hero Section Styling */
+
 .hero {
   position: relative;
   height: 80vh;
@@ -419,13 +421,11 @@
   }
 
   .main-nav .nav-item.active-tab {
-    background-color: #111;
     color: #ff6000;
     font-weight: bold;
-    border-left: 4px solid #ff6000;
   }
 }
-/* Search Bar Wrapper */
+
 .search-wrapper {
   position: relative;
   width: 100%;
@@ -464,7 +464,6 @@
   font-size: 16px;
 }
 
-/* Hamburger */
 .hamburger {
   display: none;
   font-size: 32px;
@@ -478,12 +477,10 @@
   transform: scale(1.1);
 }
 
-/* Nav items highlight */
+
 .nav-item.active-tab {
-  background-color: #111;
   color: #ff6000 !important;
   font-weight: bold;
-  border-left: 4px solid #ff6000;
 }
 
 /* Mobile View */
@@ -539,3 +536,52 @@
   }
 }
 
+.nav-item {
+  position: relative;
+  color: white;
+  text-decoration: none;
+  padding: 10px 20px;
+  display: inline-block;
+  transition: color 0.3s ease;
+}
+
+/* Animated underline effect */
+.nav-item::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 8px;
+  height: 2px;
+  width: 0;
+  background-color: #ff6000;
+  transition: width 0.3s ease;
+}
+
+.nav-item:hover::after {
+  width: 100%;
+}
+
+.nav-item:hover {
+  color: #ff6000;
+}
+
+/* --- FIX: Center align search bar properly on desktop --- */
+@media (min-width: 769px) {
+  #search-bar-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    padding-left:800px; /* balances the logo and search */
+  }
+
+  .search-wrapper {
+    max-width: 250px;
+    width: 100%;
+  }
+}
+
+/* --- FIX: Active tab text color only --- */
+.nav-item.active-tab {
+  color: #ff6000 !important;
+}

@@ -59,7 +59,7 @@ function Navbar() {
     setShowLoader(true);
     setTimeout(() => {
       setShowLoader(false);
-      setIsMobileMenuOpen(false); // close mobile menu on link click
+      setIsMobileMenuOpen(false);
       navigate(path);
     }, 3000);
   };
@@ -85,8 +85,11 @@ function Navbar() {
       <div className="abc-emporio">
         <header className="header">
           <div className="logo-section">
-            <img src={logoImage} className="logo" alt="ABC Emporio Logo" />
+            <Link to="/" onClick={() => setIsMobileMenuOpen(false)}>
+              <img src={logoImage} className="logo" alt="LivingLines Logo" />
+            </Link>
           </div>
+
 
           <div id="search-bar-container">
             <form onSubmit={handleSearchSubmit} className="search-wrapper">

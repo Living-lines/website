@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState,Link } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { faPhone } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import location1 from '../assets/location_1.jpg';
 import location2 from '../assets/location_2.jpg';
 import location3 from '../assets/location_3.jpg';
+import logoImage from '../../src/assets/logo.jpg';
 
 import './Footer.css';
 
@@ -66,8 +67,8 @@ const Footer = () => {
 
       <div className="emporio-section">
         <div className="emporio-left">
-          <h1 className="emporio-logo">LIVING LINES</h1>
-          <p className="emporio-tagline">THE ORIGINALS • THE BEST • THE LATEST</p>
+              <img src={logoImage} className="logo-footer" alt="LivingLines Logo" />
+  
           <p className="emporio-desc">
             Living Lines is a premier destination for high-quality tiles, sanitaryware, and interior solutions, offering a curated selection of modern and traditional designs. A trusted name in the industry, Living Lines began its journey with a vision to redefine home aesthetics across Andhra Pradesh. With showrooms in Visakhapatnam, Madhurawada, and Vizianagaram, we are committed to delivering excellence, elegance, and enduring value to every space we touch.
           </p>
@@ -115,24 +116,50 @@ const Footer = () => {
 
         <div className="footer-right-column">
           <h2 className="extra-title">Contact</h2><br />
-          <p><i className="fas fa-phone  social-icon" /> 8074253744</p>
-          <p><i className="fas fa-envelope social-icon" /> saibalajimarketing@gmail.com</p>
+          <p>
+            <i className="fas fa-phone social-icon" />{" "}
+            <a href="tel:08912514792" className="footer-contact-link">08912514792</a>
+          </p>
+
+          <p>
+            <i className="fas fa-envelope mail-icon" />{" "}
+            <a href="mailto:saibalajimarketing@gmail.com" className="footer-contact-link" target="_blank" rel="noopener noreferrer">
+              saibalajimarketing@gmail.com
+            </a>
+          </p>
 
           <h2 className="extra-title" style={{ marginTop: '3.5rem' }}>Social Media</h2>
           <div className="footer-social-icons">
-            <i className="fab fa-instagram social-icon" />
-            <i className="fab fa-twitter social-icon" />
-            <i className="fab fa-facebook social-icon" />
+            <a
+              href="https://www.instagram.com/livinglines"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+            >
+              <i className="fab fa-instagram social-icon" />
+            </a>
+
+            <a
+              href="https://twitter.com/livinglines"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Twitter"
+            >
+              <i className="fab fa-twitter social-icon" />
+            </a>
+
+            <a
+              href="https://www.facebook.com/livinglines"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Facebook"
+            >
+              <i className="fab fa-facebook social-icon" />
+            </a>
           </div>
+
         </div>
 
-        {/*<div className="footer-last-column">
-          <div className="footer-last-button">
-            <input type="text" placeholder="Name" className="subscribe-input" value={name} onChange={(e) => setName(e.target.value)} />
-            <input type="text" placeholder="Mobile Number" className="subscribe-input" value={mobile} onChange={(e) => setMobile(e.target.value)}/>
-            <button className="subscribe-btn" onClick={handleSubscribe}>Subscribe</button>
-          </div>
-        </div> */}
 
 
 

@@ -549,3 +549,19 @@ body {
     margin-bottom: 0;
   }
 }
+
+.logo-footer{
+  width: 200px;
+  height:auto;
+}
+
+.footer-contact-link {
+  color: white;
+  text-decoration: none;
+}
+
+.footer-contact-link:hover {
+  text-decoration: underline;
+  color: #f26624;
+}
+

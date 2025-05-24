@@ -31,7 +31,7 @@
   font-weight: 700;
   color: #4e4e4e;
   margin-bottom: 25px;
-  background: linear-gradient(to right, #ff6600, #7873f5);
+  background: linear-gradient(to right, #ff6600);
   -webkit-background-clip: text;
   color: transparent;
   text-transform: uppercase;
@@ -432,7 +432,7 @@
 
 .main-heading {
   font-size: 5rem;
-  background: linear-gradient(to right, #ff6ec4, #7873f5);
+  background: linear-gradient(to right, #ff6000);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-weight: bold;
@@ -1128,7 +1128,7 @@
   border-radius: 15px;
   bottom: -30px;
   right: -30px;
-  border: 3px solid #ff00cc;
+  border: 3px solid #ff6000;
   box-shadow: 0 10px 30px rgba(255, 0, 204, 0.4);
   transform: rotate(-5deg);
 }

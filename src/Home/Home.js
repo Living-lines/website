@@ -196,7 +196,7 @@ function Home() {
                     "Artifacts", "Interior Decors", "Lights", "Chandeliers", "Switches",
                     "Furniture", "Wallclocks", "Mirrors", "Cabinets", "Accessories",
                     "Paints", "Plumbing", "Pipes", "Sinks", "Washbasins", "Pumps & Motors",
-                    "Fans", "Plywood"
+                    "Fans"
                   ].map((item, i) => (
                     <li className="feature-list-item" key={i}>{item}</li>
                   ))}

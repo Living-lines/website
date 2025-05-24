@@ -64,7 +64,7 @@ function About() {
                     <ul className="feature-list">
                         {["Sanitary", "Taps", "Tiles", "Shower Panels", "Electricals", "Artifacts", "Interior Decors", "Lights",
                             "Chandeliers", "Switches", "Furniture", "Wallclocks", "Mirrors", "Cabinets", "Accessories", "Paints",
-                            "Plumbing", "Pipes", "Sinks", "Washbasins", "Pumps & Motors", "Fans", "Plywood"].map((item, i) => (
+                            "Plumbing", "Pipes", "Sinks", "Washbasins", "Pumps & Motors", "Fans"].map((item, i) => (
                             <li className="feature-item" key={i}>{item}</li>
                         ))}
                     </ul>
@@ -73,7 +73,7 @@ function About() {
                 <div className="feature-images">
                     <div className="main-img-container">
                         <img src={aboutImage1} alt="Main Display" className="main-feature-img" />
-                        <img src={aboutImage1} alt="Secondary Display" className="secondary-feature-img" />
+                        {/* <img src={aboutImage1} alt="Secondary Display" className="secondary-feature-img" /> */}
                     </div>
                 </div>
             </div>

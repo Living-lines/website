@@ -152,7 +152,6 @@ function Contact() {
                 </div>
             </div>
 
-            <ImageSlider />
         </div>
     );
 }
