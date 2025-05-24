@@ -268,6 +268,84 @@ function Home() {
 
 
 
+      <section className="originals-section">
+        <div className="originals-container">
+          <div className="first-line">
+            <img
+              src="/assets/taps123.png"
+              alt="Original Taps"
+              className="originals-image first-image"
+              draggable={false}
+            />
+            <h1 className="originals-text-line">THE ORIGINALS</h1>
+          </div>
+
+          <h2 className="originals-text-line second-line">THE BEST</h2>
+
+          <div className="third-line">
+            <div className="curve-svg-wrapper">
+              <svg
+                width="200"
+                height="40"
+                viewBox="0 0 200 40"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                className="curve-svg"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <path
+                  d="M0 20 C30 0, 70 40, 100 20 S170 0, 200 20"
+                  stroke="#b8860b"
+                  strokeWidth="4"
+                  fill="none"
+                  strokeLinecap="round"
+                />
+              </svg>
+            </div>
+            <h3 className="originals-text-line third-line-text">THE LATEST</h3>
+            <img
+              src="/assets/taps51.jpg"
+              alt="Latest Taps"
+              className="second-image1"
+              draggable={false}
+            />
+          </div>
+        </div>
+      </section>
+
+
+
+
+
+      <section className="brand-promise-home">
+        <div className="brand-promise-container-home">
+          <div className="big-a-home">A</div>
+          <div className="lines-text-home">
+            <div className="line1-home">brand is a promise</div>
+            <div className="line2-home">
+              good brand is a
+              <img src="/assets/house.jpg" alt="House" className="line2-image-home" />
+            </div>
+            <div className="line3-home">
+              promise kept.
+              <div className="line3-extra-home">
+                <div className="horizontal-line-home"></div>
+                <div className="our-top-text-home">
+                  <span>OUR TOP</span>
+                  <span>Brands</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+
+
+
+
 
 
 

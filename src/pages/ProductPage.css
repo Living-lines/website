@@ -160,7 +160,8 @@
 
 /* Product results section on the right */
 .products-section {
-  display: flex;
+
+  display: absolute;
   flex-direction: row;
   gap: 25px;
   justify-content: flex-start;
