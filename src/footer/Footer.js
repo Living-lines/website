@@ -1,4 +1,4 @@
-import React, { useState,Link } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { faPhone } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -11,21 +11,20 @@ import './Footer.css';
 
 const Footer = () => {
   const navigate = useNavigate();
-
+  
   const handleNavigation = (path) => {
     navigate(path);
     window.scrollTo(0, 0);
   };
 
-  const [name, setName] = useState('');
-  const [mobile, setMobile] = useState('');
+  const [mobile, setMobile] = useState(''); 
 
   const handleSubscribe = async () => {
     try {
-      const res = await fetch('http://localhost:3000/api/subscribers', {
+       const res = await fetch('http://localhost:3000/api/subscribers', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, mobile }),
+        body: JSON.stringify({ mobile }),
       });
       const result = await res.json();
       if (res.ok) alert('Subscribed successfully!');
@@ -35,7 +34,6 @@ const Footer = () => {
       alert('Error subscribing.');
     }
   };
-
   return (
     <footer className="footer">
       <div className="showroom-section">
@@ -64,7 +62,6 @@ const Footer = () => {
         </div>
       </div>
 
-
       <div className="emporio-section">
         <div className="emporio-left">
               <img src={logoImage} className="logo-footer" alt="LivingLines Logo" />
@@ -77,16 +74,17 @@ const Footer = () => {
         <div className="emporio-right">
           <h2 className="emporio-heading">Get The Latest Updates</h2>
           <div className="subscribe-container">
-            <input
-              type="phone number"
-              placeholder="phone number"
-              className="subscribe-input"
+            <input 
+              type="text"
+              placeholder="phone number" 
+              className="subscribe-input" 
+              value={mobile} 
+              onChange={(e) => setMobile(e.target.value)} 
             />
-            <button className="subscribe-btn">Subscribe</button>
+            <button className="subscribe-btn" onClick={handleSubscribe}>Subscribe</button>
           </div>
         </div>
       </div>
-
 
       <div className="footer-columns">
         <div className="footer-left-column">
@@ -159,14 +157,7 @@ const Footer = () => {
           </div>
 
         </div>
-
-
-
-
-
-
       </div>
-
 
       <div className="footer-bottom">
         <hr className="footer-divider" />
