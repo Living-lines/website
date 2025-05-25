@@ -584,7 +584,6 @@
   margin-left: 10px;
 }
 
-/* Dropdown Menu Animation */
 .dropdown-content {
   width: 90%;
   max-height: 0;
@@ -673,7 +672,7 @@
 }
 
 .dropdown-menu label {
-  color: #000; /* Ensures black text for dropdown */
+  color: #000; 
 }
 
 

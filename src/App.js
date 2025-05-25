@@ -10,6 +10,7 @@ import Contact from './Contact/Contact';
 import Catalogs from './Catalogs/Catalogs';
 import Loader from './pages/Loader';
 
+
 function App() {
   return (
     <Router>

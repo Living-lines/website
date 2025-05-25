@@ -307,9 +307,13 @@
   color: #fff;
   
 }
-
+.subscribe-input:focus {
+  border-color: #ff6600 !important;
+  box-shadow: 0 0 10px #ff6600;
+  outline: none;
+}
 .subscribe-input::placeholder {
-  color: #aaa;
+  color: white;
 }
 
 /*.subscribe-btn {

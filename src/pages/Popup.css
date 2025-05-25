@@ -147,7 +147,7 @@
     margin-left: -15px;
     margin-right: 50px;
     width: 100vw;
-    height: 100vh;
+    height: auto;
     background: rgba(0, 0, 0, 0.55);
    
     justify-content: center;
@@ -157,11 +157,12 @@
 
   .popup-content {
     background: #ffffff;
+    margin-top: 20px;
     padding: 20px;
     border-radius: 16px;
     width: 100%;
     max-width: 95%;
-    max-height: 90vh;
+    max-height: auto;
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
     position: relative;
     overflow-y: auto;
@@ -217,7 +218,7 @@
     font-size: 18px;
     font-weight: bold;
     cursor: pointer;
-    color: #555;
+    color: #f26624;
   }
 
   .close-btn:hover {

@@ -26,87 +26,106 @@
   border-radius: 8px;
 }
 
-.wrapper {
-  width: 200px;
-  height: 60px;
-  position: relative;
-  z-index: 1;
+.svg-loader-wrapper {
+  width: 108px;
+  height: 108px;
 }
 
-.circle {
-  width: 20px;
-  height: 20px;
-  position: absolute;
-  border-radius: 50%;
-  background-color: #ff6600;
-  left: 15%;
-  transform-origin: 50%;
-  animation: circle7124 1s alternate infinite ease;
+.svg-loader {
+  width: 100%;
+  height: 100%;
 }
 
-@keyframes circle7124 {
-  0% {
-    top: 60px;
-    height: 5px;
-    border-radius: 50px 50px 25px 25px;
-    transform: scaleX(1.7);
+.loader__eye1,
+.loader__eye2,
+.loader__mouth1,
+.loader__mouth2 {
+  animation: eye1 3s ease-in-out infinite;
+}
+
+.loader__eye1,
+.loader__eye2 {
+  transform-origin: 64px 64px;
+}
+
+.loader__eye2 {
+  animation-name: eye2;
+}
+
+.loader__mouth1 {
+  animation-name: mouth1;
+}
+
+.loader__mouth2 {
+  animation-name: mouth2;
+  visibility: hidden;
+}
+
+@keyframes eye1 {
+  from {
+    transform: rotate(-260deg) translate(0, -56px);
   }
-  40% {
-    height: 20px;
-    border-radius: 50%;
-    transform: scaleX(1);
+  50%, 60% {
+    animation-timing-function: cubic-bezier(0.17, 0, 0.58, 1);
+    transform: rotate(-40deg) translate(0, -56px) scale(1);
   }
-  100% {
-    top: 0%;
-  }
-}
-
-.circle:nth-child(2) {
-  left: 45%;
-  animation-delay: 0.3s;
-}
-
-.circle:nth-child(3) {
-  left: auto;
-  right: 15%;
-  animation-delay: 0.4s;
-}
-
-.shadow {
-  width: 20px;
-  height: 4px;
-  border-radius: 50%;
-  background-color: white;
-  position: absolute;
-  top: 62px;
-  transform-origin: 50%;
-  z-index: -1;
-  left: 15%;
-  filter: blur(1px);
-  animation: shadow046 0.7s alternate infinite ease;
-}
-
-@keyframes shadow046 {
-  0% {
-    transform: scaleX(1.5);
-  }
-  40% {
-    transform: scaleX(1);
-    opacity: 0.7;
-  }
-  100% {
-    transform: scaleX(0.2);
-    opacity: 0.4;
+  to {
+    transform: rotate(225deg) translate(0, -56px) scale(0.35);
   }
 }
 
-.shadow:nth-child(4) {
-  left: 45%;
-  animation-delay: 0.4s;
+@keyframes eye2 {
+  from {
+    transform: rotate(-260deg) translate(0, -56px);
+  }
+  50% {
+    transform: rotate(40deg) translate(0, -56px) rotate(-40deg) scale(1);
+  }
+  52.5% {
+    transform: rotate(40deg) translate(0, -56px) rotate(-40deg) scale(1, 0);
+  }
+  55%, 70% {
+    animation-timing-function: cubic-bezier(0, 0, 0.28, 1);
+    transform: rotate(40deg) translate(0, -56px) rotate(-40deg) scale(1);
+  }
+  to {
+    transform: rotate(150deg) translate(0, -56px) scale(0.4);
+  }
 }
 
-.shadow:nth-child(5) {
-  left: auto;
-  right: 15%;
-  animation-delay: 0.5s;
+@keyframes mouth1 {
+  from {
+    animation-timing-function: ease-in;
+    stroke-dasharray: 0 351.86;
+    stroke-dashoffset: 0;
+  }
+  25% {
+    animation-timing-function: ease-out;
+    stroke-dasharray: 175.93 351.86;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    animation-timing-function: steps(1, start);
+    stroke-dasharray: 175.93 351.86;
+    stroke-dashoffset: -175.93;
+    visibility: visible;
+  }
+  75%, to {
+    visibility: hidden;
+  }
+}
+
+@keyframes mouth2 {
+  from {
+    animation-timing-function: steps(1, end);
+    visibility: hidden;
+  }
+  50% {
+    animation-timing-function: ease-in-out;
+    visibility: visible;
+    stroke-dashoffset: 0;
+  }
+  to {
+    stroke-dashoffset: -351.86;
+  }
 }

@@ -54,6 +54,7 @@ function Navbar() {
     setSearchTerm('');
   };
 
+  /*
   const delayedNavigate = (e, path) => {
     e.preventDefault();
     setShowLoader(true);
@@ -62,6 +63,13 @@ function Navbar() {
       setIsMobileMenuOpen(false);
       navigate(path);
     }, 3000);
+  };
+  */
+
+  const delayedNavigate = (e, path) => {
+    e.preventDefault();
+    setIsMobileMenuOpen(false);
+    navigate(path);
   };
 
   const navItems = [
@@ -76,11 +84,12 @@ function Navbar() {
 
   return (
     <div>
+      {/* Loader display temporarily disabled
       {showLoader && (
         <div className="loader-overlay">
           <Loader />
         </div>
-      )}
+      )} */}
 
       <div className="abc-emporio">
         <header className="header">

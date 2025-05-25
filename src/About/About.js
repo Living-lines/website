@@ -3,6 +3,7 @@ import './About.css';
 import location_1 from '../assets/location_1.jpg';
 import location_2 from '../assets/location_2.jpg';
 import Timeline from './timeline/timeline';
+import { motion } from "framer-motion";
 
 const AboutUs = () => {
   const [count, setCount] = useState(0);
@@ -24,7 +25,7 @@ const AboutUs = () => {
 
   return (
     <div className="about-horizontal-wrapper">
-     
+
 
       <div className="about-3column-layout">
         {/* LEFT COLUMN */}
@@ -57,7 +58,56 @@ const AboutUs = () => {
           </p>
         </div>
       </div>
-      <Timeline/>
+      <Timeline />
+
+
+
+      <div className="value-section">
+        <motion.div
+          className="value-intro"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: false, amount: 0.3 }}
+        >
+          <h1 className="value-highlight">Our Value</h1>
+          <h2 className="value-subtitle">Trusted by a wide community</h2>
+          <p className="value-description">
+            Living Lines is a preferred choice among <strong>homeowners</strong>, <strong>architects</strong>, <strong>contractors</strong>,
+            <strong> plumbers</strong>, <strong>masons</strong>, <strong>electricians</strong>, <strong>builders</strong>, <strong>small scale business owners</strong>,
+            and other <strong>technicians and vendors</strong>. Our unmatched product range and reliable service make us a one-stop destination for premium home-building materials.
+          </p>
+        </motion.div>
+
+        <div className="value-cards">
+          {[{
+            icon: "💡",
+            title: "Vision",
+            text: "Delivering 100+ top-tier brands to experience quality dream homes.",
+          }, {
+            icon: "🧫️",
+            title: "Mission",
+            text: "To be the most trusted showroom which excels in customer service and builds complete home solutions."
+          }].map((card, i) => (
+            <motion.div
+              key={i}
+              className="value-card"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: i * 0.3, duration: 0.6 }}
+              viewport={{ once: false, amount: 0.3 }}
+              whileHover={{ scale: 1.07, rotate: 1 }}
+            >
+              <div className="value-icon">{card.icon}</div>
+              <h3 className="value-card-title">{card.title}</h3>
+              <p className="value-card-text">{card.text}</p>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+
+
+
     </div>
   );
 };
