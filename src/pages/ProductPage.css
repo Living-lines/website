@@ -228,6 +228,12 @@
   transform: scale(1.05);
 }
 
+.product-info-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 6px;
+}
 .product-info {
   margin-top: 0px;
   margin-left: 10px;
@@ -326,11 +332,11 @@
   transition: transform 0.2s ease;
   color: #ff6000;*/
   display: flex;
-  justify-content: flex-end;
-  align-items: flex-end;
+  justify-content: center;
+  align-items: center;
   width: fit-content;
-  margin-top: -20px;
-  margin-left: 170px;
+  /*margin-top: -20px;
+  margin-left: 170px; */
   border-radius: 8px;
   background-color: transparent;
   box-shadow: none;

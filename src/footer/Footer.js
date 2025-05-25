@@ -74,13 +74,7 @@ const Footer = () => {
         <div className="emporio-right">
           <h2 className="emporio-heading">Get The Latest Updates</h2>
           <div className="subscribe-container">
-            <input 
-              type="text"
-              placeholder="phone number" 
-              className="subscribe-input" 
-              value={mobile} 
-              onChange={(e) => setMobile(e.target.value)} 
-            />
+            <input  type="text" placeholder="phone number"  className="subscribe-input"  value={mobile}  onChange={(e) => setMobile(e.target.value)}  />
             <button className="subscribe-btn" onClick={handleSubscribe}>Subscribe</button>
           </div>
         </div>
@@ -128,30 +122,15 @@ const Footer = () => {
 
           <h2 className="extra-title" style={{ marginTop: '3.5rem' }}>Social Media</h2>
           <div className="footer-social-icons">
-            <a
-              href="https://www.instagram.com/livinglines"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Instagram"
-            >
+            <a href="https://www.instagram.com/livinglines" target="_blank" rel="noopener noreferrer" aria-label="Instagram" >
               <i className="fab fa-instagram social-icon" />
             </a>
 
-            <a
-              href="https://twitter.com/livinglines"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Twitter"
-            >
+            <a href="https://twitter.com/livinglines" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
               <i className="fab fa-twitter social-icon" />
             </a>
 
-            <a
-              href="https://www.facebook.com/livinglines"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Facebook"
-            >
+            <a href="https://www.facebook.com/livinglines" target="_blank" rel="noopener noreferrer" aria-label="Facebook" >
               <i className="fab fa-facebook social-icon" />
             </a>
           </div>

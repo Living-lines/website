@@ -31,6 +31,8 @@ const large4 = 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/
 function Home() {
   const [currentSlide, setCurrentSlide] = useState(0);
 
+  const aboutImage1 = "https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/about-image-1.png";
+
   const heroImage1 = "https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/1.jpg";
   const heroImage2 = "https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/2.jpg";
   const heroImage3 = "https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/3.jpg";
@@ -111,7 +113,11 @@ function Home() {
     return () => {
       if (featureList) observer.unobserve(featureList);
     };
-  }, []);
+  }, []); 
+
+
+
+  
 
 
 
@@ -158,11 +164,11 @@ function Home() {
 
 
       <div className="about-us-wrapper">
-        <div>
+        {/*<div>
           <h1 className="products-heading">
             About Us <span className="underline"></span>
           </h1>
-        </div>
+        </div> */}
 
         <section className="interior-split-section">
           <div className="interior-left-rotation">
@@ -204,7 +210,9 @@ function Home() {
               </div>
             </div>
           </div>
-        </section>
+        </section> 
+
+
       </div>
 
 

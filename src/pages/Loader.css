@@ -1,3 +1,4 @@
+
 .loader-overlay {
   position: fixed;
   top: 0;
@@ -23,101 +24,6 @@
   font-family: 'Segoe UI', sans-serif;
   gap: 20px;
 }
-
-.truckWrapper {
-  width: 200px;
-  height: 100px;
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  align-items: center;
-  justify-content: flex-end;
-  overflow-x: hidden;
-}
-
-.truckBody {
-  width: 130px;
-  height: fit-content;
-  margin-bottom: 6px;
-  animation: motion 1s linear infinite;
-}
-
-@keyframes motion {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(3px); }
-  100% { transform: translateY(0px); }
-}
-
-.truckTires {
-  width: 130px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0px 10px 0px 15px;
-  position: absolute;
-  bottom: 0;
-}
-
-.truckTires svg {
-  width: 24px;
-}
-
-.truckTires svg circle:first-child {
-  stroke: black;
-  fill: black;
-}
-
-.truckTires svg circle:last-child {
-  fill: #fff;
-}
-
-.road {
-  width: 100%;
-  height: 1.5px;
-  background-color: #f26624;
-  position: relative;
-  bottom: 0;
-  align-self: flex-end;
-  border-radius: 3px;
-}
-
-.road::before,
-.road::after {
-  content: "";
-  position: absolute;
-  height: 100%;
-  background-color: #f26624;
-  border-radius: 3px;
-  animation: roadAnimation 1.4s linear infinite;
-}
-
-.road::before {
-  width: 20px;
-  right: -50%;
-  border-left: 10px solid white;
-}
-
-.road::after {
-  width: 10px;
-  right: -65%;
-  border-left: 4px solid white;
-}
-
-.lampPost {
-  position: absolute;
-  bottom: 0;
-  right: -90%;
-  height: 90px;
-  animation: roadAnimation 1.4s linear infinite;
-  fill: #f26624;
-}
-
-@keyframes roadAnimation {
-  0% { transform: translateX(0px); }
-  100% { transform: translateX(-350px); }
-}
-
-
 
 .loader-heading-wrapper {
   text-align: center;
@@ -193,3 +99,83 @@
     transform: translateY(0);
   }
 }
+
+/* NEW UIVERSE LOADER */
+
+.uiverse-loader {
+  position: relative;
+  width: 2.5em;
+  height: 2.5em;
+  transform: rotate(165deg);
+}
+
+.uiverse-loader:before,
+.uiverse-loader:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: block;
+  width: 0.5em;
+  height: 0.5em;
+  border-radius: 0.25em;
+  transform: translate(-50%, -50%);
+}
+
+.uiverse-loader:before {
+  animation: before8 2s infinite;
+}
+
+.uiverse-loader:after {
+  animation: after6 2s infinite;
+}
+
+@keyframes before8 {
+  0% {
+    width: 0.5em;
+    box-shadow: 1em -0.5em rgba(225, 20, 98, 0.75), -1em 0.5em rgba(111, 202, 220, 0.75);
+  }
+  35% {
+    width: 2.5em;
+    box-shadow: 0 -0.5em rgba(225, 20, 98, 0.75), 0 0.5em rgba(111, 202, 220, 0.75);
+  }
+  70% {
+    width: 0.5em;
+    box-shadow: -1em -0.5em rgba(225, 20, 98, 0.75), 1em 0.5em rgba(111, 202, 220, 0.75);
+  }
+  100% {
+    box-shadow: 1em -0.5em rgba(225, 20, 98, 0.75), -1em 0.5em rgba(111, 202, 220, 0.75);
+  }
+}
+
+@keyframes after6 {
+  0% {
+    height: 0.5em;
+    box-shadow: 0.5em 1em rgba(61, 184, 143, 0.75), -0.5em -1em rgba(233, 169, 32, 0.75);
+  }
+  35% {
+    height: 2.5em;
+    box-shadow: 0.5em 0 rgba(61, 184, 143, 0.75), -0.5em 0 rgba(233, 169, 32, 0.75);
+  }
+  70% {
+    height: 0.5em;
+    box-shadow: 0.5em -1em rgba(61, 184, 143, 0.75), -0.5em 1em rgba(233, 169, 32, 0.75);
+  }
+  100% {
+    box-shadow: 0.5em 1em rgba(61, 184, 143, 0.75), -0.5em -1em rgba(233, 169, 32, 0.75);
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

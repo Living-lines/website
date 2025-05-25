@@ -218,6 +218,7 @@ const ProductPager = () => {
                   <div className="product-image-container">
                     <img src={prod.image_url} alt={prod.model_name} className="product-img" />
                   </div>
+                  <div className='product-info-container'>
                   <div className="product-info">
                     <h4>{prod.model_name}</h4>
                     <p>{prod.brand} — {prod.product_type}</p>
@@ -233,6 +234,7 @@ const ProductPager = () => {
                       <FontAwesomeIcon icon={faShoppingCart} className="cart-icon" />
                       <FontAwesomeIcon icon={faPlusCircle} className="plus-icon" />
                     </div>
+                  </div>
                   </div>
                 </div>
               </div>

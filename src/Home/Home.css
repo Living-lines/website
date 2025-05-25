@@ -236,6 +236,8 @@
   color: #f26624;
   position: relative;
   display: inline-block;
+  text-align: center;
+  align-items: center;
 }
 
 .products-heading .underline {
@@ -702,15 +704,26 @@
 }
 
 .feature-list-item::before {
-  content: "✔";
+  /*content: "✔";
   position: absolute;
   left: 0;
-  color: #ff6600;
+  color: #ff6600; */
+   content: '';
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: radial-gradient(circle at center, #ff6600, #ff9900);
+  box-shadow: 0 0 6px rgba(255, 102, 0, 0.6), 0 0 12px rgba(255, 165, 0, 0.3);
+  animation: flicker 2s infinite ease-in-out;
+  opacity: 0.9;
 }
 
 .feature-list-item:hover {
   transform: scale(1.05);
-  color: #ffcc00;
+  color: #fc6818;
 }
 
 .feature-list.animated {

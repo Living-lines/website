@@ -300,18 +300,19 @@
 .subscribe-input {
   padding: 12px 15px;
   border-radius: 8px;
-  border: 1px solid #ccc;
+  border: 1px solid #fd540c !important;
   font-size: 1rem;
   font-family: 'Lexend', sans-serif;
   background-color: #000;
   color: #fff;
+  
 }
 
 .subscribe-input::placeholder {
   color: #aaa;
 }
 
-.subscribe-btn {
+/*.subscribe-btn {
   padding: 12px 20px;
   border: none;
   border-radius: 8px;
@@ -326,7 +327,58 @@
 
 .subscribe-btn:hover {
   background-color: #e65c00;
+}*/
+
+.subscribe-btn {
+  width: 140px;
+  height: 40px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(to right, #77530a, #ffd277, #77530a, #77530a, #ffd277, #77530a);
+  background-size: 250%;
+  background-position: left;
+  color: #ffd277;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition-duration: 1s;
+  overflow: hidden;
+  font-size: 1rem;
+  font-weight: bold;
+  font-family: 'Lexend', sans-serif;
 }
+
+.subscribe-btn::before {
+  position: absolute;
+  content: "SUBSCRIBE";
+  color: #ffd277;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 97%;
+  height: 90%;
+  border-radius: 8px;
+  transition-duration: 1s;
+  background-color: rgba(0, 0, 0, 0.842);
+  background-size: 200%;
+}
+
+.subscribe-btn:hover {
+  background-position: right;
+  transition-duration: 1s;
+}
+
+.subscribe-btn:hover::before {
+  background-position: right;
+  transition-duration: 1s;
+}
+
+.subscribe-btn:active {
+  transform: scale(0.95);
+}
+
 
 @media (max-width: 768px) {
   .footer-last-button {
