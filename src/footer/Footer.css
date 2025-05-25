@@ -329,6 +329,16 @@
   background-color: #e65c00;
 }*/
 
+.subscribe-container {
+  display: flex;
+  flex-direction: column !important;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid #f26624;
+  padding: 20px;
+  border-radius: 12px;
+}
+
 .subscribe-btn {
   width: 140px;
   height: 40px;
@@ -349,6 +359,51 @@
   font-weight: bold;
   font-family: 'Lexend', sans-serif;
 }
+
+.subscribe-error {
+  color: #ff4d4d;
+  font-weight: 500;
+  margin-top: 12px;
+  font-size: 14px;
+}
+
+.success-popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.success-popup-card {
+  background-color: #ffffff;
+  padding: 20px 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  text-align: center;
+  font-size: 16px;
+  font-weight: 600;
+  color: #4caf50;
+  animation: fadeInSlideUp 0.3s ease-out;
+}
+
+@keyframes fadeInSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
 
 .subscribe-btn::before {
   position: absolute;
@@ -498,7 +553,7 @@ body {
 }
 
 .emporio-section {
-  background-color: #111;
+  background-color: black;
   color: white;
   display: flex;
   flex-direction: column;
@@ -551,11 +606,7 @@ body {
   margin-bottom: 20px;
 }
 
-.subscribe-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+
 
 @media (min-width: 768px) {
   .subscribe-container {

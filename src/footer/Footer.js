@@ -1,82 +1,105 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { faPhone } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import location1 from '../assets/location_1.jpg';
 import location2 from '../assets/location_2.jpg';
 import location3 from '../assets/location_3.jpg';
 import logoImage from '../../src/assets/logo.jpg';
-
 import './Footer.css';
 
 const Footer = () => {
   const navigate = useNavigate();
-  
+  const [name, setName] = useState('');
+  const [mobile, setMobile] = useState('');
+  const [successMessage, setSuccessMessage] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
+
   const handleNavigation = (path) => {
     navigate(path);
     window.scrollTo(0, 0);
   };
 
-  const [mobile, setMobile] = useState(''); 
-
   const handleSubscribe = async () => {
+    setSuccessMessage('');
+    setErrorMessage('');
+
+    if (!/^\d{10}$/.test(mobile)) {
+      setErrorMessage('Please enter a valid 10-digit mobile number');
+      return;
+    }
+
     try {
-       const res = await fetch('http://localhost:3000/api/subscribers', {
+      const res = await fetch('http://localhost:3000/api/subscribers', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ mobile }),
+        body: JSON.stringify({ name, mobile }),
       });
+
       const result = await res.json();
-      if (res.ok) alert('Subscribed successfully!');
-      else alert(result.error || 'Subscription failed');
+      if (res.ok) {
+        setSuccessMessage('Successfully subscribed!');
+        setName('');
+        setMobile('');
+        setTimeout(() => setSuccessMessage(''), 3000);
+      } else {
+        setErrorMessage(result.error || 'Subscription failed');
+      }
     } catch (err) {
       console.error(err);
-      alert('Error subscribing.');
+      setErrorMessage('Error subscribing. Please try again.');
     }
   };
+
   return (
     <footer className="footer">
+      {successMessage && (
+        <div className="success-popup-overlay">
+          <div className="success-popup-card">
+            <p>{successMessage}</p>
+          </div>
+        </div>
+      )}
+
       <div className="showroom-section">
-        <h1 className="products-heading">
-          Our Showrooms <span className="underline"></span>
-        </h1>
+        <h1 className="products-heading">Our Showrooms</h1>
         <div className="showroom-table">
-          <div className="showroom-column">
-            <img src={location1} alt="location1" className='branch-photo' />
-            <h3>Visakhapatnam</h3>
-            <p><i className="fas fa-envelope mail-icon" /> info@livinglines.in</p>
-            <p><i className="fas fa-phone social-icon" /> 08912514792</p>
-          </div>
-          <div className="showroom-column">
-            <img src={location2} alt="location2" className='branch-photo' />
-            <h3>Madhurawada</h3>
-            <p><i className="fas fa-envelope mail-icon" /> info@livinglines.in</p>
-            <p><i className="fas fa-phone social-icon" /> +91 9849111487</p>
-          </div>
-          <div className="showroom-column">
-            <img src={location3} alt="location3" className='branch-photo' />
-            <h3>Vizianagaram</h3>
-            <p><i className="fas fa-envelope mail-icon" /> info@livinglines.in</p>
-            <p><i className="fa-solid fa-phone social-icon" /> +91 7997995219</p>
-          </div>
+          {[{
+            city: "Visakhapatnam", phone: "08912514792", img: location1
+          }, {
+            city: "Madhurawada", phone: "+91 9849111487", img: location2
+          }, {
+            city: "Vizianagaram", phone: "+91 7997995219", img: location3
+          }].map((loc, i) => (
+            <div className="showroom-column" key={i}>
+              <img src={loc.img} alt={loc.city} className="branch-photo" />
+              <h3>{loc.city}</h3>
+              <p><i className="fas fa-envelope mail-icon" /> info@livinglines.in</p>
+              <p><i className="fas fa-phone social-icon" /> {loc.phone}</p>
+            </div>
+          ))}
         </div>
       </div>
 
       <div className="emporio-section">
         <div className="emporio-left">
-              <img src={logoImage} className="logo-footer" alt="LivingLines Logo" />
-  
+          <img src={logoImage} className="logo-footer" alt="LivingLines Logo" />
           <p className="emporio-desc">
-            Living Lines is a premier destination for high-quality tiles, sanitaryware, and interior solutions, offering a curated selection of modern and traditional designs. A trusted name in the industry, Living Lines began its journey with a vision to redefine home aesthetics across Andhra Pradesh. With showrooms in Visakhapatnam, Madhurawada, and Vizianagaram, we are committed to delivering excellence, elegance, and enduring value to every space we touch.
+             Living Lines is a premier destination for high-quality tiles, sanitaryware, and interior solutions, offering a curated selection of modern and traditional designs. A trusted name in the industry, Living Lines began its journey with a vision to redefine home aesthetics across Andhra Pradesh. With showrooms in Visakhapatnam, Madhurawada, and Vizianagaram, we are committed to delivering excellence, elegance, and enduring value to every space we touch.
           </p>
         </div>
 
         <div className="emporio-right">
           <h2 className="emporio-heading">Get The Latest Updates</h2>
           <div className="subscribe-container">
-            <input  type="text" placeholder="phone number"  className="subscribe-input"  value={mobile}  onChange={(e) => setMobile(e.target.value)}  />
-            <button className="subscribe-btn" onClick={handleSubscribe}>Subscribe</button>
+            <input type="text" placeholder="Your Name" className="subscribe-input" value={name} onChange={(e) => setName(e.target.value)} />
+            <input type="text" placeholder="Phone Number" className="subscribe-input" value={mobile} onChange={(e) => setMobile(e.target.value)} />
+            <button className="subscribe-btn" onClick={handleSubscribe}>
+              Subscribe
+            </button>
           </div>
+
+          {errorMessage && (
+            <div className="subscribe-error">{errorMessage}</div>
+          )}
         </div>
       </div>
 
@@ -84,12 +107,12 @@ const Footer = () => {
         <div className="footer-left-column">
           <h2>Living Lines</h2>
           <div className="location-hours">
-            <h3>Vizianagaram</h3>
-            <p>Monday - Saturday : 9:00 AM to 9:00 PM</p>
-            <h3 style={{ marginTop: '3rem' }}>Visakhapatnam</h3>
-            <p>Monday - Saturday : 9:00 AM to 9:00 PM</p>
-            <h3 style={{ marginTop: '3rem' }}>Madhurawada</h3>
-            <p>Monday - Saturday : 9:00 AM to 9:00 PM</p>
+            {['Vizianagaram', 'Visakhapatnam', 'Madhurawada'].map((city, idx) => (
+              <React.Fragment key={city}>
+                <h3 style={{ marginTop: idx === 0 ? '0' : '3rem' }}>{city}</h3>
+                <p>Monday - Saturday : 9:00 AM to 9:00 PM</p>
+              </React.Fragment>
+            ))}
             <p style={{ marginTop: '3rem', color: '#ccc' }}>We are closed on public Holidays.</p>
           </div>
         </div>
@@ -97,24 +120,22 @@ const Footer = () => {
         <div className="footer-middle-column">
           <h2 className="extra-title">Navigate</h2>
           <div className="navigate-table">
-            <button onClick={() => handleNavigation('/')} className="footer-link">Home</button>
-            <button onClick={() => handleNavigation('/about')} className="footer-link">About</button>
-            <button onClick={() => handleNavigation('/products')} className="footer-link">Products</button>
-            <button onClick={() => handleNavigation('/catalogs')} className="footer-link">Catalogs</button>
-            <button onClick={() => handleNavigation('/brands')} className="footer-link">Brands</button>
-            <button onClick={() => handleNavigation('/contact')} className="footer-link">Contact</button>
+            {['/', '/about', '/products', '/catalogs', '/brands', '/contact'].map((path, i) => (
+              <button key={path} onClick={() => handleNavigation(path)} className="footer-link">
+                {['Home', 'About', 'Products', 'Catalogs', 'Brands', 'Contact'][i]}
+              </button>
+            ))}
           </div>
         </div>
 
         <div className="footer-right-column">
           <h2 className="extra-title">Contact</h2><br />
           <p>
-            <i className="fas fa-phone social-icon" />{" "}
+            <i className="fas fa-phone social-icon" />
             <a href="tel:08912514792" className="footer-contact-link">08912514792</a>
           </p>
-
           <p>
-            <i className="fas fa-envelope mail-icon" />{" "}
+            <i className="fas fa-envelope mail-icon" />
             <a href="mailto:saibalajimarketing@gmail.com" className="footer-contact-link" target="_blank" rel="noopener noreferrer">
               saibalajimarketing@gmail.com
             </a>
@@ -122,19 +143,12 @@ const Footer = () => {
 
           <h2 className="extra-title" style={{ marginTop: '3.5rem' }}>Social Media</h2>
           <div className="footer-social-icons">
-            <a href="https://www.instagram.com/livinglines" target="_blank" rel="noopener noreferrer" aria-label="Instagram" >
-              <i className="fab fa-instagram social-icon" />
-            </a>
-
-            <a href="https://twitter.com/livinglines" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
-              <i className="fab fa-twitter social-icon" />
-            </a>
-
-            <a href="https://www.facebook.com/livinglines" target="_blank" rel="noopener noreferrer" aria-label="Facebook" >
-              <i className="fab fa-facebook social-icon" />
-            </a>
+            {['instagram', 'twitter', 'facebook'].map((platform) => (
+              <a key={platform} href={`https://www.${platform}.com/livinglines`} target="_blank" rel="noopener noreferrer" aria-label={platform}>
+                <i className={`fab fa-${platform} social-icon`} />
+              </a>
+            ))}
           </div>
-
         </div>
       </div>
 

@@ -1,21 +1,21 @@
 import React from 'react';
 import './Loader.css';
+import logoImage from '../../src/assets/logo.jpg';
 
 const Loader = () => {
   return (
     <div className="loader-overlay">
       <div className="loader">
-        <div className="loader-heading-wrapper">
-          <div className="crown-decor">
-            <span className="crown-line crown-left"></span>
-            <span className="crown-spike"></span>
-            <span className="crown-line crown-right"></span>
-          </div>
-          <div className="loader-heading">Living Lines</div>
-          <div className="decor-line"></div>
-        </div>
+        <img src={logoImage} alt="Living Lines Logo" className="loader-logo" />
 
-        <div className="uiverse-loader"></div>
+        <div class="wrapper">
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="shadow"></div>
+          <div class="shadow"></div>
+          <div class="shadow"></div>
+        </div>
       </div>
     </div>
   );

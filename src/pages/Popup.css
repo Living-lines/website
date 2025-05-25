@@ -1,4 +1,3 @@
-/* Overlay for background blur and centering */
 .popup-overlay {
   position: fixed;
   top: 80px;
@@ -13,7 +12,6 @@
   z-index: 999;
 }
 
-/* Main popup content box */
 .popup-content {
   background: #ffffff;
   padding: 25px 20px;
@@ -33,7 +31,6 @@
   to   { opacity: 1; transform: translateY(0); }
 }
 
-/* Close 'X' button */
 .close-btn {
   position: absolute;
   top: 12px;
@@ -51,7 +48,6 @@
   color: #f26624;
 }
 
-/* Form groups */
 .form-group {
   margin-top: 20px;
   margin-bottom: 18px;
@@ -83,7 +79,6 @@
   /*background: #fff; */
 }
 
-/* Submit button */
 .request-quote-btn1 {
   background-color: #f37134 !important;
   color: white;
@@ -107,7 +102,6 @@
   cursor: not-allowed;
 }
 
-/* Success message */
 .quote-status {
   margin-top: 20px;
   font-size: 15px;
@@ -116,7 +110,6 @@
   text-align: center;
 }
 
-/* Loading indicator */
 .loading-spinner {
   margin-top: 20px;
   display: flex;
@@ -138,8 +131,6 @@
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
-
-/* Optional: Product image styling if reused later */
 .popup-img {
   width: 100%;
   height: 180px;
@@ -149,47 +140,87 @@
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Mobile view adjustments */
 @media screen and (max-width: 768px) {
   .popup-overlay {
+    position: fixed;
+    top: 10%;
+    margin-left: -15px;
+    margin-right: 50px;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.55);
+   
     justify-content: center;
     align-items: center;
-    padding-left: 16px;
-    padding-right: 16px;
-    padding-top: 15px;
-    padding-bottom: 15px;
+    z-index: 999;
   }
 
   .popup-content {
-    width: 100%;
-    max-width: 100%; /* take full width inside overlay */
-    border-radius: 16px; /* apply consistent rounded corners */
-    /* margin: 0 auto; */
+    background: #ffffff;
     padding: 20px;
+    border-radius: 16px;
+    width: 100%;
+    max-width: 95%;
+    max-height: 90vh;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow-y: auto;
+    transition: all 0.3s ease;
+    animation: fadeIn 0.3s ease-out;
     box-sizing: border-box;
   }
 
   .popup-img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
     border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   }
 
   .form-group input {
-    font-size: 14px;
+    width: 95%;
     padding: 10px;
+    font-size: 14px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    background: #f9f9f9;
   }
 
   .request-quote-btn1 {
+    background-color: #f37134 !important;
+    color: white;
     padding: 10px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
     font-size: 14px;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    width: 100%;
   }
 
   .quote-status {
     font-size: 14px;
+    text-align: center;
+    color: #4caf50;
+    font-weight: 500;
+    margin-top: 20px;
   }
 
   .close-btn {
+    position: absolute;
+    top: 12px;
+    right: 14px;
+    background: transparent;
+    border: none;
     font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #555;
+  }
+
+  .close-btn:hover {
+    color: #f26624;
   }
 }
-
-
