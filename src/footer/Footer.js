@@ -28,7 +28,7 @@ const Footer = () => {
     }
 
     try {
-      const res = await fetch('http://localhost:3000/api/subscribers', {
+      const res = await fetch('http://backend-tawny-one-62.vercel.app/api/subscribers', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name, mobile }),
