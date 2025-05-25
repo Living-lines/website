@@ -219,22 +219,16 @@ const ProductPager = () => {
                     <img src={prod.image_url} alt={prod.model_name} className="product-img" />
                   </div>
                   <div className='product-info-container'>
-                  <div className="product-info">
-                    <h4>{prod.model_name}</h4>
-                    <p>{prod.brand} — {prod.product_type}</p>
-                  </div>
-                  <div
-                    className="cart-icon-container"
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      handleAddToCart(prod);
-                    }}
-                  >
-                    <div className="cart-with-plus">
-                      <FontAwesomeIcon icon={faShoppingCart} className="cart-icon" />
-                      <FontAwesomeIcon icon={faPlusCircle} className="plus-icon" />
+                    <div className="product-info">
+                      <h4>{prod.model_name}</h4>
+                      <p>{prod.brand} — {prod.product_type}</p>
                     </div>
-                  </div>
+                    <div className="cart-icon-container" onClick={(e) => { e.stopPropagation(); handleAddToCart(prod); }}>
+                      <div className="cart-with-plus">
+                        <FontAwesomeIcon icon={faShoppingCart} className="cart-icon" />
+                        <FontAwesomeIcon icon={faPlusCircle} className="plus-icon" />
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
