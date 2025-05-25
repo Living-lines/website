@@ -340,8 +340,10 @@ function Home() {
               <div className="line3-extra-home">
                 <div className="horizontal-line-home"></div>
                 <div className="our-top-text-home">
-                  <span>OUR TOP</span>
-                  <span>Brands</span>
+                  <Link to="/brands" className="our-top-text-home">
+                    <span>OUR TOP</span>
+                    <span>Brands</span>
+                  </Link>
                 </div>
               </div>
             </div>

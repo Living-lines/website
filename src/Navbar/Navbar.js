@@ -90,7 +90,6 @@ function Navbar() {
             </Link>
           </div>
 
-
           <div id="search-bar-container">
             <form onSubmit={handleSearchSubmit} className="search-wrapper">
               <input
@@ -119,7 +118,7 @@ function Navbar() {
             <Link
               key={path}
               to={path}
-              className={`nav-item underline ${location.pathname === path ? 'active-tab' : ''}`}
+              className={`nav-item ${location.pathname === path ? 'active-tab' : ''}`}
               onClick={(e) => delayedNavigate(e, path)}
             >
               {label}

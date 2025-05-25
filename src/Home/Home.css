@@ -69,7 +69,27 @@
   margin-top: 80px; /* Same as the navbar height */
 }
 
+.about-us-wrapper {
+  text-align: center;
+}
+
+.about-us-wrapper .products-heading {
+  margin: 0 auto;
+  display: inline-block;
+  font-size: 2.5rem;
+  color: #f26624;
+  position: relative;
+  margin-top:30px;
+}
+
+
 @media (max-width: 768px) {
+  .hero-slide {
+    flex-direction: column-reverse !important;
+    padding: 20px;
+    gap: 20px;
+    height: auto;
+  }
   .header {
     height: 60px; /* Adjust navbar height for smaller screens */
   }

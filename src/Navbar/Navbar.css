@@ -585,3 +585,55 @@
 .nav-item.active-tab {
   color: #ff6000 !important;
 }
+
+/* Inside search bar – clear (×) icon fix */
+.input1 {
+  padding-right: 40px; /* space for × */
+}
+
+.clear-search {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+  color: #ff6000;
+  cursor: pointer;
+  user-select: none;
+  z-index: 2;
+}
+
+/* Nav item underline hover animation */
+.nav-item {
+  position: relative;
+  color: white;
+  text-decoration: none;
+  padding: 10px 20px;
+  display: inline-block;
+  transition: color 0.3s ease;
+}
+
+.nav-item::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 6px; /* underline position */
+  height: 2px;
+  width: 0;
+  background-color: #ff6000;
+  transition: width 0.3s ease;
+}
+
+.nav-item:hover::after {
+  width: 100%;
+}
+
+.nav-item:hover {
+  color: #ff6000;
+}
+
+.nav-item.active-tab {
+  color: #ff6000 !important;
+  font-weight: bold;
+}
+
