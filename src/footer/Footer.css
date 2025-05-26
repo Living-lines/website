@@ -632,6 +632,19 @@ body {
   outline: none;
   box-shadow: 0 0 0 2px rgba(255, 102, 0, 0.15);
 }
+@media (max-width: 768px) {
+  .products-heading, /* For "Our Showrooms" */
+  .about-heading,    /* For "About Us" if you use this class */
+  h1.products-heading,
+  h1.about-heading {
+    font-size: 1.4rem !important;
+    text-align: center !important;
+    margin-top: 1.2rem !important;
+    margin-bottom: 1.2rem !important;
+    letter-spacing: 0.5px;
+    font-weight: 700;
+  }
+}
 
 .subscribe-btn {
   padding: 12px 24px;

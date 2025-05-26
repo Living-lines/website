@@ -61,7 +61,7 @@ const Footer = () => {
 
       <div className="showroom-section">
         <div>
-          <h1 className="products-heading">
+          <h1 className="products-heading ">
             Our Showrooms <span className="underline"></span>
           </h1>
         </div>

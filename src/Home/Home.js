@@ -113,11 +113,11 @@ function Home() {
     return () => {
       if (featureList) observer.unobserve(featureList);
     };
-  }, []); 
+  }, []);
 
 
 
-  
+
 
 
 
@@ -210,7 +210,7 @@ function Home() {
               </div>
             </div>
           </div>
-        </section> 
+        </section>
 
 
       </div>
