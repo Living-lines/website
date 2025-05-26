@@ -301,7 +301,7 @@
 .subscribe-input {
   padding: 12px 15px;
   border-radius: 8px;
-  border: 1px solid #fd540c !important;
+  border: 1px solid #ff6000 !important;
   font-size: 1rem;
   font-family: 'Lexend', sans-serif;
   background-color: #000;
@@ -617,7 +617,7 @@ body {
 .subscribe-input {
   padding: 12px;
   width: 280px;
-  border: 1px solid #666;
+  border: 1px solid #ff6000;
   background-color: #000;
   color: white;
   font-size: 14px;
@@ -625,7 +625,12 @@ body {
 }
 
 .subscribe-input::placeholder {
-  color: #888;
+  color: #ffffff;
+}
+.subscribe-input:focus {
+  border-color: #ff6600 !important;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(255, 102, 0, 0.15);
 }
 
 .subscribe-btn {

@@ -135,9 +135,9 @@ function Contact() {
                 </div>
 
                 <div className="location-section">
-                    <h2>Our Location</h2>
-                    <p>Visit us at our office:</p>
-                    <p>Gandhi Nagar, Vizianagaram, Andhra Pradesh, 535004</p>
+                    <h2 style={{ color: '#ff6000' }}>Our Location</h2>
+                    <p style={{ color: '#000' }}>Visit us at our office:</p>
+                    <p style={{ color: '#000' }}>Gandhi Nagar, Vizianagaram, Andhra Pradesh, 535004</p>
                     <div className="map">
                         <iframe
                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3877.239436297686!2d83.10319217540946!3d17.73413685086742!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a35d3a6c1fd314d%3A0x579299a78b2b24bc!2sGandhi%20Nagar%2C%20Vijayanagaram%2C%20Andhra%20Pradesh%2C%20535004!5e0!3m2!1sen!2sin!4v1678882307918!5m2!1sen!2sin"
