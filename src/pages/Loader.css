@@ -20,11 +20,13 @@
 }
 
 .loader-logo {
-  width: 120px;
+  width: 250px;      
   height: auto;
   margin-bottom: 32px;
-  border-radius: 12px;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+  border-radius: 0;  /* No background, no border radius */
+  background: transparent !important; /* Remove any background */
+  border: none !important;            /* Remove any border */
+  box-shadow: none !important; /* Ensure no background */
 }
 
 .bouncing-balls {
@@ -40,15 +42,15 @@
   height: 12px;          /* Decreased size */
   background: #ff6600;
   border-radius: 50%;
-  animation: bounce 1.2s infinite; /* Increased animation time */
+  animation: bounce 2.2s infinite; /* Increased animation time */
   opacity: 0.85;
 }
 
-.ball:nth-child(2) { animation-delay: 0.18s; }
-.ball:nth-child(3) { animation-delay: 0.36s; }
-.ball:nth-child(4) { animation-delay: 0.54s; }
-.ball:nth-child(5) { animation-delay: 0.72s; }
-.ball:nth-child(6) { animation-delay: 0.9s; }
+.ball:nth-child(2) { animation-delay: 0.33s; }
+.ball:nth-child(3) { animation-delay: 0.66s; }
+.ball:nth-child(4) { animation-delay: 0.99s; }
+.ball:nth-child(5) { animation-delay: 1.32s; }
+.ball:nth-child(6) { animation-delay: 1.62s; }
 
 @keyframes bounce {
   0%, 100% { transform: translateY(0); }

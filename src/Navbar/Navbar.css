@@ -360,7 +360,7 @@
     padding: 12px 20px;
     width: 50%;
     text-align: left;
-    font-size: 22px;
+    font-size: 20px;
     border-bottom: 1px solid #333;
   }
 }
@@ -410,7 +410,7 @@
     padding: 15px 20px;
     width: 100%;
     text-align: left;
-    font-size: 22px;
+    font-size: 20px;
     border-bottom: 1px solid #333;
     color: white;
     transition: background 0.3s ease;
@@ -513,7 +513,7 @@
     padding: 15px 20px;
     width: 100%;
     text-align: left;
-    font-size: 22px;
+    font-size: 20px;
     border-bottom: 1px solid #333;
     color: white;
     transition: background 0.3s ease;
@@ -543,7 +543,7 @@
   padding: 10px 20px;
   display: inline-block;
   transition: color 0.3s ease;
-  font-size: 22px;
+  font-size: 20px;
 }
 
 /* Animated underline effect */

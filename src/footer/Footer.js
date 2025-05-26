@@ -60,7 +60,11 @@ const Footer = () => {
       )}
 
       <div className="showroom-section">
-        <h1 className="products-heading">Our Showrooms</h1>
+        <div>
+          <h1 className="products-heading">
+            Our Showrooms <span className="underline"></span>
+          </h1>
+        </div>
         <div className="showroom-table">
           {[{
             city: "Visakhapatnam", phone: "08912514792", img: location1
