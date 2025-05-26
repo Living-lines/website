@@ -28,7 +28,7 @@ const Footer = () => {
     }
 
     try {
-      const res = await fetch('https://backend-tawny-one-62.vercel.app/api/subscribers', {
+      const res = await fetch('http://backend-tawny-one-62.vercel.app/api/subscribers', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name, mobile }),
@@ -83,7 +83,7 @@ const Footer = () => {
         <div className="emporio-left">
           <img src={logoImage} className="logo-footer" alt="LivingLines Logo" />
           <p className="emporio-desc">
-             Living Lines is a premier destination for high-quality tiles, sanitaryware, and interior solutions, offering a curated selection of modern and traditional designs. A trusted name in the industry, Living Lines began its journey with a vision to redefine home aesthetics across Andhra Pradesh. With showrooms in Visakhapatnam, Madhurawada, and Vizianagaram, we are committed to delivering excellence, elegance, and enduring value to every space we touch.
+            Living Lines is a premier destination for high-quality tiles, sanitaryware, and interior solutions, offering a curated selection of modern and traditional designs. A trusted name in the industry, Living Lines began its journey with a vision to redefine home aesthetics across Andhra Pradesh. With showrooms in Visakhapatnam, Madhurawada, and Vizianagaram, we are committed to delivering excellence, elegance, and enduring value to every space we touch.
           </p>
         </div>
 
@@ -154,7 +154,10 @@ const Footer = () => {
 
       <div className="footer-bottom">
         <hr className="footer-divider" />
-        <p className="footer-copy">All Copy Rights Reserved to @Living Lines</p>
+        <p className="footer-copy">
+          <i className="far fa-copyright" style={{ fontSize: '1.3em', marginRight: '6px', verticalAlign: 'middle' }}></i>
+          All Rights Reserved to @Living Lines
+        </p>
       </div>
     </footer>
   );

@@ -84,7 +84,7 @@ function Contact() {
                 <p>Send us a message below and let’s discuss your home needs!</p>
             </div>
 
-            <div className="contact-details">
+            {/* <div className="contact-details">
                 <div className="contact-item">
                     <span className="contact-symbol">📞</span>
                     <p className="contact-info">8074253744</p>
@@ -93,7 +93,7 @@ function Contact() {
                     <span className="contact-symbol">📧</span>
                     <p className="contact-info">saibalajimarketing@gmail.com</p>
                 </div>
-            </div>
+            </div> */}
 
             <div className='message-contact-details'>
                 <div className="message-section">

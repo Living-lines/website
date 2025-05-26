@@ -105,10 +105,11 @@
 
 .footer-middle-column .extra-title {
   text-align: center;
-  margin-right: 50px;
+  margin-right: 90px;
   font-size: 2rem;
   color: #ff6600;
   margin-bottom: 1rem;
+  
 }
 
 .navigate-table {
@@ -307,13 +308,9 @@
   color: #fff;
   
 }
-.subscribe-input:focus {
-  border-color: #ff6600 !important;
-  box-shadow: 0 0 10px #ff6600;
-  outline: none;
-}
+
 .subscribe-input::placeholder {
-  color: white;
+  color: #aaa;
 }
 
 /*.subscribe-btn {
@@ -338,7 +335,6 @@
   flex-direction: column !important;
   align-items: center;
   gap: 10px;
-  border: 1px solid #f26624;
   padding: 20px;
   border-radius: 12px;
 }
@@ -348,10 +344,10 @@
   height: 40px;
   border: none;
   border-radius: 10px;
-  background: linear-gradient(to right, #77530a, #ffd277, #77530a, #77530a, #ffd277, #77530a);
+  background: linear-gradient(to right, #ff6600);
   background-size: 250%;
   background-position: left;
-  color: #ffd277;
+  color: #ff6600;
   position: relative;
   display: flex;
   align-items: center;
@@ -412,7 +408,7 @@
 .subscribe-btn::before {
   position: absolute;
   content: "SUBSCRIBE";
-  color: #ffd277;
+  color: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;

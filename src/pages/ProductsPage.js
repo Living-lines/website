@@ -115,14 +115,17 @@ const ProductPager = () => {
     setDisplayProducts(searchText ? filterProducts(dynamicProducts, searchText) : dynamicProducts);
   }, [searchText, dynamicProducts]);
 
+  // Modified handlers to allow unchecking radio buttons
   const handleBrandSelect = brand => {
     setSelectedBrand(prev => (prev === brand ? '' : brand));
-    setShowBrandDropdown(false);
+    // Don't close dropdown so user can unselect
+    // setShowBrandDropdown(false);
   };
 
   const handleTypeSelect = type => {
     setSelectedType(prev => (prev === type ? '' : type));
-    setShowTypeDropdown(false);
+    // Don't close dropdown so user can unselect
+    // setShowTypeDropdown(false);
   };
 
   const handleImageClick = prod => {
@@ -169,6 +172,9 @@ const ProductPager = () => {
                       type="radio"
                       name="brand"
                       checked={selectedBrand === b}
+                      onClick={() => {
+                        if (selectedBrand === b) setSelectedBrand('');
+                      }}
                       onChange={() => handleBrandSelect(b)}
                     /> {b}
                   </label>
@@ -193,6 +199,9 @@ const ProductPager = () => {
                       type="radio"
                       name="type"
                       checked={selectedType === t}
+                      onClick={() => {
+                        if (selectedType === t) setSelectedType('');
+                      }}
                       onChange={() => handleTypeSelect(t)}
                     /> {t}
                   </label>

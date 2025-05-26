@@ -114,12 +114,22 @@ function Navbar() {
             </form>
           </div>
 
-          <div
-            className="hamburger"
-            onClick={() => setIsMobileMenuOpen(prev => !prev)}
-          >
-            {isMobileMenuOpen ? '×' : '☰'}
-          </div>
+          {!isMobileMenuOpen && (
+            <div
+              className="hamburger"
+              onClick={() => setIsMobileMenuOpen(true)}
+            >
+              ☰
+            </div>
+          )}
+          {isMobileMenuOpen && (
+            <div
+              className="hamburger"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              ×
+            </div>
+          )}
         </header>
 
         <nav ref={navRef} className={`main-nav ${isMobileMenuOpen ? 'open' : ''}`}>

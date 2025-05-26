@@ -5,10 +5,15 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-family: 'Ancizar Serif', serif !important;
+  /* font-family: 'Ancizar Serif', serif !important; */
 }
-* {
+/* * {
   font-family: 'Ancizar Serif', serif !important;
+} */
+
+h1, h2, h3, h4, h5, h6,
+p, span, li, button, input, textarea, label, .ancizar-text ,nav {
+  font-family: 'Ancizar Serif', serif;
 }
 
 

@@ -1664,3 +1664,21 @@
     font-size: 0.95rem;
   }
 }
+
+
+/* ...existing code... */
+
+@media (max-width: 768px) {
+  .about-3column-layout {
+    flex-direction: column;
+  }
+  .about-3column-layout .right-column {
+    order: 1;
+  }
+  .about-3column-layout .middle-column {
+    order: 2;
+  }
+  .about-3column-layout .left-column {
+    order: 3;
+  }
+}
