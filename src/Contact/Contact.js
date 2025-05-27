@@ -1,6 +1,29 @@
 import React, { useState } from 'react';
 import './Contact.css';  // For custom styling
 import ImageSlider from '../ImageSlider/ImageSlider';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Pagination, Autoplay } from 'swiper/modules'; // <-- Import modules for Swiper v8+
+
+import 'swiper/css';
+import 'swiper/css/pagination';
+
+const locations = [
+    {
+        name: "Visakhapatnam",
+        mapSrc:
+            "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.563011239665!2d83.2184813148775!3d17.68681598791459!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a3943c2e2b7b7e7%3A0x7e8e3e3e3e3e3e3e!2sVisakhapatnam%2C%20Andhra%20Pradesh!5e0!3m2!1sen!2sin!4v1680000000000!5m2!1sen!2sin",
+    },
+    {
+        name: "Madhurawada",
+        mapSrc:
+            "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.563011239665!2d83.3500000000000!3d17.8000000000000!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a3943c2e2b7b7e7%3A0x7e8e3e3e3e3e3e3e!2sMadhurawada%2C%20Visakhapatnam%2C%20Andhra%20Pradesh!5e0!3m2!1sen!2sin!4v1680000000001!5m2!1sen!2sin",
+    },
+    {
+        name: "Vizianagaram",
+        mapSrc:
+            "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3877.239436297686!2d83.10319217540946!3d17.73413685086742!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a35d3a6c1fd314d%3A0x579299a78b2b24bc!2sGandhi%20Nagar%2C%20Vijayanagaram%2C%20Andhra%20Pradesh%2C%20535004!5e0!3m2!1sen!2sin!4v1678882307918!5m2!1sen!2sin",
+    },
+];
 
 function Contact() {
     const [formData, setFormData] = useState({
@@ -48,7 +71,7 @@ function Contact() {
 
                 <div className="hero-image">
                     <img
-                        src={require('../../src/assets/contact-us.jpg')} 
+                        src={require('../../src/assets/contact-us.jpg')}
                         alt="Contact Us"
                     />
                 </div>
@@ -134,7 +157,7 @@ function Contact() {
                     </form>
                 </div>
 
-                <div className="location-section">
+                {/* <div className="location-section">
                     <h2 style={{ color: '#ff6000' }}>Our Location</h2>
                     <p style={{ color: '#000' }}>Visit us at our office:</p>
                     <p style={{ color: '#000' }}>Gandhi Nagar, Vizianagaram, Andhra Pradesh, 535004</p>
@@ -149,7 +172,39 @@ function Contact() {
                             referrerPolicy="no-referrer-when-downgrade"
                         ></iframe>
                     </div>
+                </div> */}
+
+                <div className="location-section">
+                    <h2 style={{ color: '#ff6000' }}>Our Locations</h2>
+                    <p style={{ color: '#000' }}>Visit us at any of our showrooms:</p>
+                    <Swiper
+                        modules={[Pagination,Autoplay]}
+                        spaceBetween={30}
+                        slidesPerView={1}
+                        autoplay={{ delay: 2500, disableOnInteraction: false }}
+                        pagination={{ clickable: true }}
+                        style={{ maxWidth: 420, margin: "0 auto" }}
+                    >
+                        {locations.map((loc, idx) => (
+                            <SwiperSlide key={idx}>
+                                <div className="map-block">
+                                    <h3>{loc.name}</h3>
+                                    <iframe
+                                        src={loc.mapSrc}
+                                        width="100%"
+                                        height="220"
+                                        style={{ border: 0 }}
+                                        allowFullScreen=""
+                                        loading="lazy"
+                                        referrerPolicy="no-referrer-when-downgrade"
+                                        title={loc.name}
+                                    ></iframe>
+                                </div>
+                            </SwiperSlide>
+                        ))}
+                    </Swiper>
                 </div>
+
             </div>
 
         </div>

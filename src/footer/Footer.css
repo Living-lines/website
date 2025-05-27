@@ -2,7 +2,7 @@
   background-color: #000;
   color: #fff;
   width: 100%;
-  font-family: 'Lexend', sans-serif;
+  font-family: 'Playfair Display', serif;
 }
 
 .showroom-section {
@@ -99,13 +99,13 @@
 }
 
 .footer-middle-column {
-  margin-left: 80px;
+  /* margin-left: 80px; */
   flex: 1;
 }
 
 .footer-middle-column .extra-title {
-  text-align: center;
-  margin-right: 90px;
+  /* text-align: center; */
+  /* margin-right: 90px; */
   font-size: 2rem;
   color: #ff6600;
   margin-bottom: 1rem;
@@ -248,7 +248,7 @@
 
 .footer-copy {
   font-size: 0.95rem;
-  color: #888;
+  color: #ffffff;
   text-align: left;
 }
 
@@ -303,7 +303,7 @@
   border-radius: 8px;
   border: 1px solid #ff6000 !important;
   font-size: 1rem;
-  font-family: 'Lexend', sans-serif;
+  font-family: 'Playfair Display', serif;
   background-color: #000;
   color: #fff;
   
@@ -357,7 +357,7 @@
   overflow: hidden;
   font-size: 1rem;
   font-weight: bold;
-  font-family: 'Lexend', sans-serif;
+  font-family: 'Playfair Display', serif;
 }
 
 .subscribe-error {
@@ -449,7 +449,7 @@
 
 body {
   margin: 0;
-  font-family: 'Lexend', sans-serif;
+  font-family: 'Playfair Display', serif;
   background-color: #111;
   color: white;
 }
@@ -475,7 +475,7 @@ body {
 }
 
 .logo {
-  font-family: 'Lexend', sans-serif;
+  font-family: 'Playfair Display', serif;
   font-size: 36px;
   margin-bottom: 10px;
   letter-spacing: 1px;
@@ -501,7 +501,7 @@ body {
 
 .heading {
   font-size: 36px;
-  font-family: 'Lexend', sans-serif;
+  font-family: 'Playfair Display', serif;
   margin-bottom: 20px;
 }
 
@@ -575,7 +575,7 @@ body {
 }
 
 .emporio-logo {
-  font-family: 'Lexend', sans-serif;
+  font-family: 'Playfair Display', serif;
   font-size: 36px;
   margin-bottom: 10px;
   letter-spacing: 1px;
@@ -602,7 +602,7 @@ body {
 
 .emporio-heading {
   font-size: 36px;
-  font-family: 'Lexend', sans-serif;
+  font-family: 'Playfair Display', serif;
   margin-bottom: 20px;
 }
 
@@ -686,3 +686,65 @@ body {
   color: #f26624;
 }
 
+.footer-toggle-icon {
+  display: none;
+}
+
+/* Accordion header: black background, heading left, icon right */
+@media (max-width: 768px) {
+  .footer-column-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    padding: 1rem 1.2rem;
+    background: #000 !important;
+    border: none;
+  }
+  .footer-column-header h2,
+  .footer-column-header .extra-title {
+    color: #ff6600;
+    font-size: 1.2rem;
+    margin: 0;
+    text-align: left !important;
+    flex: 1;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+  }
+  .footer-toggle-icon {
+    display: inline-block;
+    font-size: 2rem;
+    color: #ff6600;
+    margin-left: 16px;
+    user-select: none;
+    transition: transform 0.2s;
+    text-align: right;
+    flex-shrink: 0;
+  }
+  .footer-column-content {
+    display: none;
+    padding: 1rem 1.2rem 1.5rem 1.2rem;
+    background: #000 !important;
+    color: #fff;
+    border-top: 1px solid #222;
+  }
+  .footer-column.open .footer-column-content {
+    display: block;
+    animation: fadeIn 0.3s;
+  }
+  .footer-column:not(.open) .footer-column-content {
+    display: none;
+  }
+  .footer-column {
+    border-bottom: 1px solid #222;
+    margin-bottom: 0;
+    background: #000 !important;
+  }
+  .footer-middle-column .extra-title {
+    text-align: left !important;
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+    width: 100%;
+    display: block;
+  }
+}

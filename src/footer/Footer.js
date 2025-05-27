@@ -12,10 +12,16 @@ const Footer = () => {
   const [mobile, setMobile] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
+  const [openSection, setOpenSection] = useState(null);
+
 
   const handleNavigation = (path) => {
     navigate(path);
     window.scrollTo(0, 0);
+  };
+
+   const handleAccordion = (section) => {
+    setOpenSection(openSection === section ? null : section);
   };
 
   const handleSubscribe = async () => {
@@ -107,7 +113,7 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="footer-columns">
+      {/* <div className="footer-columns">
         <div className="footer-left-column">
           <h2>Living Lines</h2>
           <div className="location-hours">
@@ -154,12 +160,78 @@ const Footer = () => {
             ))}
           </div>
         </div>
+      </div> */}
+
+      <div className="footer-columns">
+        {/* Left Column */}
+        <div className={`footer-column footer-left-column${openSection === 'left' ? ' open' : ''}`}>
+          <div className="footer-column-header" onClick={() => handleAccordion('left')}>
+            <h2>Living Lines</h2>
+            <span className="footer-toggle-icon">{openSection === 'left' ? '−' : '+'}</span>
+          </div>
+          <div className="footer-column-content">
+            <div className="location-hours">
+              {['Vizianagaram', 'Visakhapatnam', 'Madhurawada'].map((city, idx) => (
+                <React.Fragment key={city}>
+                  <h3 style={{ marginTop: idx === 0 ? '0' : '3rem' }}>{city}</h3>
+                  <p>Monday - Saturday : 9:00 AM to 9:00 PM</p>
+                </React.Fragment>
+              ))}
+              <p style={{ marginTop: '3rem', color: '#ccc' }}>We are closed on public Holidays.</p>
+            </div>
+          </div>
+        </div>
+
+        <div className={`footer-column footer-middle-column${openSection === 'middle' ? ' open' : ''}`}>
+          <div className="footer-column-header" onClick={() => handleAccordion('middle')}>
+            <h2 className="extra-title">Navigate</h2>
+            <span className="footer-toggle-icon">{openSection === 'middle' ? '−' : '+'}</span>
+          </div>
+          <div className="footer-column-content">
+            <div className="navigate-table">
+              {['/', '/about', '/products', '/catalogs', '/brands', '/contact'].map((path, i) => (
+                <button key={path} onClick={() => handleNavigation(path)} className="footer-link">
+                  {['Home', 'About', 'Products', 'Catalogs', 'Brands', 'Contact'][i]}
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <div className={`footer-column footer-right-column${openSection === 'right' ? ' open' : ''}`}>
+          <div className="footer-column-header" onClick={() => handleAccordion('right')}>
+            <h2 className="extra-title">Contact</h2>
+            <span className="footer-toggle-icon">{openSection === 'right' ? '−' : '+'}</span>
+          </div>
+          <div className="footer-column-content">
+            <p>
+              <i className="fas fa-phone social-icon" />
+              <a href="tel:08912514792" className="footer-contact-link">08912514792</a>
+            </p>
+            <p>
+              <i className="fas fa-envelope mail-icon" />
+              <a href="mailto:saibalajimarketing@gmail.com" className="footer-contact-link" target="_blank" rel="noopener noreferrer">
+                saibalajimarketing@gmail.com
+              </a>
+            </p>
+            <h2 className="extra-title" style={{ marginTop: '3.5rem' }}>Social Media</h2>
+            <div className="footer-social-icons">
+              {['instagram', 'twitter', 'facebook'].map((platform) => (
+                <a key={platform} href={`https://www.${platform}.com/livinglines`} target="_blank" rel="noopener noreferrer" aria-label={platform}>
+                  <i className={`fab fa-${platform} social-icon`} />
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
+
+
 
       <div className="footer-bottom">
         <hr className="footer-divider" />
         <p className="footer-copy">
-          <i className="far fa-copyright" style={{ fontSize: '1.3em', marginRight: '6px', verticalAlign: 'middle' }}></i>
+          <i className="far fa-copyright" style={{ fontSize: '1.3em', marginRight: '6px', verticalAlign: 'middle', color:"white" }}></i>
           All Rights Reserved to @Living Lines
         </p>
       </div>

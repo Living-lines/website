@@ -12,7 +12,48 @@
   box-sizing: border-box;
 }
 
+.maps-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin-top: 20px;
+}
 
+.map-block {
+  flex: 1 1 300px;
+  min-width: 280px;
+  max-width: 400px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+  padding: 16px;
+}
+
+.map-block h3 {
+  margin-bottom: 10px;
+  color: #ff6000;
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+@media (max-width: 900px) {
+  .maps-wrapper {
+    flex-direction: column;
+    gap: 18px;
+  }
+  .map-block {
+    max-width: 100%;
+  }
+}
+/* Add to Contact.css if not present */
+.swiper-pagination-bullet {
+  background: #ff6000;
+  opacity: 0.7;
+}
+.swiper-pagination-bullet-active {
+  background: #b8860b;
+  opacity: 1;
+}
 
 .message-contact-details {
   display: flex;

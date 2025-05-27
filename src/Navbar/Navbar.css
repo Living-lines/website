@@ -2,7 +2,7 @@
 .whatsapp-button {
   position: fixed;
   bottom: 20px; 
-    right: 20px;  
+  right: 20px;  
   background-color: #25D366; 
   padding: 15px;
   border-radius: 50%;
@@ -29,7 +29,7 @@
 
 
 .abc-emporio {
-  font-family: 'Lexend', sans-serif;
+  font-family: 'Playfair Display', serif;
   color: white;
   background-color: black;
 }
@@ -579,6 +579,18 @@
   .search-wrapper {
     max-width: 250px;
     width: 100%;
+  }
+}
+
+#search-bar-container .input1 {
+  width: 160px !important;   /* Decreased width */
+  max-width: 100%;
+  transition: width 0.2s;
+}
+
+@media (max-width: 768px) {
+  #search-bar-container .input1 {
+    width: 100px !important; /* Even smaller on mobile */
   }
 }
 

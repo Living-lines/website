@@ -47,8 +47,8 @@ const AboutUs = () => {
 
         {/* RIGHT COLUMN */}
         <div className="column right-column">
-          <div className="brand-badge">LIVING LINES</div>
-          <h2 className="company-name">Sai Balaji Marketing</h2>
+          <div className="company-name">LIVING LINES</div>
+          {/* <h2 className="company-name">Sai Balaji Marketing</h2> */}
           <h3 className="about-subtitle">About</h3>
           <p className="about-text">
             Living Lines, where quality meets experience, and your vision finds its perfect expression.

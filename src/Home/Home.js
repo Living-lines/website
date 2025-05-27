@@ -47,38 +47,38 @@ function Home() {
   const slides = [
     {
       image: heroImage1,
-      heading: 'Designs that<br />always flow.',
+      heading: 'Designs that always flow.',
       subQuote: 'crafted for every style from bold to timeless',
       textPosition: 'right',
     },
     {
       image: heroImage2,
-      heading: 'Luxury Bathware<br />Experience.',
+      heading: 'Luxury Bathware Experience.',
       subQuote: 'Indulge in the ultimate luxury with our premium bathware collection.',
       textPosition: 'left',
     },
     {
       image: heroImage3,
-      heading: 'Modern Interiors<br />Reimagined.',
+      heading: 'Modern Interiors Reimagined.',
       subQuote: 'Upgrade your home with stylish, high-quality bath and home accessories.',
       textPosition: 'right',
     },
     {
       image: heroImage4,
-      heading: 'Refined control<br />with Definition.',
+      heading: 'Refined control with Definition.',
       subQuote: 'Switches to control and add beauty to your home.',
       textPosition: 'left',
     },
     {
       image: heroImage5,
-      heading: 'Premium & Perfect Tiles<br />for Every Floor.',
+      heading: 'Premium & Perfect Tiles for Every Floor.',
       subQuote: 'wide range of exquisite, durable and designer tiles.',
       textPosition: 'right',
     },
 
     {
       image: heroImage6,
-      heading: 'Brighten every corner<br />with innovation.',
+      heading: 'Brighten every corner with innovation.',
       subQuote: 'From lights to switches discover an elite collection to illuminate, protect and perform.',
       textPosition: 'left',
     },
@@ -326,7 +326,7 @@ function Home() {
 
 
 
-      <section className="brand-promise-home">
+      {/* <section className="brand-promise-home">
         <div className="brand-promise-container-home">
           <div className="big-a-home">A</div>
           <div className="lines-text-home">
@@ -349,7 +349,7 @@ function Home() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
 
 
