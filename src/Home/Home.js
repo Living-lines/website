@@ -164,11 +164,11 @@ function Home() {
 
 
       <div className="about-us-wrapper">
-        <div>
+        {/* <div>
           <h1 className="products-heading">
             About Us <span className="underline"></span>
           </h1>
-        </div>
+        </div> */}
 
         <section className="interior-split-section">
           <div className="interior-left-rotation">

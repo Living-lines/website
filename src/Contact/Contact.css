@@ -5,6 +5,7 @@
   align-items: center;
   margin-top: 80px;
   overflow-x: hidden;
+  padding: 15px 0;
 }
 
 *::before,
@@ -39,19 +40,28 @@
 @media (max-width: 900px) {
   .maps-wrapper {
     flex-direction: column;
+    align-items: center;
     gap: 18px;
   }
   .map-block {
     max-width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .map-block iframe{
+    display: block;
+    margin: 0 auto;
   }
 }
 /* Add to Contact.css if not present */
 .swiper-pagination-bullet {
-  background: #ff6000;
+  background: #ff6000 !important;
   opacity: 0.7;
 }
 .swiper-pagination-bullet-active {
-  background: #b8860b;
+  background: #ff6000 !important ;
   opacity: 1;
 }
 
@@ -59,7 +69,7 @@
   display: flex;
   justify-content: space-between;
   margin: 50px auto;
-  padding: 20px;
+  padding: 15px 0;
   flex-wrap: wrap;
   gap: 40px;
 }
@@ -157,6 +167,7 @@
   margin-bottom: 20px;
   font-size: 24px;
   font-weight: bold;
+  color:#ff6000
 }
 
 .contact-form {
@@ -230,7 +241,7 @@
 .contact-hero {
   max-width: 1100px;
   margin: 100px auto 60px;
-  padding: 0 20px;
+  
   display: flex;
   flex-direction: row;
   gap: 60px;
@@ -241,6 +252,27 @@
   color: #333;
 }
 
+.location-section p {
+  margin-bottom: 32px; /* Increase as needed */
+}
+
+/* Optionally, add extra space above the Swiper pagination dots */
+.location-section .swiper-pagination {
+  margin-top: 18px !important; /* Increase as needed */
+}
+/* Add more space below the paragraph in the info-card carousel */
+.info-card h3 + .swiper {
+  margin-top: 24px; /* Space between heading and carousel */
+}
+
+.info-card .swiper p {
+  margin-bottom: 32px; /* Space between paragraph and dots */
+}
+
+/* Add more space above the Swiper pagination dots */
+.info-card .swiper .swiper-pagination {
+  margin-top: 18px !important;
+}
 .hero-intro {
   flex: 0 0 65%;
 }
@@ -252,7 +284,7 @@
   color: #f26624;
   font-weight: 900;
   margin-bottom: 20px;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   letter-spacing: 1.5px;
   max-width: 900px;
 }
@@ -283,6 +315,7 @@
   gap: 40px;
   flex-wrap: wrap;
   justify-content: space-between;
+  padding: 0 15px;
 }
 
 .info-card {
@@ -293,13 +326,53 @@
   transition: box-shadow 0.3s ease;
   cursor: default;
   flex: 1 1 200px;
-  /* allow wrapping on desktop */
   max-width: 400px;
 }
 
 
 .info-card:hover {
   box-shadow: 0 12px 35px rgba(242, 102, 36, 0.25);
+}
+
+
+@media (max-width: 768px) {
+  .message-contact-details {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    padding: 0 10px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .message-section,
+  .location-section {
+    width: 100%;
+    max-width: 420px;
+    margin: 0 auto;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+  }
+
+  .message-section h2,
+  .location-section h2 {
+    text-align: center;
+    width: 100%;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    font-size: 1rem;
+    padding: 10px;
+    /* Remove margin-left: -10px; */
+    margin: 8px 0;
+    width: 100%;
+    max-width: 350px;
+  }
 }
 
 .info-card h3 {
@@ -350,7 +423,6 @@
   margin-bottom: 15px;
   color: #f26624;
   font-weight: 900;
-  text-transform: uppercase;
   letter-spacing: 1.2px;
 }
 
@@ -377,44 +449,7 @@
   background-color: #e15d1d;
 }
 
-/* @media (max-width: 992px) {
-  .contact-info-cards {
-    flex-direction: column;
-    gap: 30px;
-  }
 
-  .info-card {
-    flex: 1 1 100%;
-  }
-
-  .hero-intro h1 {
-    font-size: 2.4rem;
-  }
-
-  .hero-cta h2 {
-    font-size: 2rem;
-  }
-
-  .hero-image img {
-    max-width: 100%;
-  }
-} */
-
-/* @media (max-width: 480px) {
-  .hero-intro h1 {
-    font-size: 1.9rem;
-  }
-
-  .hero-intro p,
-  .hero-cta p {
-    font-size: 1rem;
-  }
-
-  .btn-primary {
-    padding: 12px 35px;
-    font-size: 1rem;
-  }
-} */
 
 
 
@@ -502,25 +537,7 @@
   background-color: #0d95e8;
 }
 
-/*
-@media (max-width: 768px) {
-  .connect-us-card {
-    padding: 20px 15px;
-  }
 
-  .connect-us-card h3 {
-    font-size: 1.5rem;
-  }
-
-  .connect-us-card p {
-    font-size: 0.9rem;
-  }
-
-  .social-links {
-    flex-direction: column;
-    gap: 10px;
-  }
-} */
 
 
 
@@ -556,7 +573,7 @@
   .contact-info-cards {
     flex-direction: column;
     gap: 20px;
-    padding: 0 10px;
+    padding: 0 15px;
   }
 
   .info-card {
@@ -593,7 +610,7 @@
 
   .hero-cta {
     margin-top: 40px;
-    padding: 0 10px;
+    padding: 0 15px;
   }
 
   .hero-cta h2 {
@@ -606,8 +623,10 @@
 
   .message-contact-details {
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
     gap: 30px;
-    padding: 0 10px;
+    /* padding: 0 10px; */
   }
 
   .message-section,
@@ -656,53 +675,62 @@
   .icon {
     font-size: 24px;
   }
+  .location-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 420px;
+    margin: 0 auto;
+    padding: 20px 0;
+    box-sizing: border-box;
+  }
+  .location-section .swiper {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100% !important;
+    max-width: 400px;
+  }
+
+  .map-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+    padding: 16px;
+  }
+
+  .map-block iframe {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 370px;
+    border-radius: 8px;
+  }
+  .message-section,
+  .location-section,
+  .info-card,
+  .connect-us-card {
+    width: 100%;
+    max-width: 350px;
+    min-width: 0;
+    margin: 0 auto;
+    box-sizing: border-box;
+    padding: 20px 10px;
+    border-radius: 10px;
+  }
 }
 
-/* @media screen and (max-width: 480px) {
-  .hero-intro h1 {
-    font-size: 1.7rem;
-  }
 
-  .hero-intro p,
-  .hero-cta p {
-    font-size: 0.95rem;
-  }
-
-  .btn-primary {
-    padding: 12px 28px;
-    font-size: 1rem;
-  }
-
-  .hero-cta h2 {
-    font-size: 1.6rem;
-  }
-
-  .message-section h2,
-  .location-section h2 {
-    font-size: 1.3rem;
-  }
-
-  .contact-form input,
-  .contact-form textarea {
-    font-size: 0.95rem;
-  }
-
-  .contact-form button {
-    font-size: 1rem;
-  }
-
-  .connect-us-card h3 {
-    font-size: 1.4rem;
-  }
-
-  .connect-us-card p {
-    font-size: 0.85rem;
-  }
-
-  .social-link {
-    font-size: 0.95rem;
-  }
-} */
 
 
 @media (max-width: 768px) {
@@ -710,9 +738,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* ✅ Center-align all cards */
+    
     justify-content: center;
-    /* ✅ Vertically center (optional) */
     gap: 10px;
     padding: 0 10px;
     width: 100%;
@@ -720,8 +747,35 @@
 
   .info-card {
     width: 90%;
-    /* ✅ Limit width to look nice on small screens */
+    
     max-width: 300px;
     text-align: center;
+  }
+  .message-contact-details {
+    flex-direction: column;
+    gap: 30px;
+    padding: 0 10px;
+    align-items: center;      /* Center children horizontally */
+    justify-content: center;  /* Center children vertically (if needed) */
+    width: 100%;
+    margin: 0 auto;           /* Center the container itself */
+  }
+
+  .message-section,
+  .location-section {
+    width: 100%;
+    max-width: 420px;         /* Prevents stretching too wide */
+    margin: 0 auto;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;  
+    box-sizing: border-box;    /* Center content inside the cards */
+  }
+  .location-section h2,
+  .location-section p,
+  .message-section h2 {
+    text-align: center;
+    width: 100%;
   }
 }

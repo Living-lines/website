@@ -4,6 +4,8 @@ import location_1 from '../assets/location_1.jpg';
 import location_2 from '../assets/location_2.jpg';
 import Timeline from './timeline/timeline';
 import { motion } from "framer-motion";
+import { FaEye, FaBullseye } from "react-icons/fa"; // Add this import at the top
+
 
 const AboutUs = () => {
   const [count, setCount] = useState(0);
@@ -81,11 +83,11 @@ const AboutUs = () => {
 
         <div className="value-cards">
           {[{
-            icon: "💡",
+            icon: <FaEye style={{ fontSize: "2.2rem", color: "#ff6000" }} />,
             title: "Vision",
             text: "Delivering 100+ top-tier brands to experience quality dream homes.",
           }, {
-            icon: "🧫️",
+            icon: <FaBullseye style={{ fontSize: "2.2rem", color: "#ff6000" }} />,
             title: "Mission",
             text: "To be the most trusted showroom which excels in customer service and builds complete home solutions."
           }].map((card, i) => (
@@ -105,9 +107,6 @@ const AboutUs = () => {
           ))}
         </div>
       </div>
-
-
-
     </div>
   );
 };

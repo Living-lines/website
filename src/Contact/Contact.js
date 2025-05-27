@@ -82,9 +82,37 @@ function Contact() {
                     <h3>Customer Support</h3>
                     <p>Call us at <a href="tel:+918074253744">+91 80742 53744</a> or email <a href="mailto:saibalajimarketing@gmail.com">saibalajimarketing@gmail.com</a></p>
                 </div>
-                <div className="info-card">
+                {/* <div className="info-card">
                     <h3>Visit Our Office</h3>
                     <p>Gandhi Nagar, Vizianagaram,<br />Andhra Pradesh, 535004</p>
+                </div> */}
+
+                <div className="info-card">
+                    <h3>Visit Our Office</h3>
+                    <Swiper
+                        modules={[Pagination, Autoplay]}
+                        spaceBetween={20}
+                        slidesPerView={1}
+                        autoplay={{ delay: 2500, disableOnInteraction: false }}
+                        pagination={{ clickable: true }}
+                        style={{ maxWidth: 260, margin: "0 auto" }}
+                    >
+                        <SwiperSlide>
+                            <div>
+                                <p>Gandhi Nagar, Vizianagaram,<br />Andhra Pradesh, 535004</p>
+                            </div>
+                        </SwiperSlide>
+                        <SwiperSlide>
+                            <div>
+                                <p>Madhurawada,<br />Visakhapatnam, Andhra Pradesh</p>
+                            </div>
+                        </SwiperSlide>
+                        <SwiperSlide>
+                            <div>
+                                <p>Visakhapatnam,<br />Andhra Pradesh</p>
+                            </div>
+                        </SwiperSlide>
+                    </Swiper>
                 </div>
                 <div className="info-card">
                     <h3>Working Hours</h3>
@@ -178,7 +206,7 @@ function Contact() {
                     <h2 style={{ color: '#ff6000' }}>Our Locations</h2>
                     <p style={{ color: '#000' }}>Visit us at any of our showrooms:</p>
                     <Swiper
-                        modules={[Pagination,Autoplay]}
+                        modules={[Pagination, Autoplay]}
                         spaceBetween={30}
                         slidesPerView={1}
                         autoplay={{ delay: 2500, disableOnInteraction: false }}

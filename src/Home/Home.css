@@ -564,13 +564,27 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   gap: 40px;
   /* margin: 100px auto; */
   width: 100%;
   flex-wrap: nowrap;
   background-color: black;
   overflow: hidden;
+}
+
+.interior-left-rotation,
+.interior-right-content {
+  width: 100%;
+  max-width: 1000px;
+  min-width: 0;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: auto;
+  box-sizing: border-box;
 }
 
 .interior-left-rotation {
@@ -765,11 +779,6 @@
 
 
 @media screen and (max-width: 768px) {
-  .interior-split-section {
-    flex-direction: column;
-    align-items: center;
-  }
-
   .interior-split-section {
     flex-direction: column;
     align-items: center;

@@ -173,7 +173,7 @@ const Footer = () => {
             <div className="location-hours">
               {['Vizianagaram', 'Visakhapatnam', 'Madhurawada'].map((city, idx) => (
                 <React.Fragment key={city}>
-                  <h3 style={{ marginTop: idx === 0 ? '0' : '3rem' }}>{city}</h3>
+                  <h3 style={{ marginTop: idx === 0 ? '0' : '2rem' }}>{city}</h3>
                   <p>Monday - Saturday : 9:00 AM to 9:00 PM</p>
                 </React.Fragment>
               ))}
