@@ -4,7 +4,19 @@
   width: 100%;
   font-family: 'Playfair Display', serif;
 }
+.branch-photo.large-photo {
+  width: 320px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 10px;
+}
 
+.showroom-city {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 8px 0 4px 0;
+}
 .showroom-section {
   background-color: black;
   padding: 3rem 1rem 1rem;
@@ -416,22 +428,40 @@
   height: 90%;
   border-radius: 8px;
   transition-duration: 1s;
-  background-color: rgba(0, 0, 0, 0.842);
+  background-color:#ff6000;
   background-size: 200%;
 }
 
 .subscribe-btn:hover {
   background-position: right;
   transition-duration: 1s;
+  background-color: #ff6000 !important;
+  color: #fff;
 }
 
 .subscribe-btn:hover::before {
   background-position: right;
   transition-duration: 1s;
 }
+.subscribe-btn:focus {
+  background-color: #ff6000 !important;
+  color: #fff;
+}
 
+.subscribe-btn,
+.subscribe-btn:hover,
+.subscribe-btn:focus,
+.subscribe-btn:active {
+  background: #ff6000 !important;
+  background-color: #ff6000 !important;
+  color: #fff !important;
+  border: none;
+  box-shadow: none;
+}
 .subscribe-btn:active {
   transform: scale(0.95);
+  background-color: #ff6000 !important;
+  color: #fff;
 }
 
 

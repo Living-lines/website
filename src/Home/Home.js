@@ -5,6 +5,9 @@ import './Home.css';
 // import videoFile1 from '../assets/video 3.mp4';
 // import videoFile2 from '../assets/video1.mp4';
 
+import image1 from '../assets/taps123.jpg';
+import image2 from '../assets/taps51.jpg'
+
 import About from '../About/About';
 import BrandCarousel from '../brand/brand.js';
 import { Link } from 'react-router-dom';
@@ -280,7 +283,7 @@ function Home() {
         <div className="originals-container">
           <div className="first-line">
             <img
-              src="/assets/taps123.png"
+              src={image1}
               alt="Original Taps"
               className="originals-image first-image"
               draggable={false}
@@ -313,7 +316,7 @@ function Home() {
             </div>
             <h3 className="originals-text-line third-line-text">THE LATEST</h3>
             <img
-              src="/assets/taps51.jpg"
+              src={image2}
               alt="Latest Taps"
               className="second-image1"
               draggable={false}

@@ -19,7 +19,7 @@ function AppContent() {
   useEffect(() => {
     setLoading(true);
     // Simulate loading time, or replace with actual data fetching logic if needed
-    const timer = setTimeout(() => setLoading(false), 700);
+    const timer = setTimeout(() => setLoading(false), 500);
     return () => clearTimeout(timer);
   }, [location]);
 

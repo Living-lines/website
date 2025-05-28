@@ -5,10 +5,10 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Ancizar Serif', serif !important;
+  font-family: 'Playfair Display', serif !important;
 }
 body {
-  font-family: 'Ancizar Serif', serif !important;
+  font-family: 'Playfair Display', serif !important;
 }
 
 
@@ -16,13 +16,15 @@ body {
 .app-container {
   display: flex;
   flex-direction: column;
-  min-height: 100vh; /* Ensures the app takes full screen height */
+  min-height: 100vh;
+  font-family: 'Playfair Display', serif !important; /* Ensures the app takes full screen height */
 }
 
 /* Content section: takes up all space between navbar and footer */
 .content-container {
   flex: 1;
-  padding: 20px;  /* Add padding around content */
+  padding: 20px; 
+  font-family: 'Playfair Display', serif !important; /* Add padding around content */
 }
 
 /* Navbar Styling */
@@ -30,6 +32,7 @@ body {
   height: 40px; /* Example, adjust to your actual navbar height */
   background-color: #333; /* Example, adjust to your navbar color */
   color: #fff;
+  font-family: 'Playfair Display', serif !important;
 }
 
 /* Footer Styling */
@@ -41,4 +44,5 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
+  font-family: 'Playfair Display', serif !important;
 }

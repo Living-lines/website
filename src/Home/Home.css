@@ -931,7 +931,7 @@
 
 .originals-image.first-image {
   max-width: 250px;
-  height: auto;
+  height: 250px;
   object-fit: contain;
   flex-shrink: 0;
 }

@@ -21,13 +21,17 @@
 }
 
 .map-block {
-  flex: 1 1 300px;
-  min-width: 280px;
-  max-width: 400px;
+  width: 100%;
+  height:100%;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
   background: #fff;
   border-radius: 10px;
   box-shadow: 0 2px 12px rgba(0,0,0,0.07);
-  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  flex:1 1 auto; /* Ensures children (iframe) stretch to full width */
 }
 
 .map-block h3 {
@@ -37,25 +41,7 @@
   text-align: center;
 }
 
-@media (max-width: 900px) {
-  .maps-wrapper {
-    flex-direction: column;
-    align-items: center;
-    gap: 18px;
-  }
-  .map-block {
-    max-width: 100%;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  .map-block iframe{
-    display: block;
-    margin: 0 auto;
-  }
-}
-/* Add to Contact.css if not present */
+
 .swiper-pagination-bullet {
   background: #ff6000 !important;
   opacity: 0.7;
@@ -203,26 +189,58 @@
 .location-section {
   flex: 1;
   background-color: #fff;
-  padding: 30px;
   border-radius: 8px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  /* max-width: 420px; */
+  margin: 0 auto;
+  /* padding: 10px ; */
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .location-section h2 {
-  margin-bottom: 20px;
+  margin-bottom: 8px;
   font-size: 24px;
   font-weight: bold;
+  /* text-align: left !important; */
+  width: 100%;
+  margin-left: 0;
+  padding-left: 30px;
 }
 
 .location-section p {
   font-size: 16px;
-  margin-bottom: 15px;
+  margin-top:0 ;
+  padding-left: 30px;
 }
+
+/* Left align heading and paragraph in the location section */
+/* .location-section h2,
+.location-section p,
+.location-section .map-block h3 {
+  text-align: left !important;
+  width: 100%;
+  padding-left: 60px;
+  margin-left: 0;
+} */
 
 .map iframe {
   border-radius: 8px;
 }
-
+.map-block iframe {
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 300px;
+  max-width: 100%;
+  border-radius: 10px;
+  display: block;
+  margin: 0 auto;
+  box-sizing: border-box;
+  flex: 1 1 auto;
+}
 
 @media (max-width: 768px) {
   .contact-container {
@@ -252,9 +270,9 @@
   color: #333;
 }
 
-.location-section p {
-  margin-bottom: 32px; /* Increase as needed */
-}
+/* .location-section p {
+  margin-bottom: 32px; 
+} */
 
 /* Optionally, add extra space above the Swiper pagination dots */
 .location-section .swiper-pagination {
@@ -349,7 +367,7 @@
   .message-section,
   .location-section {
     width: 100%;
-    max-width: 420px;
+    /* max-width: 420px; */
     margin: 0 auto;
     padding: 20px 0;
     display: flex;
@@ -681,9 +699,9 @@
     align-items: center;
     justify-content: center;
     width: 100%;
-    max-width: 420px;
+    /* max-width: 420px; */
     margin: 0 auto;
-    padding: 20px 0;
+    padding-top: 10px;
     box-sizing: border-box;
   }
   .location-section .swiper {
@@ -693,7 +711,8 @@
     justify-content: center;
     align-items: center;
     width: 100% !important;
-    max-width: 400px;
+    height:100% !important;
+    /* max-width: 400px; */
   }
 
   .map-block {
@@ -701,31 +720,36 @@
     flex-direction: column;
     align-items: center;
     width: 100%;
-    max-width: 400px;
-    margin: 0 auto;
+    margin: 0;
+    box-sizing: border-box;
     background: #fff;
     border-radius: 10px;
     box-shadow: 0 2px 12px rgba(0,0,0,0.07);
-    padding: 16px;
+    padding:0;
+    align-items: stretch;
   }
 
   .map-block iframe {
-    display: block;
-    margin: 0 auto;
-    width: 100%;
-    max-width: 370px;
-    border-radius: 8px;
-  }
+  width: 100% !important;
+  height: 400px !important;
+  min-height: 350px;
+  max-width: 100%;
+  border-radius: 10px;
+  display: block;
+  margin: 0 auto;
+  box-sizing: border-box;
+  flex: 1 1 auto;
+}
   .message-section,
   .location-section,
   .info-card,
   .connect-us-card {
     width: 100%;
-    max-width: 350px;
+    /* max-width: 350px; */
     min-width: 0;
     margin: 0 auto;
     box-sizing: border-box;
-    padding: 20px 10px;
+    padding-top: 10px ;
     border-radius: 10px;
   }
 }
@@ -766,14 +790,13 @@
     width: 100%;
     max-width: 420px;         /* Prevents stretching too wide */
     margin: 0 auto;
-    padding: 20px 0;
+    padding-top: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;  
     box-sizing: border-box;    /* Center content inside the cards */
   }
   .location-section h2,
-  .location-section p,
   .message-section h2 {
     text-align: center;
     width: 100%;
