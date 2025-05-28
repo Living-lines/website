@@ -177,7 +177,7 @@ const Footer = () => {
                   <p>Monday - Saturday : 9:00 AM to 9:00 PM</p>
                 </React.Fragment>
               ))}
-              <p style={{ marginTop: '3rem', color: '#ccc' }}>We are closed on public Holidays.</p>
+              <p style={{ marginTop: '3rem', color: '#ccc' }}>We are closed on public holidays.</p>
             </div>
           </div>
         </div>
