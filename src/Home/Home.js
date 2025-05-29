@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './Home.css';
 
-// Commented imports for assets folder and using DigitalOcean links
-// import videoFile1 from '../assets/video 3.mp4';
-// import videoFile2 from '../assets/video1.mp4';
+
 
 import image1 from '../assets/taps123.jpg';
 import image2 from '../assets/taps51.jpg'

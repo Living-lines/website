@@ -146,7 +146,7 @@ const ProductPager = () => {
           <div className="search-input-wrapper">
             <input
               type="text"
-              placeholder="Search by model, brand, or type..."
+              placeholder="Search by model, brandproduct, or type..."
               value={searchText}
               onChange={e => setSearchText(e.target.value)}
               className="filter-search-input"
