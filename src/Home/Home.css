@@ -1239,7 +1239,7 @@
   margin-bottom: 0.2em;
 }
 
-@media screen and (max-width: 768px) {
+/* @media screen and (max-width: 768px) {
   .brand-promise-home {
     background-color: black;
     color: white;
@@ -1351,9 +1351,9 @@
   .our-top-text-home span:first-child {
     margin-bottom: 0.2em;
   }
-}
+} */
 
-@media screen and (max-width: 450px) {
+/* @media screen and (max-width: 450px) {
   .brand-promise-home {
   background-color: black;
   color: white;
@@ -1362,7 +1362,7 @@
   padding: 80px 20px;
   font-family: 'Playfair Display', serif;
   
-}
+} */
 
 .brand-promise-container-home {
   display: flex;
@@ -1437,8 +1437,7 @@
   margin-left: 20px;
   flex-shrink: 0;
 }
-
-  .horizontal-line-home {
+ .horizontal-line-home {
     width: 30px;
     height: 2px;
     background-color: #ff6600;
@@ -1452,5 +1451,85 @@
     color: #ff6600;
     font-weight: 600;
     line-height: 1.1;
+  }
+
+@media (max-width: 768px) {
+  .originals-section {
+    width: 100%;
+    padding: 10px 0;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    padding-bottom: 40px;
+  }
+
+  .originals-container {
+    margin-left: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .first-line {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 0;
+  }
+
+  .originals-image.first-image {
+    max-width: 80px;
+    height: 80px;
+    object-fit: contain;
+    flex-shrink: 0;
+  }
+
+  .first-line .originals-text-line {
+    font-size: 1.2rem;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    line-height: 1.1;
+  }
+
+  .second-line {
+    font-size: 1.2rem;
+    max-width: 100%;
+    margin-left: 0 !important;
+    margin-top: 8px !important;
+    margin-bottom:30px;
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    color: #5c4400;
+  }
+
+  .third-line {
+    margin-top: -10px;
+    gap: 8px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .curve-svg {
+    width: 50px;
+    margin-left: 0;
+  }
+
+  .third-line-text {
+    font-size: 1.2rem;
+    margin-top: -10px;
+    margin-left: 8px;
+  }
+
+  .second-image1 {
+    margin-left: 0;
+    width: 100px !important;
+    height: 60px;
+    border-radius: 20px;
   }
 }

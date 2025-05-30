@@ -4,12 +4,14 @@
   width: 100%;
   font-family: 'Playfair Display', serif;
 }
+
 .branch-photo.large-photo {
   width: 320px;
   height: 250px;
   object-fit: cover;
   border-radius: 12px;
   margin-bottom: 10px;
+  padding: 10px;
 }
 
 .showroom-city {
@@ -17,6 +19,7 @@
   font-weight: 600;
   margin: 8px 0 4px 0;
 }
+
 .showroom-section {
   background-color: black;
   padding: 3rem 1rem 1rem;
@@ -121,7 +124,7 @@
   font-size: 2rem;
   color: #ff6600;
   margin-bottom: 1rem;
-  
+
 }
 
 .navigate-table {
@@ -240,6 +243,18 @@
   .footer-social-icons {
     justify-content: center;
   }
+
+  .branch-photo.large-photo {
+    width: 100%;
+    max-width: 320px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 10px;
+    padding: 10px;
+    display: block;
+    box-sizing: border-box;
+  }
 }
 
 
@@ -318,7 +333,7 @@
   font-family: 'Playfair Display', serif;
   background-color: #000;
   color: #fff;
-  
+
 }
 
 .subscribe-input::placeholder {
@@ -409,6 +424,7 @@
     opacity: 0;
     transform: translateY(20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -428,7 +444,7 @@
   height: 90%;
   border-radius: 8px;
   transition-duration: 1s;
-  background-color:#ff6000;
+  background-color: #ff6000;
   background-size: 200%;
 }
 
@@ -443,6 +459,7 @@
   background-position: right;
   transition-duration: 1s;
 }
+
 .subscribe-btn:focus {
   background-color: #ff6000 !important;
   color: #fff;
@@ -458,6 +475,7 @@
   border: none;
   box-shadow: none;
 }
+
 .subscribe-btn:active {
   transform: scale(0.95);
   background-color: #ff6000 !important;
@@ -609,7 +627,7 @@ body {
   font-size: 36px;
   margin-bottom: 10px;
   letter-spacing: 1px;
-  color:#ff6600
+  color: #ff6600
 }
 
 .emporio-tagline {
@@ -657,14 +675,19 @@ body {
 .subscribe-input::placeholder {
   color: #ffffff;
 }
+
 .subscribe-input:focus {
   border-color: #ff6600 !important;
   outline: none;
   box-shadow: 0 0 0 2px rgba(255, 102, 0, 0.15);
 }
+
 @media (max-width: 768px) {
-  .products-heading, /* For "Our Showrooms" */
-  .about-heading,    /* For "About Us" if you use this class */
+
+  .products-heading,
+  /* For "Our Showrooms" */
+  .about-heading,
+  /* For "About Us" if you use this class */
   h1.products-heading,
   h1.about-heading {
     font-size: 1.4rem !important;
@@ -701,9 +724,9 @@ body {
   }
 }
 
-.logo-footer{
+.logo-footer {
   width: 200px;
-  height:auto;
+  height: auto;
 }
 
 .footer-contact-link {
@@ -731,6 +754,7 @@ body {
     background: #000 !important;
     border: none;
   }
+
   .footer-column-header h2,
   .footer-column-header .extra-title {
     color: #ff6600;
@@ -741,6 +765,7 @@ body {
     font-weight: 700;
     letter-spacing: 0.5px;
   }
+
   .footer-toggle-icon {
     display: inline-block;
     font-size: 2rem;
@@ -751,6 +776,7 @@ body {
     text-align: right;
     flex-shrink: 0;
   }
+
   .footer-column-content {
     display: none;
     padding: 1rem 1.2rem 1.5rem 1.2rem;
@@ -758,18 +784,22 @@ body {
     color: #fff;
     border-top: 1px solid #222;
   }
+
   .footer-column.open .footer-column-content {
     display: block;
     animation: fadeIn 0.3s;
   }
+
   .footer-column:not(.open) .footer-column-content {
     display: none;
   }
+
   .footer-column {
     border-bottom: 1px solid #222;
     margin-bottom: 0;
     background: #000 !important;
   }
+
   .footer-middle-column .extra-title {
     text-align: left !important;
     margin-right: 0 !important;
