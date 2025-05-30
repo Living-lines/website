@@ -669,7 +669,7 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  font-family: 'Playfair Display', serif;
+  font-family: 'Lexend Giga', sans-serif;
   width: 100%;
 }
 
@@ -693,7 +693,7 @@
 }
 
 .feature-title {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Lexend Giga', sans-serif;
   font-size: 3rem;
   background: linear-gradient(to right, #ff6600);
   -webkit-background-clip: text;
@@ -937,7 +937,7 @@
 }
 
 .originals-text-line {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Lexend Giga', sans-serif;
   font-size: 4rem;
   font-weight: 700;
   color: #5c4400; 
@@ -948,7 +948,7 @@
 .second-line {
   margin-left: -300px; 
   margin-top: 15px;
-  font-family: 'Playfair Display', serif;
+  font-family: 'Lexend Giga', sans-serif;
   font-weight: 700;
   font-size: 4rem;
   color: #5c4400;
@@ -975,7 +975,8 @@
 
 .third-line-text {
   margin-top: -20px;
-  font-family: 'Playfair Display', serif;
+  font-family: 'Lexend Giga', sans-serif;
+
   font-size: 4rem;
   font-weight: 700;
   color: #5c4400;
@@ -1141,7 +1142,7 @@
   display: flex;
   justify-content: center;
   padding: 80px 20px;
-  font-family: 'Playfair Display', serif;
+  font-family: 'Lexend Giga', sans-serif;
   
 }
 
@@ -1503,7 +1504,7 @@
     margin-top: 8px !important;
     margin-bottom:30px;
     text-align: center;
-    font-family: 'Playfair Display', serif;
+    font-family: 'Lexend Giga', sans-serif;
     font-weight: 700;
     color: #5c4400;
   }

@@ -6,16 +6,15 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import LoginModal from '../Login/LoginModal';
 import whatsappIcon from '../assets/whatsapp.png';
-import Loader from '../pages/Loader';
 
 function Navbar() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [showLoader, setShowLoader] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const navRef = useRef(null);
-  const [showLoader, setShowLoader] = useState(false);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -23,15 +22,13 @@ function Navbar() {
         setIsMobileMenuOpen(false);
       }
     };
-
     if (isMobileMenuOpen) {
-      document.addEventListener("mousedown", handleClickOutside);
+      document.addEventListener('mousedown', handleClickOutside);
     } else {
-      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener('mousedown', handleClickOutside);
     }
-
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener('mousedown', handleClickOutside);
     };
   }, [isMobileMenuOpen]);
 
@@ -46,25 +43,9 @@ function Navbar() {
   const handleSearchSubmit = (event) => {
     event.preventDefault();
     const query = searchTerm.trim();
-    if (query) {
-      navigate(`/products?search=${encodeURIComponent(query)}`);
-    } else {
-      navigate('/products');
-    }
+    navigate(query ? `/products?search=${encodeURIComponent(query)}` : '/products');
     setSearchTerm('');
   };
-
-  /*
-  const delayedNavigate = (e, path) => {
-    e.preventDefault();
-    setShowLoader(true);
-    setTimeout(() => {
-      setShowLoader(false);
-      setIsMobileMenuOpen(false);
-      navigate(path);
-    }, 3000);
-  };
-  */
 
   const delayedNavigate = (e, path) => {
     e.preventDefault();
@@ -84,54 +65,35 @@ function Navbar() {
 
   return (
     <div>
-      {/* Loader display temporarily disabled
-      {showLoader && (
-        <div className="loader-overlay">
-          <Loader />
-        </div>
-      )} */}
-
       <div className="abc-emporio">
+        <div className="header-wrapper">
         <header className="header">
-          <div className="logo-section">
-            <Link to="/" onClick={() => setIsMobileMenuOpen(false)}>
-              <img src={logoImage} className="logo" alt="LivingLines Logo" />
-            </Link>
+          <div className="top-row">
+            <div className="logo-section">
+              <Link to="/" onClick={() => setIsMobileMenuOpen(false)}>
+                <img src={logoImage} className="logo" alt="LivingLines Logo" />
+              </Link>
+            </div>
+            <div id="search-bar-container">
+              <form onSubmit={handleSearchSubmit} className="search-wrapper">
+                <input
+                  placeholder="Search..."
+                  type="text"
+                  className="input1"
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                />
+                {searchTerm && (
+                  <span className="clear-search" onClick={() => setSearchTerm('')}>×</span>
+                )}
+              </form>
+            </div>
+            <div className="hamburger" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+              {isMobileMenuOpen ? '×' : '☰'}
+            </div>
           </div>
 
-          <div id="search-bar-container">
-            <form onSubmit={handleSearchSubmit} className="search-wrapper">
-              <input
-                placeholder="Search..."
-                type="text"
-                className="input1"
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-              />
-              {searchTerm && (
-                <span className="clear-search" onClick={() => setSearchTerm('')}>×</span>
-              )}
-            </form>
-          </div>
-
-          {!isMobileMenuOpen && (
-            <div
-              className="hamburger"
-              onClick={() => setIsMobileMenuOpen(true)}
-            >
-              ☰
-            </div>
-          )}
-          {isMobileMenuOpen && (
-            <div
-              className="hamburger"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              ×
-            </div>
-          )}
         </header>
-
         <nav ref={navRef} className={`main-nav ${isMobileMenuOpen ? 'open' : ''}`}>
           {navItems.map(({ label, path }) => (
             <Link
@@ -144,20 +106,14 @@ function Navbar() {
             </Link>
           ))}
         </nav>
-
         <LoginModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
       </div>
-
-      <a
-        href="https://wa.me/918074253744"
-        className="whatsapp-float"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Chat on WhatsApp"
-      >
+      <a href="https://wa.me/918074253744" className="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
         <img src={whatsappIcon} alt="WhatsApp" className="whatsapp-icon" />
       </a>
-    </div>
+      </div>
+
+    </div >
   );
 }
 

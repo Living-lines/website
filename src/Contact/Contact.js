@@ -77,7 +77,7 @@ function Contact() {
 
         <div className="hero-image">
           <img
-            src={require('../../src/assets/contact-us.jpg')}
+            src={require('../../src/assets/contact-us1.jpg')}
             alt="Contact Us"
           />
         </div>

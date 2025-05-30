@@ -2,7 +2,7 @@
   background-color: #000;
   color: #fff;
   width: 100%;
-  font-family: 'Playfair Display', serif;
+  font-family: 'Lexend Giga', sans-serif;
 }
 
 .branch-photo.large-photo {
@@ -330,7 +330,7 @@
   border-radius: 8px;
   border: 1px solid #ff6000 !important;
   font-size: 1rem;
-  font-family: 'Playfair Display', serif;
+  font-family: 'Lexend Giga', sans-serif;
   background-color: #000;
   color: #fff;
 
@@ -384,7 +384,7 @@
   overflow: hidden;
   font-size: 1rem;
   font-weight: bold;
-  font-family: 'Playfair Display', serif;
+  font-family: 'Lexend Giga', sans-serif;
 }
 
 .subscribe-error {
@@ -497,7 +497,7 @@
 
 body {
   margin: 0;
-  font-family: 'Playfair Display', serif;
+  font-family: 'Lexend Giga', sans-serif;
   background-color: #111;
   color: white;
 }
@@ -523,7 +523,7 @@ body {
 }
 
 .logo {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Lexend Giga', sans-serif;
   font-size: 36px;
   margin-bottom: 10px;
   letter-spacing: 1px;
@@ -549,7 +549,7 @@ body {
 
 .heading {
   font-size: 36px;
-  font-family: 'Playfair Display', serif;
+  font-family: 'Lexend Giga', sans-serif;
   margin-bottom: 20px;
 }
 
@@ -623,7 +623,7 @@ body {
 }
 
 .emporio-logo {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Lexend Giga', sans-serif;
   font-size: 36px;
   margin-bottom: 10px;
   letter-spacing: 1px;
@@ -650,7 +650,7 @@ body {
 
 .emporio-heading {
   font-size: 36px;
-  font-family: 'Playfair Display', serif;
+  font-family: 'Lexend Giga', sans-serif;
   margin-bottom: 20px;
 }
 
