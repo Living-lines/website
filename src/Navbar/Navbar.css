@@ -35,18 +35,13 @@
 }
 
 .header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   padding: 10px 40px; 
-  position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 1000;
   background-color: black;
   color: white;
-  flex-wrap: nowrap;
 }
 
 
@@ -566,42 +561,48 @@
   color: #ff6000;
 }
 
-/* --- FIX: Center align search bar properly on desktop --- */
 @media (min-width: 769px) {
   #search-bar-container {
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
     flex: 1;
-    padding-left:800px; /* balances the logo and search */
+    padding: 0 20px;
+    max-width: 100%;
+    overflow: hidden;
   }
 
   .search-wrapper {
     max-width: 250px;
     width: 100%;
+    min-width: 150px;
+    transition: width 0.3s ease;
+  }
+
+  .input1 {
+    width: 100%;
   }
 }
 
+
 #search-bar-container .input1 {
-  width: 160px !important;   /* Decreased width */
+  width: 160px !important;   
   max-width: 100%;
   transition: width 0.2s;
 }
 
 @media (max-width: 768px) {
   #search-bar-container .input1 {
-    width: 100px !important; /* Even smaller on mobile */
+    width: 100px !important;
   }
 }
 
-/* --- FIX: Active tab text color only --- */
 .nav-item.active-tab {
   color: #ff6000 !important;
 }
 
-/* Inside search bar – clear (×) icon fix */
 .input1 {
-  padding-right: 40px; /* space for × */
+  padding-right: 40px;
 }
 
 .clear-search {
@@ -616,7 +617,6 @@
   z-index: 2;
 }
 
-/* Nav item underline hover animation */
 .nav-item {
   position: relative;
   color: white;
