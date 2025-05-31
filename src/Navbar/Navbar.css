@@ -17,6 +17,7 @@ body {
   right: 0;
   z-index: 1000;
   background-color: black;
+  box-sizing: border-box;
 }
 
 .header {
@@ -220,9 +221,7 @@ body {
 
 /* Tablet View */
 @media (max-width: 1024px) {
-  html, body {
-    overflow-x: hidden;
-  }
+  
 
   .header,
   .header-wrapper {
@@ -237,6 +236,7 @@ body {
     gap: 20px;
     width: auto;
     box-sizing: border-box;
+    width: 95%;
   }
 
   .logo-section {

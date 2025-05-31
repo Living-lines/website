@@ -10,7 +10,7 @@
     color: #f16624;
     font-size: 2.5rem;
     margin-bottom: 30px;
-    font-family: 'Lexend Giga', sans-serif;
+    font-family: 'Ancizar Serif', serif;
         position: relative;
     display: inline-block;
   }
@@ -81,6 +81,26 @@
   transition: transform 0.4s ease;
 }
 
+@media (min-width: 769px) and (max-width: 1024px) {
+  .brand-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .brand-card {
+    max-width: 85%;
+    padding: 16px;
+    border-radius: 18px;
+  }
+
+  .brand-card img {
+    height: 100px;
+    width: 100%;
+    object-fit: contain;
+  }
+}
+
+
 
 
 
@@ -98,7 +118,7 @@
   }
 
   .brand-grid {
-    grid-template-columns: repeat(2, 1fr); /* ✅ Two columns in each row */
+    grid-template-columns: repeat(2, 1fr); 
     gap: 16px;
     padding: 0 5px;
   }

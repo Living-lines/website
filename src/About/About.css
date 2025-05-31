@@ -1173,11 +1173,11 @@
   background: linear-gradient(to right, #0f0f0f, #1c1c1c);
   gap: 50px;
   flex-wrap: wrap;
-  font-family: 'Lexend Giga', sans-serif;
+  font-family: 'Ancizar Serif', serif;
 }
 
 .feature-heading {
- font-family: 'Lexend Giga', sans-serif;
+ font-family: 'Ancizar Serif', serif;
   font-size: 3rem;
   background: linear-gradient(to right, #ff6600);
   -webkit-background-clip: text;
@@ -1357,7 +1357,7 @@
   padding: 100px 5%;
   background: linear-gradient(to bottom right, #1a1a1a, #2c2c2c);
   color: #f5f5f5;
-  font-family: 'Lexend Giga', sans-serif;
+  font-family: 'Ancizar Serif', serif;
   border-radius: 30px;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
   overflow: hidden;
@@ -1442,7 +1442,7 @@
 .branches-section {
   padding: 100px 5%;
   background: linear-gradient(to right, #0f0f0f, #1c1c1c);
-  font-family: 'Lexend Giga', sans-serif;
+  font-family: 'Ancizar Serif', serif;
   text-align: center;
   border-radius: 0px;
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
@@ -1545,7 +1545,7 @@
   padding: 80px !important;
   background: black;
   color: #fff;
-  font-family: 'Lexend Giga', sans-serif;
+  font-family: 'Ancizar Serif', serif;
   text-align: center !important;
   overflow-x: hidden !important;
 }
@@ -1619,6 +1619,13 @@
   font-size: 1rem;
   color: #ddd;
   line-height: 1.6;
+}
+@media screen and (max-width: 1024px) {
+  .value-cards {
+    flex-direction: row !important;
+    align-items: center;
+  }
+
 }
 
 @media screen and (max-width: 768px) {

@@ -3,39 +3,30 @@
 
 }
 .Home-container{
-  margin-top:170px;
-}
-
-.hero-slide {
-  display: flex;
-  width: 100%;
-  height: 100%;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 5%;
-  position: relative;
+  margin-top:160px;
 }
 
 .hero-slide {
   display: none;
   width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
   padding: 0 5%;
-  position: relative;
-  opacity: 0; 
-  .hero-slide {
-  transition: opacity 1.5s ease-in-out; /* slower fade */
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
+  box-sizing: border-box;
+  overflow: hidden; 
 }
-
-}
-
 .hero-slide.active {
   display: flex;
-  opacity: 1; 
+  opacity: 1;
 }
+
+.hero-slide.hidden {
+  display: none;
+  opacity: 0;
+}
+
 
 .hero-image-container {
   width: 100%;
@@ -669,7 +660,7 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  font-family: 'Lexend Giga', sans-serif;
+  font-family: 'Ancizar Serif', serif;
   width: 100%;
 }
 
@@ -693,7 +684,7 @@
 }
 
 .feature-title {
-  font-family: 'Lexend Giga', sans-serif;
+  font-family: 'Ancizar Serif', serif;
   font-size: 3rem;
   background: linear-gradient(to right, #ff6600);
   -webkit-background-clip: text;
@@ -937,7 +928,7 @@
 }
 
 .originals-text-line {
-  font-family: 'Lexend Giga', sans-serif;
+  font-family: 'Ancizar Serif', serif;
   font-size: 4rem;
   font-weight: 700;
   color: #5c4400; 
@@ -948,7 +939,7 @@
 .second-line {
   margin-left: -300px; 
   margin-top: 15px;
-  font-family: 'Lexend Giga', sans-serif;
+  font-family: 'Ancizar Serif', serif;
   font-weight: 700;
   font-size: 4rem;
   color: #5c4400;
@@ -975,7 +966,7 @@
 
 .third-line-text {
   margin-top: -20px;
-  font-family: 'Lexend Giga', sans-serif;
+  font-family: 'Ancizar Serif', serif;
 
   font-size: 4rem;
   font-weight: 700;
@@ -1055,6 +1046,7 @@
 
 @media (max-width: 480px) {
   .originals-section {
+    margin-top: 80px;
     width:100%;
     padding: 10px 5%;
     align-items: center;
@@ -1112,6 +1104,91 @@
 
 
 
+@media (min-width: 768px) and (max-width: 1024px) {
+  .originals-section {
+    width: 90%;
+    padding: 40px 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background-color: #fff;
+  }
+
+  .originals-container {
+    width: 90%;
+    margin-left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .first-line {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    justify-content: center;
+  }
+
+  .originals-image.first-image {
+    max-width: 180px;
+    height: 180px;
+    object-fit: contain;
+    flex-shrink: 0;
+  }
+
+  .originals-text-line {
+    font-size: 3rem;
+    margin-top: 160px;
+    font-weight: 700;
+    color: #5c4400;
+    line-height: 1.1;
+    font-family: 'Ancizar Serif', serif;
+  }
+
+  .second-line {
+    font-size: 3rem;
+    margin-left: -200px;
+    margin-top: 10px;
+    max-width: 350px;
+    color: #5c4400;
+  }
+
+  .third-line {
+    margin-top: -30px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    justify-content: flex-start;
+  }
+
+  .curve-svg-wrapper {
+    flex-shrink: 0;
+  }
+
+  .curve-svg {
+    width: 100px;
+    margin-left: 10px;
+  }
+
+  .third-line-text {
+    font-size: 3rem;
+    margin-top: -10px;
+    margin-left: 10px;
+    font-weight: 700;
+    color: #5c4400;
+    font-family: 'Ancizar Serif', serif;
+    line-height: 1.1;
+  }
+
+  .second-image1 {
+    margin-left: 40px;
+    width: 200px !important;
+    height: 130px;
+    border-radius: 50px;
+  }
+}
 
 
 
@@ -1142,7 +1219,7 @@
   display: flex;
   justify-content: center;
   padding: 80px 20px;
-  font-family: 'Lexend Giga', sans-serif;
+  font-family: 'Ancizar Serif', serif;
   
 }
 
@@ -1504,7 +1581,7 @@
     margin-top: 8px !important;
     margin-bottom:30px;
     text-align: center;
-    font-family: 'Lexend Giga', sans-serif;
+    font-family: 'Ancizar Serif', serif;
     font-weight: 700;
     color: #5c4400;
   }

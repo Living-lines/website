@@ -4,7 +4,7 @@ import location_1 from '../assets/location_1.jpg';
 import location_2 from '../assets/location_2.jpg';
 import Timeline from './timeline/timeline';
 import { motion } from "framer-motion";
-import { FaEye, FaBullseye } from "react-icons/fa"; // Add this import at the top
+import { FaEye, FaBullseye } from "react-icons/fa";
 
 
 const AboutUs = () => {

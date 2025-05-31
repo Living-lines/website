@@ -10,6 +10,8 @@ import Home from './Home/Home';
 import Contact from './Contact/Contact';
 import Catalogs from './Catalogs/Catalogs';
 import Loader from './pages/Loader';
+import './pages/fonts.css';
+
 
 // Loader wrapper to use useLocation inside Router
 function AppContent() {

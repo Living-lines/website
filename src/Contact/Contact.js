@@ -132,37 +132,10 @@ function Contact() {
         <div className="message-section">
           <h2>Send Us a Message</h2>
           <form className="contact-form" onSubmit={handleSubmit}>
-            <input
-              type="text"
-              name="name"
-              placeholder="Your Name"
-              value={formData.name}
-              onChange={handleChange}
-              required
-            />
-            <input
-              type="email"
-              name="email"
-              placeholder="Your Email"
-              value={formData.email}
-              onChange={handleChange}
-              required
-            />
-            <textarea
-              name="message"
-              placeholder="Your Message"
-              value={formData.message}
-              onChange={handleChange}
-              required
-            ></textarea>
-            <input
-              type="text"
-              name="location"
-              placeholder="Your Location"
-              value={formData.location}
-              onChange={handleChange}
-              required
-            />
+            <input type="text" name="name" placeholder="Your Name" value={formData.name} onChange={handleChange} required />
+            <input type="email" name="email" placeholder="Your Email" value={formData.email}  onChange={handleChange} required />
+            <textarea name="message" placeholder="Your Message" value={formData.message} onChange={handleChange} required ></textarea>
+            <input type="text" name="location" placeholder="Your Location" value={formData.location} onChange={handleChange} required  />
             <button type="submit" className="send-button">Send Message</button>
           </form>
         </div>
@@ -176,7 +149,7 @@ function Contact() {
             slidesPerView={1}
             autoplay={{ delay: 2500, disableOnInteraction: false }}
             pagination={{ clickable: true }}
-            style={{ maxWidth: 420, margin: "0 auto" }}
+            style={{ maxWidth: 350, margin: "0 auto" }}
           >
             {locations.map((loc, idx) => (
               <SwiperSlide key={idx}>

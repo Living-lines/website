@@ -2,7 +2,7 @@
   background-color: #000;
   color: #fff;
   width: 100%;
-  font-family: 'Lexend Giga', sans-serif;
+  font-family: 'Ancizar Serif', serif;
 }
 
 .branch-photo.large-photo {
@@ -203,7 +203,7 @@
 
   .footer-columns {
     margin-left: -25px;
-    flex-direction: column;
+    flex-direction: column !important;
     align-items: center;
     gap: 2rem;
     padding: 3rem 1.5rem;
@@ -290,6 +290,80 @@
   }
 }
 
+@media (max-width: 1024px) {
+  .showroom-table {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    padding: 0 1rem;
+    box-sizing: border-box;
+  }
+
+  .showroom-column {
+    flex: 1 1 calc(30% - 2rem);
+    max-width: 300px;
+    min-width: 250px;
+    margin-bottom: 1.5rem;
+    padding: 1.5rem 1rem;
+    box-sizing: border-box;
+  }
+
+  .branch-photo.large-photo {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 10px;
+    padding: 0;
+    display: block;
+  }
+}
+
+@media (max-width: 1024px) {
+  .footer-columns {
+    flex-direction: row;
+    margin-left: 0;
+    padding: 3rem 1.5rem;
+    gap: 2rem;
+  }
+
+  .footer-left-column,
+  .footer-middle-column,
+  .footer-right-column {
+    width: 100%;
+    text-align: center;
+  }
+
+  .footer-left-column h2,
+  .footer-left-column h3,
+  .footer-left-column p {
+    text-align: center;
+  }
+
+  .footer-middle-column .extra-title,
+  .footer-right-column .extra-title {
+    text-align: center;
+  }
+
+  .footer-right-column p {
+    text-align: center;
+  }
+
+  .footer-social-icons {
+    justify-content: center;
+  }
+
+  .navigate-table {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    margin-left: 0;
+  }
+
+  .footer-link {
+    text-align: center;
+  }
+}
 
 
 
@@ -330,7 +404,7 @@
   border-radius: 8px;
   border: 1px solid #ff6000 !important;
   font-size: 1rem;
-  font-family: 'Lexend Giga', sans-serif;
+  font-family: 'Ancizar Serif', serif;
   background-color: #000;
   color: #fff;
 
@@ -352,6 +426,7 @@
   transition: background-color 0.3s ease;
   font-family: 'Lexend', sans-serif;
 }
+
 
 .subscribe-btn:hover {
   background-color: #e65c00;
@@ -384,7 +459,7 @@
   overflow: hidden;
   font-size: 1rem;
   font-weight: bold;
-  font-family: 'Lexend Giga', sans-serif;
+  font-family: 'Ancizar Serif', serif;
 }
 
 .subscribe-error {
@@ -497,7 +572,7 @@
 
 body {
   margin: 0;
-  font-family: 'Lexend Giga', sans-serif;
+  font-family: 'Ancizar Serif', serif;
   background-color: #111;
   color: white;
 }
@@ -523,7 +598,7 @@ body {
 }
 
 .logo {
-  font-family: 'Lexend Giga', sans-serif;
+  font-family: 'Ancizar Serif', serif;
   font-size: 36px;
   margin-bottom: 10px;
   letter-spacing: 1px;
@@ -549,7 +624,7 @@ body {
 
 .heading {
   font-size: 36px;
-  font-family: 'Lexend Giga', sans-serif;
+  font-family: 'Ancizar Serif', serif;
   margin-bottom: 20px;
 }
 
@@ -623,7 +698,7 @@ body {
 }
 
 .emporio-logo {
-  font-family: 'Lexend Giga', sans-serif;
+  font-family: 'Ancizar Serif', serif;
   font-size: 36px;
   margin-bottom: 10px;
   letter-spacing: 1px;
@@ -650,7 +725,7 @@ body {
 
 .emporio-heading {
   font-size: 36px;
-  font-family: 'Lexend Giga', sans-serif;
+  font-family: 'Ancizar Serif', serif;
   margin-bottom: 20px;
 }
 
