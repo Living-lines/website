@@ -900,12 +900,12 @@
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  padding-bottom: 80px;
+  padding-bottom: 110px;
 }
 
 .originals-container {
   margin-top: 0px;
-  width: 80%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   user-select: none;
@@ -937,21 +937,25 @@
 }
 
 .second-line {
-  margin-left: -300px; 
+  margin-left: -300px ; 
   margin-top: 15px;
   font-family: 'Ancizar Serif', serif;
   font-weight: 700;
   font-size: 4rem;
   color: #5c4400;
-  max-width: 450px;
+  max-width: 950px ;
+  text-align: start ;
+  justify-content: flex-start ;
 }
 
 .third-line {
+  margin-left: 00px;
   margin-top: -40px;
   display: flex;
   align-items: center;
-  gap: 0px;
-  justify-content: flex-start;
+  gap: 40px;
+  justify-content: center;
+  width: 100%;
 }
 
 .curve-svg-wrapper {
@@ -960,151 +964,30 @@
 
 .curve-svg {
   display: block;
-  width: 150px;
-  margin-left: 10px;
+  width: 120px ;
+  margin-left: 0px;
 }
 
 .third-line-text {
   margin-top: -20px;
-  font-family: 'Ancizar Serif', serif;
-
+  font-family: 'Ancizar Serif', serif;;
   font-size: 4rem;
   font-weight: 700;
   color: #5c4400;
   margin: 0;
   line-height: 1.1;
-  margin-left: 20px;
+  white-space: nowrap;
+  
 }
 
 .second-image1 {
-  margin-left: 70px;
-  width: 280px !important;
-  height: 170px;
+  width: 340px;
+  height: 200px;
   border-radius: 60px;
 }
 
-@media (max-width: 960px) {
-  .originals-section {
-    width: 90%;
-    padding: 10px 5%;
-    overflow: hidden;
-  }
 
-  .originals-container {
-    margin-left: -30px; 
-    width: 100%;
-    overflow: hidden;
-  }
-
-  .first-line {
-    justify-content: flex-start; 
-    gap: 0px;
-
-  }
-
-  .originals-image.first-image {
-    max-width: 150px; 
-  }
-
-  .originals-text-line {
-    font-size: 2rem; 
-    margin-top: 190px;
-  }
-
-  .second-line {
-    font-size: 2rem;
-    max-width: 250px;
-    margin-left: -140px; 
-    margin-top: 10px;
-  }
-
-  .third-line {
-    margin-top: -25px;
-    justify-content: flex-start;
-    gap: 12px;
-  }
-
-  .curve-svg {
-    width: 50px;
-    margin-left: 30px;
-  }
-
-  .third-line-text {
-    font-size: 2rem;
-    margin-top: -15px;
-    width: 200px;
-
-  }
-
-  .second-image1 {
-    margin-left: 10px;
-    width: 160px !important;
-    height: 120px;
-    border-radius: 40px;
-  }
-}
-
-@media (max-width: 480px) {
-  .originals-section {
-    margin-top: 80px;
-    width:100%;
-    padding: 10px 5%;
-    align-items: center;
-  }
-
-  .originals-container {
-    margin-left: 0px;
-    width: 100%;
-    align-items: flex-start;
-    overflow: hidden;
-  }
-
-  .first-line {
-    gap: 2px;
-  }
-
-  .originals-image.first-image {
-    max-width: 80px;
-  }
-
-  .originals-text-line {
-    font-size: 1.2rem;
-    margin-top: 100px;
-  }
-
-  .second-line {
-    font-size: 1.2rem;
-    max-width: 220px;
-    margin-left: 30px;
-    margin-top: 8px;
-  }
-
-  .third-line {
-    margin-top: -15px;
-    gap: 8px;
-  }
-
-  .curve-svg {
-    width: 50px;
-    margin-left: 0px;
-  }
-
-  .third-line-text {
-    font-size: 1.2rem;
-    margin-top: -10px;
-  }
-
-  .second-image1 {
-    margin-left: -80px;
-    width: 150px !important;
-    height: 90px;
-    border-radius: 30px;
-  }
-}
-
-
-
-@media (min-width: 768px) and (max-width: 1024px) {
+@media(max-width: 1024px) {
   .originals-section {
     width: 90%;
     padding: 40px 5%;
@@ -1116,8 +999,8 @@
   }
 
   .originals-container {
-    width: 90%;
-    margin-left: 0;
+    width: 100%;
+    margin-left: 80px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -1127,20 +1010,20 @@
   .first-line {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 24px;
     justify-content: center;
   }
 
   .originals-image.first-image {
-    max-width: 180px;
-    height: 180px;
+    max-width: 250px;
+    height: 250px;
     object-fit: contain;
     flex-shrink: 0;
   }
 
   .originals-text-line {
     font-size: 3rem;
-    margin-top: 160px;
+    margin-top: 200px;
     font-weight: 700;
     color: #5c4400;
     line-height: 1.1;
@@ -1149,18 +1032,24 @@
 
   .second-line {
     font-size: 3rem;
-    margin-left: -200px;
-    margin-top: 10px;
-    max-width: 350px;
+    margin-left: -300px;
+    margin-top: 15px;
+    max-width: 950px;
     color: #5c4400;
+    font-family: 'Ancizar Serif', serif;
+    font-weight: 700;
+    text-align: start;
+    justify-content: flex-start;
   }
 
   .third-line {
-    margin-top: -30px;
+    margin-left: -80px;
+    margin-top: -40px;
     display: flex;
     align-items: center;
-    gap: 16px;
-    justify-content: flex-start;
+    gap: 40px;
+    justify-content: center;
+    width: 100%;
   }
 
   .curve-svg-wrapper {
@@ -1168,35 +1057,124 @@
   }
 
   .curve-svg {
-    width: 100px;
-    margin-left: 10px;
+    display: block;
+    width: 120px;
+    margin-left: 0px;
   }
 
   .third-line-text {
+    margin-top: -20px;
+    font-family: 'Ancizar Serif', serif;
     font-size: 3rem;
-    margin-top: -10px;
+    font-weight: 700;
+    color: #5c4400;
+    margin: 0;
+    line-height: 1.1;
+    white-space: nowrap;
+  }
+
+  .second-image1 {
+    width: 340px;
+    height: 170px;
+    border-radius: 60px;
+  }
+}
+
+@media (max-width: 480px) {
+  
+  .originals-section {
+    width: 100%;
+    padding: 20px 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background-color: #fff;
+    padding-bottom: 60px;
+  }
+
+  .originals-container {
+    width: 100%;
+    margin-left: 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    overflow: hidden;
+  }
+
+  .first-line {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    justify-content: center;
+    padding-right: 0px;
+  }
+
+  .originals-image.first-image {
+    max-width: 80px;
+    height: 80px;
+    object-fit: contain;
+    flex-shrink: 0;
+  }
+
+  .originals-text-line {
+    font-size: 1.4rem;
+    font-weight: 700;
+    line-height: 1.1;
+    color: #5c4400;
+    font-family: 'Ancizar Serif', serif;
+  }
+
+  .second-line {
+    font-size: 1.4rem;
     margin-left: 10px;
+    margin-top: 10px;
+    max-width: 100%;
+    text-align: start;
+    color: #5c4400;
+    font-family: 'Ancizar Serif', serif;
+    font-weight: 700;
+  }
+
+  .third-line {
+    margin-left: 0px;
+    margin-top: 0px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+
+  .curve-svg-wrapper {
+    flex-shrink: 0;
+  }
+
+  .curve-svg {
+    width: 40px;
+    margin-left: 0px;
+  }
+
+  .third-line-text {
+    font-size: 1.4rem;
+    margin-top: -10px;
+    margin-left: 0px;
     font-weight: 700;
     color: #5c4400;
     font-family: 'Ancizar Serif', serif;
     line-height: 1.1;
+    white-space: nowrap;
   }
 
   .second-image1 {
-    margin-left: 40px;
-    width: 200px !important;
-    height: 130px;
-    border-radius: 50px;
+    width: 180px;
+    height: 100px;
+    border-radius: 30px;
+    margin-left: 0px;
   }
 }
-
-
-
-
-
-
-
-
 
 
 
