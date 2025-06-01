@@ -34,7 +34,7 @@ const AboutUs = () => {
         <div className="column left-column">
           <img src={location_1} alt="location_1" className="image-large" />
           <div className="quality-card">
-            <p>Consistent quality.<br/> Every time. <br/>Every unit.</p>
+           <b> <p>Consistent quality.<br/> Every time. <br/>Every unit.</p></b>
           </div>
         </div>
 
@@ -42,7 +42,7 @@ const AboutUs = () => {
         <div className="column middle-column">
           <div className="experience-card">
             <span className="years-count">{count}</span>
-            <p className="experience-text">Years of Experience &<br />Trusted Customers</p>
+            <p className="experience-text"><b>Years of Experience &<br />Trusted Customers</b></p>
           </div>
           <img src={location_2} alt="location_2" className="image-large" />
         </div>

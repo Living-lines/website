@@ -74,7 +74,7 @@ body {
 .search-wrapper {
   position: relative;
   width: 100%;
-  max-width: 250px;
+  max-width: 190px;
   /*min-width: 150px; */
   min-width: 0;
   transition: max-width 0.3s ease;
@@ -265,7 +265,7 @@ body {
     position: relative;
     width: 100%;
     max-width: 200px;
-    min-width: 200px;
+    min-width: 100px;
     box-sizing: border-box;
   }
 

@@ -232,7 +232,7 @@ const Footer = () => {
         <hr className="footer-divider" />
         <p className="footer-copy">
           <i className="far fa-copyright" style={{ fontSize: '1.3em', marginRight: '6px', verticalAlign: 'middle', color:"white" }}></i>
-          All Rights Reserved to @Living Lines
+          All Rights Reserved to Living Lines
         </p>
       </div>
     </footer>

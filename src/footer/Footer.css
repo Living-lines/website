@@ -142,6 +142,7 @@
   border: none;
   text-align: left;
   cursor: pointer;
+  font-family: 'Ancizar Serif', serif;
 }
 
 .footer-link:hover {
