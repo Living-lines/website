@@ -45,6 +45,45 @@ function Home() {
   const videoFile1 = "https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/video 3.mp4";
   const videoFile2 = "https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/video1.mp4";
 
+  let heroInterval = null;
+
+  const startHeroAutoSlide = () => {
+    heroInterval = setInterval(() => {
+      setCurrentSlide(prev => (prev + 1) % slides.length);
+    }, 5000);
+  };
+
+  const pauseHeroSlide = () => {
+    if (heroInterval) {
+      clearInterval(heroInterval);
+      heroInterval = null;
+    }
+  };
+
+  const resumeHeroSlide = () => {
+    if (!heroInterval) {
+      startHeroAutoSlide();
+    }
+  };
+
+
+  useEffect(() => {
+    const heroEl = document.getElementById('heroSection');
+    if (!heroEl || !('IntersectionObserver' in window)) return;
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) {
+          pauseHeroSlide();
+        } else {
+          resumeHeroSlide();
+        }
+      });
+    }, { threshold: 0.1 });
+    observer.observe(heroEl);
+    return () => observer.disconnect();
+  }, []);
+
+
   const slides = [
     {
       image: heroImage1,
@@ -122,12 +161,18 @@ function Home() {
 
 
 
-  useEffect(() => {
+  /*useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prevSlide) => (prevSlide + 1) % slides.length);
     }, 5000);
     return () => clearInterval(interval);
-  }, [slides.length]);
+  }, [slides.length]); */
+
+  useEffect(() => {
+    startHeroAutoSlide();
+    return () => pauseHeroSlide();
+  }, []);
+
 
   return (
     <div className='Home-container'>
@@ -140,7 +185,7 @@ function Home() {
           >
             <div className="text-content">
               <h1 dangerouslySetInnerHTML={{
-                __html: `“${slide.heading}”`
+                __html: `${slide.heading}`
               }} />
               <p>{slide.subQuote}</p>
             </div>
@@ -199,11 +244,10 @@ function Home() {
                 </h1>
                 <ul className="feature-list animated">
                   {[
-                    "Sanitary", "Taps", "Tiles", "Shower Panels", "Electricals",
-                    "Artifacts", "Interior Decors", "Lights", "Chandeliers", "Switches",
-                    "Furniture", "Wallclocks", "Mirrors", "Cabinets", "Accessories",
-                    "Paints", "Plumbing", "Pipes", "Sinks", "Washbasins", "Pumps & Motors",
-                    "Fans"
+                    "Sanitary", "Faucets", "Shower Panels", "Sinks", "Tiles & Adhesives",
+                    "Electricals", "Lights", "Chandeliers", "Switches",
+                    "Fans", "Plumbing", "Pipes", "Pumps & Motors", "Accessories",
+                    "Mirrors & Vanities", "Paints", "Furniture", "Interior Decors", "Artifacts"
                   ].map((item, i) => (
                     <li className="feature-list-item" key={i}>{item}</li>
                   ))}

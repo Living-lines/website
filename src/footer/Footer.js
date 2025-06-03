@@ -82,8 +82,10 @@ const Footer = () => {
             <div className="showroom-column" key={i}>
               <img src={loc.img} alt={loc.city} className="branch-photo large-photo" />
               <h3 className='showroom-city'>{loc.city}</h3>
+              <div className='extra-space'>
               <p><i className="fas fa-envelope mail-icon" /> info@livinglines.in</p>
               <p><i className="fas fa-phone social-icon" /> {loc.phone}</p>
+              </div>
             </div>
           ))}
         </div>

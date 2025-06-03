@@ -7,27 +7,29 @@
 
 .branch-photo.large-photo {
   width: 320px;
-  height: 250px;
+  height: 230px;
   object-fit: cover;
   border-radius: 12px;
-  margin-bottom: 10px;
-  padding: 10px;
+  margin-top: 0px;
+  padding: 0px;
 }
 
 .showroom-city {
   font-size: 1.1rem;
   font-weight: 600;
-  margin: 8px 0 4px 0;
+  margin: 20px 0px 4px 0;
 }
-
+.extra-space{
+  margin-bottom: -20px;
+}
 .showroom-section {
   background-color: black;
-  padding: 3rem 1rem 1rem;
+  padding: 0rem 0rem 0rem;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
 }
 
 .showroom-title {
@@ -47,7 +49,7 @@
 
 .showroom-column {
   flex: 1;
-  min-width: 300px;
+  min-width: auto;
   border: 2px solid #ff6600;
   border-radius: 15px;
   padding: 2rem 1rem;
@@ -119,7 +121,7 @@
 }
 
 .footer-middle-column .extra-title {
-  /* text-align: center; */
+  text-align: center; 
   /* margin-right: 90px; */
   font-size: 2rem;
   color: #ff6600;
@@ -128,7 +130,7 @@
 }
 
 .navigate-table {
-  margin-top: 40px;
+  margin-top: 0px;
   display: grid;
   grid-template-columns: repeat(2, minmax(100px, 1fr));
   gap: 1.75rem;
@@ -140,7 +142,7 @@
   text-decoration: none;
   font-size: 1.2rem;
   border: none;
-  text-align: left;
+  text-align: center;
   cursor: pointer;
   font-family: 'Ancizar Serif', serif;
 }
