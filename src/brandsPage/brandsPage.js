@@ -187,6 +187,10 @@ setBrands(filtered); */
     url: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/grohe.png'
   },
   {
+    name: 'americanstandard.png',
+    url: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/american%20standard.png'
+  },
+  {
     name: 'nirali logo.jpeg',
     url: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/nirali%20logo.jpeg'
   },

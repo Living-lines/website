@@ -14,53 +14,13 @@ import "./brand.css"; // Import CSS file
 
 // Using image URLs instead
 const brands = [
-  
-  {
-    name: 'carysil logo.png',
-    url: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/carysil%20logo.png'
-  },
-  {
-    name: 'finolex logo.png',
-    url: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/finolex%20logo.png'
-  },
-  
-  {
-    name: 'havells logo.png',
-    url: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/havells%20logo.png'
-  },
-  
-  {
-    name: 'jaquar.svg',
-    url: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/jaquar.svg'
-  },
-
-  {
-    name: 'kuka logo.png',
-    url: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/kuka%20logo.png'
-  },
-  {
-    name: 'legrand logo.png',
-    url: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/legrand%20logo.png'
-  },
-  {
-    name: 'luker logo.jpg',
-    url: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/luker%20logo.jpg'
-  },
-  {
-    name: 'nirali logo.jpeg',
-    url: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/nirali%20logo.jpeg'
-  },
-  {
-    name: 'philips logo.png',
-    url: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/philips%20logo.png'
-  },
-  {
-    name: 'sudhakar pipes logo.png',
-    url: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/sudhakar%20pipes%20logo.png'
-  },
   {
     name: 'bandhan.png',
     url: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/bandhan.png'
+  },
+  {
+    name: 'jaquar.svg',
+    url: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/jaquar.svg'
   },
   {
     name: 'essco.png',
@@ -83,6 +43,18 @@ const brands = [
     url: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/grohe.png'
   },
   {
+    name: 'americanstandard.png',
+    url: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/american%20standard.png'
+  },
+  {
+    name: 'nirali logo.jpeg',
+    url: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/nirali%20logo.jpeg'
+  },
+  {
+    name: 'carysil logo.png',
+    url: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/carysil%20logo.png'
+  },
+  {
     name: 'aosmith.webp',
     url: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/aosmith.webp'
   },
@@ -99,6 +71,34 @@ const brands = [
     url: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/kajaria.jpeg'
   },
   {
+    name: 'legrand logo.png',
+    url: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/legrand%20logo.png'
+  },
+  {
+    name: 'havells logo.png',
+    url: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/havells%20logo.png'
+  },
+  {
+    name: 'finolex logo.png',
+    url: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/finolex%20logo.png'
+  },
+  {
+    name: 'philips logo.png',
+    url: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/philips%20logo.png'
+  },
+  {
+    name: 'sudhakar pipes logo.png',
+    url: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/sudhakar%20pipes%20logo.png'
+  },
+  {
+    name: 'prince logo.jpg',
+    url: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/prince%20logo.jpg'
+  },
+  {
+    name: 'luker logo.jpg',
+    url: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/luker%20logo.jpg'
+  },
+  {
     name: 'crompton.svg',
     url: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/crompton.svg'
   },
@@ -109,6 +109,10 @@ const brands = [
   {
     name: 'orient.png',
     url: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/orient.png'
+  },
+  {
+    name: 'besten logo.png',
+    url: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/besten%20logo.png'
   },
   {
     name: 'wilo.png',
@@ -122,6 +126,21 @@ const brands = [
     name: 'berger.jpg',
     url: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/berger.jpg'
   },
+  {
+    name: 'kuka logo.png',
+    url: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/kuka%20logo.png'
+  },
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
 ];
 
 const BrandCarousel = () => {
