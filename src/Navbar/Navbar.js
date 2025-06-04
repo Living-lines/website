@@ -18,9 +18,17 @@ function Navbar() {
 
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (navRef.current && !navRef.current.contains(event.target)) {
+      /*if (navRef.current && !navRef.current.contains(event.target)) {
+        setIsMobileMenuOpen(false);
+      } */
+      if (
+        navRef.current &&
+        !navRef.current.contains(event.target) &&
+        !event.target.closest('.hamburger')
+      ) {
         setIsMobileMenuOpen(false);
       }
+
     };
     if (isMobileMenuOpen) {
       document.addEventListener('mousedown', handleClickOutside);
@@ -67,53 +75,63 @@ function Navbar() {
     <div>
       <div className="abc-emporio">
         <div className="header-wrapper">
-        <header className="header">
-          <div className="top-row">
-            <div className="logo-section">
-              <Link to="/" onClick={() => setIsMobileMenuOpen(false)}>
-                <img src={logoImage} className="logo" alt="LivingLines Logo" />
+          <header className="header">
+            <div className="top-row">
+              <div className="logo-section">
+                <Link to="/" onClick={() => setIsMobileMenuOpen(false)}>
+                  <img src={logoImage} className="logo" alt="LivingLines Logo" />
+                </Link>
+              </div>
+
+              <div id="search-bar-container">
+                <form onSubmit={handleSearchSubmit} className="search-wrapper">
+                  <input
+                    placeholder="Search..."
+                    type="text"
+                    className="input1"
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                  />
+                  {searchTerm && (
+                    <span className="clear-search" onClick={() => setSearchTerm('')}>×</span>
+                  )}
+                </form>
+              </div>
+
+              <div className="hamburger" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+                {isMobileMenuOpen ? '×' : '☰'}
+              </div>
+            </div>
+          </header>
+
+          <nav ref={navRef} className={`main-nav ${isMobileMenuOpen ? 'open' : ''}`}>
+            {navItems.map(({ label, path }) => (
+              <Link
+                key={path}
+                to={path}
+                className={`nav-item ${location.pathname === path ? 'active-tab' : ''}`}
+                onClick={(e) => delayedNavigate(e, path)}
+              >
+                {label}
               </Link>
-            </div>
-            <div id="search-bar-container">
-              <form onSubmit={handleSearchSubmit} className="search-wrapper">
-                <input
-                  placeholder="Search..."
-                  type="text"
-                  className="input1"
-                  value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
-                />
-                {searchTerm && (
-                  <span className="clear-search" onClick={() => setSearchTerm('')}>×</span>
-                )}
-              </form>
-            </div>
-            <div className="hamburger" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
-              {isMobileMenuOpen ? '×' : '☰'}
-            </div>
-          </div>
+            ))}
+          </nav>
 
-        </header>
-        <nav ref={navRef} className={`main-nav ${isMobileMenuOpen ? 'open' : ''}`}>
-          {navItems.map(({ label, path }) => (
-            <Link
-              key={path}
-              to={path}
-              className={`nav-item ${location.pathname === path ? 'active-tab' : ''}`}
-              onClick={(e) => delayedNavigate(e, path)}
-            >
-              {label}
-            </Link>
-          ))}
-        </nav>
-        <LoginModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
-      </div>
-      <a href="https://wa.me/918074253744" className="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
-        <img src={whatsappIcon} alt="WhatsApp" className="whatsapp-icon" />
-      </a>
-      </div>
+          <LoginModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+        </div>
 
-    </div >
+        <a
+          href="https://wa.me/918074253744"
+          className="whatsapp-float"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Chat on WhatsApp"
+        >
+          <img src={whatsappIcon} alt="WhatsApp" className="whatsapp-icon" />
+        </a>
+      </div>
+    </div>
+
   );
 }
 
