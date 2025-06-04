@@ -44,7 +44,7 @@ const brands = [
   },
   {
     name: 'americanstandard.png',
-    url: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/american%20standard.png'
+    url: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/americanstandard.png'
   },
   {
     name: 'nirali logo.jpeg',

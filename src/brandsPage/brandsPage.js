@@ -188,7 +188,7 @@ setBrands(filtered); */
   },
   {
     name: 'americanstandard.png',
-    url: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/american%20standard.png'
+    url: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/americanstandard.png'
   },
   {
     name: 'nirali logo.jpeg',
@@ -319,10 +319,7 @@ setBrands(filtered); */
     name: 'astral pipes logo.jpg',
     url: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/astral%20pipes%20logo.jpg'
   }*/,
-  {
-    name: 'jaguar logo1.avif',
-    url: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/jaguar%20logo1.avif'
-  },
+  
 
 ];
 
