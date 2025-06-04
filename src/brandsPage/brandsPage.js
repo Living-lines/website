@@ -163,8 +163,8 @@ setBrands(filtered); */
     url: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/bandhan.png'
   },
   {
-    name: 'jaquar logo.png',
-    url: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/jaquar%20logo.png'
+    name: 'jaquar.svg',
+    url: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/jaquar.svg'
   },
   {
     name: 'essco.png',
