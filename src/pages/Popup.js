@@ -58,7 +58,7 @@ const Popup = ({ product, onClose, onRequestQuote, isLoading, quoteStatus }) => 
     <div className="popup-overlay">
       <div className="popup-content">
         <button className="close-btn" onClick={onClose}>X</button>
-        <h2>{product?.model_name}</h2>
+        <h2 className="popup-product-name">{product?.model_name}</h2>
         <img src={product?.image_url} alt={product?.model_name} className="popup-img" />
         <p><strong>Brand:</strong> {product?.brand}</p>
         <p><strong>Type:</strong> {product?.product_type}</p>

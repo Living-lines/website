@@ -375,11 +375,11 @@
   color: #555;
 }
 
-.hero-image {
+.hero-image31 {
   flex: 0 0 35%;
 }
 
-.hero-image img {
+.hero-image31 img {
   margin-top: 20px;
   align-self: center;
   width: 100%;
@@ -642,7 +642,7 @@
     max-width: 100%;
   }
 
-  .hero-image img {
+  .hero-image31 img {
     max-width: 100%;
     height: auto;
   }

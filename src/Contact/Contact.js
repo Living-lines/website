@@ -75,7 +75,7 @@ function Contact() {
           </p>
         </div>
 
-        <div className="hero-image">
+        <div className="hero-image31">
           <img
             src={require('../../src/assets/contact-us1.jpg')}
             alt="Contact Us"
