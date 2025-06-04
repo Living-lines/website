@@ -14,66 +14,26 @@ import "./brand.css"; // Import CSS file
 
 // Using image URLs instead
 const brands = [
-  {
-    name: 'anchor logo.png',
-    url: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/anchor%20logo.png'
-  },
-  {
-    name: 'astral pipes logo.jpg',
-    url: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/astral%20pipes%20logo.jpg'
-  },
-  {
-    name: 'austin logo.png',
-    url: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/austin%20logo.png'
-  },
-  {
-    name: 'besten logo.png',
-    url: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/besten%20logo.png'
-  },
+  
   {
     name: 'carysil logo.png',
     url: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/carysil%20logo.png'
   },
   {
-    name: 'cri logo.png',
-    url: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/cri%20logo.png'
-  },
-  {
-    name: 'elleys Logo.png',
-    url: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/elleys%20Logo.png'
-  },
-  {
-    name: 'eureka logo.jpg',
-    url: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/eureka%20logo.jpg'
-  },
-  {
-    name: 'euroqo logo.jpg',
-    url: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/euroqo%20logo.jpg'
-  },
-  {
     name: 'finolex logo.png',
     url: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/finolex%20logo.png'
   },
-  {
-    name: 'franke logo.png',
-    url: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/franke%20logo.png'
-  },
+  
   {
     name: 'havells logo.png',
     url: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/havells%20logo.png'
   },
-  {
-    name: 'hi fi logo.png',
-    url: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/hi%20fi%20logo.png'
-  },
+  
   {
     name: 'jaquar logo.png',
     url: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/jaquar%20logo.png'
   },
-  {
-    name: 'kolors logo.png',
-    url: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/kolors%20logo.png'
-  },
+
   {
     name: 'kuka logo.png',
     url: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/kuka%20logo.png'
@@ -91,24 +51,12 @@ const brands = [
     url: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/nirali%20logo.jpeg'
   },
   {
-    name: 'norisys logo.png',
-    url: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/norisys%20logo.png'
-  },
-  {
     name: 'philips logo.png',
     url: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/philips%20logo.png'
   },
   {
-    name: 'prince logo.jpg',
-    url: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/prince%20logo.jpg'
-  },
-  {
     name: 'sudhakar pipes logo.png',
     url: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/sudhakar%20pipes%20logo.png'
-  },
-  {
-    name: 'v-guard logo (1).png',
-    url: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/v-guard%20logo%20(1).png'
   },
   {
     name: 'bandhan.png',
@@ -131,8 +79,8 @@ const brands = [
     url: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/sonnet.jpeg'
   },
   {
-    name: 'grove.png',
-    url: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/grove.png'
+    name: 'grohe.png',
+    url: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/grohe.png'
   },
   {
     name: 'aosmith.webp',
