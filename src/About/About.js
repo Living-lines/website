@@ -34,7 +34,7 @@ const AboutUs = () => {
         <div className="column left-column">
           <img src={location_1} alt="location_1" className="image-large" />
           <div className="quality-card">
-           <b> <p>Consistent quality.<br/> Every time. <br/>Every unit.</p></b>
+           <b> <p>Consistent Quality.<br/> Every Time. <br/>Every Unit.</p></b>
           </div>
         </div>
 
