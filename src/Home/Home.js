@@ -176,7 +176,7 @@ function Home() {
 
   return (
     <div className='Home-container'>
-      <section className="hero">
+      {/*<section className="hero">
         {slides.map((slide, index) => (
           <div
             key={index}
@@ -194,7 +194,32 @@ function Home() {
             </div>
           </div>
         ))}
+      </section> */}
+      <section className="homepage-hero-section" id="heroSection">
+        {slides.map((slide, index) => (
+          <div
+            key={index}
+            className={`homepage-hero-slide ${index === currentSlide ? 'active' : 'hidden'} ${slide.textPosition === 'left' ? 'reverse' : ''}`}
+          >
+
+            <div className="homepage-hero-left">
+              <div className="homepage-hero-text">
+                <h1 dangerouslySetInnerHTML={{ __html: `${slide.heading}` }} />
+                <p>{slide.subQuote}</p>
+              </div>
+            </div>
+            <div className="homepage-hero-right">
+              <img
+                src={slide.image}
+                alt={`Slide ${index + 1}`}
+                className="homepage-hero-image"
+              />
+            </div>
+          </div>
+        ))}
       </section>
+
+
 
       <div className="video-section">
         <video autoPlay loop muted playsInline className="fullscreen-video">
