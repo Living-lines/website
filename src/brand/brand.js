@@ -30,8 +30,8 @@ const brands = [
   },
   
   {
-    name: 'jaquar logo.png',
-    url: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/jaquar%20logo.png'
+    name: 'jaquar.svg',
+    url: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/jaquar.svg'
   },
 
   {
