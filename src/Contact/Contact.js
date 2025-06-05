@@ -117,8 +117,8 @@ function Contact() {
         <h3>Connect With Us</h3>
         <p>Stay in the loop by following us on social media for updates, offers, and much more!</p>
         <div className="social-links">
-          <a href="https://facebook.com" target="_blank" rel="noreferrer" aria-label="Facebook" className="social-link facebook">Facebook</a>
-          <a href="https://instagram.com" target="_blank" rel="noreferrer" aria-label="Instagram" className="social-link instagram">Instagram</a>
+          <a href="https://www.facebook.com/livinglinesofficial" target="_blank" rel="noreferrer" aria-label="Facebook" className="social-link facebook">Facebook</a>
+          <a href="https://www.instagram.com/livinglinesofficial?igsh=Y2hzY3lqc2V6MGF4" target="_blank" rel="noreferrer" aria-label="Instagram" className="social-link instagram">Instagram</a>
           <a href="https://twitter.com" target="_blank" rel="noreferrer" aria-label="Twitter" className="social-link twitter">Twitter</a>
         </div>
       </div>
@@ -149,7 +149,7 @@ function Contact() {
             slidesPerView={1}
             autoplay={{ delay: 2500, disableOnInteraction: false }}
             pagination={{ clickable: true }}
-            style={{ maxWidth: 350, margin: "0 auto" }}
+            style={{ maxWidth: 440, margin: "0 auto" }}
           >
             {locations.map((loc, idx) => (
               <SwiperSlide key={idx}>

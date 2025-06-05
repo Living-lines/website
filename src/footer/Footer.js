@@ -77,7 +77,7 @@ const Footer = () => {
           }, {
             city: "Madhurawada", phone: "+91 9849111487", img: location2
           }, {
-            city: "Vizianagaram", phone: "+91 7997995219", img: location3
+            city: "Vizianagaram", phone: "+91 8074253744", img: location3
           }].map((loc, i) => (
             <div className="showroom-column" key={i}>
               <img src={loc.img} alt={loc.city} className="branch-photo large-photo" />
