@@ -288,7 +288,7 @@ setBrands(filtered); */
   },
   {
     name: 'elleys Logo.png',
-    url: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/elleys%20Logo.png'
+    url: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/Elleye.jpg'
   },
   {
     name: 'eureka logo.jpg',
@@ -314,13 +314,22 @@ setBrands(filtered); */
     name: 'norisys logo.png',
     url: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/norisys%20logo.png'
   },
-
+  {
+    name: 'esses',
+    url: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/essess.jpg'
+  },
+  {
+    name: 'vox',
+    url: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/vox.png'
+  },
+  {
+    name: 'almonard',
+    url: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/almonard.png'
+  },
   /*{
     name: 'astral pipes logo.jpg',
     url: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/astral%20pipes%20logo.jpg'
   }*/,
-  
-
 ];
 
 
