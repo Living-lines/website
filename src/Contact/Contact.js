@@ -9,27 +9,21 @@ import 'swiper/css/pagination';
 const locations = [
   {
     name: "VISAKHAPATNAM",
-    address: `#9-1-48/A, NEW RESAPUVANIPALEM,
-NEAR AUDI SHOWROOM
-VISAKHAPATNAM - 530013`,
-    mapSrc:
-      "https://www.google.com/maps?q=9-1-48/A,+New+Resapuvanipalem,+Visakhapatnam,+530013&output=embed",
+    address: `#9-1-48/A, NEW RESAPUVANIPALEM, NEAR AUDI SHOWROOM VISAKHAPATNAM - 530013`,
+    mapSrc: "https://www.google.com/maps?q=9-1-48/A,+New+Resapuvanipalem,+Visakhapatnam,+530013&output=embed",
   },
   {
     name: "MADHURAWADA",
-    address: `Survey No. : 40/2/A, Beside Prince Dhaba, P.M.Palem, Madhurawada,
-Visakhapatnam -530041`,
-    mapSrc:
-      "https://www.google.com/maps?q=Prince+Dhaba,+P.M.Palem,+Madhurawada,+Visakhapatnam,+530041&output=embed",
+    address: `Survey No. : 40/2/A, Beside Prince Dhaba, P.M.Palem, Madhurawada, Visakhapatnam -530041`,
+    mapSrc: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7597.610814300392!2d83.34362357854839!3d17.800840266056007!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a395b42d67314b5%3A0xa6d0c968c67b7530!2sPrince%20Dhaba!5e0!3m2!1sen!2sin!4v1749317189550!5m2!1sen!2sin",
   },
   {
     name: "VIZIANAGARAM",
-    address: `8-32-58, No. 61/2C, V.T.Agraharam,
-Beside Ketala Weigh Bridge, Gandhi Nagar, Vizianagaram - 535004`,
-    mapSrc:
-      "https://www.google.com/maps?q=Ketala+Weigh+Bridge,+Gandhi+Nagar,+Vizianagaram,+535004&output=embed",
+    address: `8-32-58, No. 61/2C, V.T.Agraharam, Beside Ketala Weigh Bridge, Gandhi Nagar, Vizianagaram - 535004`,
+    mapSrc: "https://www.google.com/maps?q=Ketala+Weigh+Bridge,+Gandhi+Nagar,+Vizianagaram,+535004&output=embed",
   },
 ];
+
 
 function Contact() {
   const [formData, setFormData] = useState({
@@ -133,9 +127,9 @@ function Contact() {
           <h2>Send Us a Message</h2>
           <form className="contact-form" onSubmit={handleSubmit}>
             <input type="text" name="name" placeholder="Your Name" value={formData.name} onChange={handleChange} required />
-            <input type="email" name="email" placeholder="Your Email" value={formData.email}  onChange={handleChange} required />
+            <input type="email" name="email" placeholder="Your Email" value={formData.email} onChange={handleChange} required />
             <textarea name="message" placeholder="Your Message" value={formData.message} onChange={handleChange} required ></textarea>
-            <input type="text" name="location" placeholder="Your Location" value={formData.location} onChange={handleChange} required  />
+            <input type="text" name="location" placeholder="Your Location" value={formData.location} onChange={handleChange} required />
             <button type="submit" className="send-button">Send Message</button>
           </form>
         </div>

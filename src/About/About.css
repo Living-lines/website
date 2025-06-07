@@ -942,14 +942,14 @@
   width: 100%;
   height: 300px;
   object-fit: cover;
-  border-radius: 12px;
+  border-radius: 0px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
 .quality-card {
   height: 150px;
   background-color: #fff;
-  border-radius: 10px;
+  border-radius: 0px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
   display: flex;
   align-items: center;
@@ -970,7 +970,7 @@
 .experience-card {
   height: 120px;
   background-color: #fff;
-  border-radius: 10px;
+  border-radius: 0px;
   padding: 20px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.08);
   display: flex;
@@ -995,7 +995,7 @@
   width: 100%;
   height: 120px;
   object-fit: cover;
-  border-radius: 12px;
+  border-radius: 0px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
@@ -1005,7 +1005,7 @@
   max-width: 50%;
   background-color: white;
   padding: 40px;
-  border-radius: 12px;
+  border-radius: 0px;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
   text-align: left;
   justify-content: center;
@@ -1016,7 +1016,7 @@
   color: white;
   font-weight: bold;
   padding: 6px 16px;
-  border-radius: 4px;
+  border-radius: 0px;
   font-size: 0.95rem;
   margin-bottom: 16px;
   display: inline-block;
@@ -1281,7 +1281,7 @@
   margin-top: 100px;
   width: 100%;
   max-width: 450px;
-  border-radius: 20px;
+  border-radius: 0px;
   border: 4px solid #ff6600;
   box-shadow: 0 20px 40px rgba(0,0,0,0.6);
   transform: rotateY(0deg);
@@ -1292,7 +1292,7 @@
   position: absolute;
   width: 140px;
   height: auto;
-  border-radius: 15px;
+  border-radius: 0px;
   bottom: -30px;
   right: -30px;
   border: 3px solid #ff6000;
@@ -1358,7 +1358,7 @@
   background: linear-gradient(to bottom right, #1a1a1a, #2c2c2c);
   color: #f5f5f5;
   font-family: 'Ancizar Serif', serif;
-  border-radius: 30px;
+  border-radius: 0px;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
   overflow: hidden;
   margin-top: 60px;
@@ -1386,7 +1386,7 @@
   background: rgba(255, 255, 255, 0.05);
   padding: 20px 25px;
   border-left: 5px solid #ff6600;
-  border-radius: 12px;
+  border-radius: 0px;
   font-size: 1.2rem;
   line-height: 1.8;
   color: #e0e0e0;
@@ -1404,7 +1404,7 @@
 @media screen and (max-width: 768px) {
   .about-living-section {
     padding: 60px 20px;
-    border-radius: 20px;
+    border-radius: 0px;
   }
 
   .about-title {
@@ -1471,7 +1471,7 @@
   max-width: 300px;
   height: 220px;
   overflow: hidden;
-  border-radius: 15px;
+  border-radius: 0px;
   border: 3px solid #ff6600;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   background-color: #111;
@@ -1494,7 +1494,7 @@
   margin: 0 auto 1rem; 
   width:300px;
   height: 200px;
-  border-radius: 10px;
+  border-radius: 0px;
   box-shadow: 0 4px 12px rgba(255, 102, 0, 0.3); /* optional: premium touch */
 }
 
@@ -1585,28 +1585,28 @@
 .value-card {
   background: linear-gradient(to bottom, #222, #111);
   border: 2px solid #ff6600;
-  border-radius: 15px;
+  border-radius: 0px;
   padding: 25px;
   width: 280px;
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
-  transition: all 0.4s ease-in-out;
+  /*transition: all 0.4s ease-in-out; */
 }
 
 .value-card:hover {
-  transform: translateY(-5px) scale(1.05);
+  /*transform: translateY(-5px) scale(1.05); */
   box-shadow: 0 20px 40px rgba(255, 102, 0, 0.4);
-}
+} 
 
 .value-icon {
   font-size: 2.5rem;
   margin-bottom: 15px;
-  animation: bounce 2s infinite;
+  /*animation: bounce 2s infinite; */
 }
 
-@keyframes bounce {
+/*@keyframes bounce {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-6px); }
-}
+} */
 
 .value-card-title {
   font-size: 1.4rem;

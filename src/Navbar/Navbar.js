@@ -69,8 +69,8 @@ function Navbar() {
     { label: 'BRANDS', path: '/brands' },
     { label: 'CATALOGS', path: '/catalogs' },
     { label: 'CONTACT', path: '/contact' },
-    /*{ label: <FontAwesomeIcon icon={faShoppingCart} />, path: '/cart' }*/
-    { label: <img src={cartIcon} alt="Cart" style={{ width: '24px', height: '24px', color: 'white' }} />, path: '/cart' }
+    { label: <FontAwesomeIcon icon={faShoppingCart} />, path: '/cart' },
+    /*{ label: <img src={cartIcon} alt="Cart" style={{ width: '24px', height: '24px', color: 'white' }} />, path: '/cart' }*/
 
   ];
 

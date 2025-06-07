@@ -325,7 +325,7 @@
   background: #fff;
   border-radius: 0px;
   box-shadow: 0 15px 35px rgba(242, 102, 36, 0.25);
-  padding: 50px 40px;
+  padding: 50px 50px;
   color: #333;
 }
 
@@ -335,18 +335,17 @@
 
 /* Optionally, add extra space above the Swiper pagination dots */
 .location-section .swiper-pagination {
-  margin-top: 18px !important; /* Increase as needed */
+  margin-top: 18px !important;
 }
-/* Add more space below the paragraph in the info-card carousel */
+
 .info-card h3 + .swiper {
-  margin-top: 24px; /* Space between heading and carousel */
+  margin-top: 24px;
 }
 
 .info-card .swiper p {
-  margin-bottom: 32px; /* Space between paragraph and dots */
+  margin-bottom: 32px; 
 }
 
-/* Add more space above the Swiper pagination dots */
 .info-card .swiper .swiper-pagination {
   margin-top: 18px !important;
 }
@@ -355,7 +354,7 @@
 }
 
 .hero-intro h1 {
-  margin-top: -20px;
+  margin-top: 0px;
   text-align: center;
   font-size: 3rem;
   color: #f26624;
@@ -370,7 +369,7 @@
   /* padding-left: 50px; */
   text-align: center;
   font-size: 1.25rem;
-  max-width: 600px;
+  max-width: 900px;
   line-height: 1.6;
   color: #555;
 }

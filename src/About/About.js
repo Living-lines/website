@@ -98,7 +98,7 @@ const AboutUs = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.3, duration: 0.6 }}
               viewport={{ once: false, amount: 0.3 }}
-              whileHover={{ scale: 1.07, rotate: 1 }}
+              /*whileHover={{ scale: 1.07, rotate: 1 }} */
             >
               <div className="value-icon">{card.icon}</div>
               <h3 className="value-card-title">{card.title}</h3>
