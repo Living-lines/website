@@ -35,9 +35,9 @@
 .brandspage-card {
   width: 100%;
   max-width: 250px;
-  background: linear-gradient(145deg, white, white);
+  background: linear-gradient(145deg, white, rgb(255, 255, 255));
   border-radius: 0px;
-  padding: 0px;
+  padding: 18px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
   border: 0px solid #f46f1f;
