@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import LoginModal from '../Login/LoginModal';
 import whatsappIcon from '../assets/whatsapp.png';
-import cartIcon from '../assets/cart.png';
+import cartIcon from '../assets/cart1.png';
 
 function Navbar() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -70,7 +70,7 @@ function Navbar() {
     { label: 'CATALOGS', path: '/catalogs' },
     { label: 'CONTACT', path: '/contact' },
     /*{ label: <FontAwesomeIcon icon={faShoppingCart} />, path: '/cart' }*/
-    { label: <img src={cartIcon} alt="Cart" style={{ width: '24px', height: '24px' }} />, path: '/cart' }
+    { label: <img src={cartIcon} alt="Cart" style={{ width: '24px', height: '24px', color: 'white' }} />, path: '/cart' }
 
   ];
 

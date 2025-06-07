@@ -5,7 +5,7 @@
   margin-top: 150px;
   font-family: 'Ancizar Serif', serif;
   background: #f0f0f0;
-  border-radius: 15px;
+  border-radius: 0px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
   justify-content: flex-start; 
   gap: 25px;
@@ -116,7 +116,7 @@
   color: white;
   border: none;
   cursor: pointer;
-  border-radius: 4px;
+  border-radius: 0px;
 }
 
 .dropdown button:hover {
@@ -130,7 +130,7 @@
   right: 0;
   background-color: white;
   border: 1px solid #ccc;
-  border-radius: 5px;
+  border-radius: 0px;
   max-height: 200px;
   overflow-y: auto;
   z-index: 10;
@@ -172,7 +172,7 @@
 
 .product-card {
   background-color: #fff;
-  border-radius: 10px;
+  border-radius: 0px;
   box-shadow: 0 3px 15px rgba(0, 0, 0, 0.15);
   cursor: pointer;
   overflow: hidden;
@@ -193,7 +193,7 @@
   color: white;
   border: none;
   padding: 8px;
-  border-radius: 4px;
+  border-radius: 0px;
   font-size: 9px;
   cursor: pointer;
   transition: background 0.3s ease;
@@ -265,7 +265,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  border-radius: 10px;
+  border-radius: 0px;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   height: 100%;
@@ -296,7 +296,7 @@
   width: 25px; 
   height: 25px;
   cursor: pointer;
-  border-radius: 6px; 
+  border-radius: 0px; 
 }
 
 
@@ -317,7 +317,7 @@
   width: fit-content;
   /*margin-top: -20px;
   margin-left: 170px; */
-  border-radius: 8px;
+  border-radius: 0px;
   background-color: transparent;
   box-shadow: none;
   color: #ff6000;
@@ -378,7 +378,7 @@
   width: 100%; 
   padding: 12px;
   font-size: 16px;
-  border-radius: 8px;
+  border-radius: 0px;
   border: 1px solid #ccc;
   transition: border-color 0.3s ease;
   box-sizing: border-box;
@@ -420,7 +420,7 @@
     width: 100%;
     padding: 10px;
     font-size: 15px;
-    border-radius: 6px;
+    border-radius: 0px;
     box-sizing: border-box;
   }
 
@@ -438,7 +438,7 @@
     position: static;
     width: 100%;
     border: 1px solid #ccc;
-    border-radius: 6px;
+    border-radius: 0px;
     max-height: 180px;
     overflow-y: auto;
     margin-top: 5px;
@@ -458,7 +458,7 @@
   }
 
   .product-card {
-    border-radius: 8px;
+    border-radius: 0px;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
   }
 
@@ -492,7 +492,7 @@
   align-items: stretch;
   padding: 12px;
   background: #ffffff;
-  border-radius: 12px;
+  border-radius: 0px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   gap: 8px;
   width: 300px;
@@ -540,7 +540,7 @@
   padding: 10px 16px;
   font-size: 14px;
   border: 1px solid #ccc;
-  border-radius: 10px;
+  border-radius: 0px;
   outline: none;
   transition: all 0.3s ease;
   box-shadow: 0 2px 5px rgba(0, 123, 255, 0.08);
@@ -564,7 +564,7 @@
   background-color: #f96935;
   color: white;
   border: none;
-  border-radius: 10px;
+  border-radius: 0px;
   font-size: 14px;
   cursor: pointer;
   text-align: center;
@@ -598,7 +598,7 @@
   background-color: #fff;
   margin-top: 6px;
   border: 1px solid #ddd;
-  border-radius: 10px;
+  border-radius: 0px;
   padding: 8px 12px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
 }
@@ -627,7 +627,7 @@
   .filters-container {
     max-width: 100%;
     padding: 10px;
-    border-radius: 10px;
+    border-radius: 0px;
     gap: 10px;
   }
 

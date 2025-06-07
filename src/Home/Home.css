@@ -141,6 +141,7 @@
 
 .homepage-hero-image {
   flex: wrap;
+  width: 100%;
   max-width: 100%;
   max-height: 100%;
   object-fit: cover;
@@ -502,8 +503,8 @@
 .product-card {
   position: relative;
   background-color: #fff;
-  border-radius: 10px;
-  border: 2px solid #ec9900;
+  border-radius: 0px;
+  border: 0px solid #ec9900;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -817,8 +818,8 @@
   height: 160px;
   transform: rotateY(calc((360deg / var(--quantity)) * var(--index)))
              translateZ(var(--translateZ));
-  border: 1px solid rgba(var(--color-card), 0.8);
-  border-radius: 12px;
+  border: 0px solid rgba(var(--color-card), 0.8);
+  border-radius: 0px;
   overflow: hidden;
   box-shadow: 0 0 12px rgba(var(--color-card), 0.3);
 }
@@ -828,7 +829,7 @@
   height: 100%;
   object-fit: cover;
   display: block;
-  border-radius: 12px;
+  border-radius: 0px;
 }
 
 .interior-right-content {
@@ -836,7 +837,7 @@
   max-width: 45%;
   min-width: 300px;
   background: rgba(255, 255, 255, 0.04);
-  border-radius: 20px;
+  border-radius: 0px;
   padding: 40px;
   backdrop-filter: blur(10px);
   box-shadow: 0 10px 25px rgba(255, 255, 255, 0.05);
@@ -999,11 +1000,11 @@
   .card1 {
     width: 130px !important;
     height: 110px;
-    border-radius: 8px;
+    border-radius: 0px;
   }
 
   .img1 {
-    border-radius: 8px;
+    border-radius: 0px;
   }
 
   .interior-right-content {
