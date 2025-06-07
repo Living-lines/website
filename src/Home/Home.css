@@ -1,3 +1,4 @@
+
 .hero{
   background-color: black;
 
@@ -319,7 +320,7 @@
 .highlight-about {
   color: #ff6600;
   font-style: italic;
-  font-weight: bold;
+  font-weight: 400;
   font-size: 48px;
   text-align: center;
 }
@@ -389,7 +390,7 @@
   text-align: center;
   color: white;
   font-size: 2rem;
-  font-weight: bold;
+  font-weight: 400;
   background: black;
   padding: 50px;
   border-radius: 10px;
@@ -398,7 +399,7 @@
 
 .section-heading {
   font-size: 2rem;
-  font-weight: bold;
+  font-weight: 400;
   color: #f26624;
   position: relative;
   display: inline-block;
@@ -848,7 +849,7 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  font-family: 'Ancizar Serif', serif;
+  font-family: 'Outfit', sans-serif;
   width: 100%;
 }
 
@@ -872,12 +873,12 @@
 }
 
 .feature-title {
-  font-family: 'Ancizar Serif', serif;
+  font-family: 'Outfit', sans-serif;
   font-size: 3rem;
   background: linear-gradient(to right, #ff6600);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  font-weight: 700;
+  font-weight: 400;
   margin-bottom: 30px;
   text-align: left;
   width: 100%;
@@ -902,7 +903,7 @@
   font-size: 1.2rem;
   padding-left: 25px;
   color: #fff;
-  font-weight: 500;
+  font-weight: 400;
   transition: transform 0.3s, color 0.3s;
 }
 
@@ -1116,9 +1117,9 @@
 }
 
 .originals-text-line {
-  font-family: 'Ancizar Serif', serif;
+  font-family: 'Outfit', sans-serif;
   font-size: 4rem;
-  font-weight: 700;
+  font-weight: 400;
   color: #5c4400; 
   margin-top: 200px;
   line-height: 1.1;
@@ -1127,8 +1128,8 @@
 .second-line {
   margin-left: -300px ; 
   margin-top: 15px;
-  font-family: 'Ancizar Serif', serif;
-  font-weight: 700;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 400;
   font-size: 4rem;
   color: #5c4400;
   max-width: 950px ;
@@ -1158,9 +1159,9 @@
 
 .third-line-text {
   margin-top: -20px;
-  font-family: 'Ancizar Serif', serif;;
+  font-family: 'Outfit', sans-serif;
   font-size: 4rem;
-  font-weight: 700;
+  font-weight: 400;
   color: #5c4400;
   margin: 0;
   line-height: 1.1;
@@ -1212,10 +1213,10 @@
   .originals-text-line {
     font-size: 3rem;
     margin-top: 200px;
-    font-weight: 700;
+    font-weight: 400;
     color: #5c4400;
     line-height: 1.1;
-    font-family: 'Ancizar Serif', serif;
+    font-family: 'Outfit', sans-serif;
   }
 
   .second-line {
@@ -1224,8 +1225,8 @@
     margin-top: 15px;
     max-width: 950px;
     color: #5c4400;
-    font-family: 'Ancizar Serif', serif;
-    font-weight: 700;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 400;
     text-align: start;
     justify-content: flex-start;
   }
@@ -1252,9 +1253,9 @@
 
   .third-line-text {
     margin-top: -20px;
-    font-family: 'Ancizar Serif', serif;
+    font-family: 'Outfit', sans-serif;
     font-size: 3rem;
-    font-weight: 700;
+    font-weight: 400;
     color: #5c4400;
     margin: 0;
     line-height: 1.1;
@@ -1308,10 +1309,10 @@
 
   .originals-text-line {
     font-size: 1.4rem;
-    font-weight: 700;
+    font-weight: 400;
     line-height: 1.1;
     color: #5c4400;
-    font-family: 'Ancizar Serif', serif;
+    font-family: 'Outfit', sans-serif;
   }
 
   .second-line {
@@ -1321,8 +1322,8 @@
     max-width: 100%;
     text-align: start;
     color: #5c4400;
-    font-family: 'Ancizar Serif', serif;
-    font-weight: 700;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 400;
   }
 
   .third-line {
@@ -1349,9 +1350,9 @@
     font-size: 1.4rem;
     margin-top: -10px;
     margin-left: 0px;
-    font-weight: 700;
+    font-weight: 400;
     color: #5c4400;
-    font-family: 'Ancizar Serif', serif;
+    font-family: 'Outfit', sans-serif;
     line-height: 1.1;
     white-space: nowrap;
   }
@@ -1385,7 +1386,7 @@
   display: flex;
   justify-content: center;
   padding: 80px 20px;
-  font-family: 'Ancizar Serif', serif;
+  font-family: 'Outfit', sans-serif;
   
 }
 
@@ -1399,7 +1400,7 @@
 
 .big-a-home {
   font-size: 10rem;
-  font-weight: 900;
+  font-weight: 400;
   line-height: 1;
   color: #ff6600;
   user-select: none;
@@ -1413,7 +1414,7 @@
   display: flex;
   flex-direction: column;
   font-size: 3rem;
-  font-weight: 700;
+  font-weight: 400;
   line-height: 1.1;
   position: relative;
   color: white;
@@ -1474,7 +1475,7 @@
   flex-direction: column;
   color: #ff6600;
   font-size: 1.2rem;
-  font-weight: 600;
+  font-weight: 400;
   line-height: 1.1;
   user-select: none;
 }
@@ -1618,7 +1619,7 @@
 
 .big-a-home {
   font-size: 5rem;
-  font-weight: 900;
+  font-weight: 400;
   line-height: 1;
   color: #ff6600;
   user-select: none;
@@ -1632,7 +1633,7 @@
   display: flex;
   flex-direction: column;
   font-size: 1.3rem;
-  font-weight: 700;
+  font-weight: 400;
   line-height: 0px;
   position: relative;
   color: white;
@@ -1693,7 +1694,7 @@
     font-size: 0.6rem;
     text-align: center;
     color: #ff6600;
-    font-weight: 600;
+    font-weight: 400;
     line-height: 1.1;
   }
 
@@ -1747,8 +1748,8 @@
     margin-top: 8px !important;
     margin-bottom:30px;
     text-align: center;
-    font-family: 'Ancizar Serif', serif;
-    font-weight: 700;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 400;
     color: #5c4400;
   }
 

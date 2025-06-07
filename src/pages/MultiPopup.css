@@ -41,7 +41,7 @@
   background: transparent;
   border: none;
   font-size: 20px;
-  font-weight: bold;
+  font-weight: 400;
   cursor: pointer;
   color: #555;
   transition: color 0.3s ease;
@@ -59,7 +59,7 @@
 }
 
 .form-group label {
-  font-weight: 600;
+  font-weight: 400;
   margin-bottom: 6px;
   display: block;
   font-size: 14px;
@@ -92,7 +92,7 @@
   border-radius: 10px;
   cursor: pointer;
   font-size: 15px;
-  font-weight: 600;
+  font-weight: 400;
   transition: background-color 0.3s ease, transform 0.2s ease;
   width: 100%;
 }
@@ -112,7 +112,7 @@
   margin-top: 20px;
   font-size: 15px;
   color: #4caf50;
-  font-weight: 500;
+  font-weight: 400;
   text-align: center;
 }
 

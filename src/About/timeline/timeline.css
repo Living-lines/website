@@ -1,7 +1,7 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Ancizar Serif', serif; 
+  font-family: 'Outfit', sans-serif; 
 }
 
 .timeline-wrapper {
@@ -17,7 +17,7 @@ body {
   font-size: 36px;
   color: #ff6000;
   margin-bottom: 10px;
-  font-weight: 900;
+  font-weight: 400;
 }
 
 .timeline-tagline {
@@ -25,6 +25,7 @@ body {
   font-size: 16px;
   color: #ddd;
   margin-bottom: 30px;
+  font-weight: 300;
 }
 
 .timeline-container {
@@ -84,11 +85,12 @@ body {
   position: relative;
   z-index: 2;
   box-shadow: 0 0 10px rgba(255, 96, 0, 0.5);
+  font-weight: 300;
 }
 
 .present-year {
   font-size: 18px;
-  font-weight: bold;
+  font-weight: 300;
 }
 
 .present-tag {
@@ -96,7 +98,7 @@ body {
   bottom: -20px;
   font-size: 12px;
   color: #fff;
-  font-weight: 500;
+  font-weight: 300;
   background-color: #ff6000;
   padding: 2px 6px;
   border-radius: 5px;
@@ -110,7 +112,7 @@ body {
 
 .event-title {
   font-size: 16px;
-  font-weight: bold;
+  font-weight: 300;
   margin-bottom: 5px;
   color: #ffcc99;
 }

@@ -5,7 +5,7 @@
   background-color: #fff;
   border-radius: 12px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-  font-family: 'Ancizar Serif', serif;
+  font-family: 'Outfit', sans-serif;
 }
 
 .cart-container h2 {
@@ -87,7 +87,7 @@
   display: inline-block;
   min-width: 28px;
   text-align: center;
-  font-weight: bold;
+  font-weight: 400;
 }
 
 .cart-item-remove button {
@@ -110,7 +110,7 @@
   margin: 2rem auto 0;
   padding: 0.85rem 2rem;
   font-size: 1rem;
-  font-weight: bold;
+  font-weight: 400;
   background-color: #fe8025;
   color: white;
   border: none;

@@ -2,7 +2,7 @@
   background-color: #000;
   color: #fff;
   width: 100%;
-  font-family: 'Ancizar Serif', serif;
+  font-family: 'Outfit', sans-serif;
 }
 
 .branch-photo.large-photo {
@@ -16,7 +16,7 @@
 
 .showroom-city {
   font-size: 1.1rem;
-  font-weight: 600;
+  font-weight: 400;
   margin: 20px 0px 4px 0;
 }
 .extra-space{
@@ -36,7 +36,7 @@
   font-size: 2.5rem;
   color: #ff6600;
   margin-bottom: 2rem;
-  font-weight: bold;
+  font-weight: 400;
 }
 
 .showroom-table {
@@ -66,11 +66,13 @@
   color: #ff6600;
   font-size: 1.5rem;
   margin-bottom: 1rem;
+  font-weight: 400;
 }
 
 .showroom-column p {
   color: #ccc;
   font-size: 1rem;
+  font-weight: 300;
   margin: 0.5rem 0;
 }
 
@@ -92,6 +94,7 @@
   max-width: 100%;
   border-top: 2px solid #ff6600;
   background-color: black;
+  
 }
 
 .footer-left-column {
@@ -101,6 +104,7 @@
 .footer-left-column h2 {
   font-size: 2rem;
   color: #ff6600;
+  font-weight: 400;
   margin-bottom: 1rem;
 }
 
@@ -108,10 +112,12 @@
   font-size: 1.2rem;
   /* color: #ffd277; */
   margin-top: 1.2rem;
+  font-weight: 300;
 }
 
 .footer-left-column p {
   font-size: 1rem;
+  font-weight: 300;
   color: #ccc;
 }
 
@@ -123,7 +129,8 @@
 .footer-middle-column .extra-title {
   text-align: left; 
   /* margin-right: 90px; */
-  font-size: 2rem;
+  /*font-size: 2rem; */
+  font-weight: 400;
   color: #ff6600;
   margin-bottom: 1rem;
 
@@ -147,7 +154,8 @@
   border: none;
   text-align: left;
   cursor: pointer;
-  font-family: 'Ancizar Serif', serif;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 300;
 }
 
 .footer-link:hover {
@@ -160,7 +168,8 @@
 }
 
 .footer-right-column .extra-title {
-  font-size: 2rem;
+  /*font-size: 2rem; */
+  font-weight: 400;
   color: #ff6600;
   margin-bottom: 1rem;
   text-align: left;
@@ -170,6 +179,7 @@
   font-size: 1rem;
   color: #ccc;
   margin: 0.5rem 0;
+  font-weight: 300;
 }
 
 /*.social-icon {
@@ -282,6 +292,7 @@
 
 .footer-copy {
   font-size: 0.95rem;
+  font-weight: 300;
   color: #ffffff;
   text-align: left;
 }
@@ -411,7 +422,8 @@
   border-radius: 8px;
   border: 1px solid #ff6000 !important;
   font-size: 1rem;
-  font-family: 'Ancizar Serif', serif;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 300;
   background-color: #000;
   color: #fff;
 
@@ -465,13 +477,13 @@
   transition-duration: 1s;
   overflow: hidden;
   font-size: 1rem;
-  font-weight: bold;
-  font-family: 'Ancizar Serif', serif;
+  font-weight: 400;
+  font-family: 'Outfit', sans-serif;
 }
 
 .subscribe-error {
   color: #ff4d4d;
-  font-weight: 500;
+  font-weight: 400;
   margin-top: 12px;
   font-size: 14px;
 }
@@ -496,7 +508,7 @@
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
   text-align: center;
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 400;
   color: #4caf50;
   animation: fadeInSlideUp 0.3s ease-out;
 }
@@ -615,6 +627,7 @@ body {
 
 .tagline {
   font-size: 12px;
+  font-weight: 300;
   color: #aaa;
   letter-spacing: 3px;
   margin-bottom: 20px;
@@ -623,6 +636,7 @@ body {
 
 .description {
   font-size: 16px;
+  font-weight: 300;
   line-height: 1.6;
   color: #ccc;
 }
@@ -635,6 +649,7 @@ body {
   font-size: 36px;
   font-family: 'Outfit', sans-serif;
   margin-bottom: 20px;
+  font-weight: 400;
 }
 
 .subscribe-box {
@@ -656,6 +671,7 @@ body {
   background-color: #000;
   color: white;
   font-size: 14px;
+  font-weight: 300;
 }
 
 .subscribe-box input::placeholder {
@@ -669,7 +685,7 @@ body {
   color: black;
   border: none;
   cursor: pointer;
-  font-weight: bold;
+  font-weight: 400;
   transition: background-color 0.3s;
 }
 
@@ -711,11 +727,13 @@ body {
   font-size: 36px;
   margin-bottom: 10px;
   letter-spacing: 1px;
-  color: #ff6600
+  color: #ff6600;
+  font-weight: 400;
 }
 
 .emporio-tagline {
   font-size: 12px;
+  font-weight: 300;
   color: #aaa;
   letter-spacing: 3px;
   margin-bottom: 20px;
@@ -726,6 +744,7 @@ body {
   font-size: 16px;
   line-height: 1.6;
   color: #ccc;
+  font-weight: 300;
 }
 
 .emporio-right {
@@ -736,6 +755,12 @@ body {
   font-size: 36px;
   font-family: 'Outfit', sans-serif;
   margin-bottom: 20px;
+  font-weight: 300;
+}
+
+.products-heading{
+  font-family: 'Outfit', sans-serif;
+  font-weight: 400;
 }
 
 
@@ -779,7 +804,7 @@ body {
     margin-top: 1.2rem !important;
     margin-bottom: 1.2rem !important;
     letter-spacing: 0.5px;
-    font-weight: 700;
+    font-weight: 400;
   }
 }
 
@@ -846,7 +871,7 @@ body {
     margin: 0;
     text-align: left !important;
     flex: 1;
-    font-weight: 700;
+    font-weight: 400;
     letter-spacing: 0.5px;
   }
 

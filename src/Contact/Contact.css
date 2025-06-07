@@ -75,7 +75,7 @@
 
 .contact-text h1 {
   font-size: 88px;
-  font-weight: bold;
+  font-weight: 400;
   color: #333;
   text-transform: uppercase;
   margin: 0;
@@ -119,6 +119,7 @@
 
 .contact-info {
   font-size: 18px;
+  font-weight: 300;
   color: white;
   margin: 0;
 }
@@ -153,7 +154,7 @@
 .message-section h2 {
   margin-bottom: 20px;
   font-size: 24px;
-  font-weight: bold;
+  font-weight: 400;
   color:#ff6000
 }
 
@@ -170,10 +171,12 @@
   border: 1px solid #ccc;
   border-radius: 0px;
   width: 100%;
+  font-weight: 300;
 }
 .contact-form textarea {
   padding: 10px;
   font-size: 16px;
+  font-weight: 300;
   border: 1px solid #ccc;
   border-radius: 0px;
   width: 100%;
@@ -187,6 +190,7 @@
   border: none;
   border-radius: 0px;
   font-size: 18px;
+  font-weight: 300;
   cursor: pointer;
 }
 
@@ -216,7 +220,7 @@
 .location-section h2 {
   margin-bottom: 8px;
   font-size: 24px;
-  font-weight: bold;
+  font-weight: 400;
   /* text-align: left !important; */
   width: 100%;
   margin-left: 0;
@@ -225,6 +229,7 @@
 
 .location-section p {
   font-size: 16px;
+  font-weight: 300;
   margin-top:0 ;
   padding-left: 30px;
 }
@@ -318,6 +323,8 @@
 .contact-hero {
   max-width: 1100px;
   margin: 100px auto 60px;
+  align-items: center;
+  text-align: center;
   
   display: flex;
   flex-direction: row;
@@ -358,7 +365,7 @@
   text-align: center;
   font-size: 3rem;
   color: #f26624;
-  font-weight: 900;
+  font-weight: 400;
   margin-bottom: 20px;
   /* text-transform: uppercase; */
   letter-spacing: 1.5px;
@@ -369,6 +376,7 @@
   /* padding-left: 50px; */
   text-align: center;
   font-size: 1.25rem;
+  font-weight: 300;
   max-width: 900px;
   line-height: 1.6;
   color: #555;
@@ -444,6 +452,7 @@
   .contact-form input,
   .contact-form textarea {
     font-size: 1rem;
+    font-weight: 300;
     padding: 10px;
     margin: 8px 0;
     width: 100%;
@@ -456,12 +465,13 @@
   font-size: 1.5rem;
   margin-bottom: 15px;
   color: #f26624;
-  font-weight: 700;
+  font-weight: 400;
 }
 
 .info-card p {
   text-align: center;
   font-size: 1rem;
+  font-weight: 300;
   line-height: 1.5;
   color: #444;
 }
@@ -498,13 +508,14 @@
   font-size: 2.5rem;
   margin-bottom: 15px;
   color: #f26624;
-  font-weight: 900;
+  font-weight: 400;
   letter-spacing: 1.2px;
 }
 
 .hero-cta p {
   font-size: 1.2rem;
   margin-bottom: 30px;
+  font-weight: 300;
   color: white;
 }
 
@@ -512,7 +523,7 @@
   background-color: #f26624;
   color: white;
   padding: 15px 45px;
-  font-weight: 700;
+  font-weight: 400;
   font-size: 1.1rem;
   border-radius: 0px;
   text-decoration: none;
@@ -554,12 +565,13 @@
 .connect-us-card h3 {
   font-size: 1.75rem;
   color: #f26624;
-  font-weight: 700;
+  font-weight: 400;
   margin-bottom: 15px;
 }
 
 .connect-us-card p {
   font-size: 1rem;
+  font-weight: 300;
   line-height: 1.5;
   color: #444;
   margin-bottom: 20px;
@@ -581,7 +593,7 @@
   background-color: #f26624;
   border-radius: 0px;
   transition: background-color 0.3s ease, transform 0.3s ease;
-  font-weight: 600;
+  font-weight: 400;
 }
 
 .social-link:hover {
