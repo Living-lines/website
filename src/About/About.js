@@ -67,10 +67,10 @@ const AboutUs = () => {
       <div className="value-section">
         <motion.div
           className="value-intro"
-          initial={{ opacity: 0, y: 30 }}
+          /*initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          viewport={{ once: false, amount: 0.3 }}
+          viewport={{ once: false, amount: 0.3 }} */
         >
           <h1 className="value-highlight">Our Value</h1>
           <h2 className="value-subtitle">Trusted by a wide community</h2>
@@ -94,10 +94,10 @@ const AboutUs = () => {
             <motion.div
               key={i}
               className="value-card"
-              initial={{ opacity: 0, y: 50 }}
+              /*initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.3, duration: 0.6 }}
-              viewport={{ once: false, amount: 0.3 }}
+              viewport={{ once: false, amount: 0.3 }} */
               /*ikkada modifications chasa sir */
               /*whileHover={{ scale: 1.07, rotate: 1 }} */
             >
