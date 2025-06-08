@@ -6,7 +6,8 @@ import Popup from './Popup';
 import { useLocation, useNavigate } from 'react-router-dom';
 /*import cartSymbol from '../assets/cart-symbol.jpg'; */
 /*import cartSymbol from '../assets/cart-symbol1.png'; */
-import cartSymbol from '../assets/cart-symbol2.png';
+/*import cartSymbol from '../assets/cart-symbol2.png'; */
+import cartSymbol from '../assets/cart-symbol3.png';
 
 
 const API_BASE = 'https://backend-tawny-one-62.vercel.app';

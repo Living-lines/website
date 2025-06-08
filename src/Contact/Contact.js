@@ -12,6 +12,7 @@ const locations = [
     address: `#9-1-48/A, NEW RESAPUVANIPALEM, NEAR AUDI SHOWROOM VISAKHAPATNAM - 530013`,
     mapSrc: "https://www.google.com/maps?q=9-1-48/A,+New+Resapuvanipalem,+Visakhapatnam,+530013&output=embed",
   },
+  /* madhurawda map ikkada add chasa */
   {
     name: "MADHURAWADA",
     address: `Survey No. : 40/2/A, Beside Prince Dhaba, P.M.Palem, Madhurawada, Visakhapatnam -530041`,
