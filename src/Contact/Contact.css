@@ -142,6 +142,10 @@
 }
 
 
+.send-message-btn{
+  margin-top: 20px;
+}
+
 .message-section {
   flex: 1;
   background-color: #fff;
@@ -149,6 +153,8 @@
   border-radius: 0px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
   width: 500px;
+  
+  
 }
 
 .message-section h2 {
@@ -183,8 +189,9 @@
   height:180px;
 }
 
-.contact-form button {
+.send-button1 {
   background-color: #f26624;
+  width: 100% !important;
   color: white;
   padding: 15px;
   border: none;

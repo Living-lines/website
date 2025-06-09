@@ -20,7 +20,7 @@ const Footer = () => {
     window.scrollTo(0, 0);
   };
 
-   const handleAccordion = (section) => {
+  const handleAccordion = (section) => {
     setOpenSection(openSection === section ? null : section);
   };
 
@@ -83,8 +83,8 @@ const Footer = () => {
               <img src={loc.img} alt={loc.city} className="branch-photo large-photo" />
               <h3 className='showroom-city'>{loc.city}</h3>
               <div className='extra-space'>
-              <p><i className="fas fa-envelope mail-icon" /> info@livinglines.in</p>
-              <p><i className="fas fa-phone social-icon" /> {loc.phone}</p>
+                <p><i className="fas fa-envelope mail-icon" /> info@livinglines.in</p>
+                <p><i className="fas fa-phone social-icon" /> {loc.phone}</p>
               </div>
             </div>
           ))}
@@ -217,13 +217,27 @@ const Footer = () => {
               </a>
             </p>
             <h2 className="extra-title" style={{ marginTop: '3.5rem' }}>Social Media</h2>
-            <div className="footer-social-icons">
+            {/*<div className="footer-social-icons">
               {['instagram', 'twitter', 'facebook'].map((platform) => (
                 <a key={platform} href={`https://www.${platform}.com/livinglines`} target="_blank" rel="noopener noreferrer" aria-label={platform}>
                   <i className={`fab fa-${platform} social-icon`} />
                 </a>
               ))}
+            </div>*/}
+            <div className="footer-social-icons">
+              <a href="https://www.instagram.com/livinglinesofficial?igsh=MWpqajd0d21qc3VvdA==" target="_blank" rel="noopener noreferrer" aria-label="instagram">
+                <i className="fab fa-instagram social-icon" />
+              </a>
+
+              <a href="https://twitter.com/livinglines" target="_blank" rel="noopener noreferrer"  aria-label="twitter">
+                <i className="fab fa-twitter social-icon" />
+              </a>
+
+              <a href="https://www.facebook.com/livinglinesofficial" target="_blank" rel="noopener noreferrer"  aria-label="facebook">
+                <i className="fab fa-facebook social-icon" />
+              </a>
             </div>
+
           </div>
         </div>
       </div>
@@ -233,7 +247,7 @@ const Footer = () => {
       <div className="footer-bottom">
         <hr className="footer-divider" />
         <p className="footer-copy">
-          <i className="far fa-copyright" style={{ fontSize: '1.3em', marginRight: '6px', verticalAlign: 'middle', color:"white" }}></i>
+          <i className="far fa-copyright" style={{ fontSize: '1.3em', marginRight: '6px', verticalAlign: 'middle', color: "white" }}></i>
           All Rights Reserved to Living Lines
         </p>
       </div>

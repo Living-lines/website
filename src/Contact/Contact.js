@@ -6,13 +6,12 @@ import { Pagination, Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
 
-const locations = [
+/*const locations = [
   {
     name: "VISAKHAPATNAM",
     address: `#9-1-48/A, NEW RESAPUVANIPALEM, NEAR AUDI SHOWROOM VISAKHAPATNAM - 530013`,
     mapSrc: "https://www.google.com/maps?q=9-1-48/A,+New+Resapuvanipalem,+Visakhapatnam,+530013&output=embed",
   },
-  /* madhurawda map ikkada add chasa */
   {
     name: "MADHURAWADA",
     address: `Survey No. : 40/2/A, Beside Prince Dhaba, P.M.Palem, Madhurawada, Visakhapatnam -530041`,
@@ -22,6 +21,24 @@ const locations = [
     name: "VIZIANAGARAM",
     address: `8-32-58, No. 61/2C, V.T.Agraharam, Beside Ketala Weigh Bridge, Gandhi Nagar, Vizianagaram - 535004`,
     mapSrc: "https://www.google.com/maps?q=Ketala+Weigh+Bridge,+Gandhi+Nagar,+Vizianagaram,+535004&output=embed",
+  },
+]; */
+
+const locations = [
+  {
+    name: "VISAKHAPATNAM",
+    address: `#9-1-48/A, NEW RESAPUVANIPALEM, NEAR AUDI SHOWROOM VISAKHAPATNAM - 530013`,
+    mapSrc: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7600.549035260077!2d83.31443847369849!3d17.7316997927979!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a394347c8e0f12b%3A0x1f040be9e16b8d7a!2sLiving%20Lines!5e0!3m2!1sen!2sin!4v1749471835339!5m2!1sen!2sin",
+  },
+  {
+    name: "MADHURAWADA",
+    address: `Survey No. : 40/2/A, Beside Prince Dhaba, P.M.Palem, Madhurawada, Visakhapatnam -530041`,
+    mapSrc: "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7775.564306970631!2d83.34979995384862!3d17.802194185287842!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a395b16e21705af%3A0xd927f2ab4d38a53e!2sLiving%20Lines!5e0!3m2!1sen!2sin!4v1749471897325!5m2!1sen!2sin",
+  },
+  {
+    name: "VIZIANAGARAM",
+    address: `8-32-58, No. 61/2C, V.T.Agraharam, Beside Ketala Weigh Bridge, Gandhi Nagar, Vizianagaram - 535004`,
+    mapSrc: "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d948.1427174446139!2d83.3875578!3d18.0914102!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a3be5f8094a2c57%3A0xb1c5cf2c04d7f6eb!2sLIVING%20LINES!5e0!3m2!1sen!2sin!4v1749471949207!5m2!1sen!2sin",
   },
 ];
 
@@ -131,8 +148,11 @@ function Contact() {
             <input type="email" name="email" placeholder="Your Email" value={formData.email} onChange={handleChange} required />
             <textarea name="message" placeholder="Your Message" value={formData.message} onChange={handleChange} required ></textarea>
             <input type="text" name="location" placeholder="Your Location" value={formData.location} onChange={handleChange} required />
-            <button type="submit" className="send-button">Send Message</button>
+            
           </form>
+          <div className='send-message-btn'>
+          <button type="submit" className="send-button1">Send Message</button>
+          </div>
         </div>
 
         <div className="location-section">
