@@ -446,3 +446,29 @@ body {
     padding: 10px 16px;
   }
 }
+
+
+
+@media (max-width: 1024px) {
+  .trademark-symbol {
+    font-size: 18px;
+    right: -4px;
+    top: -4px;
+  }
+}
+
+@media (max-width: 768px) {
+  .trademark-symbol {
+    font-size: 16px;
+    right: -3px;
+    top: -3px;
+  }
+}
+
+@media (max-width: 480px) {
+  .trademark-symbol {
+    font-size: 14px;
+    right: 120px;
+    top: -2px; 
+  }
+}
