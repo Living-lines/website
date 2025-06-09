@@ -84,6 +84,7 @@ function Navbar() {
               <div className="logo-section">
                 <Link to="/" onClick={() => setIsMobileMenuOpen(false)}>
                   <img src={logoImage} className="logo" alt="LivingLines Logo" />
+                  <span className="trademark-symbol">®</span>
                 </Link>
               </div>
 

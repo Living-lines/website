@@ -50,6 +50,7 @@ body {
   align-items: center;
   justify-content: flex-start;
   flex: 0 0 auto;
+  position: relative;
 }
 
 .logo {
@@ -163,6 +164,15 @@ body {
 }
 
 
+.trademark-symbol {
+  font-size: 22px;
+  margin-left: 5px;
+  position: absolute; 
+  top: 0px; 
+  right: -6px; 
+  color: white;
+}
+
 /* Hamburger Icon */
 .hamburger {
   display: none;
@@ -244,6 +254,7 @@ body {
     flex: 0 0 auto;
     display: flex;
     align-items: center;
+    position: relative;
   }
 
   .logo {
