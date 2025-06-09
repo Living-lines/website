@@ -113,7 +113,7 @@ function Contact() {
         <p>Stay in the loop by following us on social media for updates, offers, and much more!</p>
         <div className="social-links">
           <a href="https://www.facebook.com/livinglinesofficial" target="_blank" rel="noreferrer" aria-label="Facebook" className="social-link facebook">Facebook</a>
-          <a href="https://www.instagram.com/livinglinesofficial?igsh=Y2hzY3lqc2V6MGF4" target="_blank" rel="noreferrer" aria-label="Instagram" className="social-link instagram">Instagram</a>
+          <a href="https://www.instagram.com/livinglinesofficial?igsh=MWpqajd0d21qc3VvdA==" target="_blank" rel="noreferrer" aria-label="Instagram" className="social-link instagram">Instagram</a>
           <a href="https://twitter.com" target="_blank" rel="noreferrer" aria-label="Twitter" className="social-link twitter">Twitter</a>
         </div>
       </div>
