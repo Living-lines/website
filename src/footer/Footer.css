@@ -129,7 +129,7 @@
 .footer-middle-column .extra-title {
   text-align: left; 
   /* margin-right: 90px; */
-  /*font-size: 2rem; */
+  font-size: 2rem;
   font-weight: 400;
   color: #ff6600;
   margin-bottom: 1rem;
@@ -168,7 +168,7 @@
 }
 
 .footer-right-column .extra-title {
-  /*font-size: 2rem; */
+  font-size: 2rem;
   font-weight: 400;
   color: #ff6600;
   margin-bottom: 1rem;
