@@ -1182,18 +1182,8 @@
   .feature-title {
     font-size: 1.8rem;
   }
-  .feature-list {
-    list-style: none;
-    columns: 2;
-    gap: 20px;
-    padding: 0;
-    margin: 0;
-    -webkit-column-fill: auto;  /* Safari/WebKit */
-    column-fill:       auto; 
-  }
 
   .feature-list-item {
-    position: relative;
     font-size: 0.8rem;
   }
 
