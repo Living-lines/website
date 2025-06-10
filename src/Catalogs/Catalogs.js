@@ -33,7 +33,7 @@ export default function Catalogs() {
               alt={cat.title}
               className="brand-logo"
             />
-          </div>
+          </div> 
           <h3 className="brand-name">{cat.title}</h3>
           <div className="catalog-buttons">
             <a

@@ -878,6 +878,7 @@
   flex-wrap: nowrap;
   background-color: black;
   overflow: hidden;
+  margin-bottom: 100px;
 }
 
 .interior-left-rotation,
@@ -892,6 +893,7 @@
   position: relative;
   height: auto;
   box-sizing: border-box;
+  margin-bottom: 100px;
 }
 
 .interior-left-rotation {
@@ -1098,7 +1100,7 @@
     height: 400px; 
     position: relative;
     overflow: visible;
-    margin-bottom: 105px !important;
+    margin-bottom: 105px;
   }
 
   .wrapper {
@@ -1182,7 +1184,7 @@
   }
 
   .feature-list-item {
-    font-size: 1rem;
+    font-size: 0.6rem;
   }
 
   .card1 {
