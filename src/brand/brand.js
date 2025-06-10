@@ -162,15 +162,15 @@ const BrandCarousel = () => {
         className="swiper-container"
       >
         {brands.map((brand, index) => (
-          <SwiperSlide key={index} className="swiper-slide">
-            <div className="logo-container">
-              <img src={brand.url} alt={brand.name} className="brand-logo" />
+          <SwiperSlide key={index} className="swiper-slide1">
+            <div className="logo-container1">
+              <img src={brand.url} alt={brand.name} className="brand-logo1" />
             </div>
           </SwiperSlide>
         ))}{brands.map((brand, index) => (
-          <SwiperSlide key={index} className="swiper-slide">
-            <div className="logo-container">
-              <img src={brand.url} alt={brand.name} className="brand-logo" />
+          <SwiperSlide key={index} className="swiper-slide1">
+            <div className="logo-container1">
+              <img src={brand.url} alt={brand.name} className="brand-logo1" />
             </div>
           </SwiperSlide>
         ))}

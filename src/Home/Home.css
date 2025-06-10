@@ -1192,11 +1192,10 @@
     height: 120px;
   }
 
-  /* Adjust the size of the bullet points (circles) on mobile */
   .feature-list-item::before {
-    width: 6px;  /* Decrease the size of the circle */
-    height: 6px; /* Decrease the size of the circle */
-    top: 4px;    /* Adjust the vertical alignment of the circle */
+    width: 6px; 
+    height: 6px; 
+    top: 4px; 
   }
 }
 
