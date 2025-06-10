@@ -157,13 +157,12 @@
     align-items: center !important;
     justify-content: center !important;
     margin-bottom: 15px;
-    margin-left: 0px;
     width: 100%;
   }
 
   .brand-logo1 {
-    max-height: 80px;
-    max-width: 80%;
+    max-height: 95px;
+    max-width: 95%;
     object-fit: contain;
     margin: 0 auto;
     display: block;
