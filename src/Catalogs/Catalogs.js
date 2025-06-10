@@ -26,15 +26,15 @@ export default function Catalogs() {
 
     <div className="brands-container">
       {catalogs.map((cat, idx) => (
-        <div key={cat.id ?? idx} className="brand-card">
-          <div className="logo-container">
+        <div key={cat.id ?? idx} className="brand-card1">
+          <div className="logo-container1">
             <img
               src={cat.image_url}
               alt={cat.title}
-              className="brand-logo"
+              className="brand-logo1"
             />
           </div> 
-          <h3 className="brand-name">{cat.title}</h3>
+          <h3 className="brand-name1">{cat.title}</h3>
           <div className="catalog-buttons">
             <a
               href={cat.pdf_url}
