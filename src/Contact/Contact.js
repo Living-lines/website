@@ -170,7 +170,7 @@ function Contact() {
               <SwiperSlide key={idx}>
                 <div className="map-block">
                   <h3>{loc.name}</h3>
-                  <p>{loc.address}</p>
+                  {/*<p>{loc.address}</p> */}
                   <iframe
                     src={loc.mapSrc}
                     width="100%"

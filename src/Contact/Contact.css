@@ -254,6 +254,7 @@
 .map iframe {
   border-radius: 0px;
 }
+
 .map-block iframe {
   width: 100% !important;
   height: 100% !important;
@@ -261,7 +262,7 @@
   max-width: 100%;
   border-radius: 0px;
   display: block;
-  margin-top: -30px;
+  margin-top: 30px;
   box-sizing: border-box;
   flex: 1 1 auto;
 }
@@ -373,7 +374,7 @@
     border-radius: 0;
     display: block;
     box-sizing: border-box;
-    margin-top: -30px !important;
+    margin-top: 20px !important;
   }
 
   .map-block h3, .map-block iframe {
