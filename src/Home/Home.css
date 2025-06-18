@@ -1290,7 +1290,7 @@
 
 @media screen and (max-width: 450px) {
   .feature-wrapper-modern {
-    padding: 40px 0px;
+    padding: 40px 10px;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -1306,11 +1306,12 @@
 
   .feature-grid-modern {
     display: grid;
-    grid-template-columns: repeat(2, minmax(120px, 1fr));
-    gap: 14px;
+    grid-template-columns: repeat(2, minmax(140px, 1fr));
+    gap: 20px 16px;
     width: 100%;
-    max-width: 300px;
-    margin: 0 auto;
+    max-width: 100%;
+    padding: 0 16px;
+    box-sizing: border-box;
   }
 
   .feature-card-modern {
@@ -1321,7 +1322,7 @@
     display: flex;
     align-items: center;
     gap: 10px;
-    min-width: 100%;
+    width: 100%;
     box-shadow: 0 4px 10px rgba(255, 102, 0, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.05);
   }
