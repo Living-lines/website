@@ -293,27 +293,25 @@ function Home() {
               </div>
             </div> 
           </div> */}
-          <div className="interior-right-content-final">
-            <div className="feature-section-final">
-              <div className="feature-content-final">
-                <h1 className="feature-title-final">
-                  Everything You Desire<br />Under One Roof
-                </h1>
-                <ul className="feature-list-final">
-                  {featureItems.map((item, i) => (
-                    <li
-                      key={i}
-                      className="feature-list-item-final"
-                      data-aos="fade-up"
-                      data-aos-delay={i * 100}
-                    >
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
+          <div className="feature-wrapper-modern">
+            <h1 className="feature-heading-modern" data-aos="zoom-in">
+              Everything You Desire<br />Under One Roof
+            </h1>
+            <div className="feature-grid-modern">
+              {featureItems.map((item, i) => (
+                <div
+                  key={i}
+                  className="feature-card-modern"
+                  data-aos="fade-up"
+                  data-aos-delay={i * 80}
+                >
+                  <span className="feature-icon-dot" />
+                  <p className="feature-text">{item}</p>
+                </div>
+              ))}
             </div>
           </div>
+
 
         </section>
 
