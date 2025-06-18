@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './Home.css';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 
 
@@ -125,7 +127,7 @@ function Home() {
 
   ];
 
-  useEffect(() => {
+  {/*useEffect(() => {
     const featureList = document.querySelector('.feature-list');
     const items = document.querySelectorAll('.feature-list-item');
 
@@ -153,7 +155,18 @@ function Home() {
     return () => {
       if (featureList) observer.unobserve(featureList);
     };
+  }, []);  */}
+
+  useEffect(() => {
+    AOS.init({ duration: 800, once: true, offset: 60 });
   }, []);
+
+  const featureItems = [
+    "Sanitary", "Faucets", "Shower Panels", "Sinks", "Tiles & Adhesives",
+    "Electricals", "Lights", "Chandeliers", "Switches",
+    "Fans", "Pipes", "Pumps & Motors", "Accessories",
+    "Mirrors & Vanities", "Paints", "Furniture", "Interior Decors", "Artifacts", "Plumbing"
+  ];
 
 
 
@@ -261,7 +274,7 @@ function Home() {
             </div>
           </div>
 
-          <div className="interior-right-content">
+          {/*<div className="interior-right-content">
             <div className="feature-section">
               <div className="feature-content">
                 <h1 className="feature-title">
@@ -278,8 +291,30 @@ function Home() {
                   ))}
                 </ul>
               </div>
+            </div> 
+          </div> */}
+          <div className="interior-right-content-final">
+            <div className="feature-section-final">
+              <div className="feature-content-final">
+                <h1 className="feature-title-final">
+                  Everything You Desire<br />Under One Roof
+                </h1>
+                <ul className="feature-list-final">
+                  {featureItems.map((item, i) => (
+                    <li
+                      key={i}
+                      className="feature-list-item-final"
+                      data-aos="fade-up"
+                      data-aos-delay={i * 100}
+                    >
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
           </div>
+
         </section>
 
 
