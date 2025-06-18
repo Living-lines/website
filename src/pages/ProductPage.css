@@ -332,8 +332,8 @@
 
 .plus-icon {
   position: absolute;
-  top: 16px;
-  right: 9.5px;
+  top: 31.5%;
+  right: 23%;
   font-size: 7px; 
   color: white; 
   border: 1px solid black;
@@ -375,12 +375,14 @@
     width: 22px;
     height: 22px;
   }
-
-  .plus-icon {
-    top: 14px;
-    right: 8px;
-    font-size: 6px;
+   .plus-icon {
+    top: 36%;
+    right: 15.5%;
+    transform: translateY(-50%);
+    font-size: 7px;
   }
+
+
 
   .cart-icon-container {
     font-size: 18px;
@@ -399,9 +401,9 @@
   }
 
   .plus-icon {
-    top: 12px;
-    right: 6px;
-    font-size: 5.5px;
+    top: 37.5%;
+    right: 16%;
+    font-size: 6px;
   }
 
   .cart-icon-container {
@@ -421,8 +423,8 @@
   }
 
   .plus-icon {
-    top: 10px;
-    right: 3.6px;
+    top: 39% !important;
+    right: 18% !important;
     font-size: 5px;
   }
 
