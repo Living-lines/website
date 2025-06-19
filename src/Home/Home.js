@@ -12,12 +12,12 @@ import About from '../About/About';
 import BrandCarousel from '../brand/brand.js';
 import { Link } from 'react-router-dom';
 import Catalogs from '../Catalogs/Catalogs.js';
-const small1 = 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/tilespr.jpg';
+const large2 = 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/tilespr.jpg';
 const small2 = 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/plumpr.jpg';
 const small3 = 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/tappr.jpg';
 const small4 = 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/compr.jpg';
 const large1 = 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/switchpr.jpg';
-const large2 = 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/ligthspr.jpg';
+const small1 = 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/ligthspr.jpg';
 const large3 = 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/showerpr.jpg';
 const large4 = 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/frupr.jpg';
 
