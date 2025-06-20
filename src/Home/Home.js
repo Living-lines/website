@@ -158,7 +158,7 @@ function Home() {
   }, []);  */}
 
   useEffect(() => {
-    AOS.init({ duration: 800, once: true, offset: 60 });
+   /* AOS.init({ duration: 800, once: true, offset: 60 });  */
   }, []);
 
   const featureItems = [
@@ -294,17 +294,12 @@ function Home() {
             </div> 
           </div> */}
           <div className="feature-wrapper-modern">
-            <h1 className="feature-heading-modern" data-aos="zoom-in">
+            <h1 className="feature-heading-modern">
               Everything You Desire<br />Under One Roof
             </h1>
             <div className="feature-grid-modern">
               {featureItems.map((item, i) => (
-                <div
-                  key={i}
-                  className="feature-card-modern"
-                  data-aos="fade-up"
-                  data-aos-delay={i * 80}
-                >
+                <div key={i} className="feature-card-modern">
                   <span className="feature-icon-dot" />
                   <p className="feature-text">{item}</p>
                 </div>

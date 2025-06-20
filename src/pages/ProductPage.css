@@ -700,6 +700,7 @@
   width: 100%;
   display: flex;
   justify-content: center;
+  margin-bottom: 10px;
 }
 
 .filter-search-input {
@@ -747,6 +748,7 @@
 }
 
 .dropdown-content {
+  margin-top: 10px;
   width: 90%;
   max-height: 0;
   transition: max-height 0.4s ease, opacity 0.3s ease;
