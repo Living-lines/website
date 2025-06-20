@@ -62,7 +62,6 @@ body {
 
 
 
-/* Search Bar */
 #search-bar-container {
   display: flex;
   justify-content: flex-end;
@@ -119,7 +118,6 @@ body {
 
 
 
-/* Navigation Buttons */
 .main-nav {
   display: flex;
   justify-content: center;
@@ -173,7 +171,6 @@ body {
   color: white;
 }
 
-/* Hamburger Icon */
 .hamburger {
   display: none;
   font-size: 32px;
@@ -189,7 +186,6 @@ body {
 
 
 
-/* WhatsApp Button */
 .whatsapp-float {
   position: fixed;
   width: 60px;
@@ -230,7 +226,6 @@ body {
 
 
 
-/* Tablet View */
 @media (max-width: 1024px) {
   
 
@@ -312,7 +307,6 @@ body {
 }
 
 
-/* Mobile View*/
 @media (max-width: 768px) {
   .header {
     flex-direction: column;
@@ -419,11 +413,21 @@ body {
   }
 }
 
+@media (max-width: 400px) {
+  .logo {
+    height: 65px;
+  }
+}
 
-/* Extra Small Devices: max-width 480px */
+@media (max-width: 1000px) {
+  .logo {
+    height: 90px;
+  }
+}
+
 @media (max-width: 480px) {
   .logo {
-    height: 50px;
+    height: 80px;
   }
 
   .input1 {
@@ -467,8 +471,16 @@ body {
 
 @media (max-width: 480px) {
   .trademark-symbol {
-    font-size: 14px;
-    right: 120px;
-    top: -2px; 
+    font-size: 18px;
+    right: 30%;
+    top: 0%; 
+  }
+
+}
+  @media (max-width: 400px) {
+  .trademark-symbol {
+    font-size: 18px;
+    right: 23%;
+    top: 0%; 
   }
 }

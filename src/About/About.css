@@ -1669,11 +1669,69 @@
   .value-card-title {
     font-size: 1.2rem;
   }
+  .value-cards{
+    padding: 65px;
+    margin-top: -3px;
+  }
 
   .value-card-text {
     font-size: 0.95rem;
   }
+    .value-description {
+    width: 100%;
+    max-width: 300px;
+    font-size: 0.87rem;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .value-section {
+  padding: 20px !important;
+  background: black;
+  color: #fff;
+  font-family: 'Outfit', sans-serif;
+  text-align: center;
 }
+.about-horizontal-wrapper {
+  width: 100%;
+  background-color: #f9f9f9;
+  text-align: center;
+  margin-top: 90px;
+}
+
+}
+@media screen and (max-width: 360px) {
+  .value-description {
+    width: 100%;
+    font-size: 0.75rem;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .value-section {
+  padding: 20px ;
+  background: black;
+  color: #fff;
+  font-family: 'Outfit', sans-serif;
+  text-align: center;
+  margin: 0 auto;
+}
+ .value-cards{
+    padding: 40px;
+    margin-top: -3px;
+  }
+
+  .value-card-text {
+    font-size: 0.95rem;
+  }
+    .value-description {
+    width: 100%;
+    max-width: 300px;
+    font-size: 0.87rem;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+}
+
 
 
 /* ...existing code... */
