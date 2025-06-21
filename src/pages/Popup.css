@@ -232,3 +232,55 @@
     color: #f26624;
   }
 }
+
+@media screen and (max-width: 450px) {
+  .popup-overlay {
+    position: fixed;
+    top: 20%;
+    margin-left: -15px;
+    margin-right: 50px;
+    width: 100vw;
+    height: auto;
+    background: rgba(0, 0, 0, 0.55);
+   
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+  }
+}
+
+
+.add-to-cart-btn-ganesh {
+  background-color: #ff6f00;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+  display: block;
+  width: 100%;
+  max-width: 250px;
+  margin: 0px auto;
+  text-align: center;
+}
+
+.add-to-cart-btn-ganesh:hover {
+  background-color: #ff8f00;
+  transform: translateY(-4px);
+}
+
+.add-to-cart-btn-ganesh:active {
+  background-color: #e65c00;
+  transform: translateY(0);
+}
+
+@media (max-width: 450px) {
+  .add-to-cart-btn-ganesh {
+    font-size: 14px;
+    padding: 10px 20px;
+    max-width: 200px;
+  }
+}

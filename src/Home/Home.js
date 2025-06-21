@@ -162,11 +162,11 @@ function Home() {
   }, []);
 
   const featureItems = [
-    "Sanitary", "Faucets", "Shower Panels", "Sinks", "Tiles & Adhesives",
-    "Electricals", "Lights", "Chandeliers", "Switches",
-    "Fans", "Pipes", "Pumps & Motors", "Accessories",
-    "Mirrors & Vanities", "Paints", "Furniture", "Interior Decors", "Artifacts", "Plumbing"
-  ];
+  "Pumps and Motors","Plumbing","Sanitary","Faucets","Bath Tubs","Shower panels","Sinks","Tiles and Adhesives","Electrical","LED Lights",
+  "Chandeliers","Switches","Fans","Bath Accessories","Mirrors and Vanities",
+  "Paints","Plywood","Furniture","Interior decors","Artifacts"
+];
+
 
 
 

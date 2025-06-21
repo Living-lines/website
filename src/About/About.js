@@ -89,7 +89,7 @@ const AboutUs = () => {
           }, {
             icon: <FaBullseye style={{ fontSize: "2.2rem", color: "#ff6000" }} />,
             title: "Mission",
-            text: "To be the most trusted showroom which excels in customer service and builds complete home solutions."
+            text: "To act as the most trusted showroom which excels in customer service and builds complete home solutions."
           }].map((card, i) => (
             <motion.div
               key={i}

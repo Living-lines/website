@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './Popup.css';
 
-const Popup = ({ product, onClose, onRequestQuote, isLoading, quoteStatus }) => {
+{/*const Popup = ({ product, onClose, onRequestQuote, isLoading, quoteStatus }) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
@@ -63,7 +63,6 @@ const Popup = ({ product, onClose, onRequestQuote, isLoading, quoteStatus }) => 
         <p><strong>Brand:</strong> {product?.brand}</p>
         <p><strong>Type:</strong> {product?.product_type}</p>
 
-        {/* Form section */}
         {!isSubmitting && !showSuccessMessage ? (
           <div>
             <div className="form-group">
@@ -107,7 +106,6 @@ const Popup = ({ product, onClose, onRequestQuote, isLoading, quoteStatus }) => 
           </div>
         ) : null}
 
-        {/* Show loading spinner */}
         {isSubmitting && (
           <div className="loading-spinner">
             <div className="spinner"></div>
@@ -115,7 +113,6 @@ const Popup = ({ product, onClose, onRequestQuote, isLoading, quoteStatus }) => 
           </div>
         )}
 
-        {/* Show success message after submission */}
         {showSuccessMessage && !isSubmitting && (
           <p className="quote-status">We will contact you soon!</p>
         )}
@@ -123,5 +120,29 @@ const Popup = ({ product, onClose, onRequestQuote, isLoading, quoteStatus }) => 
     </div>
   );
 };
+*/}
+
+const Popup = ({ product, onClose, onRequestQuote, isLoading, quoteStatus }) => {
+
+  const handleAddToCart = () => {
+    onRequestQuote(product); 
+  };
+
+  return (
+    <div className="popup-overlay">
+      <div className="popup-content">
+        <button className="close-btn" onClick={onClose}>X</button>
+        <h2 className="popup-product-name">{product?.model_name}</h2>
+        <img src={product?.image_url} alt={product?.model_name} className="popup-img" />
+        <p><strong>Brand:</strong> {product?.brand}</p>
+        <p><strong>Type:</strong> {product?.product_type}</p>
+
+        <button className="add-to-cart-btn-ganesh" onClick={handleAddToCart}>Add to Cart</button>
+      </div>
+    </div>
+  );
+};
+
+
 
 export default Popup;

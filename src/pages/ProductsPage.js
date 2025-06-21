@@ -4,11 +4,7 @@ import React, { useState, useEffect } from 'react';
 import './ProductPage.css';
 import Popup from './Popup';
 import { useLocation, useNavigate } from 'react-router-dom';
-/*import cartSymbol from '../assets/cart-symbol.jpg'; */
-/*import cartSymbol from '../assets/cart-symbol1.png'; */
-/*import cartSymbol from '../assets/cart-symbol2.png'; */
-import cartSymbol from '../assets/cart-symbol3.png';
-
+import cartSymbol from '../assets/final-cart.png';
 
 const API_BASE = 'https://backend-tawny-one-62.vercel.app';
 
@@ -35,6 +31,7 @@ const ProductPager = () => {
       });
     }
     localStorage.setItem('cartItems', JSON.stringify(currentCart));
+    setShowPopup(false);
     setAddedToCartMessage(`${prod.model_name} added to cart!`);
     setTimeout(() => setAddedToCartMessage(''), 2000);
   };
@@ -47,8 +44,8 @@ const ProductPager = () => {
   const [displayProducts, setDisplayProducts] = useState([]);
   const [availableBrands, setAvailableBrands] = useState([]);
   const [availableTypes, setAvailableTypes] = useState([]);
-  const [selectedBrand, setSelectedBrand] = useState(initialBrand);
-  const [selectedType, setSelectedType] = useState(initialType);
+  const [selectedBrands, setSelectedBrands] = useState([]);
+  const [selectedTypes, setSelectedTypes] = useState([]);
   const [searchText, setSearchText] = useState(initialSearch);
   const [showBrandDropdown, setShowBrandDropdown] = useState(false);
   const [showTypeDropdown, setShowTypeDropdown] = useState(false);
@@ -61,15 +58,17 @@ const ProductPager = () => {
     setSearchText(p.get('search') || '');
   }, [location.search]);
 
-  const filterProducts = (products, keyword) => {
+  const filterProducts = (products, selectedBrands, selectedTypes, keyword) => {
     const q = keyword.toLowerCase();
     return products.filter(p =>
-      (p.brand && p.brand.toLowerCase().includes(q)) ||
+      (selectedBrands.length === 0 || selectedBrands.includes(p.brand)) &&
+      (selectedTypes.length === 0 || selectedTypes.includes(p.product_type)) &&
+      ((p.brand && p.brand.toLowerCase().includes(q)) ||
       (p.product_type && p.product_type.toLowerCase().includes(q)) ||
       (p.model_name && p.model_name.toLowerCase().includes(q)) ||
       (p.description && p.description.toLowerCase().includes(q)) ||
       (p.category && p.category.toLowerCase().includes(q)) ||
-      (p.title && p.title.toLowerCase().includes(q))
+      (p.title && p.title.toLowerCase().includes(q)))
     );
   };
 
@@ -80,7 +79,7 @@ const ProductPager = () => {
         setDynamicProducts(data);
         setAvailableBrands([...new Set(data.map(p => p.brand).filter(Boolean))]);
         setAvailableTypes([...new Set(data.map(p => p.product_type).filter(Boolean))]);
-        setDisplayProducts(initialSearch ? filterProducts(data, initialSearch) : data);
+        setDisplayProducts(initialSearch ? filterProducts(data, selectedBrands, selectedTypes, initialSearch) : data);
         setIsLoading(false);
       })
       .catch(err => {
@@ -92,45 +91,36 @@ const ProductPager = () => {
   useEffect(() => {
     const qs = new URLSearchParams();
     if (searchText) qs.set('search', searchText);
-    if (selectedBrand) qs.set('brand', selectedBrand);
-    if (selectedType) qs.set('type', selectedType);
+    if (selectedBrands.length > 0) qs.set('brand', selectedBrands.join(','));
+    if (selectedTypes.length > 0) qs.set('type', selectedTypes.join(','));
     navigate(`/products?${qs.toString()}`, { replace: true });
-  }, [searchText, selectedBrand, selectedType, navigate]);
+  }, [searchText, selectedBrands, selectedTypes, navigate]);
 
   useEffect(() => {
     setIsLoading(true);
-    const qs = new URLSearchParams();
-    if (selectedBrand) qs.set('brand', selectedBrand);
-    if (selectedType) qs.set('product_type', selectedType);
-
-    fetch(`${API_BASE}/api/products?${qs.toString()}`)
-      .then(res => res.json())
-      .then(data => {
-        setDynamicProducts(data);
-        setDisplayProducts(searchText ? filterProducts(data, searchText) : data);
-        setIsLoading(false);
-      })
-      .catch(err => {
-        console.error('❌ Fetch products error:', err);
-        setIsLoading(false);
-      });
-  }, [selectedBrand, selectedType, searchText]);
+    const filteredProducts = filterProducts(dynamicProducts, selectedBrands, selectedTypes, searchText);
+    setDisplayProducts(filteredProducts);
+    setIsLoading(false);
+  }, [selectedBrands, selectedTypes, searchText, dynamicProducts]);
 
   useEffect(() => {
-    setDisplayProducts(searchText ? filterProducts(dynamicProducts, searchText) : dynamicProducts);
+    setDisplayProducts(searchText ? filterProducts(dynamicProducts, selectedBrands, selectedTypes, searchText) : dynamicProducts);
   }, [searchText, dynamicProducts]);
 
-  // Modified handlers to allow unchecking radio buttons
   const handleBrandSelect = brand => {
-    setSelectedBrand(prev => (prev === brand ? '' : brand));
-    // Don't close dropdown so user can unselect
-    // setShowBrandDropdown(false);
+    setSelectedBrands(prevSelected =>
+      prevSelected.includes(brand)
+        ? prevSelected.filter(b => b !== brand)
+        : [...prevSelected, brand]
+    );
   };
 
   const handleTypeSelect = type => {
-    setSelectedType(prev => (prev === type ? '' : type));
-    // Don't close dropdown so user can unselect
-    // setShowTypeDropdown(false);
+    setSelectedTypes(prevSelected =>
+      prevSelected.includes(type)
+        ? prevSelected.filter(t => t !== type)
+        : [...prevSelected, type]
+    );
   };
 
   const handleImageClick = prod => {
@@ -146,7 +136,6 @@ const ProductPager = () => {
   return (
     <div className="products-pager">
       <div className="filters-container">
-        {/* Search Bar */}
         <div className="filter-search">
           <div className="search-input-wrapper">
             <input
@@ -165,7 +154,7 @@ const ProductPager = () => {
         {/* Brand Dropdown */}
         <div className="filter-dropdown brand-dropdown">
           <button className="dropdown-toggle" onClick={() => setShowBrandDropdown(v => !v)}>
-            Brand {selectedBrand && `: ${selectedBrand}`}
+            Brand {selectedBrands.length > 0 && `: ${selectedBrands.join(', ')}`}
             <FontAwesomeIcon icon={showBrandDropdown ? faChevronUp : faChevronDown} className="arrow-icon" />
           </button>
           <div className={`dropdown-content ${showBrandDropdown ? 'show' : ''}`}>
@@ -174,12 +163,8 @@ const ProductPager = () => {
                 <li key={b}>
                   <label>
                     <input
-                      type="radio"
-                      name="brand"
-                      checked={selectedBrand === b}
-                      onClick={() => {
-                        if (selectedBrand === b) setSelectedBrand('');
-                      }}
+                      type="checkbox"
+                      checked={selectedBrands.includes(b)}
                       onChange={() => handleBrandSelect(b)}
                     /> {b}
                   </label>
@@ -192,7 +177,7 @@ const ProductPager = () => {
         {/* Type Dropdown */}
         <div className="filter-dropdown type-dropdown">
           <button className="dropdown-toggle" onClick={() => setShowTypeDropdown(v => !v)}>
-            Type {selectedType && `: ${selectedType}`}
+            Type {selectedTypes.length > 0 && `: ${selectedTypes.join(', ')}`}
             <FontAwesomeIcon icon={showTypeDropdown ? faChevronUp : faChevronDown} className="arrow-icon" />
           </button>
           <div className={`dropdown-content ${showTypeDropdown ? 'show' : ''}`}>
@@ -201,12 +186,8 @@ const ProductPager = () => {
                 <li key={t}>
                   <label>
                     <input
-                      type="radio"
-                      name="type"
-                      checked={selectedType === t}
-                      onClick={() => {
-                        if (selectedType === t) setSelectedType('');
-                      }}
+                      type="checkbox"
+                      checked={selectedTypes.includes(t)}
                       onChange={() => handleTypeSelect(t)}
                     /> {t}
                   </label>
@@ -232,16 +213,14 @@ const ProductPager = () => {
                   <div className="product-image-container">
                     <img src={prod.image_url} alt={prod.model_name} className="product-img" />
                   </div>
-                  <div className='product-info-container'>
+                  <div className="product-info-container">
                     <div className="product-info">
                       <h4>{prod.model_name}</h4>
                       <p>{prod.brand} — {prod.product_type}</p>
                     </div>
                     <div className="cart-icon-container" onClick={(e) => { e.stopPropagation(); handleAddToCart(prod); }}>
                       <div className="cart-with-plus">
-                        <FontAwesomeIcon icon={faShoppingCart} className="cart-icon" />
-                        <FontAwesomeIcon icon={faPlusCircle} className="plus-icon" /> 
-                        {/*<img src={cartSymbol} alt="Add to Cart" className="cart-image" /> */}
+                        <img src={cartSymbol} alt="Add to Cart" className="cart-image" />
                       </div>
                     </div>
                   </div>
@@ -253,7 +232,7 @@ const ProductPager = () => {
           <p className="no-results">No products found.</p>
         )}
 
-        {showPopup && <Popup product={selectedProduct} onClose={handleClosePopup} />}
+        {showPopup && <Popup product={selectedProduct} onClose={handleClosePopup} onRequestQuote={handleAddToCart} />}
 
         {addedToCartMessage && (
           <div className="add-to-cart-popup">

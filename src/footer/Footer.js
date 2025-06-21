@@ -14,7 +14,6 @@ const Footer = () => {
   const [errorMessage, setErrorMessage] = useState('');
   const [openSection, setOpenSection] = useState(null);
 
-
   const handleNavigation = (path) => {
     navigate(path);
     window.scrollTo(0, 0);
@@ -55,6 +54,16 @@ const Footer = () => {
     }
   };
 
+  const handleCopyAndDial = (number) => {
+    // Copy the number to the clipboard
+    navigator.clipboard.writeText(number).then(() => {
+      // Open the dialer with the phone number
+      window.location.href = `tel:${number}`;
+    }).catch(err => {
+      console.error('Failed to copy text: ', err);
+    });
+  };
+
   return (
     <footer className="footer">
       {successMessage && (
@@ -84,7 +93,10 @@ const Footer = () => {
               <h3 className='showroom-city'>{loc.city}</h3>
               <div className='extra-space'>
                 <p><i className="fas fa-envelope mail-icon" /> info@livinglines.in</p>
-                <p><i className="fas fa-phone social-icon" /> {loc.phone}</p>
+                <p>
+                  <i className="fas fa-phone social-icon" />
+                  <a href={`tel:${loc.phone}`} onClick={() => handleCopyAndDial(loc.phone)} className="footer-contact-link">{loc.phone}</a>
+                </p>
               </div>
             </div>
           ))}
@@ -114,55 +126,6 @@ const Footer = () => {
           )}
         </div>
       </div>
-
-      {/* <div className="footer-columns">
-        <div className="footer-left-column">
-          <h2>Living Lines</h2>
-          <div className="location-hours">
-            {['Vizianagaram', 'Visakhapatnam', 'Madhurawada'].map((city, idx) => (
-              <React.Fragment key={city}>
-                <h3 style={{ marginTop: idx === 0 ? '0' : '3rem' }}>{city}</h3>
-                <p>Monday - Saturday : 9:00 AM to 9:00 PM</p>
-              </React.Fragment>
-            ))}
-            <p style={{ marginTop: '3rem', color: '#ccc' }}>We are closed on public Holidays.</p>
-          </div>
-        </div>
-
-        <div className="footer-middle-column">
-          <h2 className="extra-title">Navigate</h2>
-          <div className="navigate-table">
-            {['/', '/about', '/products', '/catalogs', '/brands', '/contact'].map((path, i) => (
-              <button key={path} onClick={() => handleNavigation(path)} className="footer-link">
-                {['Home', 'About', 'Products', 'Catalogs', 'Brands', 'Contact'][i]}
-              </button>
-            ))}
-          </div>
-        </div>
-
-        <div className="footer-right-column">
-          <h2 className="extra-title">Contact</h2><br />
-          <p>
-            <i className="fas fa-phone social-icon" />
-            <a href="tel:08912514792" className="footer-contact-link">08912514792</a>
-          </p>
-          <p>
-            <i className="fas fa-envelope mail-icon" />
-            <a href="mailto:saibalajimarketing@gmail.com" className="footer-contact-link" target="_blank" rel="noopener noreferrer">
-              saibalajimarketing@gmail.com
-            </a>
-          </p>
-
-          <h2 className="extra-title" style={{ marginTop: '3.5rem' }}>Social Media</h2>
-          <div className="footer-social-icons">
-            {['instagram', 'twitter', 'facebook'].map((platform) => (
-              <a key={platform} href={`https://www.${platform}.com/livinglines`} target="_blank" rel="noopener noreferrer" aria-label={platform}>
-                <i className={`fab fa-${platform} social-icon`} />
-              </a>
-            ))}
-          </div>
-        </div>
-      </div> */}
 
       <div className="footer-columns">
         {/* Left Column */}
@@ -208,7 +171,7 @@ const Footer = () => {
           <div className="footer-column-content">
             <p>
               <i className="fas fa-phone social-icon" />
-              <a href="tel:08912514792" className="footer-contact-link">08912514792</a>
+              <a href="tel:08912514792" onClick={() => handleCopyAndDial('08912514792')} className="footer-contact-link">08912514792</a>
             </p>
             <p>
               <i className="fas fa-envelope mail-icon" />
@@ -217,13 +180,6 @@ const Footer = () => {
               </a>
             </p>
             <h2 className="extra-title" style={{ marginTop: '3.5rem' }}>Social Media</h2>
-            {/*<div className="footer-social-icons">
-              {['instagram', 'twitter', 'facebook'].map((platform) => (
-                <a key={platform} href={`https://www.${platform}.com/livinglines`} target="_blank" rel="noopener noreferrer" aria-label={platform}>
-                  <i className={`fab fa-${platform} social-icon`} />
-                </a>
-              ))}
-            </div>*/}
             <div className="footer-social-icons">
               <a href="https://www.instagram.com/livinglinesofficial?igsh=MWpqajd0d21qc3VvdA==" target="_blank" rel="noopener noreferrer" aria-label="instagram">
                 <i className="fab fa-instagram social-icon" />
@@ -237,12 +193,9 @@ const Footer = () => {
                 <i className="fab fa-facebook social-icon" />
               </a>
             </div>
-
           </div>
         </div>
       </div>
-
-
 
       <div className="footer-bottom">
         <hr className="footer-divider" />
