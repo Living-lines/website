@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import location1 from '../assets/location_1.jpg';
 import location2 from '../assets/location_2.jpg';
 import location3 from '../assets/location_3.jpg';
-import logoImage from '../../src/assets/logo.jpg';
+import logoImage from '../../src/assets/logo3.png';
 import './Footer.css';
 
 const Footer = () => {

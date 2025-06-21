@@ -480,11 +480,9 @@
 }
 
 .info-card {
-  background: #fdf6f0;
+  background: white;
   border-radius: 0px;
   padding: 25px 20px;
-  box-shadow: 0 6px 20px rgba(242, 102, 36, 0.12);
-  transition: box-shadow 0.3s ease;
   cursor: default;
   flex: 1 1 200px;
   max-width: 400px;
@@ -618,7 +616,7 @@
 
 
 .connect-us-card {
-  background: #fdf6f0;
+  background: white;
   padding: 25px 20px;
   border-radius: 0px;
   box-shadow: 0 6px 20px rgba(242, 102, 36, 0.12);

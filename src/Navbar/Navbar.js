@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate, Link, useLocation } from 'react-router-dom';
 import './Navbar.css';
-import logoImage from '../../src/assets/logo.jpg';
+import logoImage from '../../src/assets/logo3.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import LoginModal from '../Login/LoginModal';
@@ -84,7 +84,7 @@ function Navbar() {
               <div className="logo-section">
                 <Link to="/" onClick={() => setIsMobileMenuOpen(false)}>
                   <img src={logoImage} className="logo" alt="LivingLines Logo" />
-                  <span className="trademark-symbol">®</span>
+                  {/*<span className="trademark-symbol">®</span> */}
                 </Link>
               </div>
 

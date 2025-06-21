@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import './ProductPage.css';
 import Popup from './Popup';
 import { useLocation, useNavigate } from 'react-router-dom';
-import cartSymbol from '../assets/final-cart.png';
+import cartSymbol from '../assets/final-cart1.png';
 
 const API_BASE = 'https://backend-tawny-one-62.vercel.app';
 
@@ -220,6 +220,8 @@ const ProductPager = () => {
                     </div>
                     <div className="cart-icon-container" onClick={(e) => { e.stopPropagation(); handleAddToCart(prod); }}>
                       <div className="cart-with-plus">
+                        {/*<FontAwesomeIcon icon={faShoppingCart} className="cart-icon" />
+                        <FontAwesomeIcon icon={faPlusCircle} className="plus-icon" /> */} 
                         <img src={cartSymbol} alt="Add to Cart" className="cart-image" />
                       </div>
                     </div>

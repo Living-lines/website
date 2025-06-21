@@ -70,6 +70,7 @@ function Home() {
 
 
   useEffect(() => {
+
     const heroEl = document.getElementById('heroSection');
     if (!heroEl || !('IntersectionObserver' in window)) return;
     const observer = new IntersectionObserver(entries => {
@@ -158,14 +159,35 @@ function Home() {
   }, []);  */}
 
   useEffect(() => {
-   /* AOS.init({ duration: 800, once: true, offset: 60 });  */
+    /* AOS.init({ duration: 800, once: true, offset: 60 });  */
   }, []);
 
   const featureItems = [
-  "Pumps and Motors","Plumbing","Sanitary","Faucets","Bath Tubs","Shower panels","Sinks","Tiles and Adhesives","Electrical","LED Lights",
-  "Chandeliers","Switches","Fans","Bath Accessories","Mirrors and Vanities",
-  "Paints","Plywood","Furniture","Interior decors","Artifacts"
-];
+    "Pumps and Motors", "Plumbing", "Sanitary", "Faucets", "Bath Tubs", "Shower panels",
+    "Sinks", "Tiles and Adhesives", "Electrical", "LED Lights", "Chandeliers", "Switches",
+    "Fans", "Bath Accessories", "Mirrors and Vanities", "Paints", "Plywood", "Furniture",
+    "Interior decors", "Artifacts", "Geysers"
+  ];
+  const [numCols, setNumCols] = useState(window.innerWidth >= 1024 ? 3 : 2);
+
+  useEffect(() => {
+    function handleResize() {
+      setNumCols(window.innerWidth >= 1024 ? 3 : 2);
+    }
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const totalItems = featureItems.length;
+  const rowsPerCol = Math.ceil(totalItems / numCols);
+
+  const columns = Array.from({ length: numCols }, (_, colIndex) => {
+    const start = colIndex * rowsPerCol;
+    const end = start + rowsPerCol;
+    return featureItems.slice(start, end);
+  });
+
+
 
 
 
@@ -298,14 +320,21 @@ function Home() {
               Everything You Desire<br />Under One Roof
             </h1>
             <div className="feature-grid-modern">
-              {featureItems.map((item, i) => (
-                <div key={i} className="feature-card-modern">
-                  <span className="feature-icon-dot" />
-                  <p className="feature-text">{item}</p>
+              {columns.map((colItems, colIndex) => (
+                <div key={colIndex} className="feature-column">
+                  {colItems.map((item, i) => (
+                    <div key={i} className="feature-card-modern">
+                      <span className="feature-icon-dot" />
+                      <p className="feature-text">{item}</p>
+                    </div>
+                  ))}
                 </div>
               ))}
+
             </div>
           </div>
+
+
 
 
         </section>
