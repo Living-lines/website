@@ -697,10 +697,11 @@
 
 /* Search Bar */
 .filter-search {
+  margin-top: 10px;
   width: 100%;
   display: flex;
   justify-content: center;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 .filter-search-input {
@@ -748,7 +749,7 @@
 }
 
 .dropdown-content {
-  margin-top: 10px;
+  margin-top: 20px;
   width: 90%;
   max-height: 0;
   transition: max-height 0.4s ease, opacity 0.3s ease;
