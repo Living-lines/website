@@ -320,13 +320,18 @@
     overflow-x: hidden;
   }
 }
-
+@media (max-width: 360px) {
+  .contact-container{
+    margin-top: 80px !important;
+  }
+}
 @media (max-width: 480px) {
   .location-section .swiper-pagination {
   margin-top: 18px !important;
   z-index: 10;
 }
   .contact-container {
+    margin-top: 80px !important;
     flex-direction: column;
     gap: 20px;
   }
