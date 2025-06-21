@@ -166,7 +166,7 @@ function Home() {
     "Pumps and Motors", "Plumbing", "Sanitary", "Faucets", "Bath Tubs", "Shower panels",
     "Sinks", "Tiles and Adhesives", "Electrical", "LED Lights", "Chandeliers", "Switches",
     "Fans", "Bath Accessories", "Mirrors and Vanities", "Paints", "Plywood", "Furniture",
-    "Interior decors", "Artifacts", "Geysers"
+    "Interior decors", "Artifacts", "Geysers & Purifiers"
   ];
   const [numCols, setNumCols] = useState(window.innerWidth >= 1024 ? 3 : 2);
 

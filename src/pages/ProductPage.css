@@ -321,6 +321,7 @@
   padding: 10px;
 }
 .cart-image {
+  margin-top: 6px;
   width: 25px; 
   height: 25px;
   cursor: pointer;
