@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/autoplay";
-import "./brand.css"; // Import CSS file
+import "./brand.css"; 
 
 // Commented out local image address
 // import gessi from "../assets/gessi.png";
@@ -130,22 +130,65 @@ const brands = [
     name: 'kuka logo.png',
     url: 'https://livinglineswebbucket.blr1.digitaloceanspaces.com/public/kuka%20logo.png'
   },
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
+
+
+
+
+
 ];
 
 const BrandCarousel = () => {
+  const [autoplayDirection, setAutoplayDirection] = useState("next"); 
+  const [isHovered, setIsHovered] = useState(false);
+  const [isDragging, setIsDragging] = useState(false); 
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+  };
+
+  const handleWheel = (event) => {
+    if (event.deltaY > 0) {
+      setAutoplayDirection("next"); 
+    } else {
+      setAutoplayDirection("prev"); 
+    }
+  };
+
+  const handleTouchStart = (event) => {
+    setIsDragging(true);
+  };
+
+  const handleTouchEnd = (event) => {
+    if (isDragging) {
+      const touchEndX = event.changedTouches[0].pageX;
+      const touchStartX = event.touches[0]?.pageX || 0;
+      if (touchEndX > touchStartX) {
+        setAutoplayDirection("prev");
+      } else {
+        setAutoplayDirection("next");
+      }
+      setIsDragging(false);
+    }
+  };
+
   return (
-    <div className="carousel-container">
+    <div
+      className="carousel-container"
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      onWheel={handleWheel}
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
+    >
       <h1 className="products-heading">
         Our Premium Brands <span className="underline"></span>
       </h1>
@@ -153,7 +196,11 @@ const BrandCarousel = () => {
         modules={[Autoplay]}
         spaceBetween={20}
         slidesPerView={3}
-        autoplay={{ delay: 2000 }}
+        autoplay={{
+          delay: 2000,
+          disableOnInteraction: false,
+          reverseDirection: autoplayDirection === "prev", 
+        }}
         loop={true}
         breakpoints={{
           640: { slidesPerView: 2 },
@@ -167,7 +214,8 @@ const BrandCarousel = () => {
               <img src={brand.url} alt={brand.name} className="brand-logo" />
             </div>
           </SwiperSlide>
-        ))}{brands.map((brand, index) => (
+        ))}
+        {brands.map((brand, index) => (
           <SwiperSlide key={index} className="swiper-slide">
             <div className="logo-container">
               <img src={brand.url} alt={brand.name} className="brand-logo" />
