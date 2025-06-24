@@ -906,7 +906,7 @@
   height: 500px;
   position: relative;
   pointer-events: none;
-  margin-top: 230px;
+  margin-top: 270px;
 }
 
 .wrapper {
@@ -1354,6 +1354,7 @@
     grid-template-columns: repeat(3, 1fr); 
     gap: 0px;
     padding: 0 20px;
+    margin-top: -20px;
   }
 
   .feature-card-modern {
