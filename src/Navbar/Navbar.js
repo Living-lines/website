@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate, Link, useLocation } from 'react-router-dom';
 import './Navbar.css';
-import logoImage from '../../src/assets/logo3.png';
+import logoImage from '../../src/assets/final-logo.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import LoginModal from '../Login/LoginModal';

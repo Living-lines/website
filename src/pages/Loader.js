@@ -1,6 +1,6 @@
 import React from 'react';
 import './Loader.css';
-import logoImageWithoutBackground from '../../src/assets/logo-without-background.png';
+import logoImageWithoutBackground from '../../src/assets/final-logo.png';
 
 const Loader = () => (
   <div className="loader-overlay">
