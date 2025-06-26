@@ -3,6 +3,30 @@ body {
   font-family: 'Outfit', sans-serif;
 }
 
+/*.navbar-show {
+  top: 0;
+  transition: top 0.3s ease;
+  position: fixed;
+  width: 100%;
+  z-index: 999;
+}
+
+.navbar-hide {
+  top: -100px;
+  transition: top 0.3s ease;
+  position: fixed;
+  width: 100%;
+  z-index: 999;
+}
+*/
+
+.header-wrapper.navbar-show {
+  top: 0;
+}
+
+.header-wrapper.navbar-hide {
+  top: -180px;
+}
 
 .abc-emporio {
   font-family: 'Outfit', sans-serif;
@@ -12,6 +36,7 @@ body {
 }
 
 .header-wrapper {
+  width: 100%;
   position: fixed;
   top: 0;
   left: 0;

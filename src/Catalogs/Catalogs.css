@@ -5,6 +5,15 @@
     margin-top: 140px;
   }
 
+  .products-heading {
+  font-size: 2.5rem;
+  color: #f26624;
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  align-items: center;
+}
+
 
   .brand-card1:hover
   .catalogs-heading {

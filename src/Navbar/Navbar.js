@@ -6,22 +6,19 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import LoginModal from '../Login/LoginModal';
 import whatsappIcon from '../assets/whatsapp.png';
-import cartIcon from '../assets/cart1.png';
 
 function Navbar() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [showLoader, setShowLoader] = useState(false);
+  const [showNavbar, setShowNavbar] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
   const navigate = useNavigate();
   const location = useLocation();
   const navRef = useRef(null);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
-      /*if (navRef.current && !navRef.current.contains(event.target)) {
-        setIsMobileMenuOpen(false);
-      } */
       if (
         navRef.current &&
         !navRef.current.contains(event.target) &&
@@ -29,7 +26,6 @@ function Navbar() {
       ) {
         setIsMobileMenuOpen(false);
       }
-
     };
     if (isMobileMenuOpen) {
       document.addEventListener('mousedown', handleClickOutside);
@@ -48,6 +44,20 @@ function Navbar() {
   useEffect(() => {
     document.body.style.overflow = isMobileMenuOpen ? 'hidden' : 'auto';
   }, [isMobileMenuOpen]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        setShowNavbar(false);
+      } else {
+        setShowNavbar(true);
+      }
+      setLastScrollY(currentScrollY);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [lastScrollY]);
 
   const handleSearchSubmit = (event) => {
     event.preventDefault();
@@ -69,25 +79,20 @@ function Navbar() {
     { label: 'BRANDS', path: '/brands' },
     { label: 'CATALOGS', path: '/catalogs' },
     { label: 'CONTACT', path: '/contact' },
-    /* cart symbol ikkada add chasa after force push */
-    { label: <FontAwesomeIcon icon={faShoppingCart} />, path: '/cart'  },
-    /*{ label: <img src={cartIcon} alt="Cart" style={{ width: '24px', height: '24px', color: 'white' }} />, path: '/cart' }*/
-
+    { label: <FontAwesomeIcon icon={faShoppingCart} />, path: '/cart' }
   ];
 
   return (
     <div>
       <div className="abc-emporio">
-        <div className="header-wrapper">
+        <div className={`header-wrapper ${showNavbar ? 'navbar-show' : 'navbar-hide'}`}>
           <header className="header">
             <div className="top-row">
               <div className="logo-section">
                 <Link to="/" onClick={() => setIsMobileMenuOpen(false)}>
                   <img src={logoImage} className="logo" alt="LivingLines Logo" />
-                  {/*<span className="trademark-symbol">®</span> */}
                 </Link>
               </div>
-
               <div id="search-bar-container">
                 <form onSubmit={handleSearchSubmit} className="search-wrapper">
                   <input
@@ -102,7 +107,6 @@ function Navbar() {
                   )}
                 </form>
               </div>
-
               <div className="hamburger" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
                 {isMobileMenuOpen ? '×' : '☰'}
               </div>
@@ -136,7 +140,6 @@ function Navbar() {
         </a>
       </div>
     </div>
-
   );
 }
 
