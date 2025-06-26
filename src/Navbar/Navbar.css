@@ -44,6 +44,7 @@ body {
   z-index: 1000;
   background-color: black;
   box-sizing: border-box;
+  transition: top 0.3s ease;
 }
 
 .header {
