@@ -30,6 +30,7 @@
   flex-direction: column;
   align-items: center;
   margin-bottom: 20px;
+  width: 100%;
 }
 
 .showroom-title {
@@ -42,7 +43,7 @@
 .showroom-table {
   display: flex;
   justify-content: space-between;
-  gap: 3rem;
+  gap: 4rem !important;
   width: 100%;
   max-width: 1200px;
 }
@@ -307,13 +308,70 @@
     padding: 1rem;
   }
 }
+@media (max-width: 1200px) {
+  .showroom-table {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    padding: 0 1rem;
+    box-sizing: border-box;
+  }
 
+  .showroom-column {
+    flex: 1 1 calc(30% - 2rem);
+    max-width: 300px;
+    min-width: 250px;
+    margin-bottom: 1.5rem;
+    padding: 1.5rem 1rem;
+    box-sizing: border-box;
+  }
+
+  .branch-photo.large-photo {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 10px;
+    padding: 0;
+    display: block;
+  }
+}
+@media (max-width: 1400px) {
+  .showroom-table {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    padding: 0 1rem;
+    box-sizing: border-box;
+  }
+
+  .showroom-column {
+    flex: 1 1 calc(30% - 2rem);
+    max-width: 300px;
+    min-width: 250px;
+    margin-bottom: 1.5rem;
+    padding: 1.5rem 1rem;
+    box-sizing: border-box;
+  }
+
+  .branch-photo.large-photo {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 10px;
+    padding: 0;
+    display: block;
+  }
+}
 @media (max-width: 1024px) {
   .showroom-table {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 2rem;
+    gap: 1rem;
     padding: 0 1rem;
     box-sizing: border-box;
   }
@@ -794,9 +852,7 @@ body {
 @media (max-width: 768px) {
 
   .products-heading,
-  /* For "Our Showrooms" */
   .about-heading,
-  /* For "About Us" if you use this class */
   h1.products-heading,
   h1.about-heading {
     font-size: 1.4rem !important;
