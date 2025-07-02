@@ -42,10 +42,10 @@ function Navbar() {
   }, [location.pathname]);
 
   useEffect(() => {
-    document.body.style.overflow = isMobileMenuOpen ? 'hidden' : 'auto';
+    document.body.style.overflowY = isMobileMenuOpen ? 'hidden' : 'auto';
   }, [isMobileMenuOpen]);
 
-  useEffect(() => {
+  /*useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
       if (currentScrollY > lastScrollY && currentScrollY > 100) {
@@ -57,7 +57,26 @@ function Navbar() {
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [lastScrollY]);
+  }, [lastScrollY]); */
+  useEffect(() => {
+  const handleScroll = () => {
+    const currentScrollY = window.scrollY;
+
+    if (!isMobileMenuOpen) {
+      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        setShowNavbar(false);
+      } else {
+        setShowNavbar(true);
+      }
+    }
+
+    setLastScrollY(currentScrollY);
+  };
+
+  window.addEventListener('scroll', handleScroll);
+  return () => window.removeEventListener('scroll', handleScroll);
+}, [lastScrollY, isMobileMenuOpen]);
+
 
   const handleSearchSubmit = (event) => {
     event.preventDefault();
@@ -85,7 +104,9 @@ function Navbar() {
   return (
     <div>
       <div className="abc-emporio">
-        <div className={`header-wrapper ${showNavbar ? 'navbar-show' : 'navbar-hide'}`}>
+        {/*<div className={`header-wrapper ${showNavbar ? 'navbar-show' : 'navbar-hide'}`}> */}
+        <div className={`header-wrapper ${showNavbar ? 'navbar-show' : `navbar-hide ${isMobileMenuOpen ? 'mobile-visible' : 'mobile-hidden'}`}`}>
+
           <header className="header">
             <div className="top-row">
               <div className="logo-section">

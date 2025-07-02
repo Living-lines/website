@@ -52,6 +52,31 @@ const ProductPager = () => {
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [showPopup, setShowPopup] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+  const [availableTiles, setAvailableTiles] = useState([
+    'Interior Tiles',
+    'Exterior Tiles',
+    'Bathroom Tiles',
+    'Marble Tiles'
+  ]);
+  const [selectedTiles, setSelectedTiles] = useState([]);
+  const [showTileDropdown, setShowTileDropdown] = useState(false);
+
+
+
+  const handleTileSelect = tile => {
+    setSelectedTiles(prevSelected =>
+      prevSelected.includes(tile)
+        ? prevSelected.filter(t => t !== tile)
+        : [...prevSelected, tile]
+    );
+  };
+
+
+
+
+
+
+
 
   useEffect(() => {
     const p = new URLSearchParams(location.search);
@@ -64,11 +89,11 @@ const ProductPager = () => {
       (selectedBrands.length === 0 || selectedBrands.includes(p.brand)) &&
       (selectedTypes.length === 0 || selectedTypes.includes(p.product_type)) &&
       ((p.brand && p.brand.toLowerCase().includes(q)) ||
-      (p.product_type && p.product_type.toLowerCase().includes(q)) ||
-      (p.model_name && p.model_name.toLowerCase().includes(q)) ||
-      (p.description && p.description.toLowerCase().includes(q)) ||
-      (p.category && p.category.toLowerCase().includes(q)) ||
-      (p.title && p.title.toLowerCase().includes(q)))
+        (p.product_type && p.product_type.toLowerCase().includes(q)) ||
+        (p.model_name && p.model_name.toLowerCase().includes(q)) ||
+        (p.description && p.description.toLowerCase().includes(q)) ||
+        (p.category && p.category.toLowerCase().includes(q)) ||
+        (p.title && p.title.toLowerCase().includes(q)))
     );
   };
 
@@ -196,7 +221,39 @@ const ProductPager = () => {
             </ul>
           </div>
         </div>
+
+        {/* Tile Dropdown */}
+        <div className="filter-dropdown tile-dropdown">
+          <button className="dropdown-toggle" onClick={() => setShowTileDropdown(v => !v)}>
+            Tiles {selectedTiles.length > 0 && `: ${selectedTiles.join(', ')}`}
+            <FontAwesomeIcon icon={showTileDropdown ? faChevronUp : faChevronDown} className="arrow-icon" />
+          </button>
+          <div className={`dropdown-content ${showTileDropdown ? 'show' : ''}`}>
+            <ul className="dropdown-menu">
+              {availableTiles.map(tile => (
+                <li key={tile}>
+                  <label>
+                    <input
+                      type="checkbox"
+                      checked={selectedTiles.includes(tile)}
+                      onChange={() => handleTileSelect(tile)}
+                    /> {tile}
+                  </label>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
       </div>
+
+
+
+
+
+
+
+
 
       {/* Product List */}
       <div className="products-section">
@@ -221,7 +278,7 @@ const ProductPager = () => {
                     <div className="cart-icon-container" onClick={(e) => { e.stopPropagation(); handleAddToCart(prod); }}>
                       <div className="cart-with-plus">
                         {/*<FontAwesomeIcon icon={faShoppingCart} className="cart-icon" />
-                        <FontAwesomeIcon icon={faPlusCircle} className="plus-icon" /> */} 
+                        <FontAwesomeIcon icon={faPlusCircle} className="plus-icon" /> */}
                         <img src={cartSymbol} alt="Add to Cart" className="cart-image" />
                       </div>
                     </div>
