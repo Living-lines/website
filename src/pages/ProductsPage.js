@@ -7,6 +7,11 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import cartSymbol from '../assets/final-cart1.png';
 
 const API_BASE = 'https://backend-tawny-one-62.vercel.app';
+/* helper you already added near the top */
+const safeImages = p =>
+  Array.isArray(p.images) && p.images.length ? p.images
+  : p.image_url ? [p.image_url]
+  : ['/placeholder.jpg'];
 
 const ProductPager = () => {
   const location = useLocation();
@@ -32,7 +37,7 @@ const ProductPager = () => {
     }
     localStorage.setItem('cartItems', JSON.stringify(currentCart));
     setShowPopup(false);
-    setAddedToCartMessage(`${prod.model_name} added to cart!`);
+    setAddedToCartMessage(`${prod.brand} ${prod.product_type} added to cart!`);
     setTimeout(() => setAddedToCartMessage(''), 2000);
   };
 
@@ -70,13 +75,6 @@ const ProductPager = () => {
         : [...prevSelected, tile]
     );
   };
-
-
-
-
-
-
-
 
   useEffect(() => {
     const p = new URLSearchParams(location.search);
@@ -268,12 +266,11 @@ const ProductPager = () => {
               <div key={prod.id} className="product-card" onClick={() => handleImageClick(prod)}>
                 <div className="product-content">
                   <div className="product-image-container">
-                    <img src={prod.image_url} alt={prod.model_name} className="product-img" />
+                    <img src={safeImages(prod)[0]} alt={`${prod.brand} ${prod.product_type}`} className="product-img" />
                   </div>
                   <div className="product-info-container">
-                    <div className="product-info">
-                      <h4>{prod.model_name}</h4>
-                      <p>{prod.brand} — {prod.product_type}</p>
+                    <div className="product-info">                 
+                      <h4>{prod.brand} — {prod.product_type}</h4>
                     </div>
                     <div className="cart-icon-container" onClick={(e) => { e.stopPropagation(); handleAddToCart(prod); }}>
                       <div className="cart-with-plus">

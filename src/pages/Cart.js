@@ -110,8 +110,8 @@ function Cart() {
                 className="cart-item-image"
               />
               <div className="cart-item-details">
-                <h4>{item.name || 'N/A'}</h4>
-                <p>{item.brand || 'N/A'} — {item.type || 'N/A'}</p>
+                <h4>{item.type || 'N/A'}</h4>
+                <p>{item.brand || 'N/A'}</p>
               </div>
               <div className="cart-item-quantity">
                 <button onClick={() => decreaseQty(item.id)} disabled={item.quantity === 1}>−</button>

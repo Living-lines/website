@@ -3,7 +3,7 @@
   top: 80px;
   left: 0;
   width: 100vw;
-  height: 100vh;
+  height: 80vh;
   background: rgba(0, 0, 0, 0.55);
   display: flex;
   justify-content: center;
@@ -25,16 +25,32 @@
   margin: 10px 0 15px;
   color: #ffffff;
 }
+.popup-image-strip {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  padding: 20px 0;
+}
+
+.popup-image-strip::-webkit-scrollbar {
+  height: 6px;
+}
+.popup-image-strip::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 3px;
+}
+
 
 .popup-content {
   background: #000000;
-  padding: 25px 20px;
+  padding: 15px 20px;
   border-radius: 16px;
   width: 100%;
-  max-width: 440px;
+  max-width: 750px;
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
   position: relative;
-  max-height: 400px;
+  height: 100%;
+  max-height: 450px;
   overflow-y: auto;
   overflow-x: hidden;
   transition: all 0.3s ease;
@@ -171,7 +187,7 @@
   }
 
   .popup-content {
-    background: #ffffff;
+    background: #000000;
     margin-top: 20px;
     padding: 20px;
     border-radius: 16px;
