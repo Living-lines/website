@@ -91,11 +91,13 @@ const ProductPager = () => {
     setSearchText(p.get('search') || '');
   }, [location.search]);
 
-  const filterProducts = (products, selectedBrands, selectedTypes, keyword) => {
+  const filterProducts = (products, selectedBrands, selectedTypes, selectedTiles, keyword) => {
     const q = keyword.toLowerCase();
     return products.filter(p =>
       (selectedBrands.length === 0 || selectedBrands.includes(p.brand)) &&
       (selectedTypes.length === 0 || selectedTypes.includes(p.product_type)) &&
+      (selectedTiles.length === 0 || selectedTiles.includes(p.tilestype)) &&
+
       ((p.brand && p.brand.toLowerCase().includes(q)) ||
         (p.product_type && p.product_type.toLowerCase().includes(q)) ||
         (p.model_name && p.model_name.toLowerCase().includes(q)) ||
@@ -112,7 +114,7 @@ const ProductPager = () => {
         setDynamicProducts(data);
         setAvailableBrands([...new Set(data.map(p => p.brand).filter(Boolean))]);
         setAvailableTypes([...new Set(data.map(p => p.product_type).filter(Boolean))]);
-        setDisplayProducts(initialSearch ? filterProducts(data, selectedBrands, selectedTypes, initialSearch) : data);
+        setDisplayProducts(initialSearch ? filterProducts(data, selectedBrands, selectedTypes, selectedTiles,  initialSearch) : data);
         setIsLoading(false);
       })
       .catch(err => {
@@ -131,13 +133,13 @@ const ProductPager = () => {
 
   useEffect(() => {
     setIsLoading(true);
-    const filteredProducts = filterProducts(dynamicProducts, selectedBrands, selectedTypes, searchText);
+    const filteredProducts = filterProducts(dynamicProducts, selectedBrands, selectedTypes, selectedTiles, searchText);
     setDisplayProducts(filteredProducts);
     setIsLoading(false);
-  }, [selectedBrands, selectedTypes, searchText, dynamicProducts]);
+  }, [selectedBrands, selectedTypes, selectedTiles, searchText, dynamicProducts]);
 
   useEffect(() => {
-    setDisplayProducts(searchText ? filterProducts(dynamicProducts, selectedBrands, selectedTypes, searchText) : dynamicProducts);
+    setDisplayProducts(searchText ? filterProducts(dynamicProducts, selectedBrands, selectedTypes, selectedTiles, searchText) : dynamicProducts);
   }, [searchText, dynamicProducts]);
 
   const handleBrandSelect = brand => {
