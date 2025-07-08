@@ -57,12 +57,14 @@ const ProductPager = () => {
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [showPopup, setShowPopup] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
-  const [availableTiles, setAvailableTiles] = useState([
+  {/*const [availableTiles, setAvailableTiles] = useState([
     'Interior Tiles',
     'Exterior Tiles',
     'Bathroom Tiles',
     'Marble Tiles'
-  ]);
+  ]); */}
+  const [availableTiles, setAvailableTiles] = useState([]);
+
   const [selectedTiles, setSelectedTiles] = useState([]);
   const [showTileDropdown, setShowTileDropdown] = useState(false);
 
@@ -75,6 +77,14 @@ const ProductPager = () => {
         : [...prevSelected, tile]
     );
   };
+
+  useEffect(() => {
+  fetch(`${API_BASE}/api/products/tilestypes`)
+    .then(res => res.json())
+    .then(data => setAvailableTiles(Array.isArray(data) ? data : []))
+    .catch(err => console.error('❌ Failed to fetch tile types:', err));
+}, []);
+
 
   useEffect(() => {
     const p = new URLSearchParams(location.search);
