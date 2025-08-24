@@ -20,26 +20,45 @@ const ProductPager = () => {
 
   const [addedToCartMessage, setAddedToCartMessage] = useState('');
 
-  const handleAddToCart = (prod) => {
-    const currentCart = JSON.parse(localStorage.getItem('cartItems') || '[]');
-    const itemIndex = currentCart.findIndex(item => item.id === prod.id);
-    if (itemIndex >= 0) {
-      currentCart[itemIndex].quantity += 1;
-    } else {
-      currentCart.push({
-        id: prod.id,
-        name: prod.model_name,
-        brand: prod.brand,
-        type: prod.product_type,
-        image: prod.image_url,
-        quantity: 1
-      });
+// Helper to get first valid image URL from product
+const getFirstImageFromProduct = (p) => {
+  const fromArray =
+    Array.isArray(p?.images) && typeof p.images[0] === 'string' && p.images[0].trim()
+      ? p.images[0].trim()
+      : '';
+  const single = typeof p?.image_url === 'string' ? p.image_url.trim() : '';
+  return fromArray || single || '';
+};
+
+const handleAddToCart = (prod) => {
+  const currentCart = JSON.parse(localStorage.getItem('cartItems') || '[]');
+
+  const firstImage = getFirstImageFromProduct(prod);
+
+  const itemIndex = currentCart.findIndex((item) => item.id === prod.id);
+  if (itemIndex >= 0) {
+    currentCart[itemIndex].quantity += 1;
+    // Optional: update image if missing
+    if (!currentCart[itemIndex].image && firstImage) {
+      currentCart[itemIndex].image = firstImage;
     }
-    localStorage.setItem('cartItems', JSON.stringify(currentCart));
-    setShowPopup(false);
-    setAddedToCartMessage(`${prod.brand} ${prod.product_type} added to cart!`);
-    setTimeout(() => setAddedToCartMessage(''), 2000);
-  };
+  } else {
+    currentCart.push({
+      id: prod.id,
+      name: prod.model_name || prod.title || prod.product_type || 'Product',
+      brand: prod.brand,
+      type: prod.product_type,
+      image: firstImage,     // Use first image from images array or fallback
+      quantity: 1,
+    });
+  }
+
+  localStorage.setItem('cartItems', JSON.stringify(currentCart));
+  setShowPopup(false);
+  setAddedToCartMessage(`${prod.brand} ${prod.product_type} added to cart!`);
+  setTimeout(() => setAddedToCartMessage(''), 2000);
+};
+
 
   const initialSearch = params.get('search') || '';
   const initialBrand = params.get('brand') || '';

@@ -3,6 +3,38 @@ import './Cart.css';
 import Popup from './Popup';
 import MultiPopup from './MultiPopup';
 
+const PLACEHOLDER = 'https://via.placeholder.com/100';
+
+// ensure absolute URL if backend ever returns relative paths
+const toAbsolute = (url) => {
+  if (!url) return '';
+  if (/^https?:\/\//i.test(url)) return url;
+  const base =
+    (typeof window !== 'undefined' && (process.env.NEXT_PUBLIC_ASSET_HOST || window.location.origin)) ||
+    process.env.NEXT_PUBLIC_ASSET_HOST ||
+    '';
+  return url.startsWith('/') ? `${base}${url}` : `${base}/${url}`;
+};
+
+// pick the first usable image URL from the cart item
+const getFirstImageFromCartItem = (item) => {
+  // prefer the single image string saved by ProductPager
+  const single = typeof item?.image === 'string' ? item.image.trim() : '';
+
+  // keep compatibility if some items still have an images array
+  const fromArray =
+    Array.isArray(item?.images) && typeof item.images[0] === 'string'
+      ? item.images[0].trim()
+      : '';
+
+  let src = single || fromArray || '';
+  if (src && !/^https?:\/\//i.test(src)) {
+    src = toAbsolute(src);
+  }
+  return src || PLACEHOLDER;
+};
+
+
 function Cart() {
   const [cartItems, setCartItems] = useState([]);
   const hasMounted = useRef(false);
@@ -105,10 +137,16 @@ function Cart() {
           {cartItems.map(item => (
             <div key={item.id} className="cart-item">
               <img
-                src={item.image || 'https://via.placeholder.com/100'}
-                alt={item.name || 'Product'}
-                className="cart-item-image"
-              />
+  src={getFirstImageFromCartItem(item)}
+  alt={item.name || 'Product'}
+  className="cart-item-image"
+  onError={(e) => {
+    if (e.currentTarget.src !== PLACEHOLDER) {
+      e.currentTarget.src = PLACEHOLDER;
+    }
+  }}
+/>
+
               <div className="cart-item-details">
                 <h4>{item.type || 'N/A'}</h4>
                 <p>{item.brand || 'N/A'}</p>
