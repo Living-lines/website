@@ -41,7 +41,7 @@ const ProductPager = () => {
       currentCart.push({
         id: prod.id,
         name: prod.model_name || prod.title || prod.product_type || 'Product',
-        brand: prod.brand,
+        : prod.,
         type: prod.product_type,
         image: firstImage,
         quantity: 1,
@@ -269,7 +269,7 @@ const ProductPager = () => {
                   </div>
                   <div className="product-info-container">
                     <div className="product-info">
-                      <h4>{prod.brand} — {prod.model_name || ''}</h4>
+                      <h4>{prod.model_name} — {prod.brand || ''}</h4>
                       <div style={{ fontWeight: 400, fontSize: '0.9rem', textTransform: 'lowercase' }}>
                         {(prod.product_type || '').toLowerCase()}
                       </div>
