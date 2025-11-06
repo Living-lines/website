@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
+import { faChevronDown, faChevronUp, faShoppingCart, faPlusCircle } from '@fortawesome/free-solid-svg-icons';
 import React, { useState, useEffect } from 'react';
 import './ProductPage.css';
 import Popup from './Popup';
@@ -7,6 +7,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import cartSymbol from '../assets/final-cart1.png';
 
 const API_BASE = 'https://backend-tawny-one-62.vercel.app';
+/* helper you already added near the top */
 const safeImages = p =>
   Array.isArray(p.images) && p.images.length ? p.images
   : p.image_url ? [p.image_url]
@@ -19,63 +20,74 @@ const ProductPager = () => {
 
   const [addedToCartMessage, setAddedToCartMessage] = useState('');
 
-  const getFirstImageFromProduct = (p) => {
-    const fromArray =
-      Array.isArray(p?.images) && typeof p.images[0] === 'string' && p.images[0].trim()
-        ? p.images[0].trim()
-        : '';
-    const single = typeof p?.image_url === 'string' ? p.image_url.trim() : '';
-    return fromArray || single || '';
-  };
+// Helper to get first valid image URL from product
+const getFirstImageFromProduct = (p) => {
+  const fromArray =
+    Array.isArray(p?.images) && typeof p.images[0] === 'string' && p.images[0].trim()
+      ? p.images[0].trim()
+      : '';
+  const single = typeof p?.image_url === 'string' ? p.image_url.trim() : '';
+  return fromArray || single || '';
+};
 
-  const handleAddToCart = (prod) => {
-    const currentCart = JSON.parse(localStorage.getItem('cartItems') || '[]');
-    const firstImage = getFirstImageFromProduct(prod);
-    const itemIndex = currentCart.findIndex((item) => item.id === prod.id);
-    if (itemIndex >= 0) {
-      currentCart[itemIndex].quantity += 1;
-      if (!currentCart[itemIndex].image && firstImage) {
-        currentCart[itemIndex].image = firstImage;
-      }
-    } else {
-      currentCart.push({
-        id: prod.id,
-        name: prod.model_name || prod.title || prod.product_type || 'Product',
-        brand: prod.brand,
-        type: prod.product_type,
-        image: firstImage,
-        quantity: 1,
-      });
+const handleAddToCart = (prod) => {
+  const currentCart = JSON.parse(localStorage.getItem('cartItems') || '[]');
+
+  const firstImage = getFirstImageFromProduct(prod);
+
+  const itemIndex = currentCart.findIndex((item) => item.id === prod.id);
+  if (itemIndex >= 0) {
+    currentCart[itemIndex].quantity += 1;
+    // Optional: update image if missing
+    if (!currentCart[itemIndex].image && firstImage) {
+      currentCart[itemIndex].image = firstImage;
     }
-    localStorage.setItem('cartItems', JSON.stringify(currentCart));
-    setShowPopup(false);
-    setAddedToCartMessage(`${prod.brand} ${prod.product_type} added to cart!`);
-    setTimeout(() => setAddedToCartMessage(''), 2000);
-  };
+  } else {
+    currentCart.push({
+      id: prod.id,
+      name: prod.model_name || prod.title || prod.product_type || 'Product',
+      brand: prod.brand,
+      type: prod.product_type,
+      image: firstImage,     // Use first image from images array or fallback
+      quantity: 1,
+    });
+  }
+
+  localStorage.setItem('cartItems', JSON.stringify(currentCart));
+  setShowPopup(false);
+  setAddedToCartMessage(`${prod.brand} ${prod.product_type} added to cart!`);
+  setTimeout(() => setAddedToCartMessage(''), 2000);
+};
+
 
   const initialSearch = params.get('search') || '';
   const initialBrand = params.get('brand') || '';
   const initialType = params.get('type') || '';
-  const initialModel = params.get('model') || '';
 
   const [dynamicProducts, setDynamicProducts] = useState([]);
   const [displayProducts, setDisplayProducts] = useState([]);
   const [availableBrands, setAvailableBrands] = useState([]);
   const [availableTypes, setAvailableTypes] = useState([]);
-  const [availableModels, setAvailableModels] = useState([]);
-  const [availableTiles, setAvailableTiles] = useState([]);
-  const [selectedBrands, setSelectedBrands] = useState(initialBrand ? initialBrand.split(',') : []);
-  const [selectedTypes, setSelectedTypes] = useState(initialType ? initialType.split(',') : []);
-  const [selectedModels, setSelectedModels] = useState(initialModel ? initialModel.split(',') : []);
-  const [selectedTiles, setSelectedTiles] = useState([]);
+  const [selectedBrands, setSelectedBrands] = useState([]);
+  const [selectedTypes, setSelectedTypes] = useState([]);
   const [searchText, setSearchText] = useState(initialSearch);
   const [showBrandDropdown, setShowBrandDropdown] = useState(false);
   const [showTypeDropdown, setShowTypeDropdown] = useState(false);
-  const [showModelDropdown, setShowModelDropdown] = useState(false);
-  const [showTileDropdown, setShowTileDropdown] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [showPopup, setShowPopup] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+  {/*const [availableTiles, setAvailableTiles] = useState([
+    'Interior Tiles',
+    'Exterior Tiles',
+    'Bathroom Tiles',
+    'Marble Tiles'
+  ]); */}
+  const [availableTiles, setAvailableTiles] = useState([]);
+
+  const [selectedTiles, setSelectedTiles] = useState([]);
+  const [showTileDropdown, setShowTileDropdown] = useState(false);
+
+
 
   const handleTileSelect = tile => {
     setSelectedTiles(prevSelected =>
@@ -86,24 +98,25 @@ const ProductPager = () => {
   };
 
   useEffect(() => {
-    fetch(`${API_BASE}/api/products/tilestypes`)
-      .then(res => res.json())
-      .then(data => setAvailableTiles(Array.isArray(data) ? data : []))
-      .catch(() => {});
-  }, []);
+  fetch(`${API_BASE}/api/products/tilestypes`)
+    .then(res => res.json())
+    .then(data => setAvailableTiles(Array.isArray(data) ? data : []))
+    .catch(err => console.error('❌ Failed to fetch tile types:', err));
+}, []);
+
 
   useEffect(() => {
     const p = new URLSearchParams(location.search);
     setSearchText(p.get('search') || '');
   }, [location.search]);
 
-  const filterProducts = (products, selectedBrands, selectedTypes, selectedTiles, selectedModels, keyword) => {
+  const filterProducts = (products, selectedBrands, selectedTypes, selectedTiles, keyword) => {
     const q = keyword.toLowerCase();
     return products.filter(p =>
       (selectedBrands.length === 0 || selectedBrands.includes(p.brand)) &&
       (selectedTypes.length === 0 || selectedTypes.includes(p.product_type)) &&
       (selectedTiles.length === 0 || selectedTiles.includes(p.tilestype)) &&
-      (selectedModels.length === 0 || selectedModels.includes(p.model_name)) &&
+
       ((p.brand && p.brand.toLowerCase().includes(q)) ||
         (p.product_type && p.product_type.toLowerCase().includes(q)) ||
         (p.model_name && p.model_name.toLowerCase().includes(q)) ||
@@ -120,11 +133,11 @@ const ProductPager = () => {
         setDynamicProducts(data);
         setAvailableBrands([...new Set(data.map(p => p.brand).filter(Boolean))]);
         setAvailableTypes([...new Set(data.map(p => p.product_type).filter(Boolean))]);
-        setAvailableModels([...new Set(data.map(p => p.model_name).filter(Boolean))]);
-        setDisplayProducts(initialSearch ? filterProducts(data, selectedBrands, selectedTypes, selectedTiles, selectedModels, initialSearch) : data);
+        setDisplayProducts(initialSearch ? filterProducts(data, selectedBrands, selectedTypes, selectedTiles,  initialSearch) : data);
         setIsLoading(false);
       })
-      .catch(() => {
+      .catch(err => {
+        console.error('❌ Initial fetch error:', err);
         setIsLoading(false);
       });
   }, []);
@@ -134,19 +147,18 @@ const ProductPager = () => {
     if (searchText) qs.set('search', searchText);
     if (selectedBrands.length > 0) qs.set('brand', selectedBrands.join(','));
     if (selectedTypes.length > 0) qs.set('type', selectedTypes.join(','));
-    if (selectedModels.length > 0) qs.set('model', selectedModels.join(','));
     navigate(`/products?${qs.toString()}`, { replace: true });
-  }, [searchText, selectedBrands, selectedTypes, selectedModels, navigate]);
+  }, [searchText, selectedBrands, selectedTypes, navigate]);
 
   useEffect(() => {
     setIsLoading(true);
-    const filteredProducts = filterProducts(dynamicProducts, selectedBrands, selectedTypes, selectedTiles, selectedModels, searchText);
+    const filteredProducts = filterProducts(dynamicProducts, selectedBrands, selectedTypes, selectedTiles, searchText);
     setDisplayProducts(filteredProducts);
     setIsLoading(false);
-  }, [selectedBrands, selectedTypes, selectedTiles, selectedModels, searchText, dynamicProducts]);
+  }, [selectedBrands, selectedTypes, selectedTiles, searchText, dynamicProducts]);
 
   useEffect(() => {
-    setDisplayProducts(searchText ? filterProducts(dynamicProducts, selectedBrands, selectedTypes, selectedTiles, selectedModels, searchText) : dynamicProducts);
+    setDisplayProducts(searchText ? filterProducts(dynamicProducts, selectedBrands, selectedTypes, selectedTiles, searchText) : dynamicProducts);
   }, [searchText, dynamicProducts]);
 
   const handleBrandSelect = brand => {
@@ -162,14 +174,6 @@ const ProductPager = () => {
       prevSelected.includes(type)
         ? prevSelected.filter(t => t !== type)
         : [...prevSelected, type]
-    );
-  };
-
-  const handleModelSelect = model => {
-    setSelectedModels(prevSelected =>
-      prevSelected.includes(model)
-        ? prevSelected.filter(m => m !== model)
-        : [...prevSelected, model]
     );
   };
 
@@ -201,6 +205,7 @@ const ProductPager = () => {
           </div>
         </div>
 
+        {/* Brand Dropdown */}
         <div className="filter-dropdown brand-dropdown">
           <button className="dropdown-toggle" onClick={() => setShowBrandDropdown(v => !v)}>
             Brand {selectedBrands.length > 0 && `: ${selectedBrands.join(', ')}`}
@@ -223,6 +228,7 @@ const ProductPager = () => {
           </div>
         </div>
 
+        {/* Type Dropdown */}
         <div className="filter-dropdown type-dropdown">
           <button className="dropdown-toggle" onClick={() => setShowTypeDropdown(v => !v)}>
             Type {selectedTypes.length > 0 && `: ${selectedTypes.join(', ')}`}
@@ -245,28 +251,7 @@ const ProductPager = () => {
           </div>
         </div>
 
-        <div className="filter-dropdown model-dropdown">
-          <button className="dropdown-toggle" onClick={() => setShowModelDropdown(v => !v)}>
-            Model {selectedModels.length > 0 && `: ${selectedModels.join(', ')}`}
-            <FontAwesomeIcon icon={showModelDropdown ? faChevronUp : faChevronDown} className="arrow-icon" />
-          </button>
-          <div className={`dropdown-content ${showModelDropdown ? 'show' : ''}`}>
-            <ul className="dropdown-menu">
-              {availableModels.map(m => (
-                <li key={m}>
-                  <label>
-                    <input
-                      type="checkbox"
-                      checked={selectedModels.includes(m)}
-                      onChange={() => handleModelSelect(m)}
-                    /> {m}
-                  </label>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-
+        {/* Tile Dropdown */}
         <div className="filter-dropdown tile-dropdown">
           <button className="dropdown-toggle" onClick={() => setShowTileDropdown(v => !v)}>
             Tiles {selectedTiles.length > 0 && `: ${selectedTiles.join(', ')}`}
@@ -288,8 +273,18 @@ const ProductPager = () => {
             </ul>
           </div>
         </div>
+
       </div>
 
+
+
+
+
+
+
+
+
+      {/* Product List */}
       <div className="products-section">
         {isLoading ? (
           <div className="loading-indicator">
@@ -305,11 +300,13 @@ const ProductPager = () => {
                     <img src={safeImages(prod)[0]} alt={`${prod.brand} ${prod.product_type}`} className="product-img" />
                   </div>
                   <div className="product-info-container">
-                    <div className="product-info">
-                      <h4>{prod.brand} — {prod.product_type}{prod.model_name ? ` — ${prod.model_name}` : ''}</h4>
+                    <div className="product-info">                 
+                      <h4>{prod.brand} — {prod.product_type}</h4>
                     </div>
                     <div className="cart-icon-container" onClick={(e) => { e.stopPropagation(); handleAddToCart(prod); }}>
                       <div className="cart-with-plus">
+                        {/*<FontAwesomeIcon icon={faShoppingCart} className="cart-icon" />
+                        <FontAwesomeIcon icon={faPlusCircle} className="plus-icon" /> */}
                         <img src={cartSymbol} alt="Add to Cart" className="cart-image" />
                       </div>
                     </div>

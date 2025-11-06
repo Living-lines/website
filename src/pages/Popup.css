@@ -1,16 +1,17 @@
 .popup-overlay {
   position: fixed;
-  top: 80px;
+  top: 0;
   left: 0;
   width: 100vw;
-  height: 80vh;
+  height: 100vh;
   background: rgba(0, 0, 0, 0.55);
   display: flex;
   justify-content: center;
-  align-items: center;
-  padding: 15px;
-  z-index: 999;
+  align-items: flex-start;
+  padding: 20px;
+  z-index: 2147483647;
 }
+
 .popup-product-name {
   font-size: 18px;
   font-weight: 600;
@@ -18,6 +19,7 @@
   margin: 10px 0 15px;
   color: #ffffff;
 }
+
 .popup-product-desc {
   font-size: 15px;
   font-weight: 400;
@@ -25,6 +27,7 @@
   margin: 10px 0 15px;
   color: #ffffff;
 }
+
 .popup-image-strip {
   display: flex;
   gap: 12px;
@@ -35,11 +38,11 @@
 .popup-image-strip::-webkit-scrollbar {
   height: 6px;
 }
+
 .popup-image-strip::-webkit-scrollbar-thumb {
   background: #888;
   border-radius: 3px;
 }
-
 
 .popup-content {
   background: #000000;
@@ -49,12 +52,12 @@
   max-width: 750px;
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
   position: relative;
-  height: 100%;
-  max-height: 450px;
+  max-height: 90vh;
   overflow-y: auto;
   overflow-x: hidden;
   transition: all 0.3s ease;
   animation: fadeIn 0.3s ease-out;
+  margin-top: 10px;
 }
 
 @keyframes fadeIn {
@@ -71,12 +74,12 @@
   font-size: 20px;
   font-weight: bold;
   cursor: pointer;
-  color: #555;
+  color: #f26624;
   transition: color 0.3s ease;
 }
 
 .close-btn:hover {
-  color: #f26624;
+  color: #ff893f;
 }
 
 .form-group {
@@ -107,7 +110,6 @@
   outline: none;
   border-color: #f26624;
   box-shadow: 0 0 0 3px rgba(242, 102, 36, 0.2);
-  /*background: #fff; */
 }
 
 .request-quote-btn1 {
@@ -162,38 +164,29 @@
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
+
 .popup-img {
   width: 100%;
   height: 300px;
   object-fit: contain;
   border-radius: 10px;
-  /* margin-bottom: 16px; */
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
 @media screen and (max-width: 768px) {
   .popup-overlay {
-    position: fixed;
-    top: 10%;
-    margin-left: -15px;
-    margin-right: 50px;
-    width: 100vw;
-    height: auto;
-    background: rgba(0, 0, 0, 0.55);
-   
-    justify-content: center;
-    align-items: center;
-    z-index: 999;
+    padding: 16px;
+    align-items: flex-start;
   }
 
   .popup-content {
     background: #000000;
-    margin-top: 20px;
+    margin-top: 10px;
     padding: 20px;
     border-radius: 16px;
     width: 100%;
     max-width: 95%;
-    max-height: auto;
+    max-height: 90vh;
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
     position: relative;
     overflow-y: auto;
@@ -251,36 +244,22 @@
     cursor: pointer;
     color: #f26624;
   }
-
-  .close-btn:hover {
-    color: #f26624;
-  }
 }
 
 @media screen and (max-width: 450px) {
   .popup-overlay {
-    position: fixed;
-    top: 20%;
-    margin-left: -15px;
-    margin-right: 50px;
-    width: 100vw;
-    height: auto;
-    background: rgba(0, 0, 0, 0.55);
-   
-    justify-content: center;
-    align-items: center;
-    z-index: 999;
+    padding: 12px;
+    align-items: flex-start;
   }
-  .popup-img {
-  width: 100%;
-  height: 300px;
-  object-fit: contain;
-  border-radius: 10px;
-  /* margin-bottom: 16px; */
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-}
-}
 
+  .popup-img {
+    width: 100%;
+    height: 300px;
+    object-fit: contain;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  }
+}
 
 .add-to-cart-btn-ganesh {
   background-color: #ff6f00;
@@ -315,12 +294,12 @@
     padding: 10px 20px;
     max-width: 200px;
   }
+
   .popup-img {
-  width: 100%;
-  height: 300px;
-  object-fit: contain;
-  border-radius: 10px;
-  /* margin-bottom: 16px; */
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-}
+    width: 100%;
+    height: 300px;
+    object-fit: contain;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  }
 }
