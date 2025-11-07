@@ -41,7 +41,7 @@ const ProductPager = () => {
       currentCart.push({
         id: prod.id,
         name: prod.model_name || prod.title || prod.product_type || 'Product',
-        : prod.,
+        brand: prod.brand,
         type: prod.product_type,
         image: firstImage,
         quantity: 1,
