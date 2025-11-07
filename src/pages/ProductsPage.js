@@ -270,9 +270,9 @@ const ProductPager = () => {
                   <div className="product-info-container">
                     <div className="product-info">
                       <h4>{prod.model_name} — {prod.brand || ''}</h4>
-                      <div style={{ fontWeight: 400, fontSize: '0.9rem', textTransform: 'lowercase' }}>
-                        // {(prod.product_type || '').toLowerCase()}
-                      </div>
+                      // <div style={{ fontWeight: 400, fontSize: '0.9rem', textTransform: 'lowercase' }}>
+                      //   {(prod.product_type || '').toLowerCase()}
+                      // </div>
                     </div>
                     <div className="cart-icon-container" onClick={(e) => { e.stopPropagation(); handleAddToCart(prod); }}>
                       <div className="cart-with-plus">
