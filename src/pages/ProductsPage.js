@@ -97,10 +97,10 @@ const ProductPager = () => {
     const q = keyword.toLowerCase();
     return products.filter(p =>
       (selectedBrands.length === 0 || selectedBrands.includes(p.brand)) &&
-      (selectedTypes.length === 0 || selectedTypes.includes(p.product_type)) &&
+      (selectedTypes.length === 0 || selectedTypes.includes(p.)) &&
       (selectedTiles.length === 0 || selectedTiles.includes(p.tilestype)) &&
       ((p.brand && p.brand.toLowerCase().includes(q)) ||
-        (p.product_type && p.product_type.toLowerCase().includes(q)) ||
+        (p. && p..toLowerCase().includes(q)) ||
         (p.model_name && p.model_name.toLowerCase().includes(q)) ||
         (p.description && p.description.toLowerCase().includes(q)) ||
         (p.category && p.category.toLowerCase().includes(q)) ||
@@ -114,7 +114,7 @@ const ProductPager = () => {
       .then(data => {
         setDynamicProducts(data);
         setAvailableBrands([...new Set(data.map(p => p.brand).filter(Boolean))]);
-        setAvailableTypes([...new Set(data.map(p => p.product_type).filter(Boolean))]);
+        setAvailableTypes([...new Set(data.map(p => p.).filter(Boolean))]);
         setDisplayProducts(initialSearch ? filterProducts(data, selectedBrands, selectedTypes, selectedTiles, initialSearch) : data);
         setIsLoading(false);
       })
@@ -265,13 +265,13 @@ const ProductPager = () => {
               <div key={prod.id} className="product-card" onClick={() => handleImageClick(prod)}>
                 <div className="product-content">
                   <div className="product-image-container">
-                    <img src={safeImages(prod)[0]} alt={`${prod.brand} ${prod.product_type}`} className="product-img" />
+                    <img src={safeImages(prod)[0]} alt={`${prod.brand} ${prod.}`} className="product-img" />
                   </div>
                   <div className="product-info-container">
                     <div className="product-info">
                       <h4>{prod.model_name} — {prod.brand || ''}</h4>
                       <div style={{ fontWeight: 400, fontSize: '0.9rem', textTransform: 'lowercase' }}>
-                        {(prod.product_type || '').toLowerCase()}
+                        // {(prod.product_type || '').toLowerCase()}
                       </div>
                     </div>
                     <div className="cart-icon-container" onClick={(e) => { e.stopPropagation(); handleAddToCart(prod); }}>
