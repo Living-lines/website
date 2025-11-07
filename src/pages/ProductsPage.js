@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import './ProductPage.css';
 import Popup from './Popup';
 import { useLocation, useNavigate } from 'react-router-dom';
@@ -54,8 +54,6 @@ const ProductPager = () => {
   };
 
   const initialSearch = params.get('search') || '';
-  const initialBrand = params.get('brand') || '';
-  const initialType = params.get('type') || '';
 
   const [dynamicProducts, setDynamicProducts] = useState([]);
   const [displayProducts, setDisplayProducts] = useState([]);
@@ -99,12 +97,14 @@ const ProductPager = () => {
       (selectedBrands.length === 0 || selectedBrands.includes(p.brand)) &&
       (selectedTypes.length === 0 || selectedTypes.includes(p.product_type)) &&
       (selectedTiles.length === 0 || selectedTiles.includes(p.tilestype)) &&
-      ((p.brand && p.brand.toLowerCase().includes(q)) ||
+      (
+        (p.brand && p.brand.toLowerCase().includes(q)) ||
         (p.product_type && p.product_type.toLowerCase().includes(q)) ||
         (p.model_name && p.model_name.toLowerCase().includes(q)) ||
         (p.description && p.description.toLowerCase().includes(q)) ||
         (p.category && p.category.toLowerCase().includes(q)) ||
-        (p.title && p.title.toLowerCase().includes(q)))
+        (p.title && p.title.toLowerCase().includes(q))
+      )
     );
   };
 
@@ -114,14 +114,25 @@ const ProductPager = () => {
       .then(data => {
         setDynamicProducts(data);
         setAvailableBrands([...new Set(data.map(p => p.brand).filter(Boolean))]);
-        setAvailableTypes([...new Set(data.map(p => p.product_type).filter(Boolean))]);
-        setDisplayProducts(initialSearch ? filterProducts(data, selectedBrands, selectedTypes, selectedTiles, initialSearch) : data);
         setIsLoading(false);
+        setDisplayProducts(initialSearch ? filterProducts(data, [], [], [], initialSearch) : data);
       })
       .catch(() => {
         setIsLoading(false);
       });
   }, []);
+
+  const computedTypes = useMemo(() => {
+    const source = selectedBrands.length
+      ? dynamicProducts.filter(p => selectedBrands.includes(p.brand))
+      : dynamicProducts;
+    return [...new Set(source.map(p => p.product_type).filter(Boolean))];
+  }, [dynamicProducts, selectedBrands]);
+
+  useEffect(() => {
+    setAvailableTypes(computedTypes);
+    setSelectedTypes(prev => prev.filter(t => computedTypes.includes(t)));
+  }, [computedTypes]);
 
   useEffect(() => {
     const qs = new URLSearchParams();
@@ -243,7 +254,7 @@ const ProductPager = () => {
                     <input
                       type="checkbox"
                       checked={selectedTiles.includes(tile)}
-                      onChange={() => handleTileSelect(tile)}
+                      onChange={() => setSelectedTiles(prev => prev.includes(tile) ? prev.filter(t => t !== tile) : [...prev, tile])}
                     /> {tile}
                   </label>
                 </li>
