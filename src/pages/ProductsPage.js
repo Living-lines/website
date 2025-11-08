@@ -59,11 +59,14 @@ const ProductPager = () => {
   const [displayProducts, setDisplayProducts] = useState([]);
   const [availableBrands, setAvailableBrands] = useState([]);
   const [availableTypes, setAvailableTypes] = useState([]);
+  const [availableSeries, setAvailableSeries] = useState([]);
   const [selectedBrands, setSelectedBrands] = useState([]);
   const [selectedTypes, setSelectedTypes] = useState([]);
+  const [selectedSeries, setSelectedSeries] = useState([]);
   const [searchText, setSearchText] = useState(initialSearch);
   const [showBrandDropdown, setShowBrandDropdown] = useState(false);
   const [showTypeDropdown, setShowTypeDropdown] = useState(false);
+  const [showSeriesDropdown, setShowSeriesDropdown] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [showPopup, setShowPopup] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
@@ -91,19 +94,21 @@ const ProductPager = () => {
     setSearchText(p.get('search') || '');
   }, [location.search]);
 
-  const filterProducts = (products, selectedBrands, selectedTypes, selectedTiles, keyword) => {
+  const filterProducts = (products, selectedBrands, selectedTypes, selectedTiles, selectedSeries, keyword) => {
     const q = keyword.toLowerCase();
     return products.filter(p =>
       (selectedBrands.length === 0 || selectedBrands.includes(p.brand)) &&
       (selectedTypes.length === 0 || selectedTypes.includes(p.product_type)) &&
       (selectedTiles.length === 0 || selectedTiles.includes(p.tilestype)) &&
+      (selectedSeries.length === 0 || selectedSeries.includes(p.series)) &&
       (
         (p.brand && p.brand.toLowerCase().includes(q)) ||
         (p.product_type && p.product_type.toLowerCase().includes(q)) ||
         (p.model_name && p.model_name.toLowerCase().includes(q)) ||
         (p.description && p.description.toLowerCase().includes(q)) ||
         (p.category && p.category.toLowerCase().includes(q)) ||
-        (p.title && p.title.toLowerCase().includes(q))
+        (p.title && p.title.toLowerCase().includes(q)) ||
+        (p.series && p.series.toLowerCase().includes(q))
       )
     );
   };
@@ -115,7 +120,7 @@ const ProductPager = () => {
         setDynamicProducts(data);
         setAvailableBrands([...new Set(data.map(p => p.brand).filter(Boolean))]);
         setIsLoading(false);
-        setDisplayProducts(initialSearch ? filterProducts(data, [], [], [], initialSearch) : data);
+        setDisplayProducts(initialSearch ? filterProducts(data, [], [], [], [], initialSearch) : data);
       })
       .catch(() => {
         setIsLoading(false);
@@ -129,28 +134,51 @@ const ProductPager = () => {
     return [...new Set(source.map(p => p.product_type).filter(Boolean))];
   }, [dynamicProducts, selectedBrands]);
 
+  const computedSeries = useMemo(() => {
+    if (!selectedBrands.length) return [];
+    const source = dynamicProducts.filter(p => selectedBrands.includes(p.brand));
+    return [...new Set(source.map(p => p.series).filter(Boolean))];
+  }, [dynamicProducts, selectedBrands]);
+
   useEffect(() => {
     setAvailableTypes(computedTypes);
     setSelectedTypes(prev => prev.filter(t => computedTypes.includes(t)));
   }, [computedTypes]);
 
   useEffect(() => {
+    setAvailableSeries(computedSeries);
+    setSelectedSeries(prev => prev.filter(s => computedSeries.includes(s)));
+  }, [computedSeries]);
+
+  useEffect(() => {
     const qs = new URLSearchParams();
     if (searchText) qs.set('search', searchText);
     if (selectedBrands.length > 0) qs.set('brand', selectedBrands.join(','));
     if (selectedTypes.length > 0) qs.set('type', selectedTypes.join(','));
+    if (selectedSeries.length > 0) qs.set('series', selectedSeries.join(','));
     navigate(`/products?${qs.toString()}`, { replace: true });
-  }, [searchText, selectedBrands, selectedTypes, navigate]);
+  }, [searchText, selectedBrands, selectedTypes, selectedSeries, navigate]);
 
   useEffect(() => {
     setIsLoading(true);
-    const filteredProducts = filterProducts(dynamicProducts, selectedBrands, selectedTypes, selectedTiles, searchText);
+    const filteredProducts = filterProducts(
+      dynamicProducts,
+      selectedBrands,
+      selectedTypes,
+      selectedTiles,
+      selectedSeries,
+      searchText
+    );
     setDisplayProducts(filteredProducts);
     setIsLoading(false);
-  }, [selectedBrands, selectedTypes, selectedTiles, searchText, dynamicProducts]);
+  }, [selectedBrands, selectedTypes, selectedTiles, selectedSeries, searchText, dynamicProducts]);
 
   useEffect(() => {
-    setDisplayProducts(searchText ? filterProducts(dynamicProducts, selectedBrands, selectedTypes, selectedTiles, searchText) : dynamicProducts);
+    setDisplayProducts(
+      searchText
+        ? filterProducts(dynamicProducts, selectedBrands, selectedTypes, selectedTiles, selectedSeries, searchText)
+        : dynamicProducts
+    );
   }, [searchText, dynamicProducts]);
 
   const handleBrandSelect = brand => {
@@ -166,6 +194,14 @@ const ProductPager = () => {
       prevSelected.includes(type)
         ? prevSelected.filter(t => t !== type)
         : [...prevSelected, type]
+    );
+  };
+
+  const handleSeriesSelect = s => {
+    setSelectedSeries(prevSelected =>
+      prevSelected.includes(s)
+        ? prevSelected.filter(x => x !== s)
+        : [...prevSelected, s]
     );
   };
 
@@ -241,6 +277,30 @@ const ProductPager = () => {
           </div>
         </div>
 
+        {selectedBrands.length > 0 && availableSeries.length > 0 && (
+          <div className="filter-dropdown series-dropdown">
+            <button className="dropdown-toggle" onClick={() => setShowSeriesDropdown(v => !v)}>
+              Series {selectedSeries.length > 0 && `: ${selectedSeries.join(', ')}`}
+              <FontAwesomeIcon icon={showSeriesDropdown ? faChevronUp : faChevronDown} className="arrow-icon" />
+            </button>
+            <div className={`dropdown-content ${showSeriesDropdown ? 'show' : ''}`}>
+              <ul className="dropdown-menu">
+                {availableSeries.map(s => (
+                  <li key={s}>
+                    <label>
+                      <input
+                        type="checkbox"
+                        checked={selectedSeries.includes(s)}
+                        onChange={() => handleSeriesSelect(s)}
+                      /> {s}
+                    </label>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        )}
+
         <div className="filter-dropdown tile-dropdown">
           <button className="dropdown-toggle" onClick={() => setShowTileDropdown(v => !v)}>
             Tiles {selectedTiles.length > 0 && `: ${selectedTiles.join(', ')}`}
@@ -280,10 +340,7 @@ const ProductPager = () => {
                   </div>
                   <div className="product-info-container">
                     <div className="product-info">
-                      <h4>{prod.model_name} — {prod.brand || ''}</h4>
-                      {/* <div style={{ fontWeight: 400, fontSize: '0.9rem', textTransform: 'lowercase' }}>
-                        {(prod.product_type || '').toLowerCase()}
-                      </div> */}
+                      <h4>{prod.brand || ''}  -  {prod.model_name}</h4>
                     </div>
                     <div className="cart-icon-container" onClick={(e) => { e.stopPropagation(); handleAddToCart(prod); }}>
                       <div className="cart-with-plus">
