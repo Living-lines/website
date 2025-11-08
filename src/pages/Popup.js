@@ -10,29 +10,22 @@ const Popup = ({ product, onClose, onRequestQuote }) => {
     : (product.image_url ? [product.image_url] : []);
 
   return (
-    <div className="popup-overlay">
+    <div className="popup-overlay" role="dialog" aria-modal="true" aria-labelledby="popup-title">
       <div className="popup-content">
         <button className="close-btn" onClick={onClose}>×</button>
-
-        <h2 className="popup-product-name">
+        <h2 id="popup-title" className="popup-product-name">
           {product.title || product.model_name || product.product_type || 'Product'}
         </h2>
-
         <div className="popup-image-strip">
           {images.map((url, idx) => (
-            <img key={idx} src={url} alt={`Image ${idx + 1}`} className="popup-img" />
+            <img key={idx} src={url} alt={`Product ${idx + 1}`} className="popup-img" />
           ))}
         </div>
-
         {product.description && <p className="popup-product-desc">{product.description}</p>}
-
         <p><strong>Brand:</strong> {product.brand || ''}</p>
         <p><strong>Type:</strong> {product.product_type || ''}</p>
         <p><strong>Model:</strong> {product.model_name || '-'}</p>
-
-        <button className="add-to-cart-btn-ganesh" onClick={handleAddToCart}>
-          Add to Cart
-        </button>
+        <button className="add-to-cart-btn-ganesh" onClick={handleAddToCart}>Add to Cart</button>
       </div>
     </div>
   );
