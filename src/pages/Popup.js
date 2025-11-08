@@ -23,9 +23,10 @@ const Popup = ({ product, onClose, onRequestQuote }) => {
         </div>
         {product.description && <p className="popup-product-desc">{product.description}</p>}
         <p><strong>Brand:</strong> {product.brand || ''}</p>
+        {product.series ? <p><strong>Series:</strong> {product.series}</p> : null}
         <p><strong>Type:</strong> {product.product_type || ''}</p>
         <p><strong>Model:</strong> {product.model_name || '-'}</p>
-        {product.series ? <p><strong>Series:</strong> {product.series}</p> : null}
+        
         <button className="add-to-cart-btn-ganesh" onClick={handleAddToCart}>Add to Cart</button>
       </div>
     </div>
