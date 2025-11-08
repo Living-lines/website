@@ -74,6 +74,14 @@ const ProductPager = () => {
   const [selectedTiles, setSelectedTiles] = useState([]);
   const [showTileDropdown, setShowTileDropdown] = useState(false);
 
+  const handleTileSelect = tile => {
+    setSelectedTiles(prevSelected =>
+      prevSelected.includes(tile)
+        ? prevSelected.filter(t => t !== tile)
+        : [...prevSelected, tile]
+    );
+  };
+
   useEffect(() => {
     fetch(`${API_BASE}/api/products/tilestypes`)
       .then(res => res.json())
@@ -117,7 +125,7 @@ const ProductPager = () => {
       .catch(() => {
         setIsLoading(false);
       });
-  }, [initialSearch]);
+  }, []);
 
   const computedTypes = useMemo(() => {
     const source = selectedBrands.length
@@ -171,7 +179,7 @@ const ProductPager = () => {
         ? filterProducts(dynamicProducts, selectedBrands, selectedTypes, selectedTiles, selectedSeries, searchText)
         : dynamicProducts
     );
-  }, [searchText, dynamicProducts, selectedBrands, selectedTypes, selectedTiles, selectedSeries]);
+  }, [searchText, dynamicProducts]);
 
   const handleBrandSelect = brand => {
     setSelectedBrands(prevSelected =>
@@ -214,7 +222,7 @@ const ProductPager = () => {
           <div className="search-input-wrapper">
             <input
               type="text"
-              placeholder="Search by model, brand, or type..."
+              placeholder="Search by model, brandproduct, or type..."
               value={searchText}
               onChange={e => setSearchText(e.target.value)}
               className="filter-search-input"
