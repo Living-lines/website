@@ -16,8 +16,26 @@ const ProductPager = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const params = new URLSearchParams(location.search);
+  const initialSearch = params.get('search') || '';
 
   const [addedToCartMessage, setAddedToCartMessage] = useState('');
+  const [dynamicProducts, setDynamicProducts] = useState([]);
+  const [availableBrands, setAvailableBrands] = useState([]);
+  const [availableTypes, setAvailableTypes] = useState([]);
+  const [availableSeries, setAvailableSeries] = useState([]);
+  const [selectedBrands, setSelectedBrands] = useState([]);
+  const [selectedTypes, setSelectedTypes] = useState([]);
+  const [selectedSeries, setSelectedSeries] = useState([]);
+  const [searchText, setSearchText] = useState(initialSearch);
+  const [showBrandDropdown, setShowBrandDropdown] = useState(false);
+  const [showTypeDropdown, setShowTypeDropdown] = useState(false);
+  const [showSeriesDropdown, setShowSeriesDropdown] = useState(false);
+  const [selectedProduct, setSelectedProduct] = useState(null);
+  const [showPopup, setShowPopup] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+  const [availableTiles, setAvailableTiles] = useState([]);
+  const [selectedTiles, setSelectedTiles] = useState([]);
+  const [showTileDropdown, setShowTileDropdown] = useState(false);
 
   const getFirstImageFromProduct = (p) => {
     const fromArray =
@@ -51,35 +69,6 @@ const ProductPager = () => {
     setShowPopup(false);
     setAddedToCartMessage(`${prod.brand} ${prod.product_type} added to cart!`);
     setTimeout(() => setAddedToCartMessage(''), 2000);
-  };
-
-  const initialSearch = params.get('search') || '';
-
-  const [dynamicProducts, setDynamicProducts] = useState([]);
-  const [displayProducts, setDisplayProducts] = useState([]);
-  const [availableBrands, setAvailableBrands] = useState([]);
-  const [availableTypes, setAvailableTypes] = useState([]);
-  const [availableSeries, setAvailableSeries] = useState([]);
-  const [selectedBrands, setSelectedBrands] = useState([]);
-  const [selectedTypes, setSelectedTypes] = useState([]);
-  const [selectedSeries, setSelectedSeries] = useState([]);
-  const [searchText, setSearchText] = useState(initialSearch);
-  const [showBrandDropdown, setShowBrandDropdown] = useState(false);
-  const [showTypeDropdown, setShowTypeDropdown] = useState(false);
-  const [showSeriesDropdown, setShowSeriesDropdown] = useState(false);
-  const [selectedProduct, setSelectedProduct] = useState(null);
-  const [showPopup, setShowPopup] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
-  const [availableTiles, setAvailableTiles] = useState([]);
-  const [selectedTiles, setSelectedTiles] = useState([]);
-  const [showTileDropdown, setShowTileDropdown] = useState(false);
-
-  const handleTileSelect = tile => {
-    setSelectedTiles(prevSelected =>
-      prevSelected.includes(tile)
-        ? prevSelected.filter(t => t !== tile)
-        : [...prevSelected, tile]
-    );
   };
 
   useEffect(() => {
@@ -120,7 +109,6 @@ const ProductPager = () => {
         setDynamicProducts(data);
         setAvailableBrands([...new Set(data.map(p => p.brand).filter(Boolean))]);
         setIsLoading(false);
-        setDisplayProducts(initialSearch ? filterProducts(data, [], [], [], [], initialSearch) : data);
       })
       .catch(() => {
         setIsLoading(false);
@@ -159,9 +147,8 @@ const ProductPager = () => {
     navigate(`/products?${qs.toString()}`, { replace: true });
   }, [searchText, selectedBrands, selectedTypes, selectedSeries, navigate]);
 
-  useEffect(() => {
-    setIsLoading(true);
-    const filteredProducts = filterProducts(
+  const filteredProducts = useMemo(() => {
+    return filterProducts(
       dynamicProducts,
       selectedBrands,
       selectedTypes,
@@ -169,17 +156,7 @@ const ProductPager = () => {
       selectedSeries,
       searchText
     );
-    setDisplayProducts(filteredProducts);
-    setIsLoading(false);
-  }, [selectedBrands, selectedTypes, selectedTiles, selectedSeries, searchText, dynamicProducts]);
-
-  useEffect(() => {
-    setDisplayProducts(
-      searchText
-        ? filterProducts(dynamicProducts, selectedBrands, selectedTypes, selectedTiles, selectedSeries, searchText)
-        : dynamicProducts
-    );
-  }, [searchText, dynamicProducts]);
+  }, [dynamicProducts, selectedBrands, selectedTypes, selectedTiles, selectedSeries, searchText]);
 
   const handleBrandSelect = brand => {
     setSelectedBrands(prevSelected =>
@@ -222,7 +199,7 @@ const ProductPager = () => {
           <div className="search-input-wrapper">
             <input
               type="text"
-              placeholder="Search by model, brandproduct, or type..."
+              placeholder="Search by model, brand, or type..."
               value={searchText}
               onChange={e => setSearchText(e.target.value)}
               className="filter-search-input"
@@ -314,7 +291,11 @@ const ProductPager = () => {
                     <input
                       type="checkbox"
                       checked={selectedTiles.includes(tile)}
-                      onChange={() => setSelectedTiles(prev => prev.includes(tile) ? prev.filter(t => t !== tile) : [...prev, tile])}
+                      onChange={() =>
+                        setSelectedTiles(prev =>
+                          prev.includes(tile) ? prev.filter(t => t !== tile) : [...prev, tile]
+                        )
+                      }
                     /> {tile}
                   </label>
                 </li>
@@ -330,9 +311,9 @@ const ProductPager = () => {
             <div className="spinner"></div>
             <p>Loading products...</p>
           </div>
-        ) : displayProducts.length > 0 ? (
+        ) : filteredProducts.length > 0 ? (
           <div className="product-cards">
-            {displayProducts.map(prod => (
+            {filteredProducts.map(prod => (
               <div key={prod.id} className="product-card" onClick={() => handleImageClick(prod)}>
                 <div className="product-content">
                   <div className="product-image-container">
