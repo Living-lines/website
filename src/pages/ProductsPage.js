@@ -232,28 +232,6 @@ const ProductPager = () => {
           </div>
         </div>
 
-        <div className="filter-dropdown type-dropdown">
-          <button className="dropdown-toggle" onClick={() => setShowTypeDropdown(v => !v)}>
-            Type {selectedTypes.length > 0 && `: ${selectedTypes.join(', ')}`}
-            <FontAwesomeIcon icon={showTypeDropdown ? faChevronUp : faChevronDown} className="arrow-icon" />
-          </button>
-          <div className={`dropdown-content ${showTypeDropdown ? 'show' : ''}`}>
-            <ul className="dropdown-menu">
-              {availableTypes.map(t => (
-                <li key={t}>
-                  <label>
-                    <input
-                      type="checkbox"
-                      checked={selectedTypes.includes(t)}
-                      onChange={() => handleTypeSelect(t)}
-                    /> {t}
-                  </label>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-
         {selectedBrands.length > 0 && availableSeries.length > 0 && (
           <div className="filter-dropdown series-dropdown">
             <button className="dropdown-toggle" onClick={() => setShowSeriesDropdown(v => !v)}>
@@ -277,6 +255,30 @@ const ProductPager = () => {
             </div>
           </div>
         )}
+
+        <div className="filter-dropdown type-dropdown">
+          <button className="dropdown-toggle" onClick={() => setShowTypeDropdown(v => !v)}>
+            Type {selectedTypes.length > 0 && `: ${selectedTypes.join(', ')}`}
+            <FontAwesomeIcon icon={showTypeDropdown ? faChevronUp : faChevronDown} className="arrow-icon" />
+          </button>
+          <div className={`dropdown-content ${showTypeDropdown ? 'show' : ''}`}>
+            <ul className="dropdown-menu">
+              {availableTypes.map(t => (
+                <li key={t}>
+                  <label>
+                    <input
+                      type="checkbox"
+                      checked={selectedTypes.includes(t)}
+                      onChange={() => handleTypeSelect(t)}
+                    /> {t}
+                  </label>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        
 
         <div className="filter-dropdown tile-dropdown">
           <button className="dropdown-toggle" onClick={() => setShowTileDropdown(v => !v)}>
@@ -321,19 +323,7 @@ const ProductPager = () => {
                   </div>
                   <div className="product-info-container">
                     <div className="product-info">
-                      <h4
-                        style={{
-                          display: '-webkit-box',
-                          WebkitLineClamp: 2,
-                          WebkitBoxOrient: 'vertical',
-                          overflow: 'hidden',
-                          textOverflow: 'clip',
-                          whiteSpace: 'normal',
-                          lineHeight: '1.2'
-                        }}
-                      >
-                        {prod.model_name || ''}
-                      </h4>
+                      <h4>{prod.brand || ''}  -  {prod.model_name}</h4>
                     </div>
                     <div className="cart-icon-container" onClick={(e) => { e.stopPropagation(); handleAddToCart(prod); }}>
                       <div className="cart-with-plus">
